@@ -57,9 +57,10 @@ function Status404() {
         <TopWrapper>
           <Container maxWidth="md">
             <Box textAlign="center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img alt="404" height={180} src="/static/images/status/404.svg" />
               <Typography variant="h2" sx={{ my: 2 }}>
-                The page you were looking for doesn't exist.
+                The page you were looking for doesn&apos;t exist.
               </Typography>
               <Typography
                 variant="h4"
@@ -67,7 +68,7 @@ function Status404() {
                 fontWeight="normal"
                 sx={{ mb: 4 }}
               >
-                It's on us, we moved the content to a different page. The search
+                It&apos;s on us, we moved the content to a different page. The search
                 below should help!
               </Typography>
             </Box>

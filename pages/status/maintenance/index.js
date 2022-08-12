@@ -61,6 +61,7 @@ function StatusMaintenance() {
                   We apologize for any inconveniences caused
                 </Typography>
               </Container>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 alt="Maintenance"
                 height={250}

@@ -128,10 +128,11 @@ function StatusComingSoon() {
                   fontWeight="normal"
                   sx={{ mb: 4 }}
                 >
-                  We're working on implementing the last features before our
+                  We&apos;re working on implementing the last features before our
                   launch!
                 </Typography>
               </Container>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 alt="Coming Soon"
                 height={200}
@@ -140,7 +141,7 @@ function StatusComingSoon() {
             </Box>
 
             <Box display="flex" justifyContent="center">
-              {timerComponents.length ? timerComponents : <>Time's up!</>}
+              {timerComponents.length ? timerComponents : <>Time&apos;s up!</>}
             </Box>
 
             <Container maxWidth="sm">
@@ -163,7 +164,7 @@ function StatusComingSoon() {
                     }
                   />
                   <FormHelperText>
-                    We'll email you once our website is launched!
+                    We&apos;ll email you once our website is launched!
                   </FormHelperText>
                 </FormControl>
                 <Divider sx={{ my: 4 }} />

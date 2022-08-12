@@ -3,17 +3,20 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache from 'src/createEmotionCache';
 
-export default class MyDocument extends Document {
+class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
+          {/* eslint-disable-next-line @next/next/no-page-custom-font */}
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400&display=swap"
           />
+          {/* eslint-disable-next-line @next/next/no-title-in-document-head */}
+          <title>Chart</title>
         </Head>
         <body>
           <Main />
@@ -58,6 +61,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   ctx.renderPage = () =>
     originalRenderPage({
+      // eslint-disable-next-line react/display-name
       enhanceApp: (App) => (props) => <App emotionCache={cache} {...props} />
     });
 
@@ -83,3 +87,5 @@ MyDocument.getInitialProps = async (ctx) => {
     ]
   };
 };
+
+export default MyDocument;
