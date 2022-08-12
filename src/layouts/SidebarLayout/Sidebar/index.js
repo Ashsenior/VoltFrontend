@@ -60,14 +60,14 @@ function Sidebar() {
                 <Box
                     margin={0}
                     sx={{
-                        width: 300
+                        width: 270
                     }}
                     display={'flex'}
                     alignItems={'center'}
                     justifyContent={'start'}
                 >
                     <Logo />
-                    <Link href={'/'}>
+                    <Link  href={'/'}>
                         <Typography variant="h3" marginLeft={6} >
                             Startic Field
                         </Typography>
