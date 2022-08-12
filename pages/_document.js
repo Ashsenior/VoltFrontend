@@ -15,8 +15,6 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400&display=swap"
           />
-          {/* eslint-disable-next-line @next/next/no-title-in-document-head */}
-          <title>Chart</title>
         </Head>
         <body>
           <Main />

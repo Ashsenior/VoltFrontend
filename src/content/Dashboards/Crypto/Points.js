@@ -150,7 +150,7 @@ function Points() {
                 fontWeight="normal"
                 color="text.secondary"
               >
-                You are perorming well in marketing module
+                You are performing well in marketing module
               </Typography>
               <Box
                 display="flex"
@@ -204,7 +204,7 @@ function Points() {
           >
             <Divider absolute orientation="vertical" />
           </Box>
-          <Box py={4} pr={4} flex={1}>
+          <Box  flex={1}>
             <Grid container spacing={0}>
               <Grid
                 xs={12}
@@ -221,12 +221,14 @@ function Points() {
                   type="donut"
                 />
               </Grid>
-              <Grid xs={12} sm={7} item display="flex" alignItems="center">
+              <Grid xs={12} sm={7} item >
                 <List
                   disablePadding
                   sx={{
-                    width: '100%'
+                    width: '80%',
+                    margin : 'auto'
                   }}
+
                 >
                   <ListItem disableGutters>
                     <ListItemAvatarWrapper >

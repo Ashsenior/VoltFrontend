@@ -11,12 +11,13 @@ import {
     useTheme,
     Button,
     lighten,
-    darken, colors
+    darken, Typography
 } from '@mui/material';
 
 import SidebarMenu from './SidebarMenu';
 import Logo from 'src/components/LogoSign';
 import {LogoutRounded} from "@mui/icons-material";
+import Link from "next/link";
 
 const SidebarWrapper = styled(Box)(
   ({ theme }) => `
@@ -55,10 +56,23 @@ function Sidebar() {
         }}
       >
         <Scrollbar>
-            <Box
-              margin={2}
-            >
-              <Logo />
+            <Box margin={0} >
+                <Box
+                    margin={0}
+                    sx={{
+                        width: 300
+                    }}
+                    display={'flex'}
+                    alignItems={'center'}
+                    justifyContent={'start'}
+                >
+                    <Logo />
+                    <Link href={'/'}>
+                        <Typography variant="h3" marginLeft={6} >
+                            Startic Field
+                        </Typography>
+                    </Link>
+                </Box>
             </Box>
           <SidebarMenu />
         </Scrollbar>
