@@ -108,23 +108,24 @@ function Sidebar() {
           }}
         >
           <Scrollbar>
-            <Box mt={3}>
-              <Box
-                mx={2}
-                sx={{
-                  width: 52
-                }}
-              >
-                <Logo />
+              <Box margin={0} >
+                  <Box
+                      margin={0}
+                      sx={{
+                          width: 250
+                      }}
+                      display={'flex'}
+                      alignItems={'center'}
+                      justifyContent={'start'}
+                  >
+                      <Logo />
+                      <Link  href={'/'}>
+                          <Typography variant="h3" marginLeft={6} >
+                              Startic Field
+                          </Typography>
+                      </Link>
+                  </Box>
               </Box>
-            </Box>
-            <Divider
-              sx={{
-                mt: theme.spacing(3),
-                mx: theme.spacing(2),
-                background: theme.colors.alpha.trueWhite[10]
-              }}
-            />
             <SidebarMenu />
           </Scrollbar>
             <Box p={2}>

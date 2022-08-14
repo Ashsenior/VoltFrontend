@@ -198,7 +198,7 @@ const SignUp = () => {
                                             variant="contained"
                                             type="submit"
                                             onClick={() => {
-                                                Router.push('/auth/signin')
+                                                Router.push('/signin')
                                             }}
                                         >
                                             Register
