@@ -53,6 +53,16 @@ const roles = [
         label: 'Operations'
     }
 ];
+const founderVal = [
+    {
+        value: '1',
+        label: 'Yes'
+    },
+    {
+        value: '0',
+        label: 'No'
+    },
+];
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -85,6 +95,7 @@ function TabsDemo() {
     const [value, setValue] = useState(0);
     const [gender, setGender] = useState('Male');
     const [role, setRole] = useState('Tech');
+    const [founder, setFounder] = useState('1');
 
     const genderhandleChange = (event) => {
         setGender(event.target.value);
@@ -92,6 +103,11 @@ function TabsDemo() {
     const rolehandleChange = (event) => {
         setRole(event.target.value);
     };
+    const founderhandleChange = (event) => {
+        setFounder(event.target.value);
+    };
+
+
 
     return (
             <Container maxWidth="lg"  >
@@ -191,6 +207,18 @@ function TabsDemo() {
                                                     }}
                                                     renderInput={(params) => <TextField {...params} />}
                                                 />
+                                                <TextField
+                                                    select
+                                                    label="Gender"
+                                                    value={gender}
+                                                    onChange={genderhandleChange}
+                                                >
+                                                    {genders.map((option) => (
+                                                        <MenuItem key={option.value} value={option.value}>
+                                                            {option.label}
+                                                        </MenuItem>
+                                                    ))}
+                                                </TextField>
                                                 <DatePicker
                                                     required
                                                     label="DOB"
@@ -204,11 +232,11 @@ function TabsDemo() {
                                             <div>
                                                 <TextField
                                                     select
-                                                    label="Gender"
-                                                    value={gender}
-                                                    onChange={genderhandleChange}
+                                                    label="Are You the Founder ?"
+                                                    value={founder}
+                                                    onChange={founderhandleChange}
                                                 >
-                                                    {genders.map((option) => (
+                                                    {founderVal.map((option) => (
                                                         <MenuItem key={option.value} value={option.value}>
                                                             {option.label}
                                                         </MenuItem>
