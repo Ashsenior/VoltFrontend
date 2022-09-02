@@ -4,7 +4,7 @@ import {
     Card,
     CardHeader,
     CardContent,
-    Divider, Button, TextField, MenuItem, Avatar
+    Divider, Button, TextField, MenuItem
 } from '@mui/material';
 import { useState } from 'react';
 
@@ -95,7 +95,8 @@ function TabsDemo() {
     const [value, setValue] = useState(0);
     const [gender, setGender] = useState('Male');
     const [role, setRole] = useState('Tech');
-    const [founder, setFounder] = useState('1');
+    const [founder, setFounder] = useState('0');
+    const [register, setRegister] = useState('0')
 
     const genderhandleChange = (event) => {
         setGender(event.target.value);
@@ -105,6 +106,9 @@ function TabsDemo() {
     };
     const founderhandleChange = (event) => {
         setFounder(event.target.value);
+    };
+    const registerhandleChange = (event) => {
+        setRegister(event.target.value);
     };
 
 
@@ -235,6 +239,19 @@ function TabsDemo() {
                                                     label="Are You the Founder ?"
                                                     value={founder}
                                                     onChange={founderhandleChange}
+                                                >
+                                                    {founderVal.map((option) => (
+                                                        <MenuItem key={option.value} value={option.value}>
+                                                            {option.label}
+                                                        </MenuItem>
+                                                    ))}
+                                                </TextField>
+                                                <TextField
+                                                    select
+                                                    disabled={founder === '0'}
+                                                    label="Is your startup registered before?"
+                                                    value={register}
+                                                    onChange={registerhandleChange}
                                                 >
                                                     {founderVal.map((option) => (
                                                         <MenuItem key={option.value} value={option.value}>
