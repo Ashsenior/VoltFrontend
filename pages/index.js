@@ -1,13 +1,10 @@
-import {
-    Box, Button, Grid,
-    styled, TextField
-} from '@mui/material';
-import {Google} from "@mui/icons-material";
+import { Box, Button, Grid, styled, TextField } from "@mui/material";
+import { Google } from "@mui/icons-material";
 import Typography from "@mui/material/Typography";
 import Router from "next/router";
 
 const Wrapper = styled(Box)(
-    ({ theme }) =>`
+  ({ theme }) => `
   .container {
     position: fixed;
     top: 0;
@@ -17,8 +14,9 @@ const Wrapper = styled(Box)(
     background-color: ${theme.colors.background};
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
   }
+
   .modal {
     width: 100%;
     /* height: 60px; */
@@ -29,6 +27,9 @@ const Wrapper = styled(Box)(
     justify-content: center;
     transition: 0.4s;
   }
+
+  
+
   .modal-container {
     display: flex;
     max-width: 60vw;
@@ -56,7 +57,15 @@ const Wrapper = styled(Box)(
     transition-duration: 0.5s;
     opacity: 1;
     overflow: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  
   }
+
+
+  .modal-left::-webkit-scrollbar {
+    display: none;
+  }
+
   .modal-right {
     flex: 2;
     font-size: 0;
@@ -110,124 +119,123 @@ const Wrapper = styled(Box)(
 `
 );
 
-
 const SignUp = () => {
-
-    return (
-        <>
-            <Wrapper>
-                <div className="container">
-                    <div className="modal">
-                        <div className="modal-container">
-                            <div className="modal-left">
-                                <Grid item paddingBottom={4} paddingLeft={1}>
-                                    <Typography variant="h3" component="h3" gutterBottom>
-                                        Welcome!
-                                    </Typography>
-                                    <Typography variant="subtitle2">
-                                        To the startic field website an eco-system for startup.
-                                    </Typography>
-                                </Grid>
-                                    <Box
-                                        component="form"
-                                        sx={{
-                                            '& .MuiTextField-root': { m: 1, width: '97%' }
-                                        }}
-                                        noValidate
-                                        autoComplete="off"
-
-                                    >
-                                        <TextField
-                                            required
-                                            label="firstname"
-                                            type="name"
-                                            autoComplete="off"
-                                            name="firstname"
-                                            id="firstname"
-                                            placeholder="first name"
-                                        />
-                                        <TextField
-                                            required
-                                            label="lastname"
-                                            type="name"
-                                            autoComplete="off"
-                                            name="lastname"
-                                            id="lastname"
-                                            placeholder="Name"
-                                        />
-                                        <TextField
-                                            required
-                                            label="email"
-                                            type="email"
-                                            autoComplete="off"
-                                            name="email"
-                                            id="email"
-                                            placeholder="Email"
-                                        />
-                                        <TextField
-                                            required
-                                            label="password"
-                                            type="password"
-                                            autoComplete="off"
-                                            name="password"
-                                            id="password"
-                                            placeholder="Password"
-                                        />
-                                        <TextField
-                                            required
-                                            label="Conform Password"
-                                            type="password"
-                                            autoComplete="off"
-                                            name="confirm_password"
-                                            id="confirm_password"
-                                            placeholder="Conform Password"
-                                        />
-                                    </Box>
-                                    <Box
-                                        display={"flex"}
-                                        justifyContent={"space-between"}
-                                        alignItems={"center"}
-                                        mt={2}
-                                        mb={2}
-                                        ml={1}
-                                    >
-                                        <Button variant="contained" color={'secondary'} endIcon={<Google />}>
-                                            Google
-                                        </Button>
-                                        <Button
-                                            variant="contained"
-                                            type="submit"
-                                            onClick={() => {
-                                                Router.push('/signin')
-                                            }}
-                                        >
-                                            Register
-                                        </Button>
-                                    </Box>
-                                <Box
-                                    display={"flex"}
-                                    justifyContent={"center"}
-                                    alignItems={"center"}
-                                    mt={6}
-                                >
-                                    Already have an account? <Button>Sign In</Button>
-                                </Box>
-                            </div>
-                            <div className="modal-right">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    src="/static/images/placeholders/covers/right_side.jpg"
-                                    alt=""
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </Wrapper>
-        </>
-    );
+  return (
+    <>
+      <Wrapper>
+        <div className="container">
+          <div className="modal">
+            <div className="modal-container">
+              <div className="modal-left">
+                <Grid item paddingBottom={4} paddingLeft={1}>
+                  <Typography variant="h3" component="h3" gutterBottom>
+                    Welcome!
+                  </Typography>
+                  <Typography variant="subtitle2">
+                    To the startic field website an eco-system for startup.
+                  </Typography>
+                </Grid>
+                <Box
+                  component="form"
+                  sx={{
+                    "& .MuiTextField-root": { m: 1, width: "97%" },
+                  }}
+                  noValidate
+                  autoComplete="off"
+                >
+                  <TextField
+                    required
+                    label="firstname"
+                    type="name"
+                    autoComplete="off"
+                    name="firstname"
+                    id="firstname"
+                    placeholder="first name"
+                  />
+                  <TextField
+                    required
+                    label="lastname"
+                    type="name"
+                    autoComplete="off"
+                    name="lastname"
+                    id="lastname"
+                    placeholder="Name"
+                  />
+                  <TextField
+                    required
+                    label="email"
+                    type="email"
+                    autoComplete="off"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                  />
+                  <TextField
+                    required
+                    label="password"
+                    type="password"
+                    autoComplete="off"
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                  />
+                  <TextField
+                    required
+                    label="Conform Password"
+                    type="password"
+                    autoComplete="off"
+                    name="confirm_password"
+                    id="confirm_password"
+                    placeholder="Conform Password"
+                  />
+                </Box>
+                <Box
+                  display={"flex"}
+                  justifyContent={"space-between"}
+                  alignItems={"center"}
+                  mt={2}
+                  mb={2}
+                  ml={1}
+                >
+                  <Button
+                    variant="contained"
+                    color={"secondary"}
+                    endIcon={<Google />}
+                  >
+                    Google
+                  </Button>
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    onClick={() => {
+                      Router.push("/signin");
+                    }}
+                  >
+                    Register
+                  </Button>
+                </Box>
+                <Box
+                  display={"flex"}
+                  justifyContent={"center"}
+                  alignItems={"center"}
+                  mt={6}
+                >
+                  Already have an account? <Button>Sign In</Button>
+                </Box>
+              </div>
+              <div className="modal-right">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/static/images/placeholders/covers/right_side.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </Wrapper>
+    </>
+  );
 };
-
-
 
 export default SignUp;
