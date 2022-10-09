@@ -21,14 +21,14 @@ function App(props) {
 
   return (
     <CacheProvider value={emotionCache}>
-      <SidebarProvider>
-        <ThemeProvider>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <CssBaseline />
-            {getLayout(<Component {...pageProps} />)}
-          </LocalizationProvider>
-        </ThemeProvider>
-      </SidebarProvider>
+          <SidebarProvider>
+            <ThemeProvider>
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <CssBaseline />
+                {getLayout(<Component {...pageProps} />)}
+              </LocalizationProvider>
+            </ThemeProvider>
+          </SidebarProvider>
     </CacheProvider>
   );
 }

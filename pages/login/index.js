@@ -33,7 +33,7 @@ const Wrapper = styled(Box)(
   .modal-container {
     display: flex;
     max-width: 60vw;
-    max-height: 78vh;
+    max-height: 50vh;
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
@@ -51,10 +51,7 @@ const Wrapper = styled(Box)(
     margin: 6px 0 30px 0;
   }
   .modal-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 20px 30px 0px;
+    padding: 60px 30px 20px;
     background: #fff;
     flex: 1.5;
     transition-duration: 0.5s;
@@ -62,7 +59,9 @@ const Wrapper = styled(Box)(
     overflow: auto;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
 
@@ -116,9 +115,6 @@ const Wrapper = styled(Box)(
     .modal-container {
       max-width: 90vw;
     }
-    .modal-left{
-        padding: 20px 10px;
-    }
     .modal-right {
       display: none;
     }
@@ -134,7 +130,7 @@ const SignUp = () => {
                     <div className="modal">
                         <div className="modal-container">
                             <div className="modal-left">
-                                <Grid item paddingBottom={1} paddingLeft={1}>
+                                <Grid item paddingBottom={4} paddingLeft={1}>
                                     <Typography variant="h3" component="h3" gutterBottom>
                                         Welcome!
                                     </Typography>
@@ -150,34 +146,6 @@ const SignUp = () => {
                                     noValidate
                                     autoComplete="off"
                                 >
-                                    <TextField
-                                        required
-                                        label="username"
-                                        type="name"
-                                        autoComplete="off"
-                                        name="username"
-                                        id="username"
-                                        placeholder="user name"
-                                    />
-
-                                    <TextField
-                                        required
-                                        label="firstname"
-                                        type="name"
-                                        autoComplete="off"
-                                        name="firstname"
-                                        id="firstname"
-                                        placeholder="first name"
-                                    />
-                                    <TextField
-                                        required
-                                        label="lastname"
-                                        type="name"
-                                        autoComplete="off"
-                                        name="lastname"
-                                        id="lastname"
-                                        placeholder="Name"
-                                    />
                                     <TextField
                                         required
                                         label="email"
@@ -196,22 +164,13 @@ const SignUp = () => {
                                         id="password"
                                         placeholder="Password"
                                     />
-                                    <TextField
-                                        required
-                                        label="Conform Password"
-                                        type="password"
-                                        autoComplete="off"
-                                        name="confirm_password"
-                                        id="confirm_password"
-                                        placeholder="Conform Password"
-                                    />
                                 </Box>
                                 <Box
                                     display={"flex"}
                                     justifyContent={"space-between"}
                                     alignItems={"center"}
-                                    mt={1}
-                                    mb={1}
+                                    mt={2}
+                                    mb={2}
                                     ml={1}
                                 >
                                     <Button
@@ -225,25 +184,24 @@ const SignUp = () => {
                                         variant="contained"
                                         type="submit"
                                         onClick={() => {
-                                            Router.push("/signin");
+                                            Router.push("/dashboards");
                                         }}
                                     >
-                                        Register
+                                        Log in
                                     </Button>
                                 </Box>
                                 <Box
                                     display={"flex"}
                                     justifyContent={"center"}
                                     alignItems={"center"}
-                                    mt={1}
+                                    mt={6}
                                 >
-                                    Already have an account? <Button
-                                    onClick={
-                                        () => {
-                                            Router.push("/login")
-                                        }
-                                    }
-                                >Log In</Button>
+                                    {/* eslint-disable-next-line react/no-unescaped-entities */}
+                                    Don't have an account? <Button
+                                    onClick={() => {
+                                        Router.push("/");
+                                    }}
+                                >Sign In</Button>
                                 </Box>
                             </div>
                             <div className="modal-right">
