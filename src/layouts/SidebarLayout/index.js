@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 
 import Sidebar from './Sidebar';
 import Header from './Header';
+import {useContext} from "react";
+import AuthContext from "../../../context/AuthContext";
 
 const SidebarLayout = ({ children }) => {
   const theme = useTheme();
+
+  let {user} = useContext(AuthContext);
 
   return (
     <>

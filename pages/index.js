@@ -1,7 +1,10 @@
 import { Box, Button, Grid, styled, TextField } from "@mui/material";
 import { Google } from "@mui/icons-material";
 import Typography from "@mui/material/Typography";
-import Router from "next/router";
+import Router, {useRouter} from "next/router";
+import React, {useContext, useEffect} from "react";
+import AuthContext from "../context/AuthContext";
+import login from "./login";
 
 const Wrapper = styled(Box)(
     ({ theme }) => `
@@ -127,6 +130,32 @@ const Wrapper = styled(Box)(
 );
 
 const SignUp = () => {
+
+    const [username, setUsername] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [first_name, setFirstName] = React.useState("");
+    const [last_name, setLastName] = React.useState("");
+
+
+    const {isAuthenticated, error, register} = useContext(AuthContext);
+    useEffect(() => {
+        if(error){
+            console.log(error);
+        }
+
+        if(isAuthenticated){
+            Router.push("/dashboards");
+        }
+    },[error, isAuthenticated]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(username, password, email, first_name, last_name);
+        register(username, email, password, first_name, last_name);
+
+    }
+
     return (
         <>
             <Wrapper>
@@ -158,6 +187,7 @@ const SignUp = () => {
                                         name="username"
                                         id="username"
                                         placeholder="user name"
+                                        onChange={(e) => setUsername(e.target.value)}
                                     />
 
                                     <TextField
@@ -168,6 +198,7 @@ const SignUp = () => {
                                         name="firstname"
                                         id="firstname"
                                         placeholder="first name"
+                                        onChange={(e) => setFirstName(e.target.value)}
                                     />
                                     <TextField
                                         required
@@ -177,6 +208,7 @@ const SignUp = () => {
                                         name="lastname"
                                         id="lastname"
                                         placeholder="Name"
+                                        onChange={(e) => setLastName(e.target.value)}
                                     />
                                     <TextField
                                         required
@@ -186,6 +218,7 @@ const SignUp = () => {
                                         name="email"
                                         id="email"
                                         placeholder="Email"
+                                        onChange={(e) => setEmail(e.target.value)}
                                     />
                                     <TextField
                                         required
@@ -195,6 +228,7 @@ const SignUp = () => {
                                         name="password"
                                         id="password"
                                         placeholder="Password"
+                                        onChange={(e) => setPassword(e.target.value)}
                                     />
                                     <TextField
                                         required
@@ -218,14 +252,15 @@ const SignUp = () => {
                                         variant="contained"
                                         color={"secondary"}
                                         endIcon={<Google />}
+                                        style={{opacity: 0, pointerEvents: "none"}}
                                     >
                                         Google
                                     </Button>
                                     <Button
                                         variant="contained"
                                         type="submit"
-                                        onClick={() => {
-                                            Router.push("/signin");
+                                        onClick={(e) => {
+                                            handleSubmit(e);
                                         }}
                                     >
                                         Register

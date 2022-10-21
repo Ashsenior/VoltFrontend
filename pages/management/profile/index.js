@@ -10,11 +10,15 @@ import Feed from 'src/content/Management/Users/details/Feed';
 import PopularTags from 'src/content/Management/Users/details/PopularTags';
 import MyCards from 'src/content/Management/Users/details/MyCards';
 import Addresses from 'src/content/Management/Users/details/Addresses';
+import {useContext} from "react";
+import AuthContext from "../../../context/AuthContext";
 
 function ManagementUserProfile() {
-  const user = {
+  const {user} = useContext(AuthContext);
+
+  const user_data = {
     savedCards: 7,
-    name: 'Catherine Pike',
+    name: user.username,
     coverImg: '/static/images/placeholders/covers/5.jpg',
     avatar: '/static/images/avatars/4.jpg',
     description:
@@ -38,7 +42,7 @@ function ManagementUserProfile() {
           spacing={3}
         >
           <Grid item xs={12} md={8}>
-            <ProfileCover user={user} />
+            <ProfileCover user={user_data} />
           </Grid>
           <Grid item xs={12} md={4}>
             <RecentActivity />

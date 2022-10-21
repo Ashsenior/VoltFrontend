@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import clsx from 'clsx';
+import {Input, TextField} from "@mui/material";
 
 const TextWrapper = styled('span')(
   ({ theme }) => `
@@ -50,7 +51,7 @@ const Text = ({ className, color = 'secondary', flex, children, ...rest }) => {
       className={clsx('MuiText-' + color, { flexItem: flex })}
       {...rest}
     >
-      {children}
+        {children}
     </TextWrapper>
   );
 };

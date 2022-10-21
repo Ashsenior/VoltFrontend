@@ -6,7 +6,21 @@ import Footer from 'src/components/Footer';
 
 import Points from 'src/content/Dashboards/Crypto/Points';
 
+import AuthContext from "../../context/AuthContext";
+import {useContext, useEffect} from "react";
+import {useRouter} from "next/router";
+
+
 function DashboardCrypto() {
+    const router = useRouter()
+    const {isAuthenticated} = useContext(AuthContext);
+    useEffect(() => {
+        if(!isAuthenticated){
+            router.push("/");
+        }
+    });
+
+
   return (
     <>
       <Head>

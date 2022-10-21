@@ -2,6 +2,8 @@ import { Box, Button, Grid, styled, TextField } from "@mui/material";
 import { Google } from "@mui/icons-material";
 import Typography from "@mui/material/Typography";
 import Router from "next/router";
+import React, {useState, useContext, useEffect} from "react";
+import AuthContext from "../../context/AuthContext";
 
 const Wrapper = styled(Box)(
     ({ theme }) => `
@@ -122,10 +124,32 @@ const Wrapper = styled(Box)(
 `
 );
 
-const SignUp = () => {
+const Login = () => {
+
+    const [username, setUsername] = React.useState("");
+    const [password, setPassword] = React.useState("");
+
+    const {isAuthenticated, error, login} = useContext(AuthContext);
+
+    useEffect(() => {
+        if(error){
+            console.log(error);
+        }
+
+        if(isAuthenticated){
+            Router.push("/dashboards");
+        }
+    },[error, isAuthenticated]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(username, password);
+        login(username, password);
+    }
+
+
     return (
-        <>
-            <Wrapper>
+        <Wrapper>
                 <div className="container">
                     <div className="modal">
                         <div className="modal-container">
@@ -148,12 +172,13 @@ const SignUp = () => {
                                 >
                                     <TextField
                                         required
-                                        label="email"
-                                        type="email"
+                                        label="username"
+                                        type="username"
                                         autoComplete="off"
-                                        name="email"
-                                        id="email"
-                                        placeholder="Email"
+                                        name="username"
+                                        id="username"
+                                        placeholder="username"
+                                        onChange={(e) => setUsername(e.target.value)}
                                     />
                                     <TextField
                                         required
@@ -163,6 +188,7 @@ const SignUp = () => {
                                         name="password"
                                         id="password"
                                         placeholder="Password"
+                                        onChange={(e) => setPassword(e.target.value)}
                                     />
                                 </Box>
                                 <Box
@@ -177,14 +203,15 @@ const SignUp = () => {
                                         variant="contained"
                                         color={"secondary"}
                                         endIcon={<Google />}
+                                        style={{opacity: 0, pointerEvents: "none"}}
                                     >
                                         Google
                                     </Button>
                                     <Button
                                         variant="contained"
                                         type="submit"
-                                        onClick={() => {
-                                            Router.push("/dashboards");
+                                        onClick={(e) => {
+                                           handleSubmit(e);
                                         }}
                                     >
                                         Log in
@@ -199,7 +226,7 @@ const SignUp = () => {
                                     {/* eslint-disable-next-line react/no-unescaped-entities */}
                                     Don't have an account? <Button
                                     onClick={() => {
-                                        Router.push("/");
+                                        handleSubmit();
                                     }}
                                 >Sign In</Button>
                                 </Box>
@@ -215,8 +242,7 @@ const SignUp = () => {
                     </div>
                 </div>
             </Wrapper>
-        </>
     );
 };
 
-export default SignUp;
+export default Login;
