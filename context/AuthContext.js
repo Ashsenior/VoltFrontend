@@ -9,12 +9,14 @@ export const AuthProvider = ({ children }) => {
     const [error, setError] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [authTokens, setAuthTokens] = React.useState(null);
+    const base_url = "http://127.0.0.1:8000";
 
 
     const login = async (username, password) => {
         try {
             console.log(username, password);
-            const res = await fetch(`http://127.0.0.1:8000/auth/jwt/create/`, {
+            const res = await fetch(`${base_url}/auth/jwt/create/`, {
+
                 method: 'POST',
                 body: JSON.stringify({ "username": username, "password": password }),
                 headers: { 'Content-Type': 'application/json' }
@@ -38,8 +40,9 @@ export const AuthProvider = ({ children }) => {
 
     const register = async (username, email, password, first_name, last_name) => {
         try {
-            console.log(username, password);
-            const res = await fetch(`http://127.0.0.1:8000/auth/users/`, {
+
+            console.log("signing in");
+            const res = await fetch(`${base_url}/auth/users/`, {
                 method: 'POST',
                 body: JSON.stringify({ "username": username, "email": email, "password": password, "first_name": first_name, "last_name": last_name }),
                 headers: { 'Content-Type': 'application/json' }
