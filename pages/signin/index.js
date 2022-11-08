@@ -6,7 +6,7 @@ import {
     CardContent,
     Divider, Button, TextField, MenuItem
 } from '@mui/material';
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -15,7 +15,6 @@ import Box from '@mui/material/Box';
 import Footer from 'src/components/Footer';
 import {DatePicker} from "@mui/lab";
 import Router from "next/router";
-
 
 const genders = [
     {
@@ -90,28 +89,91 @@ function a11yProps(index) {
         'aria-controls': `simple-tabpanel-${index}`
     };
 }
+import axiosInstance from "../../src/axiosAPi";
 
 function TabsDemo() {
     const [value, setValue] = useState(0);
-    const [gender, setGender] = useState('Male');
     const [role, setRole] = useState('Tech');
     const [founder, setFounder] = useState('0');
-    const [register, setRegister] = useState('0')
+    const [registered, setRegistered] = useState('0');
+    const [name, setname] = useState('0');
+    const [market, setmarket] = useState('0');
+    const [founded, setfounded] = useState('0');
+    const [authenticated, setAuthenticated] = useState(false);
+    
+    const [idea, setidea] = useState('0');
+    const [problemArea, setproblemArea] = useState('0');
+    const [currentPlayers, setcurrentPlayers] = useState('0');
+    const [difference, setdifference] = useState('0');
+    const [customer, setcustomer] = useState('0');
+    const [revenue1, setrevenue1] = useState('0');
+    const [revenue2, setrevenue2] = useState('0');
+    const [stage, setstage] = useState('0');
+    const [message, setMessage] = useState("");
 
-    const genderhandleChange = (event) => {
-        setGender(event.target.value);
-    };
     const rolehandleChange = (event) => {
         setRole(event.target.value);
     };
     const founderhandleChange = (event) => {
         setFounder(event.target.value);
     };
-    const registerhandleChange = (event) => {
-        setRegister(event.target.value);
+    const registeredhandleChange = (event) => {
+        setRegistered(event.target.value);
     };
+    const handlename = (event) => {setname(event.target.value);};
+    const handlemarket = (event) => {setmarket(event.target.value);};
+    const handlefounded = (event) => {setfounded(event.target.value);};
+    const handleidea = (event) => {setidea(event.target.value);};
+    const handleproblemArea = (event) => {setproblemArea(event.target.value);};
+    const handlecurrentPlayers = (event) => {setcurrentPlayers(event.target.value);};
+    const handledifference = (event) => {setdifference(event.target.value);};
+    const handlecustomer = (event) => {setcustomer(event.target.value);};
+    const handlerevenue1 = (event) => {setrevenue1(event.target.value);};
+    const handlerevenue2 = (event) => {setrevenue2(event.target.value);};
+    const handlestage = (event) => {setstage(event.target.value);};
 
+    useEffect(() => {
+        var access_token = localStorage.getItem("access_token");
+        var refresh_token = localStorage.getItem("refresh_token");
+        if (access_token && refresh_token){
+          setAuthenticated(true);
+        }
+      }, [authenticated]);
 
+    const handleSubmit = () => {
+        if (true){
+            try {
+                axiosInstance.post('/user/create-startup/', {
+                    name: name,
+                    market: market,
+                    founded: founded,
+                    idea: idea,
+                    problemArea: problemArea,
+                    currentPlayers: currentPlayers,
+                    difference: difference,
+                    customer: customer,
+                    revenue1: revenue1,
+                    revenue2: revenue2,
+                    stage: stage,
+                })
+                .then((response) => {
+                    if (response.status===200){
+                    console.log("done !");
+                    Router.push({
+                        pathname: "/home",
+                        query: {"message": "Profile completed successfully!"}
+                    })
+                    }
+                    else {setMessage("Some error occurred while completing your profile!");}
+                });
+            } 
+            catch (error) {
+                throw error;
+            }
+        } else{
+            setMessage("Fill the compulsory fields.")
+        }
+    };
 
     return (
             <Container maxWidth="lg"  >
@@ -164,75 +226,29 @@ function TabsDemo() {
                                                 <TextField
                                                     required
                                                     id="outlined-search"
-                                                    label="first name"
+                                                    label="Startup name"
                                                     type="search"
+                                                    onChange={handlename}
                                                 />
                                                 <TextField
                                                     required
                                                     id="outlined-search"
-                                                    label="last name"
+                                                    label="Market"
                                                     type="search"
+                                                    onChange={handlemarket}
                                                 />
-                                                <TextField
-                                                    required
-                                                    id="outlined-search"
-                                                    label="email"
-                                                    type="search"
-                                                />
-
-                                            </div>
-                                            <div>
-                                                <TextField
-                                                    required
-                                                    id="outlined-search"
-                                                    label="phone number"
-                                                    type="search"
-                                                />
-                                                <TextField
-                                                    required
-                                                    id="outlined-search"
-                                                    label="college name"
-                                                    type="search"
-                                                />
-                                                <TextField
-                                                    required
-                                                    id="outlined-search"
-                                                    label="course/major"
-                                                    type="search"
-                                                />
-                                            </div>
-                                            <div>
                                                 <DatePicker
                                                     required
-                                                    label="year of graduation"
+                                                    label="Founded"
                                                     value={value}
                                                     onChange={(newValue) => {
-
+                                                        setfounded(newValue);
                                                     }}
                                                     renderInput={(params) => <TextField {...params} />}
                                                 />
-                                                <TextField
-                                                    select
-                                                    label="Gender"
-                                                    value={gender}
-                                                    onChange={genderhandleChange}
-                                                >
-                                                    {genders.map((option) => (
-                                                        <MenuItem key={option.value} value={option.value}>
-                                                            {option.label}
-                                                        </MenuItem>
-                                                    ))}
-                                                </TextField>
-                                                <DatePicker
-                                                    required
-                                                    label="DOB"
-                                                    value={value}
-                                                    onChange={(newValue) => {
 
-                                                    }}
-                                                    renderInput={(params) => <TextField {...params} />}
-                                                />
                                             </div>
+                                            
                                             <div>
                                                 <TextField
                                                     select
@@ -249,9 +265,9 @@ function TabsDemo() {
                                                 <TextField
                                                     select
                                                     disabled={founder === '0'}
-                                                    label="Is your startup registered before?"
-                                                    value={register}
-                                                    onChange={registerhandleChange}
+                                                    label="Is your startup registered?"
+                                                    value={registered}
+                                                    onChange={registeredhandleChange}
                                                 >
                                                     {founderVal.map((option) => (
                                                         <MenuItem key={option.value} value={option.value}>
@@ -304,6 +320,7 @@ function TabsDemo() {
                                                 multiline
                                                 minRows={15}
                                                 defaultValue="Default Value"
+                                                onChange={handleidea}
                                             />
                                         </Box>
                                     </TabPanel>
@@ -334,6 +351,7 @@ function TabsDemo() {
                                                 multiline
                                                 minRows={5}
                                                 defaultValue="Default Value"
+                                                onChange={handleproblemArea}
                                             />
                                             <Grid item paddingBottom={2} marginTop={2}>
                                                 <Typography variant="h4" component="h3" gutterBottom>
@@ -346,6 +364,7 @@ function TabsDemo() {
                                                 multiline
                                                 minRows={5}
                                                 defaultValue="Default Value"
+                                                onChange={handlecurrentPlayers}
                                             />
                                             <Grid item paddingBottom={2} marginTop={2}>
                                                 <Typography variant="h4" component="h3" gutterBottom>
@@ -357,6 +376,7 @@ function TabsDemo() {
                                                 label="Multiline"
                                                 multiline
                                                 minRows={5}
+                                                onChange={handledifference}
                                                 defaultValue="Default Value"
                                             />
                                         </Box>
@@ -387,6 +407,7 @@ function TabsDemo() {
                                                 label="Multiline"
                                                 multiline
                                                 minRows={3}
+                                                onChange={handlecustomer}
                                                 defaultValue="Default Value"
                                             />
                                             <Grid item paddingBottom={2} marginTop={2}>
@@ -399,6 +420,7 @@ function TabsDemo() {
                                                 label="Multiline"
                                                 multiline
                                                 minRows={3}
+                                                onChange={handlerevenue1}
                                                 defaultValue="Default Value"
                                             />
                                             <Grid item paddingBottom={2} marginTop={2}>
@@ -411,6 +433,7 @@ function TabsDemo() {
                                                 label="Multiline"
                                                 multiline
                                                 minRows={3}
+                                                onChange={handlerevenue2}
                                                 defaultValue="Default Value"
                                             />
                                             <Grid item paddingBottom={2} marginTop={2}>
@@ -423,6 +446,7 @@ function TabsDemo() {
                                                 label="Multiline"
                                                 multiline
                                                 minRows={3}
+                                                onChange={handlestage}
                                                 defaultValue="Default Value"
                                             />
                                         </Box>

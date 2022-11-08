@@ -18,7 +18,7 @@ function Footer() {
       >
         <Box>
           <Typography variant="subtitle1">
-            &copy; 2022 - Stactic Field
+            &copy; 2022 - Startic Field
           </Typography>
         </Box>
         <Typography
@@ -29,11 +29,11 @@ function Footer() {
         >
           Crafted by{' '}
           <Link
-            href="http://devlooper.in"
+            href="https://www.starticfield.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            devlooper.in
+            Startic Field
           </Link>
         </Typography>
       </Box>
