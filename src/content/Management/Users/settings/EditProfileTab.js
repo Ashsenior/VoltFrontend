@@ -5,7 +5,7 @@ import {
   Card,
   Box,
   Divider,
-  Button, Input, TextField
+  Button, Input, TextField, MenuItem
 } from '@mui/material';
 
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
@@ -15,9 +15,24 @@ import Label from 'src/components/Label';
 import {useState} from "react";
 import {DatePicker} from "@mui/lab";
 
-function EditProfileTab() {
+const genders = [
+  {
+      value: 'Male',
+      label: '♂ Male'
+  },
+  {
+      value: 'Female',
+      label: '♀ Female'
+  },
+  {
+      value: 'Other',
+      label: '⚢ / ⚣ Other'
+  }
+];
 
-    const [isEditing, setIsEditing] = useState(false);
+function EditProfileTab() {
+  const [gender, setGender] = useState('Male');
+  const [isEditing, setIsEditing] = useState(false);
 
   return (
     <Grid container spacing={3}>
@@ -45,6 +60,7 @@ function EditProfileTab() {
           <CardContent sx={{ p: 4 }}>
             <Typography variant="subtitle2">
               <Grid container spacing={0}>
+                
                 <Grid item xs={12} sm={4} md={3} textAlign={{ sm: 'right' }}>
                   <Box pr={3} pb={2}>
                     Name:
@@ -65,6 +81,143 @@ function EditProfileTab() {
                       </Text>
                   )}
                 </Grid>
+
+                <Grid item xs={12} sm={4} md={3} textAlign={{ sm: 'right' }}>
+                  <Box pr={3} pb={2}>
+                    Email:
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={8} md={9}>
+                  {isEditing ? (
+                      <TextField
+                          defaultValue="abcdefghijkl@gmail.com"
+                          label="Email"
+                          style={{ marginBottom: 30,marginTop: -8 }}
+                      >
+                      </TextField>
+
+                  ) : (
+                      <Text color="black">
+                        <b>abcdefghijkl@gmail.com</b>
+                      </Text>
+                  )}
+                </Grid>
+
+                <Grid item xs={12} sm={4} md={3} textAlign={{ sm: 'right' }}>
+                  <Box pr={3} pb={2}>
+                    Phone number:
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={8} md={9}>
+                  {isEditing ? (
+                      <TextField
+                          defaultValue="9201XXXXX90"
+                          label="Phone number"
+                          style={{ marginBottom: 30,marginTop: -8 }}
+                      >
+                      </TextField>
+
+                  ) : (
+                      <Text color="black">
+                        <b>9201XXXXX90</b>
+                      </Text>
+                  )}
+                </Grid>
+
+                <Grid item xs={12} sm={4} md={3} textAlign={{ sm: 'right' }}>
+                  <Box pr={3} pb={2}>
+                    College name:
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={8} md={9}>
+                  {isEditing ? (
+                      <TextField
+                          defaultValue="Something Institute of Something"
+                          label="College name"
+                          style={{ marginBottom: 30,marginTop: -8 }}
+                      >
+                      </TextField>
+
+                  ) : (
+                      <Text color="black">
+                        <b>Something Institute of Something</b>
+                      </Text>
+                  )}
+                </Grid>
+
+                <Grid item xs={12} sm={4} md={3} textAlign={{ sm: 'right' }}>
+                  <Box pr={3} pb={2}>
+                    Course major:
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={8} md={9}>
+                  {isEditing ? (
+                      <TextField
+                          defaultValue="Technology"
+                          label="Course major"
+                          style={{ marginBottom: 30,marginTop: -8 }}
+                      >
+                      </TextField>
+
+                  ) : (
+                      <Text color="black">
+                        <b>Technology</b>
+                      </Text>
+                  )}
+                </Grid>
+
+                <Grid item xs={12} sm={4} md={3} textAlign={{ sm: 'right' }}>
+                  <Box pr={3} pb={2}>
+                    Year of graduation:
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={8} md={9}>
+                  {isEditing ? (
+                      <DatePicker
+                        required
+                        label="Year of graduation"
+                        value='15 March 1977'
+                        onChange={(newValue) => {
+
+                        }}
+                        renderInput={(params) => <TextField {...params} style={{ marginBottom: 30,marginTop: -8 }}/>}
+                    />
+
+                  ) : (
+                      <Text color="black">
+                        <b>15 March 1977</b>
+                      </Text>
+                  )}
+                </Grid>
+
+                <Grid item xs={12} sm={4} md={3} textAlign={{ sm: 'right' }}>
+                  <Box pr={3} pb={2}>
+                    Gender:
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={8} md={9}>
+                  {isEditing ? (
+                      <TextField
+                        required
+                          select
+                          label="Gender"
+                          value={gender}
+                          style={{ marginBottom: 30,marginTop: -8 }}
+                      >
+                          {genders.map((option) => (
+                              <MenuItem key={option.value} value={option.value}>
+                                  {option.label}
+                              </MenuItem>
+                          ))}
+                      </TextField>
+
+                  ) : (
+                      <Text color="black">
+                        <b>Male</b>
+                      </Text>
+                  )}
+                </Grid>
+
                 <Grid item xs={12} sm={4} md={3} textAlign={{ sm: 'right' }}>
                   <Box pr={3} pb={2}>
                     Date of birth:
