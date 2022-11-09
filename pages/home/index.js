@@ -11,7 +11,7 @@ const Home = () => {
             {/* Title and Startup Button */}
             <div className='w-full bg-white'>
                 <div className='w-11/12 flex items-center justify-between mx-auto px-5 rounded-lg py-6'>
-                    <h1 className='text-2xl font-semibold'>Create New Startups</h1>
+                    <h1 className='text-xl font-semibold'>Create New Startups</h1>
                     <button
                         onClick={() => Router.push('/create_startup')}
                         type="button" className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">New Startups</button>
@@ -24,20 +24,27 @@ const Home = () => {
             </div>
             {/* Startups Card Section Title */}
             <div className='w-11/12 mx-auto mt-6 flex items-center justify-start gap-2'>
-                <h1 className='text-2xl font-semibold'>Your Startups</h1>
+                <h1 className='text-xl font-semibold'>Your Startups</h1>
                 <div className='h-0.5 w-10 bg-indigo-500 rounded-full mt-2'></div>
             </div>
             {/* Startup cards */}
-            <StartupCard />
+            <div className='grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2'>
+                <StartupCard />
+                <StartupCard />
+            </div>
             {/* All Startups */}
             <div className='w-11/12 mx-auto mt-6 flex items-center justify-start gap-2'>
-                <h1 className='text-2xl font-semibold'>All Startups</h1>
+                <h1 className='text-xl font-semibold'>All Startups</h1>
                 <div className='h-0.5 w-10 bg-indigo-500 rounded-full mt-2'></div>
             </div>
             {/* All startup Cards */}
-            <StartupCard />
-            <StartupCard />
-            <StartupCard />
+            <div className='grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2'>
+
+                <StartupCard />
+                <StartupCard />
+                <StartupCard />
+                <StartupCard />
+            </div>
         </div>
     );
 };
