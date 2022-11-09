@@ -20,10 +20,10 @@ const LogoWrapper = styled(Link)(
 function Logo() {
 
     return (
-            <LogoWrapper href="/">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/static/images/logo/logo.png" alt="NextJS" />
-            </LogoWrapper>
+        <LogoWrapper href="/">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/static/images/logo/logo.png" alt="NextJS" />
+        </LogoWrapper>
     );
 }
 

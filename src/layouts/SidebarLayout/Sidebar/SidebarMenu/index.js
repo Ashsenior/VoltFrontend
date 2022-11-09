@@ -15,7 +15,7 @@ import { SidebarContext } from 'src/contexts/SidebarContext';
 import MmsTwoToneIcon from '@mui/icons-material/MmsTwoTone';
 import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
 import DisplaySettingsTwoToneIcon from '@mui/icons-material/DisplaySettingsTwoTone';
-import {Biotech, Home} from "@mui/icons-material";
+import { Biotech, Home } from "@mui/icons-material";
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
@@ -136,9 +136,9 @@ const SubMenuWrapper = styled(Box)(
                 background: ${theme.colors.alpha.trueWhite[100]};
                 opacity: 0;
                 transition: ${theme.transitions.create([
-                  'transform',
-                  'opacity'
-                ])};
+    'transform',
+    'opacity'
+  ])};
                 width: 6px;
                 height: 6px;
                 transform: scale(0);
@@ -215,25 +215,25 @@ function SidebarMenu() {
           </SubMenuWrapper>
         </List>
         <List
-            component="div"
-            subheader={
-              <ListSubheader component="div" disableSticky>
-                Modules
-              </ListSubheader>
-            }
+          component="div"
+          subheader={
+            <ListSubheader component="div" disableSticky>
+              Modules
+            </ListSubheader>
+          }
         >
           <SubMenuWrapper>
             <List component="div">
               <ListItem component="div">
                 <NextLink href="/module/strategy" passHref>
                   <Button
-                      className={
-                        currentRoute === '/module/strategy' ? 'active' : ''
-                      }
-                      disableRipple
-                      component="a"
-                      onClick={closeSidebar}
-                      startIcon={<PsychologyIcon />}
+                    className={
+                      currentRoute === '/module/strategy' ? 'active' : ''
+                    }
+                    disableRipple
+                    component="a"
+                    onClick={closeSidebar}
+                    startIcon={<PsychologyIcon />}
                   >
                     Strategy Module
                   </Button>
@@ -242,13 +242,13 @@ function SidebarMenu() {
               <ListItem component="div">
                 <NextLink href="/module/research" passHref>
                   <Button
-                      className={
-                        currentRoute === '/module/research' ? 'active' : ''
-                      }
-                      disableRipple
-                      component="a"
-                      onClick={closeSidebar}
-                      startIcon={<Biotech />}
+                    className={
+                      currentRoute === '/module/research' ? 'active' : ''
+                    }
+                    disableRipple
+                    component="a"
+                    onClick={closeSidebar}
+                    startIcon={<Biotech />}
                   >
                     Research Module
                   </Button>
@@ -257,13 +257,13 @@ function SidebarMenu() {
               <ListItem component="div">
                 <NextLink href="/module/marketing" passHref>
                   <Button
-                      className={
-                        currentRoute === '/module/marketing' ? 'active' : ''
-                      }
-                      disableRipple
-                      component="a"
-                      onClick={closeSidebar}
-                      startIcon={<LocalGroceryStoreIcon />}
+                    className={
+                      currentRoute === '/module/marketing' ? 'active' : ''
+                    }
+                    disableRipple
+                    component="a"
+                    onClick={closeSidebar}
+                    startIcon={<LocalGroceryStoreIcon />}
                   >
                     Marketing Module
                   </Button>
@@ -272,13 +272,13 @@ function SidebarMenu() {
               <ListItem component="div">
                 <NextLink href="/module/sales" passHref>
                   <Button
-                      className={
-                        currentRoute === '/module/sales' ? 'active' : ''
-                      }
-                      disableRipple
-                      component="a"
-                      onClick={closeSidebar}
-                      startIcon={<MonetizationOnIcon />}
+                    className={
+                      currentRoute === '/module/sales' ? 'active' : ''
+                    }
+                    disableRipple
+                    component="a"
+                    onClick={closeSidebar}
+                    startIcon={<MonetizationOnIcon />}
                   >
                     Sales Module
                   </Button>

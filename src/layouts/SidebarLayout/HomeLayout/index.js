@@ -1,12 +1,12 @@
 import { Box, alpha, lighten, useTheme } from '@mui/material';
 import PropTypes from 'prop-types';
 
-import Sidebar from './Sidebar';
-import Header from './Header';
+import Sidebar from '../sidebar';
+import Header from '../Header';
 import { useContext } from "react";
-import AuthContext from "../../../context/AuthContext";
+import AuthContext from "../../../../context/AuthContext";
 
-const SidebarLayout = ({ children }) => {
+const HomeLayout = ({ children }) => {
     const theme = useTheme();
 
     let { user } = useContext(AuthContext);
@@ -17,7 +17,7 @@ const SidebarLayout = ({ children }) => {
                 sx={{
                     flex: 1,
                     height: '100%',
-
+                    width: '100vw',
                     '.MuiPageTitle-wrapper': {
                         background:
                             theme.palette.mode === 'dark'
@@ -41,7 +41,7 @@ const SidebarLayout = ({ children }) => {
                 }}
             >
                 {<Header />}
-                <Sidebar />
+                {/* <Sidebar /> */}
                 <Box
                     sx={{
                         position: 'relative',
@@ -61,8 +61,8 @@ const SidebarLayout = ({ children }) => {
     );
 };
 
-SidebarLayout.propTypes = {
+HomeLayout.propTypes = {
     children: PropTypes.node
 };
 
-export default SidebarLayout;
+export default HomeLayout;
