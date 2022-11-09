@@ -3,20 +3,20 @@ import Scrollbar from 'src/components/Scrollbar';
 import { SidebarContext } from 'src/contexts/SidebarContext';
 
 import {
-    Box,
-    Drawer,
-    alpha,
-    styled,
-    Divider,
-    useTheme,
-    Button,
-    lighten,
-    darken, Typography
+  Box,
+  Drawer,
+  alpha,
+  styled,
+  Divider,
+  useTheme,
+  Button,
+  lighten,
+  darken, Typography
 } from '@mui/material';
 
 import SidebarMenu from './SidebarMenu';
 import Logo from 'src/components/LogoSign';
-import {LogoutRounded} from "@mui/icons-material";
+import { LogoutRounded } from "@mui/icons-material";
 import Link from "next/link";
 
 const SidebarWrapper = styled(Box)(
@@ -56,24 +56,24 @@ function Sidebar() {
         }}
       >
         <Scrollbar>
-            <Box margin={0} >
-                <Box
-                    margin={0}
-                    sx={{
-                        width: 270
-                    }}
-                    display={'flex'}
-                    alignItems={'center'}
-                    justifyContent={'start'}
-                >
-                    <Logo />
-                    <Link  href={'/'}>
-                        <Typography variant="h3" marginLeft={6} >
-                            Startic Field
-                        </Typography>
-                    </Link>
-                </Box>
+          <Box margin={0} >
+            <Box
+              margin={0}
+              sx={{
+                width: 270
+              }}
+              display={'flex'}
+              alignItems={'center'}
+              justifyContent={'start'}
+            >
+              <Logo />
+              <Link href={'/'}>
+                <Typography variant="h3" marginLeft={6} >
+                  Startic Field
+                </Typography>
+              </Link>
             </Box>
+          </Box>
           <SidebarMenu />
         </Scrollbar>
         <Box p={2}>
@@ -108,38 +108,38 @@ function Sidebar() {
           }}
         >
           <Scrollbar>
-              <Box margin={0} >
-                  <Box
-                      margin={0}
-                      sx={{
-                          width: 250
-                      }}
-                      display={'flex'}
-                      alignItems={'center'}
-                      justifyContent={'start'}
-                  >
-                      <Logo />
-                      <Link  href={'/'}>
-                          <Typography variant="h3" marginLeft={6} >
-                              Startic Field
-                          </Typography>
-                      </Link>
-                  </Box>
+            <Box margin={0} >
+              <Box
+                margin={0}
+                sx={{
+                  width: 250
+                }}
+                display={'flex'}
+                alignItems={'center'}
+                justifyContent={'start'}
+              >
+                <Logo />
+                <Link href={'/'}>
+                  <Typography variant="h3" marginLeft={6} >
+                    Startic Field
+                  </Typography>
+                </Link>
               </Box>
+            </Box>
             <SidebarMenu />
           </Scrollbar>
-            <Box p={2}>
-                <Button
-                    href="/"
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                    endIcon={<LogoutRounded />}
-                    fullWidth
-                >
-                    Log out
-                </Button>
-            </Box>
+          <Box p={2}>
+            <Button
+              href="/"
+              variant="contained"
+              color="primary"
+              size="small"
+              endIcon={<LogoutRounded />}
+              fullWidth
+            >
+              Log out
+            </Button>
+          </Box>
         </SidebarWrapper>
 
       </Drawer>

@@ -2,11 +2,11 @@ import { Box, Button, Grid, styled, TextField } from "@mui/material";
 import { Google } from "@mui/icons-material";
 import Typography from "@mui/material/Typography";
 import Router from "next/router";
-import React, {useState, useContext, useEffect} from "react";
+import React, { useState, useContext, useEffect } from "react";
 import AuthContext from "../../context/AuthContext";
 
 const Wrapper = styled(Box)(
-    ({ theme }) => `
+  ({ theme }) => `
   .container {
     position: fixed;
     top: 0;
@@ -126,123 +126,123 @@ const Wrapper = styled(Box)(
 
 const Login = () => {
 
-    const [username, setUsername] = React.useState("");
-    const [password, setPassword] = React.useState("");
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
 
-    const {isAuthenticated, error, login} = useContext(AuthContext);
+  const { isAuthenticated, error, login } = useContext(AuthContext);
 
-    useEffect(() => {
-        if(error){
-            console.log(error);
-        }
-
-        if(isAuthenticated){
-            Router.push("/dashboards");
-        }
-    },[error, isAuthenticated]);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(username, password);
-        login(username, password);
+  useEffect(() => {
+    if (error) {
+      console.log(error);
     }
 
+    if (isAuthenticated) {
+      Router.push("/home");
+    }
+  }, [error, isAuthenticated]);
 
-    return (
-        <Wrapper>
-                <div className="container">
-                    <div className="modal">
-                        <div className="modal-container">
-                            <div className="modal-left">
-                                <Grid item paddingBottom={4} paddingLeft={1}>
-                                    <Typography variant="h3" component="h3" gutterBottom>
-                                        Welcome!
-                                    </Typography>
-                                    <Typography variant="subtitle2">
-                                        To the startic field website an eco-system for startup.
-                                    </Typography>
-                                </Grid>
-                                <Box
-                                    component="form"
-                                    sx={{
-                                        "& .MuiTextField-root": { m: 1, width: "97%" },
-                                    }}
-                                    noValidate
-                                    autoComplete="off"
-                                >
-                                    <TextField
-                                        required
-                                        label="username"
-                                        type="username"
-                                        autoComplete="off"
-                                        name="username"
-                                        id="username"
-                                        placeholder="username"
-                                        onChange={(e) => setUsername(e.target.value)}
-                                    />
-                                    <TextField
-                                        required
-                                        label="password"
-                                        type="password"
-                                        autoComplete="off"
-                                        name="password"
-                                        id="password"
-                                        placeholder="Password"
-                                        onChange={(e) => setPassword(e.target.value)}
-                                    />
-                                </Box>
-                                <Box
-                                    display={"flex"}
-                                    justifyContent={"space-between"}
-                                    alignItems={"center"}
-                                    mt={2}
-                                    mb={2}
-                                    ml={1}
-                                >
-                                    <Button
-                                        variant="contained"
-                                        color={"secondary"}
-                                        endIcon={<Google />}
-                                        style={{opacity: 0, pointerEvents: "none"}}
-                                    >
-                                        Google
-                                    </Button>
-                                    <Button
-                                        variant="contained"
-                                        type="submit"
-                                        onClick={(e) => {
-                                           handleSubmit(e);
-                                        }}
-                                    >
-                                        Log in
-                                    </Button>
-                                </Box>
-                                <Box
-                                    display={"flex"}
-                                    justifyContent={"center"}
-                                    alignItems={"center"}
-                                    mt={6}
-                                >
-                                    {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                    Don't have an account? <Button
-                                    onClick={() => {
-                                        handleSubmit();
-                                    }}
-                                >Sign In</Button>
-                                </Box>
-                            </div>
-                            <div className="modal-right">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    src="/static/images/placeholders/covers/right_side.jpg"
-                                    alt=""
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </Wrapper>
-    );
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(username, password);
+    login(username, password);
+  }
+
+
+  return (
+    <Wrapper>
+      <div className="container">
+        <div className="modal">
+          <div className="modal-container">
+            <div className="modal-left">
+              <Grid item paddingBottom={4} paddingLeft={1}>
+                <Typography variant="h3" component="h3" gutterBottom>
+                  Welcome!
+                </Typography>
+                <Typography variant="subtitle2">
+                  To the startic field website an eco-system for startup.
+                </Typography>
+              </Grid>
+              <Box
+                component="form"
+                sx={{
+                  "& .MuiTextField-root": { m: 1, width: "97%" },
+                }}
+                noValidate
+                autoComplete="off"
+              >
+                <TextField
+                  required
+                  label="username"
+                  type="username"
+                  autoComplete="off"
+                  name="username"
+                  id="username"
+                  placeholder="username"
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+                <TextField
+                  required
+                  label="password"
+                  type="password"
+                  autoComplete="off"
+                  name="password"
+                  id="password"
+                  placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Box>
+              <Box
+                display={"flex"}
+                justifyContent={"space-between"}
+                alignItems={"center"}
+                mt={2}
+                mb={2}
+                ml={1}
+              >
+                <Button
+                  variant="contained"
+                  color={"secondary"}
+                  endIcon={<Google />}
+                  style={{ opacity: 0, pointerEvents: "none" }}
+                >
+                  Google
+                </Button>
+                <Button
+                  variant="contained"
+                  type="submit"
+                  onClick={(e) => {
+                    handleSubmit(e);
+                  }}
+                >
+                  Log in
+                </Button>
+              </Box>
+              <Box
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                mt={6}
+              >
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
+                Don't have an account? <Button
+                  onClick={() => {
+                    handleSubmit();
+                  }}
+                >Sign In</Button>
+              </Box>
+            </div>
+            <div className="modal-right">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/static/images/placeholders/covers/right_side.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  );
 };
 
 export default Login;
