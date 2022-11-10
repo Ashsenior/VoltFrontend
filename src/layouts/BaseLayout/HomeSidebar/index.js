@@ -57,6 +57,7 @@ function Sidebar() {
             >
                 <Scrollbar>
                     <Box margin={0} >
+                        <center>
                         <Box
                             margin={0}
                             sx={{
@@ -68,11 +69,12 @@ function Sidebar() {
                         >
                             <Logo />
                             <Link href={'/'}>
-                                <Typography variant="h3" marginLeft={6} >
-                                    Startic Field
+                                <Typography variant="h3" marginLeft={0} >
+                                    Volt
                                 </Typography>
                             </Link>
                         </Box>
+                        </center>
                     </Box>
                     <HomeSidebarMenu />
                 </Scrollbar>
@@ -120,8 +122,8 @@ function Sidebar() {
                             >
                                 <Logo />
                                 <Link href={'/'}>
-                                    <Typography variant="h3" marginLeft={6} >
-                                        Startic Field
+                                    <Typography variant="h3" marginLeft={0} >
+                                        Volt
                                     </Typography>
                                 </Link>
                             </Box>

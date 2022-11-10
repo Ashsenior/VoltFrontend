@@ -22,15 +22,21 @@ export const AuthProvider = ({ children }) => {
                 headers: { 'Content-Type': 'application/json' }
             });
             const data = await res.json();
-            if (res.status === 200) {
-                setAuthTokens(data)
-                setIsAuthenticated(true);
-                setError(null);
-                setUser(jwt_decode(data.access));
-                console.log(jwt_decode(data.access));
-                await Router.push("/dashboards");
+            if (res!==undefined){
+                if (res.status === 200) {
+                    if (typeof window !== "undefined") {
+                        console.log(data);
+                        localStorage.setItem('access_token', data.access);
+                        localStorage.setItem('refresh_token', data.refresh);
+                        localStorage.setItem('username', username);
+                        axiosInstance.defaults.headers['Authorization'] = "JWT " + data.access;
+                        await Router.push("/home");
+                    }
+                }
             }
-
+            else {
+                setMessage("Incorrect username or password!")
+            }
         } catch (error) {
             setError(error.response && (error.response.data.detail || error.response.data.error));
             console.log(error);
