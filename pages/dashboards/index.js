@@ -7,18 +7,27 @@ import Footer from 'src/components/Footer';
 import Points from 'src/content/Dashboards/Crypto/Points';
 
 import AuthContext from "../../context/AuthContext";
-import {useContext, useEffect} from "react";
+import {useContext, useEffect, useState} from "react";
 import {useRouter} from "next/router";
 
 
 function DashboardCrypto() {
     const router = useRouter()
-    const {isAuthenticated} = useContext(AuthContext);
+    const [username, setUsername] = useState("");
     useEffect(() => {
-        if(!isAuthenticated){
-            router.push("/");
-        }
-    });
+      var access_token = localStorage.getItem("access_token");
+      var refresh_token = localStorage.getItem("refresh_token");
+      if (access_token && refresh_token){
+        setUsername(localStorage.getItem("username"));
+        //getUserData();
+      }
+      else {
+        router.push({
+          pathname: "/",
+          query: {"message": "Not authenticated !"}
+        });
+      }
+    }, []);
 
 
   return (

@@ -18,6 +18,9 @@ import { Biotech, Home } from "@mui/icons-material";
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 
 const MenuWrapper = styled(Box)(
     ({ theme }) => `
@@ -184,7 +187,7 @@ function SidebarMenu() {
                                 <NextLink href="/dashboards" passHref>
                                     <Button
                                         className={
-                                            currentRoute === '/dashboards' ? 'active' : ''
+                                            currentRoute === '/home' ? 'active' : ''
                                         }
                                         disableRipple
                                         component="a"
@@ -232,9 +235,9 @@ function SidebarMenu() {
                                         disableRipple
                                         component="a"
                                         onClick={closeSidebar}
-                                        startIcon={<PsychologyIcon />}
+                                        startIcon={<PeopleAltIcon sx={{ color: "white" }} />}
                                     >
-                                        Strategy Module
+                                        Invite Friends
                                     </Button>
                                 </NextLink>
                             </ListItem>
@@ -247,9 +250,9 @@ function SidebarMenu() {
                                         disableRipple
                                         component="a"
                                         onClick={closeSidebar}
-                                        startIcon={<Biotech />}
+                                        startIcon={<NewspaperIcon sx={{ color: "white" }} />}
                                     >
-                                        Research Module
+                                        Blogs
                                     </Button>
                                 </NextLink>
                             </ListItem>
@@ -262,24 +265,9 @@ function SidebarMenu() {
                                         disableRipple
                                         component="a"
                                         onClick={closeSidebar}
-                                        startIcon={<LocalGroceryStoreIcon />}
+                                        startIcon={<WorkspacePremiumIcon sx={{ color: "white" }} />}
                                     >
-                                        Marketing Module
-                                    </Button>
-                                </NextLink>
-                            </ListItem>
-                            <ListItem component="div">
-                                <NextLink href="/module/sales" passHref>
-                                    <Button
-                                        className={
-                                            currentRoute === '/module/sales' ? 'active' : ''
-                                        }
-                                        disableRipple
-                                        component="a"
-                                        onClick={closeSidebar}
-                                        startIcon={<MonetizationOnIcon />}
-                                    >
-                                        Sales Module
+                                        Request Mentor Status
                                     </Button>
                                 </NextLink>
                             </ListItem>

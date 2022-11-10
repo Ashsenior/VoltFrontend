@@ -1,5 +1,5 @@
 import Router from 'next/router';
-import '../styles/globals.css'
+import '../styles/globals.css';
 import nProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import ThemeProvider from 'src/theme/ThemeProvider';

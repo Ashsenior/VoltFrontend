@@ -288,6 +288,15 @@ function TabsDemo() {
                                                     ))}
                                                 </TextField>
                                             </div>
+                                            <TextField
+                                                id="outlined-multiline-static"
+                                                label="Invite your teamates"
+                                                multiline
+                                                style={{width: "100%"}}
+                                                minRows={8}
+                                                placeholder="Write emails of your teamates with commas ex: something@somewhere.com, "
+                                                onChange={handleidea}
+                                            />
                                         </Box>
                                     </TabPanel>
                                     <TabPanel value={value} index={1}>
@@ -464,7 +473,7 @@ function TabsDemo() {
                                             Previous
                                         </Button>
                                         <Button
-                                            sx={{ margin: 1 }}
+                                            sx={{ margin: 1, bgcolor: "blue" }}
                                             variant="contained"
                                             color={value===3?"success":"secondary"}
                                             onClick={() => {
