@@ -7,18 +7,19 @@ import Footer from 'src/components/Footer';
 import Points from 'src/content/Dashboards/Crypto/Points';
 
 import AuthContext from "../../context/AuthContext";
-import {useContext, useEffect} from "react";
-import {useRouter} from "next/router";
+import { useContext, useEffect } from "react";
+import { useRouter } from "next/router";
+import Meetings from './Meetings/Meetings';
 
 
 function DashboardCrypto() {
-    const router = useRouter()
-    const {isAuthenticated} = useContext(AuthContext);
-    useEffect(() => {
-        if(!isAuthenticated){
-            router.push("/");
-        }
-    });
+  const router = useRouter()
+  // const { isAuthenticated } = useContext(AuthContext);
+  // useEffect(() => {
+  //   if (!isAuthenticated) {
+  //     router.push("/");
+  //   }
+  // });
 
 
   return (
@@ -39,6 +40,10 @@ function DashboardCrypto() {
           </Grid>
         </Grid>
       </Container>
+      {/* Meeting Cards */}
+
+      <Meetings></Meetings>
+
       <Footer />
     </>
   );
