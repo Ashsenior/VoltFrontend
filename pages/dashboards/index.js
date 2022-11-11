@@ -7,12 +7,20 @@ import Footer from 'src/components/Footer';
 import Points from 'src/content/Dashboards/Crypto/Points';
 
 import AuthContext from "../../context/AuthContext";
+<<<<<<< HEAD
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Meetings from './Meetings/Meetings';
 import Idea from './Idea/Idea';
 import TargetAudience from './TargetAudience/TargetAudience';
 import EditModal from './EditModal/EditModal';
+=======
+import { useContext, useEffect } from "react";
+import { useRouter } from "next/router";
+import Meetings from './Meetings/Meetings';
+
+import { useState } from "react";
+>>>>>>> 5895218d271ed3eb378dbc8b4e41734cfdbe8f67
 
 function DashboardCrypto() {
   const router = useRouter()

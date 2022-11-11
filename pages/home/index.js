@@ -21,10 +21,10 @@ const Home = () => {
                 </div>
             </div>
             {/* Fine Startup Searchbar */}
-            <div className='w-8/12 flex items-center justify-center gap-2 mx-auto mt-10'>
+            {/*<div className='w-8/12 flex items-center justify-center gap-2 mx-auto mt-10'>
                 <input className='text-xl p-3 pl-6 w-full bg-white rounded-full focus:outline-white shadow-lg' type="search" name="searchStartup" id="" placeholder='Find Startups' />
                 <FiSearch className='text-4xl text-indigo-500 cursor-pointer'></FiSearch>
-            </div>
+            </div>*/}
             {/* Startups Card Section Title */}
             <div className='w-11/12 mx-auto mt-6 flex items-center justify-start gap-2'>
                 <h1 className='text-l font-semibold'>Your Startups</h1>
@@ -41,7 +41,7 @@ const Home = () => {
                 <div className='h-0.5 w-10 bg-indigo-500 rounded-full mt-2'></div>
             </div>
             {/* All startup Cards */}
-            <div className='grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2'>
+            <div className='grid grid-cols-1 md:grid-cols-1 xl:grid-cols-1'>
 
                 <StartupCard />
                 <StartupCard />
