@@ -7,24 +7,11 @@ import Footer from 'src/components/Footer';
 import Points from 'src/content/Dashboards/Crypto/Points';
 
 import AuthContext from "../../context/AuthContext";
-import { useContext, useEffect } from "react";
-import { useRouter } from "next/router";
-import Meetings from './Meetings/Meetings';
-
-
-function DashboardCrypto() {
-  const router = useRouter()
-  const { isAuthenticated } = useContext(AuthContext);
-  useEffect(() => {
-    if (!isAuthenticated) {
-      router.push("/");
-    }
-  });
-}
-
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
-
+import Meetings from './Meetings/Meetings';
+import Idea from './Idea/Idea';
+import TargetAudience from './TargetAudience/TargetAudience';
 
 function DashboardCrypto() {
   const router = useRouter()
@@ -63,9 +50,24 @@ function DashboardCrypto() {
           </Grid>
         </Grid>
       </Container>
+
       {/* Meeting Cards */}
 
-      <Meetings></Meetings>
+      <Container maxWidth="lg">
+        <Meetings />
+      </Container>
+
+
+      {/* Idea and Selling Point card */}
+      <Container maxWidth="lg">
+        <Idea />
+      </Container>
+      {/* Target Audience */}
+
+      {/* Idea and Selling Point card */}
+      <Container maxWidth="lg">
+        <TargetAudience />
+      </Container>
 
       <Footer />
     </>
