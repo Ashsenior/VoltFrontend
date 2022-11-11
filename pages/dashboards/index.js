@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import Meetings from './Meetings/Meetings';
 import Idea from './Idea/Idea';
 import TargetAudience from './TargetAudience/TargetAudience';
+import EditModal from './EditModal/EditModal';
 
 function DashboardCrypto() {
   const router = useRouter()
@@ -37,6 +38,11 @@ function DashboardCrypto() {
       <Head>
         <title>Dashboard</title>
       </Head>
+      {/* Edit startup modal */}
+
+      <EditModal />
+
+      {/* Chart */}
       <Container maxWidth="lg">
         <Grid
           container

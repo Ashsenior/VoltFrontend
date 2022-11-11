@@ -5,6 +5,7 @@ module.exports = {
     './pages/dashboards/Meetings/*.{js,ts,jsx,tsx}',
     './pages/dashboards/Idea/*.{js,ts,jsx,tsx}',
     './pages/dashboards/TargetAudience/*.{js,ts,jsx,tsx}',
+    './pages/dashboards/EditModal/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {},
