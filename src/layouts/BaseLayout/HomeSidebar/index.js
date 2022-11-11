@@ -69,7 +69,7 @@ function Sidebar() {
                         >
                             <Logo />
                             <Link href={'/'}>
-                                <Typography variant="h3" marginLeft={0} >
+                                <Typography style={{fontFamily: "monospace"}} variant="h3" marginLeft={0} >
                                     Volt
                                 </Typography>
                             </Link>

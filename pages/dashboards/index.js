@@ -11,20 +11,7 @@ import { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import Meetings from './Meetings/Meetings';
 
-
-function DashboardCrypto() {
-  const router = useRouter()
-  const { isAuthenticated } = useContext(AuthContext);
-  useEffect(() => {
-    if (!isAuthenticated) {
-      router.push("/");
-    }
-  });
-}
-
-import { useContext, useEffect, useState } from "react";
-import { useRouter } from "next/router";
-
+import { useState } from "react";
 
 function DashboardCrypto() {
   const router = useRouter()

@@ -36,8 +36,8 @@ const ListItemAvatarWrapper = styled(ListItemAvatar)(
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: ${theme.spacing(1)};
-  padding: ${theme.spacing(0.5)};
+  margin-right: ${theme.spacing(8)};
+  padding: ${theme.spacing(0)};
   border-radius: 60px;
   background: ${
     theme.palette.mode === 'dark'
@@ -131,22 +131,22 @@ function Points() {
   return (
     <Card>
       <Grid spacing={0} container>
-        <Grid item xs={12} md={6}>
-          <Box p={4}>
+        <Grid item xs={0} md={0}>
+          <Box p={2}>
             <Typography
               sx={{
-                pb: 3
+                pb: 1
               }}
               variant="h4"
             >
               Points Scored
             </Typography>
             <Box>
-              <Typography variant="h1" gutterBottom>
+              <Typography variant="h3" gutterBottom>
                 54,584
               </Typography>
               <Typography
-                variant="h4"
+                variant="h5"
                 fontWeight="normal"
                 color="text.secondary"
               >
@@ -155,7 +155,7 @@ function Points() {
               <Box
                 display="flex"
                 sx={{
-                  py: 4
+                  py: 1
                 }}
                 alignItems="center"
               >
@@ -177,7 +177,7 @@ function Points() {
             </Box>
             <Grid container spacing={3}>
               <Grid sm item>
-                <Button fullWidth color={'error'} variant="contained" onClick={()=>{
+                <Button fullWidth color={'error'} onClick={()=>{
                   Router.push('/module/sales');
                 }}>
                   Focus on Sales
@@ -303,6 +303,54 @@ function Points() {
                     </Box>
                   </ListItem>
                 </List>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={0} md={0}>
+          <Box p={2}>
+            <Typography
+              sx={{
+                pb: 1
+              }}
+              variant="h4"
+            >
+              Total Expenses
+            </Typography>
+            <Box>
+              <Typography variant="h3" gutterBottom>
+                ₹ 1,40,584
+              </Typography>
+              
+              <Box
+                display="flex"
+                sx={{
+                  py: 1
+                }}
+                alignItems="center"
+              >
+                <Box>
+                  <Typography variant="h4">- ₹ 1,594</Typography>
+                  <Typography variant="subtitle2" noWrap>
+                    this month
+                  </Typography>
+                </Box>
+                <Box>
+                  <Typography variant="h4">+ ₹ 3,594</Typography>
+                  <Typography variant="subtitle2" noWrap>
+                    this month
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+            <Grid container spacing={3}>
+              <Grid sm item>
+                <Button fullWidth color={'error'} onClick={()=>{
+                  Router.push('/module/sales');
+                }}>
+                  Limit your Expenses
+                </Button>
               </Grid>
             </Grid>
           </Box>
