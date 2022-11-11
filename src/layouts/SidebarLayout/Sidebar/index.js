@@ -68,7 +68,7 @@ function Sidebar() {
             >
               <Logo />
               <Link href={'/'}>
-                <Typography variant="h3" marginLeft={6} >
+                <Typography variant="h3" marginLeft={2} >
                   Startic Field
                 </Typography>
               </Link>
@@ -120,7 +120,7 @@ function Sidebar() {
               >
                 <Logo />
                 <Link href={'/'}>
-                  <Typography variant="h3" marginLeft={6} >
+                  <Typography variant="h3" marginLeft={2} >
                     Startic Field
                   </Typography>
                 </Link>
