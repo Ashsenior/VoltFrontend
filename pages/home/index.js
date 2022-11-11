@@ -4,6 +4,7 @@ import { FiSearch } from 'react-icons/fi';
 
 import BaseLayout from 'src/layouts/BaseLayout';
 import StartupCard from './StartupCard';
+import Head from 'next/head';
 
 const Home = () => {
     return (
