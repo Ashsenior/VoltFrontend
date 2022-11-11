@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext } from 'react';
 import Router from "next/router";
 import jwt_decode from "jwt-decode";
+import axiosInstance from 'src/axiosAPi';
 
 const AuthContext = createContext();
 import axiosInstance from 'src/axiosAPi';
@@ -22,7 +23,7 @@ export const AuthProvider = ({ children }) => {
                 headers: { 'Content-Type': 'application/json' }
             });
             const data = await res.json();
-            if (res!==undefined){
+            if (res !== undefined) {
                 if (res.status === 200) {
                     if (typeof window !== "undefined") {
                         console.log(data);

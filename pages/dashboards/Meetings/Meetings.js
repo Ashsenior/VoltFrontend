@@ -6,7 +6,8 @@ import CreateMeetingModal from './CreateMeetingModal';
 
 const Meetings = () => {
     return (
-        <div className='mt-6 mx-auto ml-10'>
+
+        <div className='mt-6 mx-auto'>
             {/* The button to open modal */}
 
             <CreateMeetingModal></CreateMeetingModal>
