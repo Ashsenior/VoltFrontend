@@ -4,7 +4,6 @@ import jwt_decode from "jwt-decode";
 import axiosInstance from 'src/axiosAPi';
 
 const AuthContext = createContext();
-import axiosInstance from 'src/axiosAPi';
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState('null');
     const [error, setError] = useState(null);
