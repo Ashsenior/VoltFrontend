@@ -47,6 +47,7 @@ const SidebarLayout = ({ children }) => {
             position: 'relative',
             zIndex: 5,
             display: 'block',
+            bgcolor: "aliceblue",
             flex: 1,
             pt: `${theme.header.height}`,
             [theme.breakpoints.up('lg')]: {

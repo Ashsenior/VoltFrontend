@@ -8,7 +8,7 @@ const SellingPointsCard = () => {
             {/* Put this part before </body> tag */}
 
 
-            <div className="card card-compact w-full bg-white rounded-lg shadow-lg hover:shadow-xl">
+            <div className="card card-compact w-full stats rounded-lg stats-vertical lg:stats-horizontal shadow-lg">
                 <div className="card-body">
                     <h4 className='text-xl font-semibold'>Unique Selling Points</h4>
                     <ul>
