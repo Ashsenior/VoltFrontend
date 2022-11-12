@@ -1,25 +1,25 @@
 import Head from 'next/head';
-
 import SidebarLayout from 'src/layouts/SidebarLayout';
 import { Container } from '@mui/material';
 import Footer from 'src/components/Footer';
-import StrategyHome from './strategy/StrategyHome';
+import NewStrategy from '../module/create_strategy/NewStrategy';
 
-function StrategyModule() {
+function CreateStrategy() {
     return (
         <>
             <Head>
-                <title>Strategy Module</title>
+                <title>Create Strategy</title>
             </Head>
-            <StrategyHome></StrategyHome>
+
 
             <Container maxWidth="lg">
+                <NewStrategy></NewStrategy>
             </Container>
             <Footer />
         </>
     );
 }
 
-StrategyModule.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
+CreateStrategy.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
 
-export default StrategyModule;
+export default CreateStrategy;
