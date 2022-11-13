@@ -51,11 +51,38 @@ const EditStrategies = () => {
                     >
                         <Typography>Marketing 3</Typography>
                     </AccordionSummary>
+<<<<<<< HEAD
                     <AccordionDetails className='text-base-200 bg-gray-200'>
                         <Typography>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                             malesuada lacus ex, sit amet blandit leo lobortis eget.
                         </Typography>
+=======
+                    <AccordionDetails>
+                        <h1 className='text-base font-bold'>Major</h1>
+                        <div className='border-b-2'>
+                            < div className='flex items-center justify-between' >
+                                <Link to='/create_startups' className='font-semibold text-base no-underline cursor-pointer'>Name Of Strategy <small className='text-black'>01/07/2022</small></Link>
+                                <h4><span>5</span> Tabs</h4>
+                            </div >
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta facere quisquam harum voluptate voluptas sed consectetur! Eum aspernatur, odio maxime quisquam culpa aut odit possimus tempore ullam architecto cum, minus soluta facere saepe alias, placeat blanditiis consectetur doloribus neque. Veritatis at culpa libero excepturi illo?</p>
+                        </div>
+                        <div className='border-b-2'>
+                            < div className='flex items-center justify-between' >
+                                <Link to='/create_startups' className='font-semibold text-base no-underline cursor-pointer'>Name Of Strategy <small className='text-black'>01/07/2022</small></Link>
+                                <h4><span>5</span> Tabs</h4>
+                            </div >
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta facere quisquam harum voluptate voluptas sed consectetur! Eum aspernatur, odio maxime quisquam culpa aut odit possimus tempore ullam architecto cum, minus soluta facere saepe alias, placeat blanditiis consectetur doloribus neque. Veritatis at culpa libero excepturi illo?</p>
+                        </div>
+                        <h1 className='text-base font-bold'>Minor</h1>
+                        <div className='border-b-2'>
+                            < div className='flex items-center justify-between' >
+                                <Link to='/create_startups' className='font-semibold text-base no-underline cursor-pointer'>Name Of Strategy <small className='text-black'>01/07/2022</small></Link>
+                                <h4><span>5</span> Tabs</h4>
+                            </div >
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta facere quisquam harum voluptate voluptas sed consectetur! Eum aspernatur, odio maxime quisquam culpa aut odit possimus tempore ullam architecto cum, minus soluta facere saepe alias, placeat blanditiis consectetur doloribus neque. Veritatis at culpa libero excepturi illo?</p>
+                        </div>
+>>>>>>> 03165d993b181790caf4f4e4512bdccde1c5d266
                     </AccordionDetails>
                 </Accordion>
                 <Accordion className='bg-base-200 text-white'>
@@ -66,11 +93,31 @@ const EditStrategies = () => {
                     >
                         <Typography>Sales 2</Typography>
                     </AccordionSummary>
+<<<<<<< HEAD
                     <AccordionDetails className='text-base-200 bg-gray-200'>
                         <Typography>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                             malesuada lacus ex, sit amet blandit leo lobortis eget.
                         </Typography>
+=======
+                    <AccordionDetails>
+                        <h1 className='text-base font-bold'>Major</h1>
+                        <div className='border-b-2'>
+                            < div className='flex items-center justify-between' >
+                                <Link to='/create_startups' className='font-semibold text-base no-underline cursor-pointer'>Name Of Strategy <small className='text-black'>01/07/2022</small></Link>
+                                <h4><span>5</span> Tabs</h4>
+                            </div >
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta facere quisquam harum voluptate voluptas sed consectetur! Eum aspernatur, odio maxime quisquam culpa aut odit possimus tempore ullam architecto cum, minus soluta facere saepe alias, placeat blanditiis consectetur doloribus neque. Veritatis at culpa libero excepturi illo?</p>
+                        </div>
+                        <h1 className='text-base font-bold'>Minor</h1>
+                        <div className='border-b-2'>
+                            < div className='flex items-center justify-between' >
+                                <Link to='/create_startups' className='font-semibold text-base no-underline cursor-pointer'>Name Of Strategy <small className='text-black'>01/07/2022</small></Link>
+                                <h4><span>5</span> Tabs</h4>
+                            </div >
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta facere quisquam harum voluptate voluptas sed consectetur! Eum aspernatur, odio maxime quisquam culpa aut odit possimus tempore ullam architecto cum, minus soluta facere saepe alias, placeat blanditiis consectetur doloribus neque. Veritatis at culpa libero excepturi illo?</p>
+                        </div>
+>>>>>>> 03165d993b181790caf4f4e4512bdccde1c5d266
                     </AccordionDetails>
                 </Accordion>
                 <Accordion className='bg-base-200 text-white'>
@@ -81,11 +128,23 @@ const EditStrategies = () => {
                     >
                         <Typography>Researchers 1</Typography>
                     </AccordionSummary>
+<<<<<<< HEAD
                     <AccordionDetails className='text-base-200 bg-gray-200'>
                         <Typography>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                             malesuada lacus ex, sit amet blandit leo lobortis eget.
                         </Typography>
+=======
+                    <AccordionDetails>
+                        <h1 className='text-base font-bold'>Major</h1>
+                        <div className='border-b-2'>
+                            < div className='flex items-center justify-between' >
+                                <Link to='/create_startups' className='font-semibold text-base no-underline cursor-pointer'>Name Of Strategy <small className='text-black'>01/07/2022</small></Link>
+                                <h4><span>5</span> Tabs</h4>
+                            </div >
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta facere quisquam harum voluptate voluptas sed consectetur! Eum aspernatur, odio maxime quisquam culpa aut odit possimus tempore ullam architecto cum, minus soluta facere saepe alias, placeat blanditiis consectetur doloribus neque. Veritatis at culpa libero excepturi illo?</p>
+                        </div>
+>>>>>>> 03165d993b181790caf4f4e4512bdccde1c5d266
                     </AccordionDetails>
                 </Accordion>
 
