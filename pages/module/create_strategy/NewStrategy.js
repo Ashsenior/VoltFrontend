@@ -19,7 +19,7 @@ const NewStrategy = () => {
         <div className='mt-6'>
             <div>
                 <h1 className='text-2xl font-semibold text-center'>New Strategy</h1>
-                <h4 className='p-3 bg-white rounded-lg mt-4 text-center'>Here is the new Strategy</h4>
+                <TextField className='mt-4' fullWidth label="Strategy Name" id="fullWidth" />
             </div>
 
             <div className="form-control mt-4">
@@ -46,7 +46,7 @@ const NewStrategy = () => {
                 <div className="form-control mt-4">
                     <div className="rounded-l-lg">
                         <select className="select">
-                            <option disabled selected>Leader</option>
+                            <option disabled selected>Header</option>
                             <option>One</option>
                             <option>Two</option>
                         </select>
