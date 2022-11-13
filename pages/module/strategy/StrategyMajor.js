@@ -37,11 +37,11 @@ const positions = [
 
 const StrategyMajor = () => {
     return (
-        <div className="bg-gray-50 shadow overflow-hidden sm:rounded-md">
+        <div className="bg-white shadow overflow-hidden">
         <ul role="list" className="divide-y divide-gray-200">
             {positions.map((position) => (
             <li key={position.id}>
-                <a href="#" className="border-l-8 border-green-200 block hover:bg-gray-100">
+                <a href="#" className="border-l-x-4 border-green-200 block hover:bg-gray-100">
                 <div className="px-3 py-3 sm:px-3">
                     <div className="flex items-center justify-between">
                     <p className="text-lg font-medium text-indigo-600 truncate"> {position.title}</p>
@@ -67,7 +67,7 @@ const StrategyMajor = () => {
                             </h3>
                             <h3 className='flex items-center rounded-lg p-1'>
                             <Button
-                                className='text-black bg-gray-100'
+                                className='text-green-700 bg-green-50'
                                 disableRipple
                                 component="a"
                                 startIcon={<MonetizationOnIcon />}
@@ -77,7 +77,7 @@ const StrategyMajor = () => {
                             </h3>
                             <h3 className='flex items-center rounded-lg p-1'>
                             <Button
-                                className='text-indigo-700 bg-indigo-50'
+                                className='text-green-700 bg-green-50'
                                 disableRipple
                                 component="a"
                                 startIcon={<Biotech />}
