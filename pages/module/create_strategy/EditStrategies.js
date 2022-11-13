@@ -10,73 +10,78 @@ const EditStrategies = () => {
                 <h1 className='text-xl font-semibold'>Strategy Name (Major)</h1>
                 <Link to="" type='button' className='btn btn-sm'>In Progress</Link>
             </div>
-            <small>lead <span className='text-blue-500'>@username</span></small>
+            <medium>Strategy leader 
+                <p className="px-2 inline-flex text-sm leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                @ashsenior
+                </p></medium>
             <h4>Start Date: <span>11/12/2022</span></h4>
-            <div className='mt-6'>
-                <h4 className='text-base font-semibold'>Customers</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, mollitia est nihil laudantium explicabo itaque omnis impedit fugiat officiis, voluptas, aut saepe voluptates odio praesentium recusandae velit? Debitis dignissimos nesciunt eos qui! Blanditiis nisi id esse omnis, consectetur modi nulla sit sunt! Reiciendis illo explicabo laboriosam voluptates consequuntur vel quas corporis, at quis quos? Laboriosam cum ipsum aspernatur similique, asperiores autem quam vero. Commodi magnam, ex modi fuga doloribus a vel quas tenetur, quam facilis laborum voluptatum nulla! Culpa itaque quas fugit, repellendus sit excepturi deserunt enim alias, ratione maiores voluptatum fuga quaerat tenetur. Hic optio architecto dolor doloribus recusandae.</p>
-            </div>
-            <div className='mt-6'>
-                <h4 className='text-base font-semibold'>Strategy Description</h4>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem, optio unde! Inventore repudiandae magni sed porro maiores omnis possimus eos voluptatem aliquam aperiam ex quos velit fugiat voluptatum, vel suscipit distinctio est perspiciatis quam earum nisi facere! Saepe fuga accusantium velit voluptate ea necessitatibus repellat reiciendis qui tempora ad. Exercitationem omnis mollitia consequuntur quaerat non! Quis soluta ex at numquam suscipit illum rerum, ipsa, earum laboriosam nobis velit quia placeat reprehenderit, officiis quo ut porro distinctio optio accusantium praesentium? Dolor, molestias corrupti, eos laudantium assumenda ullam voluptates rerum dignissimos quam, officia dolorem? Placeat nesciunt, deserunt impedit est totam repellat ut soluta nam at vel nemo molestiae sunt excepturi incidunt delectus minima doloribus, asperiores aperiam culpa? Aut dignissimos odit magni vel. Eveniet eum tempore officia natus? Error voluptatibus, recusandae ut rem odit accusantium perspiciatis provident doloremque quae veniam architecto repudiandae sequi eum consequatur nesciunt possimus. Tenetur perspiciatis deleniti ab nesciunt fugit.</p>
+            <div className='grid grid-cols-1 xl:grid-cols-2 p-3' >
+                <div className='mt-6'>
+                    <h4 className='text-lg font-semibold'>Customer it impacts</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, mollitia est nihil laudantium explicabo itaque omnis impedit fugiat officiis, voluptas, aut saepe voluptates odio praesentium recusandae velit? Debitis dignissimos nesciunt eos qui! Blanditiis nisi id esse omnis, consectetur modi nulla sit sunt! Reiciendis illo explicabo laboriosam voluptates consequuntur vel quas corporis.</p>
+                </div>
+                <div className='mt-6'>
+                    <h4 className='text-lg font-semibold'>Strategy description</h4>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem, optio unde! Inventore repudiandae magni sed porro maiores omnis possimus eos voluptatem aliquam aperiam ex quos velit fugiat voluptatum, vel suscipit distinctio est perspiciatis quam earum nisi facere! Saepe fuga accusantium velit voluptate ea necessitatibus repellat reiciendis qui tempora ad. Exercitationem omnis mollitia consequuntur quaerat non! Quis soluta ex at numquam suscipit illum rerum, ipsa, earum laboriosam nobis velit quia placeat reprehenderit, officiis quo ut porro distinctio optio accusantium praesentium? Dolor, molestias corrupti, eos laudantium assumenda ullam voluptates rerum dignissimos quam.</p>
+                </div>
             </div>
             <div className='mt-6'>
                 <h4 className='text-base font-semibold'>Success Metrics</h4>
-                <div className='flex gap-4'>
-                    <div className=' p-1 rounded-lg flex items-center justify-center'>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quis id, ut nulla similique dolor voluptatum nobis cum alias rem?</p>
+                <div className='flex gap-4 text-sm'>
+                    <div className=' p-2 rounded-xl bg-green-100 text-green-700 flex items-center justify-center'>
+                        <p>1,200 Likes</p>
                     </div>
-                    <div className=' p-1 rounded-lg flex items-center justify-center'>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quis id, ut nulla similique dolor voluptatum nobis cum alias rem?</p>
+                    <div className=' p-2 rounded-xl bg-yellow-100 text-yellow-700 flex items-center justify-center'>
+                        <p>1,200 Likes</p>
                     </div>
-                    <div className=' p-1 rounded-lg flex items-center justify-center'>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quis id, ut nulla similique dolor voluptatum nobis cum alias rem?</p>
+                    <div className=' p-2 rounded-xl bg-red-100 text-red-700 flex items-center justify-center'>
+                        <p>1,200 Likes</p>
                     </div>
 
                 </div>
             </div>
             {/* Accordion for Marketing Sales Researchers */}
 
-            <div className='mt-6'>
-                <Accordion className='bg-base-200'>
+            <div className='mt-6 text-white'>
+                <Accordion className='bg-base-200 text-white'>
                     <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
+                        expandIcon={<ExpandMoreIcon className="text-white" />}
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                     >
                         <Typography>Marketing 3</Typography>
                     </AccordionSummary>
-                    <AccordionDetails>
+                    <AccordionDetails className='text-base-200 bg-gray-200'>
                         <Typography>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                             malesuada lacus ex, sit amet blandit leo lobortis eget.
                         </Typography>
                     </AccordionDetails>
                 </Accordion>
-                <Accordion className='bg-base-200'>
+                <Accordion className='bg-base-200 text-white'>
                     <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
+                        expandIcon={<ExpandMoreIcon className="text-white" />}
                         aria-controls="panel2a-content"
                         id="panel2a-header"
                     >
                         <Typography>Sales 2</Typography>
                     </AccordionSummary>
-                    <AccordionDetails>
+                    <AccordionDetails className='text-base-200 bg-gray-200'>
                         <Typography>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                             malesuada lacus ex, sit amet blandit leo lobortis eget.
                         </Typography>
                     </AccordionDetails>
                 </Accordion>
-                <Accordion className='bg-base-200'>
+                <Accordion className='bg-base-200 text-white'>
                     <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
+                        expandIcon={<ExpandMoreIcon className="text-white" />}
                         aria-controls="panel2a-content"
                         id="panel2a-header"
                     >
                         <Typography>Researchers 1</Typography>
                     </AccordionSummary>
-                    <AccordionDetails>
+                    <AccordionDetails className='text-base-200 bg-gray-200'>
                         <Typography>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                             malesuada lacus ex, sit amet blandit leo lobortis eget.
