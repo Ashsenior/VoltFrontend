@@ -8,10 +8,10 @@ const Idea = () => {
 
         <div className='mt-10 mx-auto'>
             <Grid container spacing={2}>
-                <Grid xs={12} md={6} lg={8}>
+                <Grid xs={12} md={6} lg={6}>
                     <IdeaCard></IdeaCard>
                 </Grid>
-                <Grid xs={12} md={6} lg={4}>
+                <Grid xs={12} md={6} lg={6}>
                     <SellingPointsCard></SellingPointsCard>
                 </Grid>
             </Grid>

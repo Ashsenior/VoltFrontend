@@ -2,12 +2,12 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { DatePicker } from "@mui/lab";
 import {
-    Container,
+    Checkbox,
     Grid,
     Card,
     CardHeader,
     CardContent,
-    Divider, Button, TextField, MenuItem, Box
+    Divider, Button, TextField, MenuItem, Box, FormControlLabel
 } from '@mui/material';
 
 const NewStrategy = () => {
@@ -16,50 +16,63 @@ const NewStrategy = () => {
 
 
     return (
-        <div className='mt-6'>
+        <div className='mt-4 bg-white shadow rounded-lg p-3 sm: m-0 '>
             <div>
-                <h1 className='text-2xl font-semibold text-center'>New Strategy</h1>
-                <TextField className='mt-4' fullWidth label="Strategy Name" id="fullWidth" />
+                <h1 className='text-2xl font-semibold text-center'>⚡New Plan for your Startup ?</h1>
+                <TextField className='mt-4' label="Strategy Name" id="fullWidth" />
             </div>
-
-            <div className="form-control mt-4">
-                <div className="rounded-l-lg">
-                    <select className="select">
-                        <option disabled selected>Pick category</option>
-                        <option>Major</option>
-                        <option>Minor</option>
-                    </select>
-                </div>
-            </div>
+            <FormControlLabel
+                value="meetup"
+                control={<Checkbox />}
+                label="Major Strategy?"
+                labelPlacement="start"
+            />
             <div className='mt-6'>
                 <DatePicker
                     label="Start Date"
                     value={value}
                     onChange={(newValue) => {
-                        setValue(newValue);
                     }}
-                    minDate={new Date()}
                     renderInput={(params) => <TextField {...params} />}
                 />
             </div>
             <div className=''>
                 <div className="form-control mt-4">
                     <div className="rounded-l-lg">
-                        <select className="select">
-                            <option disabled selected>Header</option>
-                            <option>One</option>
-                            <option>Two</option>
+                        <select className="select bg-white border-gray-300">
+                            <option disabled selected>Assign a Leader</option>
+                            <option>@ashsenior</option>
+                            <option>@honeysingh</option>
                         </select>
                     </div>
                 </div>
                 <Box
                     className='mt-4'
                     sx={{
-                        width: 500,
                         maxWidth: '100%',
                     }}
                 >
-                    <TextField fullWidth label="Description" id="fullWidth" />
+                    <TextField
+                            style={{ width: "100%" }}
+                            id="outlined-multiline-static"
+                            label="Customer it impacts"
+                            multiline
+                            minRows={2}
+                        />
+                </Box>
+                <Box
+                    className='mt-4'
+                    sx={{
+                        maxWidth: '100%',
+                    }}
+                >
+                    <TextField
+                            style={{ width: "100%" }}
+                            id="outlined-multiline-static"
+                            label="Strategy description"
+                            multiline
+                            minRows={4}
+                        />
                 </Box>
             </div>
 
@@ -73,7 +86,7 @@ const NewStrategy = () => {
                             maxWidth: '100%',
                         }}
                     >
-                        <TextField fullWidth label="Metrics" id="fullWidth" />
+                        <TextField fullWidth label="High " id="fullWidth" />
                     </Box>
                     <Box
                         className='mt-4'
@@ -82,7 +95,7 @@ const NewStrategy = () => {
                             maxWidth: '100%',
                         }}
                     >
-                        <TextField fullWidth label="Metrics" id="fullWidth" />
+                        <TextField fullWidth label="Mid " id="fullWidth" />
                     </Box>
                     <Box
                         className='mt-4'
@@ -91,7 +104,7 @@ const NewStrategy = () => {
                             maxWidth: '100%',
                         }}
                     >
-                        <TextField fullWidth label="Metrics" id="fullWidth" />
+                        <TextField fullWidth label="Low" id="fullWidth" />
                     </Box>
                 </div>
 

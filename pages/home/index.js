@@ -26,23 +26,22 @@ const Home = () => {
                 <FiSearch className='text-4xl text-indigo-500 cursor-pointer'></FiSearch>
             </div>*/}
             {/* Startups Card Section Title */}
-            <div className='w-11/12 mx-auto mt-6 flex items-center justify-start gap-2'>
+            <div className='w-11/12 mx-auto my-2 mt-6 flex items-center justify-start gap-2'>
                 <h1 className='text-l font-semibold'>Your Startups</h1>
-                <div className='h-0.5 w-10 bg-indigo-500 rounded-full mt-2'></div>
+                <div className='h-0.5 w-40 bg-indigo-500 rounded-full mt-2'></div>
             </div>
             {/* Startup cards */}
-            <div className='grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2'>
+            <div className='grid grid-cols-1 md:grid-cols-1 xl:grid-cols-1'>
                 <StartupCard />
                 <StartupCard />
             </div>
             {/* All Startups */}
-            <div className='w-11/12 mx-auto mt-6 flex items-center justify-start gap-2'>
+            <div className='w-11/12 mx-auto my-2 mt-6 flex items-center justify-start gap-2'>
                 <h1 className='text-l font-semibold'>All Startups</h1>
-                <div className='h-0.5 w-10 bg-indigo-500 rounded-full mt-2'></div>
+                <div className='h-0.5 w-40 bg-indigo-500 rounded-full mt-2'></div>
             </div>
             {/* All startup Cards */}
             <div className='grid grid-cols-1 md:grid-cols-1 xl:grid-cols-1'>
-
                 <StartupCard />
                 <StartupCard />
                 <StartupCard />
