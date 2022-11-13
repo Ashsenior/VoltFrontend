@@ -290,7 +290,7 @@ function TabsDemo() {
                                         </div>
                                         <TextField
                                             id="outlined-multiline-static"
-                                            label="Invite your teamates"
+                                            label="Invite your teammates"
                                             multiline
                                             style={{ width: "100%" }}
                                             minRows={8}
