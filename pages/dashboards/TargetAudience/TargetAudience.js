@@ -7,7 +7,7 @@ const TargetAudience = () => {
 
                 <div className="stat">
                     <div className="card-compact">
-                        <h4 className='text-xl text-white font-semibold'>Core Customer 👨‍💻</h4>
+                        <h4 className='text-xl text-gray-800 font-semibold'>Core Customer 👨‍💻</h4>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla rem ad quibusdam explicabo necessitatibus minima? Quod deserunt modi ex ipsam? Porro nemo non praesentium quo.</p>
                         <div className="card-actions justify-end">
 
@@ -17,7 +17,7 @@ const TargetAudience = () => {
                 </div>
                 <div className="stat">
                     <div className="card-compact">
-                        <h4 className='text-xl text-white font-semibold'>Problem Area 🗒</h4>
+                        <h4 className='text-xl text-gray-800 font-semibold'>Problem Area 🗒</h4>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla rem ad quibusdam explicabo necessitatibus minima? Quod deserunt modi ex ipsam? Porro nemo non praesentium quo.</p>
                         <div className="card-actions justify-end">
 
@@ -27,7 +27,7 @@ const TargetAudience = () => {
                 </div>
                 <div className="stat">
                     <div className="card-compact">
-                        <h4 className='text-xl text-white font-semibold'>Ways of use ⚙</h4>
+                        <h4 className='text-xl text-gray-800 font-semibold'>Ways of use ⚙</h4>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla rem ad quibusdam explicabo necessitatibus minima? Quod deserunt modi ex ipsam? Porro nemo non praesentium quo.</p>
                         <div className="card-actions justify-end">
 
@@ -37,7 +37,7 @@ const TargetAudience = () => {
                 </div>
                 <div className="stat">
                     <div className="card-compact">
-                        <h4 className='text-xl text-white font-semibold'>Additional Customer 👩‍💻</h4>
+                        <h4 className='text-xl text-gray-800 font-semibold'>Additional Customer 👩‍💻</h4>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla rem ad quibusdam explicabo necessitatibus minima? Quod deserunt modi ex ipsam? Porro nemo non praesentium quo.</p>
                         <div className="card-actions justify-end">
 

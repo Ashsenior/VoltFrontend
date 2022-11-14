@@ -53,12 +53,12 @@ const NewStrategy = () => {
                     }}
                 >
                     <TextField
-                            style={{ width: "100%" }}
-                            id="outlined-multiline-static"
-                            label="Customer it impacts"
-                            multiline
-                            minRows={2}
-                        />
+                        style={{ width: "100%" }}
+                        id="outlined-multiline-static"
+                        label="Customer it impacts"
+                        multiline
+                        minRows={2}
+                    />
                 </Box>
                 <Box
                     className='mt-4'
@@ -67,12 +67,12 @@ const NewStrategy = () => {
                     }}
                 >
                     <TextField
-                            style={{ width: "100%" }}
-                            id="outlined-multiline-static"
-                            label="Strategy description"
-                            multiline
-                            minRows={4}
-                        />
+                        style={{ width: "100%" }}
+                        id="outlined-multiline-static"
+                        label="Strategy description"
+                        multiline
+                        minRows={4}
+                    />
                 </Box>
             </div>
 
