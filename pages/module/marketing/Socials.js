@@ -4,6 +4,8 @@ import { Biotech, Home } from "@mui/icons-material";
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import SendIcon from '@mui/icons-material/Send';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import RedditIcon from '@mui/icons-material/Reddit';
 
 const socials = [
@@ -15,6 +17,7 @@ const socials = [
         shares: '110',
         closeDate: '2020-01-07',
         closeDateFull: 'January 7, 2020',
+        link: 'https://somethingsomethig.com'
     },
     {
         id: 2,
@@ -24,6 +27,7 @@ const socials = [
         shares: '12',
         closeDate: '2020-01-07',
         closeDateFull: 'January 7, 2020',
+        link: 'https://somethingsomethig.com'
     },
     {
         id: 3,
@@ -33,6 +37,7 @@ const socials = [
         shares: '18',
         closeDate: '2020-01-14',
         closeDateFull: 'January 14, 2020',
+        link: 'https://somethingsomethig.com'
     },
     {
         id: 4,
@@ -42,6 +47,7 @@ const socials = [
         shares: '18',
         closeDate: '2020-01-14',
         closeDateFull: 'January 14, 2020',
+        link: 'https://somethingsomethig.com'
     },
 ]
 
@@ -49,20 +55,47 @@ const Socials = () => {
 
     return (
         <div className='mt-10'>
+            <div className="flex items-center justify-between">
+                <p className="text-lg font-medium truncate flex items-center"><FacebookIcon className='text-indigo-600' />  Facebook</p>
+                <div className="ml-2 flex-shrink-0 flex">
+                    <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                        @ashsenior
+                    </p>
+                </div>
+            </div>
+            <div className='flex items-center justify-start gap-10 my-5'>
+                <div className='flex items-center gap-1 p-2 border-2 w-fit rounded-lg'>
+                    <span>200</span>
+                    <ThumbUpIcon />
+                    <span>Likes</span>
+                </div>
+                <div className='flex items-center gap-1 p-2 border-2 w-fit rounded-lg'>
+                    <span>800</span>
+                    <QuestionAnswerIcon />
+                    <span>Comments</span>
+                </div>
+            </div>
+
+            <h4 className='text-xl font-bold border-b-2 my-2'>Posts</h4>
             <div className="bg-white shadow overflow-hidden">
                 <ul role="list" className="divide-y divide-gray-200">
-                    {socials.map((position) => (
-                        <li key={position.id}>
+                    {socials.map((post) => (
+                        <li key={post.id}>
                             <a href="#" className="border-l-x-4 border-green-200 block hover:bg-gray-100">
                                 <div className="px-3 py-3 sm:px-3">
                                     <div className="flex items-center justify-between">
-                                        <p className="text-lg font-medium text-indigo-600 truncate">  {position.title}</p>
+                                        <p className="text-lg font-medium text-indigo-600 truncate">  {post.link}</p>
                                         <div className="ml-2 flex-shrink-0 flex">
                                             <h4 className='font-semibold mr-2'>Manager</h4>
                                             <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                 @ashsenior
                                             </p>
                                         </div>
+                                    </div>
+                                    <div className='flex gap-2'>
+                                        <p className='text-blue-700'> <span >#</span>tags</p>
+                                        <p className='text-blue-700'> <span >#</span>tags</p>
+                                        <p className='text-blue-700'> <span >#</span>tags</p>
                                     </div>
                                     <div className="mt-2 sm:flex sm:justify-between">
                                         <div className="sm:flex">
@@ -75,7 +108,7 @@ const Socials = () => {
                                                             component="a"
                                                             startIcon={< ThumbUpIcon className='text-blue-600' />}
                                                         >
-                                                            {position.likes} Likes
+                                                            {post.likes} Likes
                                                         </Button>
                                                     </h3>
                                                     <h3 className='flex items-center rounded-lg p-1'>
@@ -85,7 +118,7 @@ const Socials = () => {
                                                             component="a"
                                                             startIcon={<QuestionAnswerIcon className='text-gray-600' />}
                                                         >
-                                                            {position.likes} Comments
+                                                            {post.likes} Comments
                                                         </Button>
                                                     </h3>
                                                     <h3 className='flex items-center rounded-lg p-1'>
@@ -95,7 +128,7 @@ const Socials = () => {
                                                             component="a"
                                                             startIcon={<SendIcon className='text-green-700' />}
                                                         >
-                                                            {position.shares} Shares
+                                                            {post.shares} Shares
                                                         </Button>
                                                     </h3>
                                                 </div>
