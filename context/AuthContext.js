@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext } from 'react';
 import Router from "next/router";
 import jwt_decode from "jwt-decode";
+import axiosInstance from 'src/axiosAPi';
 
 const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {

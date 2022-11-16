@@ -2,12 +2,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Link, TextField, Typogra
 import { Box } from '@mui/system';
 import React from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-<<<<<<< HEAD
-import { ShoppingCart } from '@mui/icons-material';
-import CreateMeetingModal from '../../dashboards/Meetings/CreateMeetingModal';
-=======
 import { Router, ShoppingCart } from '@mui/icons-material';
->>>>>>> eed872824b8c22baf9b8ee5f7ccede52a7769e03
 
 const applications = [
     {
@@ -46,82 +41,23 @@ const applications = [
     },
 ]
 
-const EditStrategies = () => {
+const EditMarketings = () => {
     return (
         <>
-        <div className='w-full bg-indigo-500 border-b rounded-b-xl '>
-            <div className='w-12/12 flex items-center justify-between mx-auto px-2 rounded-lg py-2'>
-                <h1 className='text-xl text-white font-semibold'>Did the strategy worked?</h1>
-                <label
-                    // onClick={() => Router.push('/create_startup')}
-                    htmlFor="edit-startups-modal"
-                    type="button" className="inline-flex items-center px-2 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-900 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Submit the results
-                </label>
-            </div>
-        </div>
-
-        <input type="checkbox" id="edit-startups-modal" className="modal-toggle" />
-        <div className="modal modal-bottom sm:modal-middle">
-            <div className="modal-box bg-white">
-                <div className="modal-action flex flex-col">
-                    <h1 className='text-xl font-semibold my-4 text-center m-2'>Submit and close this strategy</h1>
-                    <Box
-                        className='mt-4'
-                        sx={{
-                            maxWidth: '100%',
-                        }}
-                    >
-                        <TextField
-                                style={{ width: "100%" }}
-                                id="outlined-multiline-static"
-                                label="Strategy outcomes"
-                                multiline
-                                minRows={4}
-                            />
-                </Box>
-                    <Box
-                        className='mt-4'
-                    >
-                        <TextField label="Metrics met" id="fullWidth" />
-                    </Box>
-                    <div class="max-w-xl m-4">
-                        <label
-                            class="flex justify-center w-full h-32 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
-                            <span class="flex items-center space-x-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                </svg>
-                                <span class="font-medium text-gray-600">
-                                    Drop result documents , or 
-                                    <span class="text-blue-600 underline mx-1">browse</span>
-                                </span>
-                            </span>
-                            <input type="file" name="file_upload" class="hidden" />
-                        </label>
-                    </div>
-                    <label htmlFor="edit-startups-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <label type="button" htmlFor="edit-startups-modal" className="btn mt-2 border-0 bg-indigo-500 text-white">Submit and Close Strategy</label>
+            <div className='w-full bg-white'>
+                <div className='w-11/12 flex items-center justify-between mx-auto px-4 rounded-lg py-3'>
+                    <h1 className='text-xl font-semibold'>Submit💡?</h1>
+                    <button
+                        onClick={() => Router.push('/create_startup')}
+                        type="button" className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Create New Startup
+                    </button>
                 </div>
             </div>
-        </div>
-
-        <div className='mt-6'>
-            <div className='flex items-center justify-between'>
-                <h1 className='text-xl font-semibold'>Strategy Name (Major)</h1>
-                <Link to="" type='button' className='btn btn-sm'>In Progress</Link>
-            </div>
-            <medium>Strategy leader 
-                <p className="px-2 inline-flex text-sm leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                @ashsenior
-                </p></medium>
-            <h4>Start Date: <span>11/12/2022</span></h4>
-            <div className='grid grid-cols-1 xl:grid-cols-2 p-3' >
-                <div className='mt-6'>
-                    <h4 className='text-lg font-semibold'>Customer it impacts</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, mollitia est nihil laudantium explicabo itaque omnis impedit fugiat officiis, voluptas, aut saepe voluptates odio praesentium recusandae velit? Debitis dignissimos nesciunt eos qui! Blanditiis nisi id esse omnis, consectetur modi nulla sit sunt! Reiciendis illo explicabo laboriosam voluptates consequuntur vel quas corporis.</p>
+            <div className='mt-6'>
+                <div className='flex items-center justify-between'>
+                    <h1 className='text-xl font-semibold'>Strategy Name (Major)</h1>
+                    <Link to="" type='button' className='btn btn-sm'>In Progress</Link>
                 </div>
                 <medium>Strategy leader
                     <p className="px-2 inline-flex text-sm leading-5 font-semibold rounded-full bg-green-100 text-green-800">
@@ -308,4 +244,4 @@ const EditStrategies = () => {
     );
 };
 
-export default EditStrategies;
+export default EditMarketings;

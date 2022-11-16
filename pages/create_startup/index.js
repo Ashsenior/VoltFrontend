@@ -462,6 +462,7 @@ function TabsDemo() {
                                 </TabPanel>
                                 <Box display={"flex"} justifyContent={"space-between"}>
                                     <Button
+                                        // className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-xl text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-700"
                                         sx={{ margin: 1 }} variant="contained"
                                         onClick={() => {
                                             if (value === 0) {
@@ -473,6 +474,7 @@ function TabsDemo() {
                                         Previous
                                     </Button>
                                     <Button
+                                        className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-xl text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-700 "
                                         sx={{ margin: 1, bgcolor: "blue" }}
                                         variant="contained"
                                         color={value === 3 ? "success" : "secondary"}
