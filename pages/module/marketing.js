@@ -1,5 +1,5 @@
 import Head from 'next/head';
-
+import MarketingHome from 'pages/module/marketing/MarketingHome'
 import SidebarLayout from 'src/layouts/SidebarLayout';
 import { Container } from '@mui/material';
 import Footer from 'src/components/Footer';
@@ -13,7 +13,7 @@ function MarketingModule() {
             </Head>
             <MarketingHome></MarketingHome>
             <Container maxWidth="lg">
-            <MarketingModuleComponent/>
+                <MarketingModuleComponent />
             </Container>
             <Footer />
         </>
