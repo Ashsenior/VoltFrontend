@@ -41,7 +41,7 @@ const applications = [
     },
 ]
 
-const EditStrategies = () => {
+const EditMarketings = () => {
     return (
         <>
             <div className='w-full bg-white'>
@@ -244,4 +244,4 @@ const EditStrategies = () => {
     );
 };
 
-export default EditStrategies;
+export default EditMarketings;

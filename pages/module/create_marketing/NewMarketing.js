@@ -10,16 +10,14 @@ import {
     Divider, Button, TextField, MenuItem, Box, FormControlLabel
 } from '@mui/material';
 
-const NewStrategy = () => {
-
+const NewMarketing = () => {
     const [value, setValue] = useState(0);
-
 
     return (
         <div className='mt-4 bg-white shadow rounded-lg p-3 sm: m-0 '>
             <div>
-                <h1 className='text-2xl font-semibold text-center'>⚡New Plan for your Startup ?</h1>
-                <TextField className='mt-4' label="Strategy Name" id="fullWidth" />
+                <h1 className='text-2xl font-semibold text-center'>⚡ Marketing plans for your Startup</h1>
+                <TextField className='mt-4' label="Marketing Name" id="fullWidth" />
             </div>
             <FormControlLabel
                 value="meetup"
@@ -69,7 +67,7 @@ const NewStrategy = () => {
                     <TextField
                         style={{ width: "100%" }}
                         id="outlined-multiline-static"
-                        label="Strategy description"
+                        label="Marketing description"
                         multiline
                         minRows={4}
                     />
@@ -86,7 +84,7 @@ const NewStrategy = () => {
                             maxWidth: '100%',
                         }}
                     >
-                        <TextField fullWidth label="High " id="fullWidth" />
+                        <TextField fullWidth label="Facebook" id="fullWidth" />
                     </Box>
                     <Box
                         className='mt-4'
@@ -95,7 +93,7 @@ const NewStrategy = () => {
                             maxWidth: '100%',
                         }}
                     >
-                        <TextField fullWidth label="Mid " id="fullWidth" />
+                        <TextField fullWidth label="Instagram" id="fullWidth" />
                     </Box>
                     <Box
                         className='mt-4'
@@ -104,7 +102,16 @@ const NewStrategy = () => {
                             maxWidth: '100%',
                         }}
                     >
-                        <TextField fullWidth label="Low" id="fullWidth" />
+                        <TextField fullWidth label="LinkedIn" id="fullWidth" />
+                    </Box>
+                    <Box
+                        className='mt-4'
+                        sx={{
+                            width: 500,
+                            maxWidth: '100%',
+                        }}
+                    >
+                        <TextField fullWidth label="Reddit" id="fullWidth" />
                     </Box>
                 </div>
 
@@ -121,4 +128,4 @@ const NewStrategy = () => {
     );
 };
 
-export default NewStrategy;
+export default NewMarketing;

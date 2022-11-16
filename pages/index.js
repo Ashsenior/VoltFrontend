@@ -1,8 +1,8 @@
 import { Box, Button, Grid, styled, TextField } from "@mui/material";
 import { Google } from "@mui/icons-material";
 import Typography from "@mui/material/Typography";
-import Router, {useRouter} from "next/router";
-import React, {useContext, useEffect} from "react";
+import Router, { useRouter } from "next/router";
+import React, { useContext, useEffect } from "react";
 import AuthContext from "../context/AuthContext";
 import login from "./login";
 
@@ -20,7 +20,7 @@ const Wrapper = styled(Box)(
     align-items: center; 
   }
 
-  .modal {
+  .login-modal {
     width: 100%;
     /* height: 60px; */
     background: rgba(51, 51, 51, 0.5);
@@ -33,7 +33,7 @@ const Wrapper = styled(Box)(
 
   
 
-  .modal-container {
+  .login-modal-container {
     display: flex;
     max-width: 60vw;
     max-height: 78vh;
@@ -50,10 +50,10 @@ const Wrapper = styled(Box)(
     margin: 0;
     color: #b22b27;
   }
-  .modal-desc {
+  .login-modal-desc {
     margin: 6px 0 30px 0;
   }
-  .modal-left {
+  .login-modal-left {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -69,60 +69,60 @@ const Wrapper = styled(Box)(
   }
 
 
-  .modal-left::-webkit-scrollbar {
+  .login-modal-left::-webkit-scrollbar {
     display: none;
   }
 
-  .modal-right {
+  .login-modal-right {
     flex: 2;
     font-size: 0;
     transition: 0.3s;
     overflow: hidden;
   }
-  .modal-right img {
+  .login-modal-right img {
     width: 120%;
     height: 100%;
     object-fit: fill;
     display: block;
     padding: ${theme.spacing(0)} ${theme.spacing(1)};
   }
-  .modal.is-open .modal-left {
+  .login-modal.is-open .login-modal-left {
     transform: translateY(0);
     opacity: 1;
     transition-delay: 0.1s;
   }
   @media (max-height: 955px) {
-    .modal-container {
+    .login-modal-container {
         max-width: 70vw;
         max-height: 80vh;
     }
   }
   @media (max-height: 900px) {
-    .modal-container {
+    .login-modal-container {
         max-width: 70vw;
         max-height: 85vh;
     }
   }
   @media (max-height: 850px) {
-    .modal-container {
+    .login-modal-container {
         max-width: 70vw;
         max-height: 90vh;
     }
   }
   @media (max-height: 800px) {
-    .modal-container {
+    .login-modal-container {
         max-width: 70vw;
         max-height: 95vh;
     }
   }
   @media (max-width: 750px) {
-    .modal-container {
+    .login-modal-container {
       max-width: 90vw;
     }
-    .modal-left{
+    .login-modal-left{
         padding: 20px 10px;
     }
-    .modal-right {
+    .login-modal-right {
       display: none;
     }
   }
@@ -138,16 +138,16 @@ const SignUp = () => {
     const [last_name, setLastName] = React.useState("");
 
 
-    const {isAuthenticated, error, register} = useContext(AuthContext);
+    const { isAuthenticated, error, register } = useContext(AuthContext);
     useEffect(() => {
-        if(error){
+        if (error) {
             console.log(error);
         }
 
-        if(isAuthenticated){
+        if (isAuthenticated) {
             Router.push("/dashboards");
         }
-    },[error, isAuthenticated]);
+    }, [error, isAuthenticated]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -159,10 +159,10 @@ const SignUp = () => {
     return (
         <>
             <Wrapper>
-                <div className="container">
-                    <div className="modal">
-                        <div className="modal-container">
-                            <div className="modal-left">
+                <div className="container mx-auto">
+                    <div className="login-modal">
+                        <div className="login-modal-container">
+                            <div className="login-modal-left">
                                 <Grid item paddingBottom={1} paddingLeft={1}>
                                     <Typography variant="h3" component="h3" gutterBottom>
                                         Welcome!
@@ -252,11 +252,12 @@ const SignUp = () => {
                                         variant="contained"
                                         color={"secondary"}
                                         endIcon={<Google />}
-                                        style={{opacity: 0, pointerEvents: "none"}}
+                                        style={{ opacity: 0, pointerEvents: "none" }}
                                     >
                                         Google
                                     </Button>
                                     <Button
+                                        className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                         variant="contained"
                                         type="submit"
                                         onClick={(e) => {
@@ -273,15 +274,16 @@ const SignUp = () => {
                                     mt={1}
                                 >
                                     Already have an account? <Button
-                                    onClick={
-                                        () => {
-                                            Router.push("/login")
+
+                                        onClick={
+                                            () => {
+                                                Router.push("/login")
+                                            }
                                         }
-                                    }
-                                >Log In</Button>
+                                    >Log In</Button>
                                 </Box>
                             </div>
-                            <div className="modal-right">
+                            <div className="login-modal-right">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
                                     src="/static/images/placeholders/covers/right_side.jpg"
