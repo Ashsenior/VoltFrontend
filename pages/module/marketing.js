@@ -3,6 +3,7 @@ import Head from 'next/head';
 import SidebarLayout from 'src/layouts/SidebarLayout';
 import { Container } from '@mui/material';
 import Footer from 'src/components/Footer';
+import MarketingModuleComponent from '../../components/marketing-module/marketing-module';
 
 function MarketingModule() {
     return (
@@ -11,7 +12,7 @@ function MarketingModule() {
                 <title>Marketing Module</title>
             </Head>
             <Container maxWidth="lg">
-
+            <MarketingModuleComponent/>
             </Container>
             <Footer />
         </>
