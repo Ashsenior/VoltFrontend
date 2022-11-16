@@ -1,14 +1,15 @@
 import { Link, Button } from '@mui/material';
 import React from 'react';
 import { Biotech, Home } from "@mui/icons-material";
-import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import RedditIcon from '@mui/icons-material/Reddit';
 
 const positions = [
     {
         id: 1,
-        title: 'Extensive Student Hackathons',
+        title: 'Marketing Campaign',
         type: 'Full-time',
         location: 'Remote',
         department: 'Engineering',
@@ -17,7 +18,7 @@ const positions = [
     },
     {
         id: 2,
-        title: 'Strategy 2',
+        title: 'Photo Contest',
         type: 'Full-time',
         location: 'Remote',
         department: 'Engineering',
@@ -26,7 +27,7 @@ const positions = [
     },
     {
         id: 3,
-        title: 'Strategy 3',
+        title: 'Something Something',
         type: 'Full-time',
         location: 'Remote',
         department: 'Design',
@@ -35,7 +36,7 @@ const positions = [
     },
 ]
 
-const StrategyMajor = () => {
+const MarketingMajor = () => {
     return (
         <div className="bg-white shadow overflow-hidden">
             <ul role="list" className="divide-y divide-gray-200">
@@ -60,9 +61,9 @@ const StrategyMajor = () => {
                                                         className='text-green-700 bg-green-50'
                                                         disableRipple
                                                         component="a"
-                                                        startIcon={<LocalGroceryStoreIcon />}
+                                                        startIcon={< FacebookIcon className='text-blue-600' />}
                                                     >
-                                                        3 Marketing
+                                                        4 Facebook
                                                     </Button>
                                                 </h3>
                                                 <h3 className='flex items-center rounded-lg p-1'>
@@ -70,9 +71,9 @@ const StrategyMajor = () => {
                                                         className='text-green-700 bg-green-50'
                                                         disableRipple
                                                         component="a"
-                                                        startIcon={<MonetizationOnIcon />}
+                                                        startIcon={<InstagramIcon className='text-red-400' />}
                                                     >
-                                                        6 Sales
+                                                        6 Instagram
                                                     </Button>
                                                 </h3>
                                                 <h3 className='flex items-center rounded-lg p-1'>
@@ -80,9 +81,19 @@ const StrategyMajor = () => {
                                                         className='text-green-700 bg-green-50'
                                                         disableRipple
                                                         component="a"
-                                                        startIcon={<Biotech />}
+                                                        startIcon={<LinkedInIcon className='text-blue-700' />}
                                                     >
-                                                        4 Research
+                                                        4 LinkedIn
+                                                    </Button>
+                                                </h3>
+                                                <h3 className='flex items-center rounded-lg p-1'>
+                                                    <Button
+                                                        className='text-green-700 bg-green-50'
+                                                        disableRipple
+                                                        component="a"
+                                                        startIcon={<RedditIcon className='text-orange-500' />}
+                                                    >
+                                                        0 Reddit
                                                     </Button>
                                                 </h3>
                                             </div>
@@ -106,4 +117,4 @@ const StrategyMajor = () => {
     );
 };
 
-export default StrategyMajor;
+export default MarketingMajor;

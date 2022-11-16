@@ -11,6 +11,7 @@ function MarketingModule() {
             <Head>
                 <title>Marketing Module</title>
             </Head>
+            <MarketingHome></MarketingHome>
             <Container maxWidth="lg">
             <MarketingModuleComponent/>
             </Container>
