@@ -12,8 +12,8 @@ function MarketingModule() {
             <Head>
                 <title>Product Module</title>
             </Head>
-            <ProductHome></ProductHome>
 
+            <ProductHome></ProductHome>
 
             <Container maxWidth="lg">
                 {/* <ProductDetails></ProductDetails> */}

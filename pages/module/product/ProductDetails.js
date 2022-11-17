@@ -67,7 +67,7 @@ const ProductDetails = () => {
     return (
         <div>
             <Container>
-                <div className='w-11/12 bg-white mx-auto rounded-b-3xl shadow-lg'>
+                <div className='w-full bg-white mx-auto rounded-b-3xl shadow-lg'>
                     <div className='w-11/12 flex items-center justify-between mx-auto px-5 rounded-lg py-3'>
                         <h4 className='text-xl font-semibold'>Get access to developer tool</h4>
                         {/* The button to open modal */}
@@ -101,13 +101,13 @@ const ProductDetails = () => {
 
                 <div className='flex mt-10'>
                     <div className='w-5/12'>
-                        <h4 className='text-base font-semibold'>Timeline</h4>
+                        <h4 className='text-xl font-semibold'>Timeline</h4>
                         {/* Time Line */}
                         <ProductTimeline></ProductTimeline>
                     </div>
-                    <div className='w-7/12'>
-                        <h4 className='text-base font-semibold'>Features</h4>
-                        <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mt-6'>
+                    <div className='w-7/12 mb-10'>
+                        <h4 className='text-xl font-semibold'>Features</h4>
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-6'>
                             {
                                 featuresInfo.map(feature => <FeaturesCard
                                     key={feature.id}
