@@ -1,9 +1,12 @@
 import React from 'react';
+import Router from 'next/router';
 
 const FeaturesCard = ({ feature }) => {
     return (
-        <div className="card card-compact w-fit bg-base-100 shadow-xl mx-auto">
-            <figure><img className='w-32' src={feature.logo} alt="Shoes" /></figure>
+        <div
+            onClick={() => Router.push('/module/product/FeatureDetails')}
+            className="card card-compact w-fit bg-base-100 shadow-xl mx-auto">
+            <figure><img className='w-32 p-1 rounded-xl' src={feature.logo} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">
                     {feature.title}
