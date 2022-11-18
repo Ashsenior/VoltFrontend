@@ -1,24 +1,25 @@
 import Head from 'next/head';
-import MarketingHome from 'pages/module/marketing/MarketingHome'
 import SidebarLayout from 'src/layouts/SidebarLayout';
 import { Container } from '@mui/material';
 import Footer from 'src/components/Footer';
-import MarketingModuleComponent from '../../components/marketing-module/marketing-module';
-import MarketingHome from './marketing/MarketingHome';
+import ProductHome from './product/ProductHome';
+import ProductDetails from './product/ProductDetails';
+import FeatureDetails from './product/FeatureDetails';
 
 function MarketingModule() {
     return (
         <>
             <Head>
-                <title>Marketing Module</title>
+                <title>Product Module</title>
             </Head>
-            <MarketingHome></MarketingHome>
-<<<<<<< HEAD
-=======
+
+            <ProductHome></ProductHome>
+
             <Container maxWidth="lg">
-                <MarketingModuleComponent />
+                {/* <ProductDetails></ProductDetails> */}
+                {/* <FeatureDetails></FeatureDetails> */}
+
             </Container>
->>>>>>> a42db189b889414b47f70f5b7798b6251002eef0
             <Footer />
         </>
     );

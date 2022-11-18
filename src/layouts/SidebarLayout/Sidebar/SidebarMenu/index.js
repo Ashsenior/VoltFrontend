@@ -225,6 +225,21 @@ function SidebarMenu() {
           <SubMenuWrapper>
             <List component="div">
               <ListItem component="div">
+                <NextLink href="/module/product" passHref>
+                  <Button
+                    className={
+                      currentRoute === '/module/product' ? 'active' : ''
+                    }
+                    disableRipple
+                    component="a"
+                    onClick={closeSidebar}
+                    startIcon={<PsychologyIcon />}
+                  >
+                    Product Module
+                  </Button>
+                </NextLink>
+              </ListItem>
+              <ListItem component="div">
                 <NextLink href="/module/strategy" passHref>
                   <Button
                     className={
