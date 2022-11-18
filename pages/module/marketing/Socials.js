@@ -1,4 +1,5 @@
 import React from 'react';
+import { Router } from 'next/router';
 import { Link, Button } from '@mui/material';
 import { Biotech, Home } from "@mui/icons-material";
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
@@ -106,6 +107,51 @@ const Socials = () => {
     return (
         <div className='mt-10'>
             <div>
+                {/* New Design */}
+
+
+
+                <div>
+                    {socials.map(social => (<>
+                        <div
+
+                            className='p-2 bg-white rounded-lg mb-4 shadow-md hover:shadow-lg'>
+                            <div className='flex items-center justify-between mb-5'>
+                                <button
+                                    onClick={() => Router.push('/social')}
+                                    type='button'
+                                    className="text-lg font-medium truncate flex items-center gap-2 cursor-pointer"><FacebookIcon className='text-indigo-600' /> {social.title}</button>
+                                <div className="ml-2 flex-shrink-0 flex">
+                                    <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        @ashsenior
+                                    </p>
+                                </div>
+                            </div>
+                            <div className='flex items-center justify-start gap-5'>
+                                <div className='flex items-center gap-1 p-1 border-2 w-fit rounded-lg'>
+                                    <span>200</span>
+                                    <ThumbUpIcon />
+                                    <span>Likes</span>
+                                </div>
+                                <div className='flex items-center gap-1 p-1 border-2 w-fit rounded-lg'>
+                                    <span>800</span>
+                                    <QuestionAnswerIcon />
+                                    <span>Comments</span>
+                                </div>
+                            </div>
+                        </div>
+                    </>))}
+                </div>
+
+
+
+
+                {/* Socials accordion */}
+
+                {/*
+.
+                    
+
                 <Accordion className='border-none my-4 ' expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                     <AccordionSummary
                         className='h-28 rounded-lg bg-white shadow-lg'
@@ -385,6 +431,7 @@ const Socials = () => {
                         </div>
                     </AccordionDetails>
                 </Accordion>
+                */}
 
             </div>
 

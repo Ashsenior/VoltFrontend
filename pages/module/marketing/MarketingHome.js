@@ -1,7 +1,7 @@
 import { Container } from '@mui/system';
 import React from 'react';
-import MarketingMajor from './MarketingMajor';
 import Router from 'next/router';
+import MarketingMajor from './MarketingMajor';
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 import Socials from './Socials';
 
