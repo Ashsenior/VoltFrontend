@@ -4,6 +4,7 @@ import SidebarLayout from 'src/layouts/SidebarLayout';
 import { Container } from '@mui/material';
 import Footer from 'src/components/Footer';
 import MarketingModuleComponent from '../../components/marketing-module/marketing-module';
+import MarketingHome from './marketing/MarketingHome';
 
 function MarketingModule() {
     return (
@@ -12,9 +13,6 @@ function MarketingModule() {
                 <title>Marketing Module</title>
             </Head>
             <MarketingHome></MarketingHome>
-            <Container maxWidth="lg">
-            <MarketingModuleComponent/>
-            </Container>
             <Footer />
         </>
     );

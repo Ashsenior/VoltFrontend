@@ -10,12 +10,9 @@ function EditMarketing() {
             <Head>
                 <title>Create Strategy</title>
             </Head>
-
-
-            <Container maxWidth="lg">
+            <Container>
                 <EditMarketings></EditMarketings>
             </Container>
-            <Footer />
         </>
     );
 }
