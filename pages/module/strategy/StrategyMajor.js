@@ -54,36 +54,49 @@ const StrategyMajor = () => {
                                 <div className="mt-2 sm:flex sm:justify-between">
                                     <div className="sm:flex">
                                         <p className="flex items-center text-sm text-gray-500">
-                                            <div className='flex items-center justify-start'>
+                                            <div className='flex items-center justify-start gap-2'>
                                                 <h3 className='flex items-center rounded-lg '>
-                                                    <Button
-                                                        className='text-green-700 bg-green-50'
-                                                        disableRipple
-                                                        component="a"
-                                                        startIcon={<LocalGroceryStoreIcon />}
-                                                    >
-                                                        3 Marketing
-                                                    </Button>
+                                                    <div className="indicator">
+                                                        <span className="block md:hidden indicator-item badge badge-success mr-2">3+</span>
+                                                        <Button
+                                                            className='text-green-700 bg-green-50'
+                                                            disableRipple
+                                                            component="a"
+                                                            startIcon={<LocalGroceryStoreIcon className='hidden md:block' />}
+                                                        >
+                                                            <span className='hidden md:block mr-1'>5</span>
+                                                            Marketing
+                                                        </Button>
+                                                    </div>
+
                                                 </h3>
                                                 <h3 className='flex items-center rounded-lg p-1'>
-                                                    <Button
-                                                        className='text-green-700 bg-green-50'
-                                                        disableRipple
-                                                        component="a"
-                                                        startIcon={<MonetizationOnIcon />}
-                                                    >
-                                                        6 Sales
-                                                    </Button>
+                                                    <div className="indicator">
+                                                        <span className="block md:hidden indicator-item badge badge-success mr-2">6+</span>
+                                                        <Button
+                                                            className='text-green-700 bg-green-50'
+                                                            disableRipple
+                                                            component="a"
+                                                            startIcon={<MonetizationOnIcon className='hidden md:block' />}
+                                                        >
+                                                            <span className='hidden md:block mr-1'>5</span>
+                                                            Sales
+                                                        </Button>
+                                                    </div>
                                                 </h3>
                                                 <h3 className='flex items-center rounded-lg p-1'>
-                                                    <Button
-                                                        className='text-green-700 bg-green-50'
-                                                        disableRipple
-                                                        component="a"
-                                                        startIcon={<Biotech />}
-                                                    >
-                                                        4 Research
-                                                    </Button>
+                                                    <div className="indicator">
+                                                        <span className="block md:hidden indicator-item badge badge-success mr-2">4+</span>
+                                                        <Button
+                                                            className='text-green-700 bg-green-50'
+                                                            disableRipple
+                                                            component="a"
+                                                            startIcon={<Biotech className='hidden md:block' />}
+                                                        >
+                                                            <span className='hidden md:block mr-1'>5</span>
+                                                            Research
+                                                        </Button>
+                                                    </div>
                                                 </h3>
                                             </div>
                                         </p>
