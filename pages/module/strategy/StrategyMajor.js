@@ -54,10 +54,10 @@ const StrategyMajor = () => {
                                 <div className="mt-2 sm:flex sm:justify-between">
                                     <div className="sm:flex">
                                         <p className="flex items-center text-sm text-gray-500">
-                                            <div className='flex items-center justify-start'>
+                                            <div className='flex items-center justify-start gap-2'>
                                                 <h3 className='flex items-center rounded-lg '>
                                                     <Button
-                                                        className='text-purple-700 bg-purple-50'
+                                                        className='text-green-700 bg-green-50'
                                                         disableRipple
                                                         component="a"
                                                         startIcon={<LocalGroceryStoreIcon />}
@@ -67,7 +67,7 @@ const StrategyMajor = () => {
                                                 </h3>
                                                 <h3 className='flex items-center rounded-lg p-1'>
                                                     <Button
-                                                        className='text-indigo-700 bg-indigo-50'
+                                                        className='text-green-700 bg-green-50'
                                                         disableRipple
                                                         component="a"
                                                         startIcon={<MonetizationOnIcon />}
@@ -77,7 +77,7 @@ const StrategyMajor = () => {
                                                 </h3>
                                                 <h3 className='flex items-center rounded-lg p-1'>
                                                     <Button
-                                                        className='text-blue-700 bg-blue-50'
+                                                        className='text-green-700 bg-green-50'
                                                         disableRipple
                                                         component="a"
                                                         startIcon={<Biotech />}

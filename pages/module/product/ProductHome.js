@@ -1,6 +1,6 @@
 import React from 'react';
 import Router from 'next/router';
-import { Button } from '@mui/material';
+import { Button, Container } from '@mui/material';
 import { Box } from '@mui/system';
 
 const ProductHome = () => {
@@ -74,41 +74,47 @@ const ProductHome = () => {
                     </button>
                 </div>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6 mx-4'>
-                {productCards.map(productCard => <>
-                    <div
-                        onClick={() => Router.push('/module/product/ProductDetails')}
-                        className='flex flex-col bg-white w-fit p-2 rounded-lg shadow-md hover:shadow-xl mx-auto '>
-                        <div className='flex'>
-                            <img className='w-52 m-1 rounded-md' src={productCard.logo} alt="" />
-                            <div className='p-1'>
-                                <h4
-                                    className='text-base font-semibold cursor-pointer'>{productCard.name}</h4>
+            <Container>
+                <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6 mx-4'>
+                    {productCards.map(productCard => <>
+                        <div
+                            onClick={() => Router.push('/module/product/ProductDetails')}
+                            className='w-full flex flex-col bg-white p-2 rounded-lg mx-auto '>
+                            <img className='w-44 m-1 rounded-md' src={productCard.logo} alt="" />
+                            <div className='flex items-center justify-between gap-10'>
+                                <h4 className='text-2xl font-semibold cursor-pointer'>{productCard.name}</h4>
                                 <p className="px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                     @{productCard.user}
                                 </p>
-                                <h6 className='text-sm mb-1 mt-4'>{productCard.date}</h6>
                             </div>
+                            <h6 className='text-sm mb-4'>{productCard.date}</h6>
+                            <p className='text-base font-light p-2'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod incidunt possimus praesentium in, ea eum.</p>
+                            <div className='flex items-center justify-between gap-2'>
+                                <Button
+                                    onClick={() => Router.push('/module/product/FeatureDetails')}
+                                    className='w-full text-gray-900 bg-gradient-to-br from-green-50 to-blue-100 rounded-md mb-4'
+                                    disableRipple
+                                    component="a"
+                                >
+                                    {productCard.feature} Features
+                                </Button>
+                                <Button
+                                    className='w-full text-gray-900 bg-gradient-to-br from-green-50 to-blue-100 rounded-md mb-4'
+                                    disableRipple
+                                    component="a"
+                                >
+                                    {productCard.members} Members
+                                </Button>
+                            </div>
+
+
+
                         </div>
-                        <Button
-                            onClick={() => Router.push('/module/product/FeatureDetails')}
-                            className='text-green-700 bg-green-50 mb-4'
-                            disableRipple
-                            component="a"
-                        >
-                            {productCard.feature} Features
-                        </Button>
-                        <Button
-                            className='text-green-700 bg-green-50 mb-4'
-                            disableRipple
-                            component="a"
-                        >
-                            {productCard.members} Members
-                        </Button>
-                    </div>
-                </>)}
-            </div>
-        </div>
+                    </>)
+                    }
+                </div >
+            </Container>
+        </div >
     );
 };
 
