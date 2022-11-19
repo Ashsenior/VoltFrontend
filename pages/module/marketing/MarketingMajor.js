@@ -55,8 +55,8 @@ const MarketingMajor = () => {
                                 <div className="mt-2 sm:flex sm:justify-between">
                                     <div className="sm:flex">
                                         <p className="flex items-center text-sm text-gray-500">
-                                            <div className='flex items-center justify-start'>
-                                                <h3 className='flex items-center rounded-lg '>
+                                            <div className='flex flex-wrap items-center justify-between'>
+                                                <h3 className='flex items-center rounded-lg  '>
                                                     <Button
                                                         className='text-blue-700 bg-blue-50'
                                                         disableRipple
