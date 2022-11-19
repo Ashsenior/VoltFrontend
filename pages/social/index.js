@@ -69,15 +69,15 @@ const Social = () => {
                         </p>
                     </div>
                 </div>
-                <h4 className='text-xl font-bold border-b-2 my-2'>Posts</h4>
+                <h4 className='text-xl font-semibold border-b-2 my-2'>Posts</h4>
                 <div className="bg-white shadow overflow-hidden">
-                    <ul role="list" className="divide-y divide-gray-200">
+                    <ul role="list" className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2">
                         {socials.map((post) => (
-                            <li key={post.id}>
-                                <a href="#" className="border-l-x-4 border-green-200 block hover:bg-gray-100">
+                            <li key={post.id} className="border-b">
+                                <a href="#" className=" block hover:bg-gray-100">
                                     <div className="px-3 py-3 sm:px-3">
                                         <div className="flex items-center justify-between">
-                                            <p className=" font-medium text-indigo-600 truncate">  {post.link}</p>
+                                            <p className=" font-medium text-blue-600 truncate">  {post.link}</p>
                                             <div className="ml-2 flex-shrink-0 flex">
                                                 <h4 className='font-semibold mr-2'>By</h4>
                                                 <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
@@ -85,10 +85,10 @@ const Social = () => {
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className='flex gap-2 text-red-100'>
-                                            <p className='text-green-700'> <span >#</span>tags</p>
-                                            <p className='text-green-700'> <span >#</span>tags</p>
-                                            <p className='text-green-700'> <span >#</span>tags</p>
+                                        <div className='flex gap-2'>
+                                            <p className='text-black-700'> <span >#</span>tags</p>
+                                            <p className='text-black-700'> <span >#</span>tags</p>
+                                            <p className='text-black-700'> <span >#</span>tags</p>
                                         </div>
                                         <div className="mt-2 sm:flex sm:justify-between">
                                             <div className="sm:flex">
@@ -96,7 +96,7 @@ const Social = () => {
                                                     <div className='text-sm flex '>
                                                         <h3 className='flex items-center rounded-lg p-1'>
                                                             <Button
-                                                                className='text-red-700 text-sm bg-red-50'
+                                                                className='text-red-700 text-sm bg-red-100'
                                                                 disableRipple
                                                                 component="a"
                                                                 startIcon={<Favorite />}
@@ -106,7 +106,7 @@ const Social = () => {
                                                         </h3>
                                                         <h3 className='flex items-center rounded-lg p-1'>
                                                             <Button
-                                                                className='text-purple-700 bg-purple-50'
+                                                                className='text-indigo-700'
                                                                 disableRipple
                                                                 component="a"
                                                                 startIcon={<QuestionAnswerIcon />}
@@ -116,7 +116,7 @@ const Social = () => {
                                                         </h3>
                                                         <h3 className='flex items-center rounded-lg p-1'>
                                                             <Button
-                                                                className='text-green-700 bg-green-50'
+                                                                className='text-indigo-700'
                                                                 disableRipple
                                                                 component="a"
                                                                 startIcon={<SendIcon />}
