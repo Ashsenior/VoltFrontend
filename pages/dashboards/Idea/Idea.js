@@ -5,9 +5,8 @@ import SellingPointsCard from './SellingPointsCard';
 
 const Idea = () => {
     return (
-
         <div className='mt-10 mx-auto'>
-            <Grid container spacing={2}>
+            <Grid container spacing={0}>
                 <Grid xs={12} md={6} lg={6}>
                     <IdeaCard></IdeaCard>
                 </Grid>

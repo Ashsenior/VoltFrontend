@@ -23,7 +23,7 @@ function TabPanel(props) {
             {...other}
         >
             {value === index && (
-                <Box sx={{ p: 3 }}>
+                <Box sx={{ p: 0 }}>
                     <Typography>{children}</Typography>
                 </Box>
             )}
@@ -111,15 +111,19 @@ const MarketingHome = () => {
                             <TabPanel className="m-0" value={value} index={3}>
                                 {/* Strategy Cards */}
                                 {/* Major */}
-                                <h1 className='text-base my-1 font-semibold  ml-1'>Major</h1>
-                                <div className=''>
-                                    <MarketingMajor></MarketingMajor>
-                                </div>
+                                <Container maxWidth='lg'>
+                                    <h1 className='text-base my-1 font-semibold  ml-1'>Major</h1>
+                                    <div xs={12} md={6} lg={6} className='grid grid-cols-1 xl:grid-cols-1'>
+                                        <MarketingMajor></MarketingMajor>
+                                    </div>
+                                </Container>
                                 {/* Minor */}
-                                <h1 className='text-base my-1 font-semibold mt-6 ml-1'>Minor</h1>
-                                <div className='grid grid-cols-1 xl:grid-cols-1'>
-                                    <MarketingMajor></MarketingMajor>
-                                </div>
+                                <Container maxWidth='lg'>
+                                    <h1 className='text-base my-1 font-semibold mt-6 ml-1'>Minor</h1>
+                                    <div className='grid grid-cols-1 xl:grid-cols-1'>
+                                        <MarketingMajor></MarketingMajor>
+                                    </div>
+                                </Container>
                                 {/* Minor */}
                             </TabPanel>
                             <TabPanel value={value} index={4}>

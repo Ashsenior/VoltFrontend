@@ -3,7 +3,7 @@ import { MdAccessAlarm } from 'react-icons/md';
 
 const MeetingCard = () => {
     return (
-        <div className='w-60 flex flex-col rounded-xl shadow-lg hover:shadow-2xl bg-white p-4'>
+        <div className='w-full md:w-60 flex flex-col rounded-xl shadow-lg hover:shadow-2xl bg-white p-4 mx-auto md:mx-0'>
             <h4 className='text-xl font-semibold'>Daily Design Meeting</h4>
             <div className='flex items-center gap-1 mt-4'>
                 <MdAccessAlarm className='text-2xl mb-2'></MdAccessAlarm>
