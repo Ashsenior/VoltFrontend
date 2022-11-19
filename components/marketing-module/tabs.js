@@ -13,7 +13,7 @@ const Tabs = () => {
     }
 
     return (
-        <div>
+        <>
             <Container maxWidth='w-full my-4'>
                 <div className="relative pb-5 border-b border-gray-200 sm:pb-0">
                     <div className="md:flex md:items-center md:justify-between">
@@ -71,8 +71,8 @@ const Tabs = () => {
                     </div>
                 </div>
             </Container>
-        </div>
-    );
+    </>
+  );
 };
 
 export default Tabs;

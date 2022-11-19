@@ -44,7 +44,7 @@ const StrategyMajor = () => {
                         <a href="#" className="border-l-x-4 border-green-200 block hover:bg-gray-100">
                             <div className="px-3 py-3 sm:px-3">
                                 <div className="flex items-center justify-between">
-                                    <p className="text-lg font-medium text-indigo-600 truncate"> {position.title}</p>
+                                    <p className="text-lg font-medium text-black truncate"> {position.title}</p>
                                     <div className="ml-2 flex-shrink-0 flex">
                                         <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                             @ashsenior
@@ -56,47 +56,34 @@ const StrategyMajor = () => {
                                         <p className="flex items-center text-sm text-gray-500">
                                             <div className='flex items-center justify-start gap-2'>
                                                 <h3 className='flex items-center rounded-lg '>
-                                                    <div className="indicator">
-                                                        <span className="block md:hidden indicator-item badge badge-success mr-2">3+</span>
-                                                        <Button
-                                                            className='text-green-700 bg-green-50'
-                                                            disableRipple
-                                                            component="a"
-                                                            startIcon={<LocalGroceryStoreIcon className='hidden md:block' />}
-                                                        >
-                                                            <span className='hidden md:block mr-1'>5</span>
-                                                            Marketing
-                                                        </Button>
-                                                    </div>
-
+                                                    <Button
+                                                        className='text-green-700 bg-green-50'
+                                                        disableRipple
+                                                        component="a"
+                                                        startIcon={<LocalGroceryStoreIcon />}
+                                                    >
+                                                        3 Marketing
+                                                    </Button>
                                                 </h3>
                                                 <h3 className='flex items-center rounded-lg p-1'>
-                                                    <div className="indicator">
-                                                        <span className="block md:hidden indicator-item badge badge-success mr-2">6+</span>
-                                                        <Button
-                                                            className='text-green-700 bg-green-50'
-                                                            disableRipple
-                                                            component="a"
-                                                            startIcon={<MonetizationOnIcon className='hidden md:block' />}
-                                                        >
-                                                            <span className='hidden md:block mr-1'>5</span>
-                                                            Sales
-                                                        </Button>
-                                                    </div>
+                                                    <Button
+                                                        className='text-green-700 bg-green-50'
+                                                        disableRipple
+                                                        component="a"
+                                                        startIcon={<MonetizationOnIcon />}
+                                                    >
+                                                        6 Sales
+                                                    </Button>
                                                 </h3>
                                                 <h3 className='flex items-center rounded-lg p-1'>
-                                                    <div className="indicator">
-                                                        <span className="block md:hidden indicator-item badge badge-success mr-2">4+</span>
-                                                        <Button
-                                                            className='text-green-700 bg-green-50'
-                                                            disableRipple
-                                                            component="a"
-                                                            startIcon={<Biotech className='hidden md:block' />}
-                                                        >
-                                                            <span className='hidden md:block mr-1'>5</span>
-                                                            Research
-                                                        </Button>
-                                                    </div>
+                                                    <Button
+                                                        className='text-green-700 bg-green-50'
+                                                        disableRipple
+                                                        component="a"
+                                                        startIcon={<Biotech />}
+                                                    >
+                                                        4 Research
+                                                    </Button>
                                                 </h3>
                                             </div>
                                         </p>

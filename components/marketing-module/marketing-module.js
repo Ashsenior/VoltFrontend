@@ -11,34 +11,34 @@ import Tabs from "./tabs";
 const positions = [
   {
     id: 1,
-    title: "Campaign 1",
+    title: "Task 1",
     type: "Full-time",
     location: "Remote",
     department: "Engineering",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt atque voluptatem reprehenderit veniam repudiandae aspernatur doloremque! Quisquam, ",
+    link:
+      "https://hero.something.com/post?id=sjdfnskdlfdsm",
     closeDate: "2020-01-07",
     closeDateFull: "January 7, 2020",
   },
   {
     id: 2,
-    title: "Campaign 2",
+    title: "Task 2",
     type: "Full-time",
     location: "Remote",
     department: "Engineering",
-    description:
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt atque voluptatem reprehenderit veniam repudiandae aspernatur doloremque! Quisquam, ",
+    link:
+    "https://hero.something.com/post?id=sjdfnskdlfdsm",
     closeDate: "2020-01-07",
     closeDateFull: "January 7, 2020",
   },
   {
     id: 3,
-    title: "Campaign 3",
+    title: "Task 3",
     type: "Full-time",
     location: "Remote",
     department: "Design",
-    description:
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt atque voluptatem reprehenderit veniam repudiandae aspernatur doloremque! Quisquam, ",
+    link:
+    "https://hero.something.com/post?id=sjdfnskdlfdsm",
   closeDate: "2020-01-07",
     closeDateFull: "January 14, 2020",
   },
@@ -46,21 +46,18 @@ const positions = [
 
 const MarketingModuleComponent = () => {
   return (
-    <div>
-      <div className="w-full bg-white">
-        <div className=" flex items-center justify-between mx-auto  rounded-lg py-3">
-          <h1 className="text-xl font-semibold">
-            Submit results and close campaign💡?
-          </h1>
-          <button
-            onClick={() => Router.push("/create_startup")}
-            type="button"
-            className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            Submit results
-          </button>
+    <>
+      <div className='w-full bg-indigo-500 border-b rounded-b-xl '>
+            <div className='w-12/12 flex items-center justify-between mx-auto px-2 rounded-lg py-2'>
+                <h1 className='text-xl text-white font-semibold'>Did the strategy worked?</h1>
+                <label
+                    // onClick={() => Router.push('/create_startup')}
+                    htmlFor="edit-startups-modal"
+                    type="button" className="inline-flex items-center px-2 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-900 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Submit the results
+                </label>
+            </div>
         </div>
-      </div>
       <div className="mt-6">
         <div className="flex items-center justify-between">
           <h1 className="text-xl font-semibold">
@@ -90,12 +87,7 @@ const MarketingModuleComponent = () => {
               possimus eos voluptatem aliquam aperiam ex quos velit fugiat
               voluptatum, vel suscipit distinctio est perspiciatis quam earum
               nisi facere! Saepe fuga accusantium velit voluptate ea
-              necessitatibus repellat reiciendis qui tempora ad. Exercitationem
-              omnis mollitia consequuntur quaerat non! Quis soluta ex at numquam
-              suscipit illum rerum, ipsa, earum laboriosam nobis velit quia
-              placeat reprehenderit, officiis quo ut porro distinctio optio
-              accusantium praesentium? Dolor, molestias corrupti, eos laudantium
-              assumenda ullam voluptates rerum dignissimos quam.
+              necessitatibus repellat reiciendis qui tempora ad.
             </p>
           </div>
         </div>
@@ -112,27 +104,16 @@ const MarketingModuleComponent = () => {
                 <div className="px-3 py-3 sm:px-3">
                   <div className="flex items-center justify-between">
                     <div className="border-spacing-2 border-l-teal-800">
-                    <p className="text-lg font-medium text-indigo-600 truncate">
+                    <p className="text-lg font-medium row text-indigo-600 truncate">
                       {" "}
                       {position.title}
                     </p>
-                    <p className="text-md font-small text-black-600 ">
-                      {" "}
-                      {position.description}
-                    </p>
+                    <div className='flex gap-2 text-sm'>
+                      <p className='text-red-'> <span >#</span>ctohunt</p>
+                      <p className='text-red-'> <span >#</span>entrepreneur</p>
+                      <p className='text-red-'> <span >#</span>startup</p>
                     </div>
-
-                    <div className="ml-2 flex-shrink-0 col text-center">
-                      <p className="px-2 my-2  text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        #linkedin
-                      </p>
-                      <p className="px-2 my-2  text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        #CTOHUNT
-                      </p>
-                      <p className="px-2 my-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        #ENTERPRENUER
-                      </p>
-                    </div>
+                  </div>
                   </div>
                   <div className="mt-2 sm:flex sm:justify-between">
                     <div className="sm:flex">
@@ -189,7 +170,7 @@ const MarketingModuleComponent = () => {
           ))}
         </ul>
       </div>
-    </div>
+    </>
   );
 };
 

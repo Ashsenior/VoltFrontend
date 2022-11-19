@@ -45,7 +45,7 @@ const MarketingMajor = () => {
                         <a href="#" className="border-l-x-4 border-green-200 block hover:bg-gray-100">
                             <div className="px-3 py-3 sm:px-3">
                                 <div className="flex items-center justify-between">
-                                    <p className="text-lg font-medium text-indigo-600 truncate"> {position.title}</p>
+                                    <p className="text-lg font-medium text-black truncate"> {position.title}</p>
                                     <div className="ml-2 flex-shrink-0 flex">
                                         <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                             @ashsenior
@@ -58,7 +58,7 @@ const MarketingMajor = () => {
                                             <div className='flex items-center justify-start'>
                                                 <h3 className='flex items-center rounded-lg '>
                                                     <Button
-                                                        className='text-green-700 bg-green-50'
+                                                        className='text-blue-700 bg-blue-50'
                                                         disableRipple
                                                         component="a"
                                                         startIcon={< FacebookIcon className='text-blue-600' />}
@@ -68,7 +68,7 @@ const MarketingMajor = () => {
                                                 </h3>
                                                 <h3 className='flex items-center rounded-lg p-1'>
                                                     <Button
-                                                        className='text-green-700 bg-green-50'
+                                                        className='text-pink-700 bg-pink-50'
                                                         disableRipple
                                                         component="a"
                                                         startIcon={<InstagramIcon className='text-red-400' />}
@@ -78,7 +78,7 @@ const MarketingMajor = () => {
                                                 </h3>
                                                 <h3 className='flex items-center rounded-lg p-1'>
                                                     <Button
-                                                        className='text-green-700 bg-green-50'
+                                                        className='text-indigo-700 bg-indigo-50'
                                                         disableRipple
                                                         component="a"
                                                         startIcon={<LinkedInIcon className='text-blue-700' />}
@@ -88,7 +88,7 @@ const MarketingMajor = () => {
                                                 </h3>
                                                 <h3 className='flex items-center rounded-lg p-1'>
                                                     <Button
-                                                        className='text-green-700 bg-green-50'
+                                                        className='text-orange-700 bg-orange-50'
                                                         disableRipple
                                                         component="a"
                                                         startIcon={<RedditIcon className='text-orange-500' />}
