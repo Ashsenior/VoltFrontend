@@ -8,7 +8,7 @@ const ProductDetails = () => {
 
     const featuresInfo = [
         {
-            title: 'Title',
+            title: 'Product Module',
             id: '11',
             date: '10/10/2022',
             user: 'username',
@@ -99,7 +99,7 @@ const ProductDetails = () => {
                 </div>
 
 
-                <div className='flex mt-10'>
+                <div className='flex mt-10 '>
                     <div className='w-5/12'>
                         <h4 className='text-xl font-semibold'>Timeline</h4>
                         {/* Time Line */}
@@ -107,7 +107,7 @@ const ProductDetails = () => {
                     </div>
                     <div className='w-7/12 mb-10'>
                         <h4 className='text-xl font-semibold'>Features</h4>
-                        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-6'>
+                        <div className='grid grid-cols-2 md:grid-cols-2 gap-4 mt-6'>
                             {
                                 featuresInfo.map(feature => <FeaturesCard
                                     key={feature.id}

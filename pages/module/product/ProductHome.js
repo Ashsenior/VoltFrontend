@@ -7,7 +7,7 @@ const ProductHome = () => {
 
     const productCards = [
         {
-            name: 'Company name',
+            name: 'Product name',
             id: '11',
             date: '10/10/2022',
             user: 'username',
@@ -16,7 +16,7 @@ const ProductHome = () => {
             logo: 'https://st4.depositphotos.com/16583842/30033/v/600/depositphotos_300337104-stock-illustration-initial-logo-design-inspirations-hexagonal.jpg'
         },
         {
-            name: 'Company name',
+            name: 'Product name',
             id: '12',
             date: '10/10/2022',
             user: 'username',
@@ -75,14 +75,14 @@ const ProductHome = () => {
                 </div>
             </div>
             <Container>
-                <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6 mx-4'>
+                <div className='grid grid-cols-1 lg:grid-cols-3 gap-2 mt-6 mx-2'>
                     {productCards.map(productCard => <>
                         <div
                             onClick={() => Router.push('/module/product/ProductDetails')}
                             className='w-full flex flex-col bg-white p-2 rounded-lg mx-auto '>
-                            <img className='w-44 m-1 rounded-md' src={productCard.logo} alt="" />
+                            <img className='flex w-20 m-1 rounded-md' src={productCard.logo} alt="" />
                             <div className='flex items-center justify-between gap-10'>
-                                <h4 className='text-2xl font-semibold cursor-pointer'>{productCard.name}</h4>
+                                <h4 className='text-xl font-semibold cursor-pointer'>{productCard.name}</h4>
                                 <p className="px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                     @{productCard.user}
                                 </p>
@@ -92,14 +92,14 @@ const ProductHome = () => {
                             <div className='flex items-center justify-between gap-2'>
                                 <Button
                                     onClick={() => Router.push('/module/product/FeatureDetails')}
-                                    className='w-full text-gray-900 bg-gradient-to-br from-green-50 to-blue-100 rounded-md mb-4'
+                                    className='w-full text-indigo-800 bg-indigo-50 rounded-md mb-4'
                                     disableRipple
                                     component="a"
                                 >
                                     {productCard.feature} Features
                                 </Button>
                                 <Button
-                                    className='w-full text-gray-900 bg-gradient-to-br from-green-50 to-blue-100 rounded-md mb-4'
+                                    className='w-full text-indigo-800 bg-indigo-50 rounded-md mb-4'
                                     disableRipple
                                     component="a"
                                 >
