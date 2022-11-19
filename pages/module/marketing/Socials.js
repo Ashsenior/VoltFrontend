@@ -5,8 +5,9 @@ import { Biotech, Home } from "@mui/icons-material";
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import SendIcon from '@mui/icons-material/Send';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import RedditIcon from '@mui/icons-material/Reddit';
 
 
@@ -16,6 +17,7 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
+import { useRouter } from 'next/router';
 
 const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -61,6 +63,7 @@ const socials = [
         comments: '241',
         shares: '110',
         closeDate: '2020-01-07',
+        logo: <FacebookIcon className='text-blue-500' />,
         closeDateFull: 'January 7, 2020',
         link: 'https://somethingsomethig.com'
     },
@@ -71,6 +74,7 @@ const socials = [
         comments: '1240',
         shares: '12',
         closeDate: '2020-01-07',
+        logo: <InstagramIcon className='text-pink-500' />,
         closeDateFull: 'January 7, 2020',
         link: 'https://somethingsomethig.com'
     },
@@ -81,6 +85,7 @@ const socials = [
         comments: '12',
         shares: '18',
         closeDate: '2020-01-14',
+        logo: <LinkedInIcon className='text-indigo-500' />,
         closeDateFull: 'January 14, 2020',
         link: 'https://somethingsomethig.com'
     },
@@ -90,6 +95,7 @@ const socials = [
         likes: '24',
         comments: '12',
         shares: '18',
+        logo: <RedditIcon className='text-orange-500' />,
         closeDate: '2020-01-14',
         closeDateFull: 'January 14, 2020',
         link: 'https://somethingsomethig.com'
@@ -99,7 +105,7 @@ const socials = [
 const Socials = () => {
 
     const [expanded, setExpanded] = React.useState('panel1');
-
+    const router = useRouter();
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
     };
@@ -113,14 +119,12 @@ const Socials = () => {
 
                 <div>
                     {socials.map(social => (<>
-                        <div
-
-                            className='p-2 bg-white rounded-lg mb-4 shadow-md hover:shadow-lg'>
+                        <div className='p-2 bg-white border-b hover:bg-gray-50'>
                             <div className='flex items-center justify-between mb-5'>
                                 <button
-                                    onClick={() => Router.push('/social')}
+                                    onClick={() => router.push('/social')}
                                     type='button'
-                                    className="text-lg font-medium truncate flex items-center gap-2 cursor-pointer"><FacebookIcon className='text-indigo-600' /> {social.title}</button>
+                                    className="text-lg font-medium truncate flex items-center gap-2 cursor-pointer">{social.logo} {social.title}</button>
                                 <div className="ml-2 flex-shrink-0 flex">
                                     <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                         @ashsenior
@@ -128,15 +132,13 @@ const Socials = () => {
                                 </div>
                             </div>
                             <div className='flex items-center justify-start gap-5'>
-                                <div className='flex items-center gap-1 p-1 border-2 w-fit rounded-lg'>
-                                    <span>200</span>
+                                <div className='flex items-center gap-1 p-2 text-pink-700 bg-pink-50 w-fit rounded-lg'>
                                     <ThumbUpIcon />
-                                    <span>Likes</span>
+                                    <span>200 Reactions</span>
                                 </div>
-                                <div className='flex items-center gap-1 p-1 border-2 w-fit rounded-lg'>
-                                    <span>800</span>
+                                <div className='flex items-center text-blue-700 bg-blue-50 gap-1 p-2 w-fit rounded-lg'>
                                     <QuestionAnswerIcon />
-                                    <span>Comments</span>
+                                    <span>100 Comments</span>
                                 </div>
                             </div>
                         </div>
