@@ -3,12 +3,13 @@ import FeaturesCard from './FeaturesCard';
 import ProductTimeline from './ProductTimeline';
 import SidebarLayout from 'src/layouts/SidebarLayout';
 import { Container } from '@mui/system';
+import {Link} from '@mui/material';
 
 const ProductDetails = () => {
 
     const featuresInfo = [
         {
-            title: 'Title',
+            title: 'Product Module',
             id: '11',
             date: '10/10/2022',
             user: 'username',
@@ -88,26 +89,22 @@ const ProductDetails = () => {
                                 lead <span className="px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">@userId</span>
                             </p>
                         </div>
-                        <label
-                            htmlFor=""
-                            type="button" className="uppercase inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Prototype
-                        </label>
+                        <Link to="" type='button' className='btn btn-sm'>Prototype</Link>
                     </div>
                     <h4 className='text-base font-semibold mt-6'>Descriptions</h4>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium, corrupti ex libero assumenda, non qui alias dolor debitis ducimus porro molestias nemo necessitatibus saepe amet cumque voluptate! Quos, nobis quod ab doloribus rerum vel maxime? Libero, possimus ea non sunt eos reiciendis optio et officia alias consequatur impedit esse dicta sapiente provident natus animi aperiam fuga. Pariatur voluptates odio alias quia, excepturi accusamus quis eum? Possimus modi, iure dicta, soluta voluptatem quia, eum maiores totam saepe magnam molestias debitis accusamus facilis illum ipsum omnis amet obcaecati! Quo laboriosam obcaecati ullam consequuntur, distinctio totam iste ipsam, error reiciendis quibusdam cupiditate ab?</p>
                 </div>
 
 
-                <div className='flex flex-col md:flex-row mt-10'>
-                    <div className='w-5/12'>
+                <div className='grid grid-cols-1 lg:grid-cols-2 mt-6'>
+                    <div className='w-full flex flex-col '>
                         <h4 className='text-xl font-semibold'>Timeline</h4>
                         {/* Time Line */}
                         <ProductTimeline></ProductTimeline>
                     </div>
-                    <div className='w-7/12 mb-10'>
+                    <div className='w-full flex flex-col '>
                         <h4 className='text-xl font-semibold'>Features</h4>
-                        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 mx-auto'>
+                        <div className='grid grid-cols-2 md:grid-cols-2 mt-6 mb-10'>
                             {
                                 featuresInfo.map(feature => <FeaturesCard
                                     key={feature.id}
