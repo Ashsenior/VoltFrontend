@@ -76,7 +76,8 @@ const ProductHome = () => {
             </div>
             <Container>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-2 mt-6 mx-2'>
-                    {productCards.map(productCard => <>
+                    {productCards.map(productCard => 
+                    <>
                         <div
                             onClick={() => Router.push('/module/product/ProductDetails')}
                             className='w-full flex flex-col bg-white p-2 rounded-lg mx-auto '>
@@ -88,18 +89,18 @@ const ProductHome = () => {
                                 </p>
                             </div>
                             <h6 className='text-sm mb-4'>{productCard.date}</h6>
-                            <p className='text-base font-light p-2'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod incidunt possimus praesentium in, ea eum.</p>
+                            <p className='text-base font-light mb-2'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod incidunt possimus praesentium in, ea eum.</p>
                             <div className='flex items-center justify-between gap-2'>
                                 <Button
                                     onClick={() => Router.push('/module/product/FeatureDetails')}
-                                    className='w-full text-indigo-800 bg-indigo-50 rounded-md mb-4'
+                                    className='w-full text-indigo-800 p-2 bg-indigo-50 rounded-xl mb-4'
                                     disableRipple
                                     component="a"
                                 >
                                     {productCard.feature} Features
                                 </Button>
                                 <Button
-                                    className='w-full text-indigo-800 bg-indigo-50 rounded-md mb-4'
+                                    className='w-full text-indigo-800 p-2 bg-indigo-50 rounded-xl mb-4'
                                     disableRipple
                                     component="a"
                                 >

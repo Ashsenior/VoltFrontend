@@ -4,16 +4,16 @@ import Router from "next/router";
 const StartupCard = ({ startup }) => {
 
     return (
-        <div className='w-full mx-auto flex justify-between items-center rounded-xl mt-8 p-2 hover:bg-gradient-to-tr from-white to-blue-100'>
+        <div className='w-full flex justify-between border-b border-r items-center p-2 hover:bg-gradient-to-tr from-white to-blue-100'>
             <div className='flex my-1'>
-                <img className='w-24 h-24 mx-1 rounded-lg' src={startup.image} alt="img" />
-                <div className='flex flex-col justify-between'>
+                <img className='w-20 h-20 mx-1 rounded-lg' src={startup.image} alt="img" />
+                <div className='flex flex-col p-2 justify-between'>
                     <div>
                         <h1><e className='text-base md:text-xl font-bold'>{startup.title} </e></h1>
-                        <e className="text-grey text-xs" >( Founded {startup.founded} ) </e>
+                        <medium className='font-semibold mb-1'>{startup.vision}</medium>
                         {/* <p className='py-2'>{startup.description}</p> */}
                     </div>
-                    <small className='font-semibold mb-1'>{startup.vision}</small>
+                    <e className="text-grey text-xs" >( Founded {startup.founded} ) </e>
                 </div>
             </div>
 
