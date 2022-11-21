@@ -25,15 +25,15 @@ useEffect(()=>{
 },[])
 
     return (
-        <div className='bg-gray-100'>
+        <div className='bg-white'>
             {/* Title and Startup Button */}
-            <div className='w-full bg-white'>
-                <div className='w-11/12 flex items-center justify-between mx-auto px-5 rounded-lg py-3'>
-                    <h1 className='text-xl font-semibold'>Any new idea💡?</h1>
+            <div className='mx-6 bg-indigo-500 border-b rounded-b-xl '>
+                <div className='w-12/12 flex items-center justify-between mx-auto px-4 rounded-lg py-2'>
+                    <h1 className='text-xl text-white font-semibold'>Any new idea💡?</h1>
                     <button
                         onClick={() => Router.push('/create_startup')}
-                        type="button" className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Create New Startup
+                        type="button" className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Create New Startup
                     </button>
                 </div>
             </div>
@@ -43,6 +43,7 @@ useEffect(()=>{
                 <FiSearch className='text-4xl text-indigo-500 cursor-pointer'></FiSearch>
             </div>*/}
             {/* Startups Card Section Title */}
+<<<<<<< HEAD
             <div className='w-11/12 mx-3 my-2 mt-6 flex items-center justify-start gap-2'>
                 <h1 className='text-l font-semibold'>Your Startups</h1>
                 <div className='h-0.5 w-40 bg-indigo-500 rounded-full mt-2'></div>
@@ -64,6 +65,43 @@ useEffect(()=>{
                 <StartupCard />
                 <StartupCard />
             </div>
+=======
+            <Container maxWidth='lg'>
+                <div className='w-full mx-auto my-2 mt-6 flex items-center justify-start gap-2'>
+                    <h1 className='text-l font-semibold'>Your Startups</h1>
+                    <div className='h-0.5 w-40 bg-indigo-500 rounded-full mt-2'></div>
+                </div>
+                {/* Startup cards */}
+                <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2'>
+                    {
+                        startups.slice(0, 2).map(startup => <><StartupCard
+                            key={startup.id}
+                            startup={startup}
+                        ></StartupCard>
+                        </>
+                        )
+                    }
+                </div>
+            </Container>
+            {/* All Startups */}
+            <Container maxWidth='lg'>
+                <div className='w-full mx-auto my-2 mt-6 flex items-center justify-start gap-2'>
+                    <h1 className='text-l font-semibold'>All Startups</h1>
+                    <div className='h-0.5 w-40 bg-indigo-500 rounded-full mt-2'></div>
+                </div>
+                {/* All startup Cards */}
+                <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2'>
+                    {
+                        startups?.map(startup => <><PublicStartupCard
+                            key={startup.id}
+                            startup={startup}
+                        ></PublicStartupCard>
+                        </>
+                        )
+                    }
+                </div>
+            </Container>
+>>>>>>> cd093ed39b937c44f613b9b29aa785f315fd1501
         </div>
     );
 };

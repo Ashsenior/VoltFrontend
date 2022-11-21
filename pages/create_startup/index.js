@@ -176,7 +176,7 @@ function TabsDemo() {
     };
 
     return (
-        <Container maxWidth="lg"  >
+        <Container maxWidth="lg" className='bg-white' >
             <Grid
                 container
                 direction="row"
@@ -211,7 +211,7 @@ function TabsDemo() {
                                     <Box
                                         component="form"
                                         sx={{
-                                            '& .MuiTextField-root': { m: 1, width: '25ch' }
+                                            '& .MuiTextField-root': { m: 1, width: '35ch' }
                                         }}
                                         noValidate
                                         autoComplete="off"
@@ -314,20 +314,16 @@ function TabsDemo() {
                                         justifyContent={'space-between'}
                                         minHeight={"30vh"}
                                     >
-
                                         <Grid item paddingBottom={4}>
                                             <Typography variant="h3" component="h3" gutterBottom>
                                                 Explain Your Idea💡 In Brief
-                                            </Typography>
-                                            <Typography variant="subtitle2">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor enim esse illo nemo. Aut deserunt !
                                             </Typography>
                                         </Grid>
                                         <TextField
                                             id="outlined-multiline-static"
                                             label="Multiline"
                                             multiline
-                                            minRows={15}
+                                            minRows={13}
                                             defaultValue="Default Value"
                                             onChange={handleidea}
                                         />
@@ -348,7 +344,6 @@ function TabsDemo() {
                                         justifyContent={'space-between'}
                                         minHeight={"30vh"}
                                     >
-
                                         <Grid item paddingBottom={2} marginTop={2}>
                                             <Typography variant="h4" component="h3" gutterBottom>
                                                 2. Problem Area of the customer you are addressing
@@ -462,6 +457,7 @@ function TabsDemo() {
                                 </TabPanel>
                                 <Box display={"flex"} justifyContent={"space-between"}>
                                     <Button
+                                        // className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-xl text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-700"
                                         sx={{ margin: 1 }} variant="contained"
                                         onClick={() => {
                                             if (value === 0) {
@@ -473,6 +469,7 @@ function TabsDemo() {
                                         Previous
                                     </Button>
                                     <Button
+                                        className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-xl text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-700 "
                                         sx={{ margin: 1, bgcolor: "blue" }}
                                         variant="contained"
                                         color={value === 3 ? "success" : "secondary"}

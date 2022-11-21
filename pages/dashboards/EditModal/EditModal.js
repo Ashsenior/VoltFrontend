@@ -5,7 +5,7 @@ const EditModal = () => {
     return (
         <div>
             <div className='w-full bg-white'>
-                <div className='w-11/12 flex items-center justify-between mx-auto px-5 rounded-lg py-3'>
+                <div className='w-11/12 flex items-center justify-between mx-auto px-1 md:px-5 rounded-lg py-3'>
                     <h4 className='text-xl font-semibold'>Edit Startup Details</h4>
                     {/* The button to open modal */}
                     <label
