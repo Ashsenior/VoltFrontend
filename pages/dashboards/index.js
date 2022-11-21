@@ -1,24 +1,20 @@
-import Head from 'next/head';
+import Head from "next/head";
 
-import SidebarLayout from 'src/layouts/SidebarLayout';
-import { Container, Grid } from '@mui/material';
-import Footer from 'src/components/Footer';
-
-import Points from 'src/content/Dashboards/Crypto/Points';
-
-import AuthContext from "../../context/AuthContext";
-
+import SidebarLayout from "src/layouts/SidebarLayout";
+import { Container, Grid } from "@mui/material";
+import Footer from "src/components/Footer";
+import Points from "src/content/Dashboards/Crypto/Points";
 import { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
-import Meetings from './Meetings/Meetings';
+import Meetings from "./Meetings/Meetings";
 import { useState } from "react";
-import Idea from './Idea/Idea';
-import TargetAudience from './TargetAudience/TargetAudience';
-import EditModal from './EditModal/EditModal';
-
+import Idea from "./Idea/Idea";
+import TargetAudience from "./TargetAudience/TargetAudience";
+import EditModal from "./EditModal/EditModal";
+import { get } from "../../config/axiosClient";
 
 function DashboardCrypto() {
-  const router = useRouter()
+  const router = useRouter();
   const [username, setUsername] = useState("");
   useEffect(() => {
     var access_token = localStorage.getItem("access_token");
@@ -26,16 +22,28 @@ function DashboardCrypto() {
     if (access_token && refresh_token) {
       setUsername(localStorage.getItem("username"));
       //getUserData();
-    }
-    else {
+    } else {
       router.push({
         pathname: "/",
-        query: { "message": "Not authenticated !" }
+        query: { message: "Not authenticated !" },
       });
     }
   }, []);
 
-
+  const [data, setData] = useState([]);
+  const getData = () => {
+    get("todos")
+      .then((res) => {
+        setData(res.json);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  console.log(data);
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <>
       <Head>
@@ -65,7 +73,6 @@ function DashboardCrypto() {
       <Container maxWidth="lg">
         <Meetings />
       </Container>
-
 
       {/* Idea and Selling Point card */}
       <Container maxWidth="lg">

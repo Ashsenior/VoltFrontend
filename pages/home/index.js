@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Router from "next/router";
 import { FiSearch } from 'react-icons/fi';
-
-import BaseLayout from 'src/layouts/BaseLayout';
 import StartupCard from './StartupCard';
+import BaseLayout from 'src/layouts/BaseLayout';
 import Head from 'next/head';
+import { get } from '../../config/axiosClient';
+import { useEffect } from 'react';
 
 const Home = () => {
+const [data, setData] = useState([])
+const getData = () =>{
+    
+    get('todos')
+    .then((res)=>{
+        setData(res.json)
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+}
+console.log(data)
+useEffect(()=>{
+    getData();
+},[])
+
     return (
         <div className='bg-gray-100'>
             {/* Title and Startup Button */}
@@ -26,7 +43,7 @@ const Home = () => {
                 <FiSearch className='text-4xl text-indigo-500 cursor-pointer'></FiSearch>
             </div>*/}
             {/* Startups Card Section Title */}
-            <div className='w-11/12 mx-auto my-2 mt-6 flex items-center justify-start gap-2'>
+            <div className='w-11/12 mx-3 my-2 mt-6 flex items-center justify-start gap-2'>
                 <h1 className='text-l font-semibold'>Your Startups</h1>
                 <div className='h-0.5 w-40 bg-indigo-500 rounded-full mt-2'></div>
             </div>
@@ -36,7 +53,7 @@ const Home = () => {
                 <StartupCard />
             </div>
             {/* All Startups */}
-            <div className='w-11/12 mx-auto my-2 mt-6 flex items-center justify-start gap-2'>
+            <div className='w-11/12 mx-3 my-2 mt-6 flex items-center justify-start gap-2'>
                 <h1 className='text-l font-semibold'>All Startups</h1>
                 <div className='h-0.5 w-40 bg-indigo-500 rounded-full mt-2'></div>
             </div>
