@@ -1,69 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Router from "next/router";
 import { FiSearch } from 'react-icons/fi';
-
-import BaseLayout from 'src/layouts/BaseLayout';
 import StartupCard from './StartupCard';
-import PublicStartupCard from './PublicStartupCard';
+import BaseLayout from 'src/layouts/BaseLayout';
 import Head from 'next/head';
-import { Container } from '@mui/system';
+import { get } from '../../config/axiosClient';
+import { useEffect } from 'react';
 
 const Home = () => {
-
-    const startups = [
-        {
-            id: '00001',
-            image: 'https://www.chalgenius.com/wp-content/uploads/2021/08/startup-4.jpg',
-            title: 'Startup Title',
-            founded: '2005',
-            members: '4',
-            vision: 'Think Big Do Small',
-            voltPoints: '45',
-            description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore perferendis at inventore debitis nobis quibusdam aspernatur voluptate veritatis laudantium sed'
-        },
-        {
-            id: '00002',
-            image: 'https://www.chalgenius.com/wp-content/uploads/2021/08/startup-4.jpg',
-            title: 'Startup Title',
-            founded: '2005',
-            members: '4',
-            vision: 'Think Big Do Small',
-            voltPoints: '45',
-            description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore perferendis at inventore debitis nobis quibusdam aspernatur voluptate veritatis laudantium sed'
-        },
-        {
-            id: '00003',
-            image: 'https://www.chalgenius.com/wp-content/uploads/2021/08/startup-4.jpg',
-            title: 'Startup Title',
-            founded: '2005',
-            members: '4',
-            vision: 'Think Big Do Small',
-            voltPoints: '45',
-            description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore perferendis at inventore debitis nobis quibusdam aspernatur voluptate veritatis laudantium sed'
-        },
-        {
-            id: '00004',
-            image: 'https://www.chalgenius.com/wp-content/uploads/2021/08/startup-4.jpg',
-            title: 'Startup Title',
-            founded: '2005',
-            members: '4',
-            vision: 'Think Big Do Small',
-            voltPoints: '45',
-            description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore perferendis at inventore debitis nobis quibusdam aspernatur voluptate veritatis laudantium sed'
-        },
-        {
-            id: '00005',
-            image: 'https://www.chalgenius.com/wp-content/uploads/2021/08/startup-4.jpg',
-            title: 'Startup Title',
-            founded: '2005',
-            members: '4',
-            vision: 'Think Big Do Small',
-            voltPoints: '45',
-            description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore perferendis at inventore debitis nobis quibusdam aspernatur voluptate veritatis laudantium sed'
-        },
-    ]
-
-
+const [data, setData] = useState([])
+const getData = () =>{
+    
+    get('todos')
+    .then((res)=>{
+        setData(res.json)
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+}
+console.log(data)
+useEffect(()=>{
+    getData();
+},[])
 
     return (
         <div className='bg-white'>
@@ -84,6 +43,29 @@ const Home = () => {
                 <FiSearch className='text-4xl text-indigo-500 cursor-pointer'></FiSearch>
             </div>*/}
             {/* Startups Card Section Title */}
+<<<<<<< HEAD
+            <div className='w-11/12 mx-3 my-2 mt-6 flex items-center justify-start gap-2'>
+                <h1 className='text-l font-semibold'>Your Startups</h1>
+                <div className='h-0.5 w-40 bg-indigo-500 rounded-full mt-2'></div>
+            </div>
+            {/* Startup cards */}
+            <div className='grid grid-cols-1 md:grid-cols-1 xl:grid-cols-1'>
+                <StartupCard />
+                <StartupCard />
+            </div>
+            {/* All Startups */}
+            <div className='w-11/12 mx-3 my-2 mt-6 flex items-center justify-start gap-2'>
+                <h1 className='text-l font-semibold'>All Startups</h1>
+                <div className='h-0.5 w-40 bg-indigo-500 rounded-full mt-2'></div>
+            </div>
+            {/* All startup Cards */}
+            <div className='grid grid-cols-1 md:grid-cols-1 xl:grid-cols-1'>
+                <StartupCard />
+                <StartupCard />
+                <StartupCard />
+                <StartupCard />
+            </div>
+=======
             <Container maxWidth='lg'>
                 <div className='w-full mx-auto my-2 mt-6 flex items-center justify-start gap-2'>
                     <h1 className='text-l font-semibold'>Your Startups</h1>
@@ -119,6 +101,7 @@ const Home = () => {
                     }
                 </div>
             </Container>
+>>>>>>> cd093ed39b937c44f613b9b29aa785f315fd1501
         </div>
     );
 };

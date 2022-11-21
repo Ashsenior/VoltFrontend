@@ -13,7 +13,7 @@ function CreateStrategy() {
 
 
             <Container maxWidth="lg">
-                <NewStrategy></NewStrategy>
+                <NewStrategy/>
             </Container>
             <Footer />
         </>
