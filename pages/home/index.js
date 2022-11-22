@@ -6,23 +6,24 @@ import BaseLayout from 'src/layouts/BaseLayout';
 import Head from 'next/head';
 import { get } from '../../config/axiosClient';
 import { useEffect } from 'react';
+import { Button, Container } from '@mui/material';
 
 const Home = () => {
-const [data, setData] = useState([])
-const getData = () =>{
-    
-    get('todos')
-    .then((res)=>{
-        setData(res.json)
-    })
-    .catch((err)=>{
-        console.log(err);
-    })
-}
-console.log(data)
-useEffect(()=>{
-    getData();
-},[])
+    const [data, setData] = useState([])
+    const getData = () =>{
+        
+        get('todos')
+        .then((res)=>{
+            setData(res.json)
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
+    console.log(data)
+    useEffect(()=>{
+        getData();
+    },[])
 
     return (
         <div className='bg-white'>
@@ -43,29 +44,6 @@ useEffect(()=>{
                 <FiSearch className='text-4xl text-indigo-500 cursor-pointer'></FiSearch>
             </div>*/}
             {/* Startups Card Section Title */}
-<<<<<<< HEAD
-            <div className='w-11/12 mx-3 my-2 mt-6 flex items-center justify-start gap-2'>
-                <h1 className='text-l font-semibold'>Your Startups</h1>
-                <div className='h-0.5 w-40 bg-indigo-500 rounded-full mt-2'></div>
-            </div>
-            {/* Startup cards */}
-            <div className='grid grid-cols-1 md:grid-cols-1 xl:grid-cols-1'>
-                <StartupCard />
-                <StartupCard />
-            </div>
-            {/* All Startups */}
-            <div className='w-11/12 mx-3 my-2 mt-6 flex items-center justify-start gap-2'>
-                <h1 className='text-l font-semibold'>All Startups</h1>
-                <div className='h-0.5 w-40 bg-indigo-500 rounded-full mt-2'></div>
-            </div>
-            {/* All startup Cards */}
-            <div className='grid grid-cols-1 md:grid-cols-1 xl:grid-cols-1'>
-                <StartupCard />
-                <StartupCard />
-                <StartupCard />
-                <StartupCard />
-            </div>
-=======
             <Container maxWidth='lg'>
                 <div className='w-full mx-auto my-2 mt-6 flex items-center justify-start gap-2'>
                     <h1 className='text-l font-semibold'>Your Startups</h1>
@@ -101,7 +79,6 @@ useEffect(()=>{
                     }
                 </div>
             </Container>
->>>>>>> cd093ed39b937c44f613b9b29aa785f315fd1501
         </div>
     );
 };
