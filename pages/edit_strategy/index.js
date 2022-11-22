@@ -3,8 +3,11 @@ import SidebarLayout from 'src/layouts/SidebarLayout';
 import { Container } from '@mui/material';
 import Footer from 'src/components/Footer';
 import EditStrategies from '../module/create_strategy/EditStrategies';
+import { useState } from 'react';
 
 function EditStrategy() {
+  const [strategy, setStrategy] = useState({});
+
     return (
         <>
             <Head>
@@ -13,7 +16,7 @@ function EditStrategy() {
 
 
             <Container maxWidth="lg">
-                <EditStrategies></EditStrategies>
+                <EditStrategies strategy={strategy} />
             </Container>
             <Footer />
         </>
