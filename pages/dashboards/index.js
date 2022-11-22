@@ -14,6 +14,8 @@ import EditModal from "./EditModal/EditModal";
 import { get } from "../../config/axiosClient";
 
 function DashboardCrypto() {
+const [startups, setStartups] = useState({});
+
   const router = useRouter();
   const [username, setUsername] = useState("");
   useEffect(() => {
@@ -34,7 +36,7 @@ function DashboardCrypto() {
   const getData = () => {
     get("todos")
       .then((res) => {
-        setData(res.json);
+        setStartups(res.json);
       })
       .catch((err) => {
         console.log(err);
@@ -63,7 +65,7 @@ function DashboardCrypto() {
           spacing={4}
         >
           <Grid item xs={12} marginTop={4}>
-            <Points />
+            <Points startup={startups}/>
           </Grid>
         </Grid>
       </Container>
@@ -82,7 +84,7 @@ function DashboardCrypto() {
 
       {/* Idea and Selling Point card */}
       <Container maxWidth="lg">
-        <TargetAudience />
+        <TargetAudience startup={startups}/>
       </Container>
 
       <Footer />

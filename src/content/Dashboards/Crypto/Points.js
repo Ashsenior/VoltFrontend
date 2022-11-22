@@ -56,7 +56,7 @@ const ListItemAvatarWrapper = styled(ListItemAvatar)(
 `
 );
 const Colors = ['#ff9900', '#F47C7C', '#5FD068', '#333']
-function Points() {
+function Points({startup}) {
   const theme = useTheme();
 
   const chartOptions = {
@@ -143,7 +143,7 @@ function Points() {
             </Typography>
             <Box>
               <Typography variant="h3" gutterBottom>
-                54,584
+                {startup?.points}
               </Typography>
               <Typography
                 variant="h5"
@@ -168,7 +168,7 @@ function Points() {
                   <TrendingUp fontSize="large" />
                 </AvatarSuccess>
                 <Box>
-                  <Typography variant="h4">+ 3,594.00</Typography>
+                  <Typography variant="h4">{startup?.revenue1}</Typography>
                   <Typography variant="subtitle2" noWrap>
                     this month
                   </Typography>

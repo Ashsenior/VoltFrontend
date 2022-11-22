@@ -4,7 +4,7 @@ import { BsPlusLg } from 'react-icons/bs';
 import CreateMeetingModal from './CreateMeetingModal';
 
 
-const Meetings = () => {
+const Meetings = ({startup}) => {
     return (
         <div className='mt-6 mx-auto'>
             {/* The button to open modal */}

@@ -9,21 +9,23 @@ import { useEffect } from 'react';
 import { Button, Container } from '@mui/material';
 
 const Home = () => {
-    const [data, setData] = useState([])
-    const getData = () =>{
-        
-        get('todos')
-        .then((res)=>{
-            setData(res.json)
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
-    }
-    console.log(data)
-    useEffect(()=>{
-        getData();
-    },[])
+const [your_startups, setYourStartups] = useState([]);
+const [all_startups, setAllStartups] = useState([]);
+
+
+const getData = () =>{
+    
+    get('todos')
+    .then((res)=>{
+        setYourStartups(res.json)
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+}
+useEffect(()=>{
+    getData();
+},[])
 
     return (
         <div className='bg-white'>
@@ -44,41 +46,27 @@ const Home = () => {
                 <FiSearch className='text-4xl text-indigo-500 cursor-pointer'></FiSearch>
             </div>*/}
             {/* Startups Card Section Title */}
-            <Container maxWidth='lg'>
-                <div className='w-full mx-auto my-2 mt-6 flex items-center justify-start gap-2'>
-                    <h1 className='text-l font-semibold'>Your Startups</h1>
-                    <div className='h-0.5 w-40 bg-indigo-500 rounded-full mt-2'></div>
-                </div>
-                {/* Startup cards */}
-                <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2'>
-                    {
-                        startups.slice(0, 2).map(startup => <><StartupCard
-                            key={startup.id}
-                            startup={startup}
-                        ></StartupCard>
-                        </>
-                        )
-                    }
-                </div>
-            </Container>
+            <div className='w-11/12 mx-3 my-2 mt-6 flex items-center justify-start gap-2'>
+                <h1 className='text-l font-semibold'>Your Startups</h1>
+                <div className='h-0.5 w-40 bg-indigo-500 rounded-full mt-2'></div>
+            </div>
+            {/* Startup cards */}
+            <div className='grid grid-cols-1 md:grid-cols-1 xl:grid-cols-1'>
+                <StartupCard startup={your_startups} />
+                <StartupCard />
+            </div>
             {/* All Startups */}
-            <Container maxWidth='lg'>
-                <div className='w-full mx-auto my-2 mt-6 flex items-center justify-start gap-2'>
-                    <h1 className='text-l font-semibold'>All Startups</h1>
-                    <div className='h-0.5 w-40 bg-indigo-500 rounded-full mt-2'></div>
-                </div>
-                {/* All startup Cards */}
-                <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2'>
-                    {
-                        startups?.map(startup => <><PublicStartupCard
-                            key={startup.id}
-                            startup={startup}
-                        ></PublicStartupCard>
-                        </>
-                        )
-                    }
-                </div>
-            </Container>
+            <div className='w-11/12 mx-3 my-2 mt-6 flex items-center justify-start gap-2'>
+                <h1 className='text-l font-semibold'>All Startups</h1>
+                <div className='h-0.5 w-40 bg-indigo-500 rounded-full mt-2'></div>
+            </div>
+            {/* All startup Cards */}
+            <div className='grid grid-cols-1 md:grid-cols-1 xl:grid-cols-1'>
+                <StartupCard />
+                <StartupCard />
+                <StartupCard />
+                <StartupCard />
+            </div>
         </div>
     );
 };
