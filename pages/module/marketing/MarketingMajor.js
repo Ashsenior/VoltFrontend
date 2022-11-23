@@ -4,7 +4,8 @@ import { Biotech, Home } from "@mui/icons-material";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import RedditIcon from '@mui/icons-material/Reddit';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+
 
 const positions = [
     {
@@ -56,19 +57,9 @@ const MarketingMajor = () => {
                                     <div className="sm:flex">
                                         <p className="flex items-center text-sm text-gray-500">
                                             <div className='flex flex-wrap items-center justify-between'>
-                                                <h3 className='flex items-center rounded-lg  '>
-                                                    <Button
-                                                        className='text-blue-700 bg-blue-50'
-                                                        disableRipple
-                                                        component="a"
-                                                        startIcon={< FacebookIcon className='text-blue-600' />}
-                                                    >
-                                                        4 Facebook
-                                                    </Button>
-                                                </h3>
                                                 <h3 className='flex items-center rounded-lg p-1'>
                                                     <Button
-                                                        className='text-pink-700 bg-pink-50'
+                                                        className='text-pink-700'
                                                         disableRipple
                                                         component="a"
                                                         startIcon={<InstagramIcon className='text-red-400' />}
@@ -78,7 +69,7 @@ const MarketingMajor = () => {
                                                 </h3>
                                                 <h3 className='flex items-center rounded-lg p-1'>
                                                     <Button
-                                                        className='text-indigo-700 bg-indigo-50'
+                                                        className='text-indigo-700'
                                                         disableRipple
                                                         component="a"
                                                         startIcon={<LinkedInIcon className='text-blue-700' />}
@@ -88,12 +79,12 @@ const MarketingMajor = () => {
                                                 </h3>
                                                 <h3 className='flex items-center rounded-lg p-1'>
                                                     <Button
-                                                        className='text-orange-700 bg-orange-50'
+                                                        className='text-red-700'
                                                         disableRipple
                                                         component="a"
-                                                        startIcon={<RedditIcon className='text-orange-500' />}
+                                                        startIcon={<YouTubeIcon className='text-red-500' />}
                                                     >
-                                                        0 Reddit
+                                                        0 YouTube
                                                     </Button>
                                                 </h3>
                                             </div>

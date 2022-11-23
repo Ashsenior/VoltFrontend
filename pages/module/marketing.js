@@ -4,7 +4,8 @@ import SidebarLayout from "src/layouts/SidebarLayout";
 import { Container } from "@mui/material";
 import Footer from "src/components/Footer";
 import MarketingModuleComponent from "../../components/marketing-module/marketing-module";
-import { useState } from "react";
+import MarketingHome from "./marketing/MarketingHome";
+import { useState, useEffect } from "react";
 import { get } from "../../config/axiosClient";
 
 function MarketingModule() {
@@ -28,7 +29,7 @@ function MarketingModule() {
         <title>Marketing Module</title>
       </Head>
       <Container maxWidth="lg">
-        <MarketingModuleComponent />
+        <MarketingHome />
       </Container>
       <Footer />
     </>

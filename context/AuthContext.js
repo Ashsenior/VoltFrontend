@@ -29,6 +29,7 @@ export const AuthProvider = ({ children }) => {
                         localStorage.setItem('access_token', data.access);
                         localStorage.setItem('refresh_token', data.refresh);
                         localStorage.setItem('username', username);
+                        console.log(data.access, data.refresh, username);
                         axiosInstance.defaults.headers['Authorization'] = "JWT " + data.access;
                         await Router.push("/home");
                     }
