@@ -6,25 +6,36 @@ import BaseLayout from 'src/layouts/BaseLayout';
 import Head from 'next/head';
 import { get } from '../../config/axiosClient';
 import { useEffect } from 'react';
+import { Button, Container } from '@mui/material';
+import axiosInstance from "../../src/axiosAPi";
 
 const Home = () => {
-const [your_startups, setYourStartups] = useState([]);
-const [all_startups, setAllStartups] = useState([]);
+    const [your_startups, setYourStartups] = useState([]);
+    const [all_startups, setAllStartups] = useState([]);
 
-
-const getData = () =>{
-    
-    get('todos')
-    .then((res)=>{
-        setData(res.json)
-    })
-    .catch((err)=>{
-        console.log(err);
-    })
-}
-useEffect(()=>{
-    getData();
-},[])
+    useEffect(() => {
+        var access_token = localStorage.getItem("access_token");
+        var refresh_token = localStorage.getItem("refresh_token");
+        if (access_token && refresh_token) {
+            console.log("index ", refresh_token)
+            getEnrolledStatus();
+        }
+      }, []);
+      const getEnrolledStatus = () => {
+        try {
+          axiosInstance
+            .get("/user/get-startups/", {
+              params: { username: localStorage.getItem("username") },
+            })
+            .then((response) => {
+              if (response.status == 200) {
+                console.log(response);
+              }
+            });
+        } catch (error) {
+          throw error;
+        }
+      };
 
     return (
         <div className='bg-white'>

@@ -6,6 +6,7 @@ const Tabs = () => {
         { name: 'Facebook', href: '#', current: false },
         { name: 'LinkedIn', href: '#', current: false },
         { name: 'Instagram', href: '#', current: true },
+        { name: 'Content', href: '#', current: false },
     ]
 
     function classNames(...classes) {
@@ -14,10 +15,9 @@ const Tabs = () => {
 
     return (
         <>
-            <Container maxWidth='w-full my-4'>
-                <div className="relative pb-5 border-b border-gray-200 sm:pb-0">
+            <Container maxWidth='w-full my-2'>
+                <div className="relative pb-5 border-gray-200 sm:pb-0">
                     <div className="md:flex md:items-center md:justify-between">
-                        <h3 className="text-lg leading-6 font-medium text-gray-900">Business Models</h3>
                         <div className="mt-3 flex md:mt-0 md:absolute md:top-3 md:right-0">
                             <button
                                 type="button"
@@ -41,7 +41,7 @@ const Tabs = () => {
                             <select
                                 id="current-tab"
                                 name="current-tab"
-                                className="block w-full bg-white pl-3 pr-10 py-2 text-base focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                                className="block w-full bg-white border pl-3 pr-10 py-2 text-base focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                                 defaultValue={tabs.find((tab) => tab.current).name}
                             >
                                 {tabs.map((tab) => (

@@ -49,7 +49,7 @@ const MarketingModuleComponent = () => {
     <>
       <div className='w-full bg-indigo-500 border-b rounded-b-xl '>
             <div className='w-12/12 flex items-center justify-between mx-auto px-2 rounded-lg py-2'>
-                <h1 className='text-xl text-white font-semibold'>Did the strategy worked?</h1>
+                <h1 className='text-lg text-white font-semibold'>Did the strategy worked?</h1>
                 <label
                     // onClick={() => Router.push('/create_startup')}
                     htmlFor="edit-startups-modal"
@@ -77,10 +77,7 @@ const MarketingModuleComponent = () => {
           Start Date: <span>11/12/2022</span>
         </h4>
         <div className="grid grid-cols-1 xl:grid-cols-1">
-          <div className="mt-6">
-            <h4 className="text-lg font-semibold">
-              Marketing Strategy description
-            </h4>
+          <div className="mt-4">
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem,
               optio unde! Inventore repudiandae magni sed porro maiores omnis
@@ -119,19 +116,19 @@ const MarketingModuleComponent = () => {
                     <div className="sm:flex">
                       <p className="flex items-center text-sm text-gray-500">
                         <div className="flex items-center justify-start">
-                          <h3 className="flex items-center rounded-lg ">
+                          <h3 className="flex items-center rounded-lg p-1">
                             <Button
-                              className="text-red-100 bg-pink-500"
+                              className="text-red-700 bg-pink-50"
                               disableRipple
                               component="a"
-                              startIcon={<FavoriteIcon sx={{ color: "red" }} />}
+                              startIcon={<FavoriteIcon />}
                             >
                               30 Likes
                             </Button>
                           </h3>
                           <h3 className="flex items-center rounded-lg p-1">
                             <Button
-                              className="text-green-700 bg-green-100"
+                              className="text-green-700 bg-green-50"
                               disableRipple
                               component="a"
                               startIcon={<CommentIcon />}
@@ -141,7 +138,7 @@ const MarketingModuleComponent = () => {
                           </h3>
                           <h3 className="flex items-center rounded-lg p-1">
                             <Button
-                              className="text-blue-100 bg-blue-100"
+                              className="text-blue-100 bg-blue-50"
                               disableRipple
                               component="a"
                               startIcon={<SendIcon />}

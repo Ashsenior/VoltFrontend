@@ -69,7 +69,7 @@ const MarketingHome = () => {
             {/* <Container className='w-full'> */}
             {/* MUI tabs */}
 
-            <div className="relative pb-5 border-b border-gray-200 sm:pb-0 px-1 xl:px-20">
+            <div className="relative mt-4 pb-5 border-b border-gray-200 sm:pb-0 xl:px-0">
                 <div className="md:flex md:items-center md:justify-between">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">Marketing Models</h3>
                     <div className="mt-3 flex md:mt-0 md:absolute md:top-3 md:right-0">
