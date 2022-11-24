@@ -8,7 +8,6 @@ import { get } from '../../config/axiosClient';
 import { useEffect } from 'react';
 import { Button, Container } from '@mui/material';
 import axiosInstance from "../../src/axiosAPi";
-import PublicStartupCard from './PublicStartupCard';
 
 const Home = () => {
     const [your_startups, setYourStartups] = useState([]);
@@ -29,10 +28,8 @@ const Home = () => {
               params: { username: localStorage.getItem("username") },
             })
             .then((response) => {
-              if (response?.status == 200) {
+              if (response.status == 200) {
                 console.log(response);
-                setYourStartups(response.data?.your_startups);
-                setAllStartups(response.data?.all_startups)
               }
             });
         } catch (error) {
@@ -66,6 +63,7 @@ const Home = () => {
             {/* Startup cards */}
             <div className='grid grid-cols-1 md:grid-cols-1 xl:grid-cols-1'>
                 <StartupCard startup={your_startups} />
+                <StartupCard />
             </div>
             {/* All Startups */}
             <div className='w-11/12 mx-3 my-2 mt-6 flex items-center justify-start gap-2'>
@@ -74,8 +72,10 @@ const Home = () => {
             </div>
             {/* All startup Cards */}
             <div className='grid grid-cols-1 md:grid-cols-1 xl:grid-cols-1'>
-                <PublicStartupCard all_startup={all_startups} />
-                
+                <StartupCard />
+                <StartupCard />
+                <StartupCard />
+                <StartupCard />
             </div>
         </div>
     );
