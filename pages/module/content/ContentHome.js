@@ -6,6 +6,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Contents from './Contents';
+import ContentTab from './ContentTab';
 import ContentSubmitted from './ContentSubmitted';
 
 function TabPanel(props) {
@@ -71,13 +72,13 @@ const ContentHome = () => {
                 <div className="md:flex md:items-center md:justify-between mt-6">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">Content Models</h3>
                     <div className="mt-3 flex md:mt-0 md:absolute md:top-3 md:right-0">
-                        <button
-                            onClick={() => Router.push('/module/create_marketing/NewMarketing')}
-                            type="button"
-                            className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        >
+                        <label
+                            // onClick={() => Router.push('/')}
+                            htmlFor=""
+                            type="button" className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             Create new Content
-                        </button>
+                        </label>
+
                     </div>
                 </div>
                 <div className='mt-6'>
@@ -93,7 +94,7 @@ const ContentHome = () => {
                             <Contents></Contents>
                         </TabPanel>
                         <TabPanel value={value} index={1}>
-
+                            <ContentTab></ContentTab>
                         </TabPanel>
                         <TabPanel value={value} index={2}>
                             <ContentSubmitted></ContentSubmitted>
