@@ -68,15 +68,14 @@ const ProductDetails = () => {
     return (
         <div>
             <Container>
-                <div className='w-full bg-white mx-auto rounded-b-3xl shadow-lg'>
-                    <div className='w-11/12 flex items-center justify-between mx-auto px-5 rounded-lg py-3'>
-                        <h4 className='text-xl font-semibold'>Get access to developer tool</h4>
-                        {/* The button to open modal */}
+                <div className='w-full bg-indigo-500 border-b rounded-b-xl '>
+                    <div className='w-12/12 flex items-center justify-between mx-auto px-2 rounded-2xl py-2'>
+                        <h1 className='text-xl text-white font-semibold'>Did the strategy worked?</h1>
                         <label
-                            // onClick={() => Router.push('/')}
-                            htmlFor=""
-                            type="button" className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Access
+                            // onClick={() => Router.push('/create_startup')}
+                            htmlFor="edit-startups-modal"
+                            type="button" className="inline-flex items-center px-2 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-900 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Submit the results
                         </label>
                     </div>
                 </div>
@@ -90,10 +89,7 @@ const ProductDetails = () => {
                             </p>
                         </div>
                         <Link to="" type='button' className='btn btn-sm'>Prototype</Link>
-                    </div>
-                    <h4 className='text-base font-semibold mt-6'>Descriptions</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium, corrupti ex libero assumenda, non qui alias dolor debitis ducimus porro molestias nemo necessitatibus saepe amet cumque voluptate! Quos, nobis quod ab doloribus rerum vel maxime? Libero, possimus ea non sunt eos reiciendis optio et officia alias consequatur impedit esse dicta sapiente provident natus animi aperiam fuga. Pariatur voluptates odio alias quia, excepturi accusamus quis eum? Possimus modi, iure dicta, soluta voluptatem quia, eum maiores totam saepe magnam molestias debitis accusamus facilis illum ipsum omnis amet obcaecati! Quo laboriosam obcaecati ullam consequuntur, distinctio totam iste ipsam, error reiciendis quibusdam cupiditate ab?</p>
-                </div>
+                    </div> </div>
 
 
                 <div className='grid grid-cols-1 lg:grid-cols-2 mt-6'>
@@ -102,7 +98,7 @@ const ProductDetails = () => {
                         {/* Time Line */}
                         <ProductTimeline></ProductTimeline>
                     </div>
-                    <div className='w-full flex flex-col '>
+                    <div className='w-full mt-4 flex flex-col '>
                         <h4 className='text-xl font-semibold'>Features</h4>
                         <div className='grid grid-cols-2 md:grid-cols-2 mt-6 mb-10'>
                             {
