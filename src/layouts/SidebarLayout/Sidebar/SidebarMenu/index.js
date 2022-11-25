@@ -19,6 +19,7 @@ import { Biotech, Home } from "@mui/icons-material";
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import PostAddIcon from '@mui/icons-material/PostAdd';
 
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
@@ -266,6 +267,21 @@ function SidebarMenu() {
                     startIcon={<Biotech />}
                   >
                     Research Module
+                  </Button>
+                </NextLink>
+              </ListItem>
+              <ListItem component="div">
+                <NextLink href="/module/content" passHref>
+                  <Button
+                    className={
+                      currentRoute === '/module/content' ? 'active' : ''
+                    }
+                    disableRipple
+                    component="a"
+                    onClick={closeSidebar}
+                    startIcon={<PostAddIcon />}
+                  >
+                    Content Module
                   </Button>
                 </NextLink>
               </ListItem>
