@@ -48,7 +48,7 @@ const EditStrategies = ({ strategy }) => {
     return (
         <>
             <div className='w-full bg-indigo-500 border-b rounded-b-xl '>
-                <div className='w-12/12 flex items-center justify-between mx-auto px-2 rounded-lg py-2'>
+                <div className='w-12/12 flex items-center justify-between mx-auto px-2 rounded-xl py-2'>
                     <h1 className='text-xl text-white font-semibold'>Did the strategy worked?</h1>
                     <label
                         // onClick={() => Router.push('/create_startup')}

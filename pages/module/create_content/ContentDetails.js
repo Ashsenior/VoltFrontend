@@ -46,19 +46,23 @@ const ContentDetails = () => {
             <div className='mt-6'>
                 <div className='flex justify-between'>
                     <div className="flex flex-col items-start justify-start">
-                        <h1 className='text-xl'> <span className='bg-gray-600 rounded-md text-gray-50 p-1 px-2'>Task</span> Find best CTOs and content on it.</h1>
-                        <div className="ml-2 flex-shrink-0 flex">
-                            <p >
-                                Assigned to  <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">@ashsenior</span>
+                        <h1 className='text-xl'><span className='text-red-600 font-semibold '>Task | </span> Find best CTOs and content on it.</h1>
+                        <div className="mt-2 flex-shrink-0 flex">
+                            <p>
+                                <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">@ashsenior</span>
                             </p>
                         </div>
                     </div>
                     <div className='flex flex-col items-end justify-between'>
-                        <span className='bg-gray-600 rounded-md text-gray-50 p-1 px-2'>Brief</span>
+                    <span
+                        onClick={() => Router.push('/module/create_content/ContentDetails')}
+                        className='bg-gray-600 rounded-md ml-2 text-gray-50 p-1 px-2'>
+                        Brief📄
+                    </span> 
                     </div>
                 </div>
                 <ImageList
-                    className='w-full p-10'
+                    className='w-full p-4'
                     variant="quilted"
                     cols={4}
                     rowHeight={121}
@@ -74,7 +78,9 @@ const ContentDetails = () => {
                     ))}
                 </ImageList>
                 <div className='m-4'>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis reiciendis doloremque excepturi maiores minus error natus itaque quam quia nihil quod commodi, dolorum numquam alias omnis est vitae? Ad, quam? Qui nihil a dolorem? Tenetur sed tempora quidem magni id ducimus nemo sint rerum, molestiae vel! Aliquam deserunt alias esse? Cumque, vitae? Iure illum corporis ad, praesentium sint rerum iste unde! Itaque, iste. Quae aliquid harum aliquam esse accusantium est in veritatis fugit dignissimos amet, nulla reprehenderit sequi, qui voluptatem!</p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis reiciendis doloremque excepturi maiores minus error natus itaque quam quia nihil quod commodi, dolorum numquam alias omnis est vitae? Ad, quam? Qui nihil a dolorem? Tenetur sed tempora quidem magni id ducimus nemo sint rerum, molestiae vel! Aliquam deserunt alias esse? Cumque, vitae? Iure illum corporis ad, praesentium sint rerum iste unde! Itaque, iste. Quae aliquid harum aliquam esse accusantium est in veritatis fugit dignissimos amet, nulla reprehenderit sequi, qui voluptatem!</p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis reiciendis doloremque excepturi maiores minus error natus itaque quam quia nihil quod commodi, dolorum numquam alias omnis est vitae? Ad, quam? Qui nihil a dolorem? Tenetur sed tempora quidem magni id ducimus nemo sint rerum, molestiae vel! Aliquam deserunt alias esse? Cumque, vitae? Iure illum corporis ad
                 </div>
             </div>
             <Footer />
