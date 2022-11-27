@@ -54,7 +54,7 @@ function DashboardCrypto({ query }) {
         .then((response) => {
           if (response?.status == 200) {
             console.log(response);
-            setStartups(response.data?.your_startups);
+            setStartups(response.data?.details);
             localStorage.setItem(
               "startup_key",
               response.data.your_startups?.key
@@ -97,7 +97,7 @@ function DashboardCrypto({ query }) {
 
       {/* Idea and Selling Point card */}
       <Container maxWidth="lg">
-        <Idea />
+        <Idea startup={startups} />
       </Container>
       {/* Target Audience */}
 

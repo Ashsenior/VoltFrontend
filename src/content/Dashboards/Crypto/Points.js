@@ -12,13 +12,19 @@ import {
   ListItem,
   ListItemText,
   List,
-  ListItemAvatar
-} from '@mui/material';
-import TrendingUp from '@mui/icons-material/TrendingUp';
-import Text from 'src/components/Text';
-import { Chart } from 'src/components/Chart';
+  ListItemAvatar,
+} from "@mui/material";
+import TrendingUp from "@mui/icons-material/TrendingUp";
+import Text from "src/components/Text";
+import { Chart } from "src/components/Chart";
 import Router from "next/router";
-import {Biotech, LocalGroceryStore, MonetizationOn, Psychology} from "@mui/icons-material";
+import {
+  Biotech,
+  LocalGroceryStore,
+  MonetizationOn,
+  Psychology,
+} from "@mui/icons-material";
+import dynamic from "next/dynamic";
 
 const AvatarSuccess = styled(Avatar)(
   ({ theme }) => `
@@ -30,6 +36,7 @@ const AvatarSuccess = styled(Avatar)(
 `
 );
 
+const Piechart = dynamic(() => import("./piechart"));
 const ListItemAvatarWrapper = styled(ListItemAvatar)(
   ({ theme }) => `
   min-width: 0;
@@ -40,7 +47,7 @@ const ListItemAvatarWrapper = styled(ListItemAvatar)(
   padding: ${theme.spacing(0)};
   border-radius: 60px;
   background: ${
-    theme.palette.mode === 'dark'
+    theme.palette.mode === "dark"
       ? theme.colors.alpha.trueWhite[30]
       : alpha(theme.colors.alpha.black[100], 0.07)
   };
@@ -55,24 +62,24 @@ const ListItemAvatarWrapper = styled(ListItemAvatar)(
   }
 `
 );
-const Colors = ['#ff9900', '#F47C7C', '#5FD068', '#333']
-function Points({startup}) {
+const Colors = ["#ff9900", "#F47C7C", "#5FD068", "#333"];
+function Points({ startup }) {
   const theme = useTheme();
 
   const chartOptions = {
     chart: {
-      background: 'transparent',
+      background: "transparent",
       stacked: false,
       toolbar: {
-        show: false
-      }
+        show: false,
+      },
     },
     plotOptions: {
       pie: {
         donut: {
-          size: '60%'
-        }
-      }
+          size: "60%",
+        },
+      },
     },
     colors: Colors,
     dataLabels: {
@@ -81,7 +88,7 @@ function Points({startup}) {
         return `${val}%`;
       },
       style: {
-        colors: [theme.colors.alpha.trueWhite[100]]
+        colors: [theme.colors.alpha.trueWhite[100]],
       },
       background: {
         enabled: true,
@@ -96,8 +103,8 @@ function Points({startup}) {
           left: 1,
           blur: 1,
           color: theme.colors.alpha.black[70],
-          opacity: 0.5
-        }
+          opacity: 0.5,
+        },
       },
       dropShadow: {
         enabled: true,
@@ -105,26 +112,27 @@ function Points({startup}) {
         left: 1,
         blur: 1,
         color: theme.colors.alpha.black[50],
-        opacity: 0.5
-      }
+        opacity: 0.5,
+      },
     },
     fill: {
-      opacity: 1
+      opacity: 1,
     },
-    labels: [ 'Strategy', 'Research', 'Marketing', 'Sales'],
+    labels: ["Strategy", "Research", "Marketing", "Sales"],
     legend: {
       labels: {
-        colors: theme.colors.alpha.trueWhite[100]
+        colors: theme.colors.alpha.trueWhite[100],
       },
-      show: false
+      show: false,
     },
     stroke: {
-      width: 0
+      width: 0,
     },
     theme: {
-      mode: theme.palette.mode
-    }
+      mode: theme.palette.mode,
+    },
   };
+  console.log(startup);
 
   const chartSeries = [20, 10, 40, 30];
 
@@ -135,7 +143,7 @@ function Points({startup}) {
           <Box p={2}>
             <Typography
               sx={{
-                pb: 1
+                pb: 1,
               }}
               variant="h4"
             >
@@ -155,13 +163,13 @@ function Points({startup}) {
               <Box
                 display="flex"
                 sx={{
-                  py: 1
+                  py: 1,
                 }}
                 alignItems="center"
               >
                 <AvatarSuccess
                   sx={{
-                    mr: 2
+                    mr: 2,
                   }}
                   variant="rounded"
                 >
@@ -177,9 +185,13 @@ function Points({startup}) {
             </Box>
             <Grid container spacing={3}>
               <Grid sm item>
-                <Button fullWidth color={'error'} onClick={()=>{
-                  Router.push('/module/sales');
-                }}>
+                <Button
+                  fullWidth
+                  color={"error"}
+                  onClick={() => {
+                    Router.push("/module/sales");
+                  }}
+                >
                   Focus on Sales
                 </Button>
               </Grid>
@@ -188,7 +200,7 @@ function Points({startup}) {
         </Grid>
         <Grid
           sx={{
-            position: 'relative'
+            position: "relative",
           }}
           display="flex"
           alignItems="center"
@@ -199,16 +211,16 @@ function Points({startup}) {
           <Box
             component="span"
             sx={{
-              display: { xs: 'none', md: 'inline-block' }
+              display: { xs: "none", md: "inline-block" },
             }}
           >
             <Divider absolute orientation="vertical" />
           </Box>
-          <Box  flex={1}>
+          <Box flex={1}>
             <Grid container spacing={0}>
               <Grid
                 xs={12}
-                sm={5}
+                sm={6}
                 item
                 display="flex"
                 justifyContent="center"
@@ -220,26 +232,25 @@ function Points({startup}) {
                   series={chartSeries}
                   type="donut"
                 />
+                {/* <Piechart /> */}
               </Grid>
-              <Grid xs={12} sm={7} item >
+              <Grid xs={12} sm={6} item>
                 <List
                   disablePadding
                   sx={{
-                    width: '80%',
-                    margin : 'auto'
+                    width: "80%",
+                    margin: "auto",
                   }}
-
                 >
                   <ListItem disableGutters>
-                    <ListItemAvatarWrapper >
-                      <Avatar sx={{bgcolor: `${Colors[0]}`}}>
+                    <ListItemAvatarWrapper>
+                      <Avatar sx={{ bgcolor: `${Colors[0]}` }}>
                         <Psychology />
                       </Avatar>
                     </ListItemAvatarWrapper>
                     <ListItemText
                       primary="Strategy"
-                      primaryTypographyProps={{ variant: 'h5', noWrap: true }}
-
+                      primaryTypographyProps={{ variant: "h5", noWrap: true }}
                     />
                     <Box>
                       <Typography align="right" variant="h4" noWrap>
@@ -250,14 +261,13 @@ function Points({startup}) {
                   </ListItem>
                   <ListItem disableGutters>
                     <ListItemAvatarWrapper>
-                      <Avatar sx={{bgcolor: `${Colors[1]}`}}>
+                      <Avatar sx={{ bgcolor: `${Colors[1]}` }}>
                         <Biotech />
                       </Avatar>
                     </ListItemAvatarWrapper>
                     <ListItemText
-                        primary="Research"
-                        primaryTypographyProps={{ variant: 'h5', noWrap: true }}
-
+                      primary="Research"
+                      primaryTypographyProps={{ variant: "h5", noWrap: true }}
                     />
                     <Box>
                       <Typography align="right" variant="h4" noWrap>
@@ -268,14 +278,13 @@ function Points({startup}) {
                   </ListItem>
                   <ListItem disableGutters>
                     <ListItemAvatarWrapper>
-                      <Avatar sx={{bgcolor: `${Colors[2]}`}}>
+                      <Avatar sx={{ bgcolor: `${Colors[2]}` }}>
                         <LocalGroceryStore />
                       </Avatar>
                     </ListItemAvatarWrapper>
                     <ListItemText
-                        primary="Marketing"
-                        primaryTypographyProps={{ variant: 'h5', noWrap: true }}
-
+                      primary="Marketing"
+                      primaryTypographyProps={{ variant: "h5", noWrap: true }}
                     />
                     <Box>
                       <Typography align="right" variant="h4" noWrap>
@@ -286,14 +295,13 @@ function Points({startup}) {
                   </ListItem>
                   <ListItem disableGutters>
                     <ListItemAvatarWrapper>
-                      <Avatar sx={{bgcolor: `${Colors[3]}`}}>
+                      <Avatar sx={{ bgcolor: `${Colors[3]}` }}>
                         <MonetizationOn />
                       </Avatar>
                     </ListItemAvatarWrapper>
                     <ListItemText
-                        primary="Sales"
-                        primaryTypographyProps={{ variant: 'h5', noWrap: true }}
-
+                      primary="Sales"
+                      primaryTypographyProps={{ variant: "h5", noWrap: true }}
                     />
                     <Box>
                       <Typography align="right" variant="h4" noWrap>
@@ -312,7 +320,7 @@ function Points({startup}) {
           <Box p={2}>
             <Typography
               sx={{
-                pb: 1
+                pb: 1,
               }}
               variant="h4"
             >
@@ -320,24 +328,24 @@ function Points({startup}) {
             </Typography>
             <Box>
               <Typography variant="h3" gutterBottom>
-                ₹ 1,40,584
+                {startup?.revenue1} + {startup?.revenue2}
               </Typography>
-              
+
               <Box
                 display="flex"
                 sx={{
-                  py: 1
+                  py: 1,
                 }}
                 alignItems="center"
               >
                 <Box>
-                  <Typography variant="h4">- ₹ 1,594</Typography>
+                  <Typography variant="h4">{startup?.revenue1}</Typography>
                   <Typography variant="subtitle2" noWrap>
                     this month
                   </Typography>
                 </Box>
                 <Box>
-                  <Typography variant="h4">+ ₹ 3,594</Typography>
+                  <Typography variant="h4">{startup?.revenue2}</Typography>
                   <Typography variant="subtitle2" noWrap>
                     this month
                   </Typography>
@@ -346,9 +354,13 @@ function Points({startup}) {
             </Box>
             <Grid container spacing={3}>
               <Grid sm item>
-                <Button fullWidth color={'error'} onClick={()=>{
-                  Router.push('/module/sales');
-                }}>
+                <Button
+                  fullWidth
+                  color={"error"}
+                  onClick={() => {
+                    Router.push("/module/sales");
+                  }}
+                >
                   Limit your Expenses
                 </Button>
               </Grid>

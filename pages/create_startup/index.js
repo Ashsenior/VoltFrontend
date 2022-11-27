@@ -20,7 +20,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Footer from "src/components/Footer";
-import { DatePicker } from "@mui/lab";
+import { DatePicker, LoadingButton } from "@mui/lab";
 import Router from "next/router";
 
 const genders = [
@@ -176,7 +176,7 @@ function TabsDemo() {
   const [revenue2, setrevenue2] = useState("0");
   const [stage, setstage] = useState("0");
   const [message, setMessage] = useState("");
-
+  const [loading, setLoading] = useState("");
   const rolehandleChange = (event) => {
     setRole(event.target.value);
   };
@@ -234,6 +234,7 @@ function TabsDemo() {
   }, [authenticated]);
 
   const handleSubmit = () => {
+    setLoading(true);
     if (authenticated) {
       try {
         axiosInstance
@@ -254,17 +255,17 @@ function TabsDemo() {
             registered: registered,
           })
           .then((response) => {
-            if (response.status === 200) {
+            if (response.status === 201) {
               console.log("done !");
-              Router.push({
-                pathname: "/home",
-                query: { message: "Profile completed successfully!" },
-              });
+              Router.push("/dashboards");
+              setLoading(false);
             } else {
               setMessage("Some error occurred while completing your profile!");
+              setLoading(false);
             }
           });
       } catch (error) {
+        setLoading(false);
         throw error;
       }
     } else {
@@ -593,7 +594,7 @@ function TabsDemo() {
                   >
                     Previous
                   </Button>
-                  <Button
+                  <LoadingButton
                     className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-xl text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-700 "
                     sx={{ margin: 1, bgcolor: "blue" }}
                     variant="contained"
@@ -606,9 +607,10 @@ function TabsDemo() {
                         setValue(value + 1);
                       }
                     }}
+                    loading={loading}
                   >
                     {value === 3 ? "Submit" : "Next"}
-                  </Button>
+                  </LoadingButton>
                 </Box>
               </Box>
             </CardContent>
