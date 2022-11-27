@@ -32,7 +32,8 @@ const Home = () => {
               if (response?.status == 200) {
                 console.log(response);
                 setYourStartups(response.data?.your_startups);
-                setAllStartups(response.data?.all_startups)
+                setAllStartups(response.data?.all_startups);
+                
               }
             });
         } catch (error) {
@@ -74,7 +75,7 @@ const Home = () => {
             </div>
             {/* All startup Cards */}
             <div className='grid grid-cols-1 md:grid-cols-1 xl:grid-cols-1'>
-                <PublicStartupCard all_startup={all_startups} />
+                <PublicStartupCard startup={all_startups} />
                 
             </div>
         </div>
