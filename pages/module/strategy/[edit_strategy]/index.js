@@ -1,19 +1,19 @@
 import Head from "next/head";
-
 import SidebarLayout from "src/layouts/SidebarLayout";
 import { Container } from "@mui/material";
 import Footer from "src/components/Footer";
-import StrategyHome from "./strategy/StrategyHome";
+import EditStrategies from "../../create_strategy/EditStrategies";
 import { useEffect, useState } from "react";
-import { getStartups } from "../../config/commonApi";
-import axiosInstance from "../../src/axiosAPi";
 import { useRouter } from "next/router";
+import axiosInstance from "../../../../src/axiosAPi";
 
-function StrategyModule() {
-  const [strategy, setStrategy] = useState([]);
+function EditStrategy({ query }) {
+  const [strategy, setStrategy] = useState({});
   const [username, setUsername] = useState("");
+  const [slug, setSlug] = useState("");
   const router = useRouter();
 
+  console.log(query);
   useEffect(() => {
     var access_token = localStorage.getItem("access_token");
     var refresh_token = localStorage.getItem("refresh_token");
@@ -40,10 +40,10 @@ function StrategyModule() {
   const getEnrolledStatus = () => {
     try {
       axiosInstance
-        .get("http://127.0.0.1:8000/strategy/startup/get-strategies", {
+        .get("http://127.0.0.1:8000/strategy/startup/get-strategy", {
           params: {
             // username: localStorage.getItem("username"),
-            startup_key: localStorage.getItem("startup_key"),
+            slug: query?.edit_strategy,
           },
         })
         .then((response) => {
@@ -61,19 +61,28 @@ function StrategyModule() {
     }
   };
 
+  useEffect(() => {
+    setSlug(query?.edit_strategy);
+  }, [query]);
+
   return (
     <>
       <Head>
-        <title>Strategy Module</title>
+        <title>Strategy</title>
       </Head>
-      <StrategyHome strategy={strategy} />
 
-      <Container maxWidth="lg"></Container>
+      <Container maxWidth="lg">
+        <EditStrategies strategy={strategy} />
+      </Container>
       <Footer />
     </>
   );
 }
 
-StrategyModule.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
+EditStrategy.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
 
-export default StrategyModule;
+export default EditStrategy;
+
+EditStrategy.getInitialProps = async ({ query }) => {
+  return { query };
+};

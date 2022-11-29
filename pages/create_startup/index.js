@@ -257,7 +257,7 @@ function TabsDemo() {
           .then((response) => {
             if (response.status === 201) {
               console.log("done !");
-              Router.push("/dashboards");
+              Router.push("/home");
               setLoading(false);
             } else {
               setMessage("Some error occurred while completing your profile!");

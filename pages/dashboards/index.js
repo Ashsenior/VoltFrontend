@@ -17,7 +17,7 @@ import axios from "axios";
 function DashboardCrypto({ query }) {
   console.log(query);
   const [startups, setStartups] = useState({});
-
+  const [startup_key, setStartupKey] = useState("");
   const router = useRouter();
   const [username, setUsername] = useState("");
   useEffect(() => {
@@ -41,30 +41,34 @@ function DashboardCrypto({ query }) {
       console.log("index ", refresh_token);
       getEnrolledStatus();
     }
-  }, []);
+  }, [startup_key]);
   const getEnrolledStatus = () => {
     try {
       axiosInstance
         .get("http://127.0.0.1:8000/user/get-dashboard-data", {
           params: {
             username: localStorage.getItem("username"),
-            startup_key: query?.startup_key,
+            startup_key: query?.startup_key ? query.startup_key : startup_key,
           },
         })
         .then((response) => {
           if (response?.status == 200) {
             console.log(response);
             setStartups(response.data?.details);
-            localStorage.setItem(
-              "startup_key",
-              response.data.your_startups?.key
-            );
           }
         });
     } catch (error) {
       throw error;
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("startup_key", query?.startup_key);
+  }, [query]);
+
+  useEffect(() => {
+    setStartupKey(localStorage.getItem("startup_key"));
+  }, []);
   return (
     <>
       <Head>

@@ -2,58 +2,57 @@ import { Container } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import StrategyMajor from "./StrategyMajor";
 import Router from "next/router";
+import { Box, Tab, Tabs, Typography } from "@mui/material";
+import PropTypes from "prop-types";
+import StrategyMinor from "./StrategyMinor";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const StrategyHome = () => {
+const StrategyHome = ({ strategy }) => {
   const [username, setUsername] = useState("");
 
-  const tabs = [
-    { name: "In Progress", href: "#", current: false },
-    { name: "Completed", href: "#", current: false },
-    { name: "Closed", href: "#", current: true },
-  ];
+  console.log(strategy);
 
-  //   useEffect(() => {
-  //     var access_token = localStorage.getItem("access_token");
-  //     var refresh_token = localStorage.getItem("refresh_token");
-  //     if (access_token && refresh_token) {
-  //       setUsername(localStorage.getItem("username"));
-  //       //getUserData();
-  //     } else {
-  //       router.push({
-  //         pathname: "/",
-  //         query: { message: "Not authenticated !" },
-  //       });
-  //     }
-  //   }, []);
+  function TabPanel(props) {
+    const { children, value, index, ...other } = props;
 
-  //   useEffect(() => {
-  //     var access_token = localStorage.getItem("access_token");
-  //     var refresh_token = localStorage.getItem("refresh_token");
-  //     if (access_token && refresh_token) {
-  //       console.log("index ", refresh_token);
-  //       getEnrolledStatus();
-  //     }
-  //   }, []);
-  //   const getEnrolledStatus = () => {
-  //     try {
-  //       axiosInstance
-  //         .get("//startup/get-strategies", {
-  //           params: { startup_key: "LwVQ1kzIFn" },
-  //         })
-  //         .then((response) => {
-  //           if (response?.status == 200) {
-  //             console.log(response);
-  //             setStartups(response.data?.your_startups);
-  //           }
-  //         });
-  //     } catch (error) {
-  //       throw error;
-  //     }
-  //   };
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box sx={{ p: 3 }}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
+    );
+  }
+
+  TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+  };
+
+  function a11yProps(index) {
+    return {
+      id: `simple-tab-${index}`,
+      "aria-controls": `simple-tabpanel-${index}`,
+    };
+  }
+
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <div>
@@ -87,55 +86,81 @@ const StrategyHome = () => {
               <label htmlFor="current-tab" className="sr-only">
                 Select a tab
               </label>
-              <select
-                id="current-tab"
-                name="current-tab"
-                className="block w-full bg-white pl-3 pr-10 py-2 text-base focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                defaultValue={tabs.find((tab) => tab.current).name}
-              >
-                {tabs.map((tab) => (
-                  <option key={tab.name}>{tab.name}</option>
-                ))}
-              </select>
             </div>
-            <div className="hidden sm:block">
-              <nav className="-mb-px flex space-x-8">
-                {tabs.map((tab) => (
-                  <a
-                    key={tab.name}
-                    href={tab.href}
-                    className={classNames(
-                      tab.current
-                        ? "border-indigo-500 text-indigo-600"
-                        : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300",
-                      "whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm"
-                    )}
-                    aria-current={tab.current ? "page" : undefined}
-                  >
-                    {tab.name}
-                  </a>
-                ))}
-              </nav>
-            </div>
+            <div className="hidden sm:block"></div>
           </div>
         </div>
-      </Container>
-      {/* Strategy Cards */}
-      {/* Major */}
-      <Container maxWidth="lg">
-        <h1 className="text-base my-1 font-semibold  ml-1">Major</h1>
-        <div xs={12} md={6} lg={6} className="grid grid-cols-1 xl:grid-cols-1">
-          <StrategyMajor></StrategyMajor>
+        <div style={{ padding: "20px" }}>
+          <Box sx={{ width: "100%" }}>
+            <Box sx={{ mb: 3 }}>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                aria-label="basic tabs example"
+              >
+                <Tab label="In progress" {...a11yProps(0)} />
+                <Tab label="Completed" {...a11yProps(1)} />
+                <Tab label="Closed" {...a11yProps(2)} />
+              </Tabs>
+            </Box>
+
+            <TabPanel value={value} index={0}>
+              <h1 className="text-base my-1 font-semibold  ml-1">Major</h1>
+              <div
+                xs={12}
+                md={6}
+                lg={6}
+                className="grid grid-cols-1 xl:grid-cols-1"
+              >
+                <StrategyMajor strategy={strategy?.inprogress?.major} />
+              </div>
+
+              {/* Minor */}
+              <h1 className="text-base my-1 font-semibold mt-6 ml-1">Minor</h1>
+              <div className="grid grid-cols-1 xl:grid-cols-1">
+                <StrategyMinor strategy={strategy?.inprogress?.minor} />
+              </div>
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+              <h1 className="text-base my-1 font-semibold  ml-1">Major</h1>
+              <div
+                xs={12}
+                md={6}
+                lg={6}
+                className="grid grid-cols-1 xl:grid-cols-1"
+              >
+                <StrategyMajor strategy={strategy?.completed?.major} />
+              </div>
+
+              {/* Minor */}
+              <h1 className="text-base my-1 font-semibold mt-6 ml-1">Minor</h1>
+              <div className="grid grid-cols-1 xl:grid-cols-1">
+                <StrategyMinor strategy={strategy?.completed?.minor} />
+              </div>
+            </TabPanel>
+            <TabPanel value={value} index={2}>
+              <h1 className="text-base my-1 font-semibold  ml-1">Major</h1>
+              <div
+                xs={12}
+                md={6}
+                lg={6}
+                className="grid grid-cols-1 xl:grid-cols-1"
+              >
+                <StrategyMajor strategy={strategy?.closed?.major} />
+              </div>
+
+              {/* Minor */}
+              <h1 className="text-base my-1 font-semibold mt-6 ml-1">Minor</h1>
+              <div className="grid grid-cols-1 xl:grid-cols-1">
+                <StrategyMajor strategy={strategy?.closed?.minor} />
+              </div>
+            </TabPanel>
+          </Box>
         </div>
       </Container>
 
-      {/* Minor */}
-      <Container maxWidth="lg">
-        <h1 className="text-base my-1 font-semibold mt-6 ml-1">Minor</h1>
-        <div className="grid grid-cols-1 xl:grid-cols-1">
-          <StrategyMajor></StrategyMajor>
-        </div>
-      </Container>
+      {/* Strategy Cards */}
+      {/* Major */}
     </div>
   );
 };

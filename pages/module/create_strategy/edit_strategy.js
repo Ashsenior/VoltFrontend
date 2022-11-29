@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { DatePicker, LoadingButton } from "@mui/lab";
+import { DatePicker } from "@mui/lab";
 import {
   Checkbox,
   Grid,
@@ -19,41 +19,34 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import axiosInstance from "../../../src/axiosAPi";
-import {
-  getDateWithDash,
-  handleGetFullDateWithoutTime,
-} from "../../../utils/data-modifiers";
-import moment from "moment";
-import { useRouter } from "next/router";
 
 const SelectLeader = [
   {
     label: "@ashenoir",
-    value: 1,
+    value: "@ashenoir",
   },
   {
     label: "@hp",
-    value: 2,
+    value: "@hp",
   },
 ];
 
 const SelectCategory = [
   {
     label: "Minor",
-    value: "m",
+    value: "minor",
   },
   {
     label: "Major",
-    value: "M",
+    value: "Major",
   },
 ];
 
-const NewStrategy = () => {
+const EditStrategy = () => {
   const [approxStartDate, setApproxStartDate] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const [username, setUsername] = useState("");
   const [loading, setLoading] = useState("");
-  const [startup_key, setStartupKey] = useState("");
   const handleApproxStartDate = (event) => {
     setApproxStartDate(event?.$d);
   };
@@ -69,8 +62,6 @@ const NewStrategy = () => {
   };
 
   const [values, setValues] = useState(initialValues);
-  const [leaders, setLeaders] = useState([]);
-  const router = useRouter();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -79,47 +70,40 @@ const NewStrategy = () => {
     setValues({ ...values, [name]: value });
   };
 
+  // const handleFormSubmit = (event) => {
+  //   event.preventDefault();
+  //   let newValues = { ...values, approxStartDate: approxStartDate };
+  //   // values.assign("assa");
+  //   values.approxStartDate = approxStartDate;
+  //   console.log("newvalues", values);
+
   useEffect(() => {
     var access_token = localStorage.getItem("access_token");
     var refresh_token = localStorage.getItem("refresh_token");
     if (access_token && refresh_token) {
       setAuthenticated(true);
       setUsername(localStorage.getItem("username"));
-      getLeaders();
     }
   }, [authenticated]);
 
   const handleFormSubmit = (event) => {
-    setLoading(true);
-
     console.log(values);
 
     event.preventDefault();
+    let newValues = { ...values, approxStartDate: approxStartDate };
     // values.assign("assa");
-    values.startup_key = startup_key;
-    var momentDate = moment(approxStartDate);
-    values.approxStartDate = momentDate.format("YYYY-MM-DD");
-    console.log(momentDate.format("YYYY-MM-DD"));
-
+    values.approxStartDate = approxStartDate;
+    setLoading(true);
     if (authenticated) {
       try {
         axiosInstance
-          .post("/strategy/startup/create-strategy/", {
-            strategyTitle: values.strategyTitle,
-            approxStartDate: values.approxStartDate,
-            startup_key: values.startup_key,
-            strategy: values.strategy,
-            category: values.category,
-            strategyLeader: values.strategyLeader,
-            customer: values.customer,
-            success_low: values.success_low,
-            success_mid: values.success_mid,
-            success_high: values.success_high,
+          .post("/module/startup/create-strategy", {
+            values,
           })
           .then((response) => {
             if (response.status === 201) {
               console.log("done !");
-              router.push("/module/strategy");
+              Router.push("/home");
               setLoading(false);
             } else {
               setMessage("Some error occurred while completing your profile!");
@@ -134,27 +118,7 @@ const NewStrategy = () => {
       setMessage("Fill the compulsory fields.");
     }
   };
-  const getLeaders = () => {
-    try {
-      axiosInstance
-        .get("/strategy/startup/get-team-members", {
-          params: { startup_key: localStorage.getItem("startup_key") },
-        })
-        .then((response) => {
-          if (response?.status == 200) {
-            console.log(response?.data);
-            setLeaders(response?.data?.members);
-            console.log(leaders);
-          }
-        });
-    } catch (error) {
-      throw error;
-    }
-  };
 
-  useEffect(() => {
-    setStartupKey(localStorage.getItem("startup_key"));
-  });
   return (
     <div className="mt-4 bg-white shadow rounded-lg p-3 sm: m-5 ">
       <div>
@@ -224,9 +188,9 @@ const NewStrategy = () => {
                 fullWidth
                 onChange={(event) => handleChange(event)}
               >
-                {leaders?.map((option) => (
-                  <MenuItem key={option.username} value={option.username}>
-                    {option.username}
+                {SelectLeader.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
                   </MenuItem>
                 ))}
               </TextField>
@@ -307,13 +271,12 @@ const NewStrategy = () => {
               </div>
 
               <div className="mt-4 flex items-center justify-end">
-                <LoadingButton
-                  loading={loading}
+                <button
                   type="submit"
                   className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Create
-                </LoadingButton>
+                </button>
               </div>
             </div>
           </Grid>
@@ -323,4 +286,4 @@ const NewStrategy = () => {
   );
 };
 
-export default NewStrategy;
+export default EditStrategy;
