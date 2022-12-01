@@ -1,10 +1,12 @@
 import React from 'react';
+import Router from 'next/router';
 
 const ProductSuggestions = () => {
 
     const products = [
         {
             id: 124,
+            content: 'Some examples of content include blogs, emailers, newsletters, social media posts, case studies, and more.',
             img: "https://www.ubermetrics-technologies.com/wp-content/uploads/social-CEO-03.png",
             title: 'Title of the post',
             date: '12/4/20',
@@ -13,6 +15,7 @@ const ProductSuggestions = () => {
         },
         {
             id: 124,
+            content: 'Some examples of content include blogs, emailers, newsletters, social media posts, case studies, and more.',
             img: "https://www.ubermetrics-technologies.com/wp-content/uploads/social-CEO-03.png",
             title: 'Title of the post',
             date: '12/4/20',
@@ -21,6 +24,7 @@ const ProductSuggestions = () => {
         },
         {
             id: 124,
+            content: 'Some examples of content include blogs, emailers, newsletters, social media posts, case studies, and more.',
             img: "https://www.ubermetrics-technologies.com/wp-content/uploads/social-CEO-03.png",
             title: 'Title of the post',
             date: '12/4/20',
@@ -29,6 +33,7 @@ const ProductSuggestions = () => {
         },
         {
             id: 124,
+            content: 'Some examples of content include blogs, emailers, newsletters, social media posts, case studies, and more.',
             img: "https://www.ubermetrics-technologies.com/wp-content/uploads/social-CEO-03.png",
             title: 'Title of the post',
             date: '12/4/20',
@@ -37,6 +42,7 @@ const ProductSuggestions = () => {
         },
         {
             id: 124,
+            content: 'Some examples of content include blogs, emailers, newsletters, social media posts, case studies, and more.',
             img: "https://www.ubermetrics-technologies.com/wp-content/uploads/social-CEO-03.png",
             title: 'Title of the post',
             date: '12/4/20',
@@ -45,6 +51,7 @@ const ProductSuggestions = () => {
         },
         {
             id: 124,
+            content: 'Some examples of content include blogs, emailers, newsletters, social media posts, case studies, and more.',
             img: "https://www.ubermetrics-technologies.com/wp-content/uploads/social-CEO-03.png",
             title: 'Title of the post',
             date: '12/4/20',
@@ -53,6 +60,7 @@ const ProductSuggestions = () => {
         },
         {
             id: 124,
+            content: 'Some examples of content include blogs, emailers, newsletters, social media posts, case studies, and more.',
             img: "https://www.ubermetrics-technologies.com/wp-content/uploads/social-CEO-03.png",
             title: 'Title of the post',
             date: '12/4/20',
@@ -62,7 +70,7 @@ const ProductSuggestions = () => {
     ]
 
     return (
-        <div className='mx-10'>
+        <div className=''>
             <h4 className='text-base font-semibold m-2'>Product Suggestions</h4>
             {
                 products.slice(0, 4).map(product => <div
@@ -72,12 +80,17 @@ const ProductSuggestions = () => {
                     <img className='w-24 h-24 rounded-lg' src="https://www.ubermetrics-technologies.com/wp-content/uploads/social-CEO-03.png" alt="" />
                     <div className='flex justify-between w-full'>
                         <div className='flex flex-col h-full justify-between'>
-                            <h1 className='text-base'>{product.title}</h1>
-                            <p className='cursor-pointer text-blue-400'>{product.link}</p>
+                            <h1
+                                onClick={() => Router.push('/product_details')}
+                                className='text-base cursor-pointer'>{product.title}</h1>
+                            <p>{product.content}</p>
+                            <p className='cursor-pointer text-indigo-400'>{product.link}</p>
                         </div>
                         <div className='flex flex-col justify-around ml-2 border-l border-gray-200 pl-2'>
-                            <p className='btn btn-xs bg-blue-200 rounded-sm border-0 text-black hover:text-white'>46 Liked</p>
-                            <p className='btn btn-xs bg-blue-200 rounded-sm border-0 text-black hover:text-white'>Details</p>
+                            <p className='btn btn-xs bg-indigo-300 hover:bg-indigo-500 rounded-sm border-0 text-black hover:text-white'>46 Liked</p>
+                            <p
+                                onClick={() => Router.push('/product_details')}
+                                className='btn btn-xs bg-indigo-300 hover:bg-indigo-500 rounded-sm border-0 text-black hover:text-white'>Details</p>
                         </div>
                     </div>
                 </div>)

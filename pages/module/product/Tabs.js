@@ -1,16 +1,11 @@
 import React from 'react';
+import AllTeamMembers from 'pages/module/product/AllTeamMembers';
 import DesignImages from './DesignImages';
-import ProductIssues from './ProductIssues';
-import Screenshots from './Screenshots';
 
-const FeatureTabs = () => {
-
-
+const Tabs = () => {
     const [openTab, setOpenTab] = React.useState(1);
-
-
     return (
-        <div className=''>
+        <div className='mt-6'>
             <div className="flex flex-wrap">
                 <div className="w-full">
                     <ul
@@ -33,7 +28,7 @@ const FeatureTabs = () => {
                                 href="#link1"
                                 role="tablist"
                             >
-                                Designs UI/UX
+                                Product Features
                             </a>
                         </li>
                         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -52,7 +47,7 @@ const FeatureTabs = () => {
                                 href="#link2"
                                 role="tablist"
                             >
-                                Screenshots
+                                Team States
                             </a>
                         </li>
                         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -71,7 +66,7 @@ const FeatureTabs = () => {
                                 href="#link3"
                                 role="tablist"
                             >
-                                Chats
+                                Features
                             </a>
                         </li>
                         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -90,7 +85,7 @@ const FeatureTabs = () => {
                                 href="#link3"
                                 role="tablist"
                             >
-                                Issues
+                                UI Designs
                             </a>
                         </li>
                         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -109,7 +104,7 @@ const FeatureTabs = () => {
                                 href="#link3"
                                 role="tablist"
                             >
-                                Suggestions
+                                Issues
                             </a>
                         </li>
                     </ul>
@@ -117,17 +112,31 @@ const FeatureTabs = () => {
                         <div className="px-4 py-5 flex-auto">
                             <div className="tab-content tab-space">
                                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                                    <DesignImages></DesignImages>
+                                    <p>
+                                        Collaboratively administrate empowered markets via
+                                        plug-and-play networks. Dynamically procrastinate B2C users
+                                        after installed base benefits.
+                                        <br />
+                                        <br /> Dramatically visualize customer directed convergence
+                                        without revolutionary ROI.
+                                    </p>
                                 </div>
                                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                                    <Screenshots />
+                                    <AllTeamMembers />
                                 </div>
                                 <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-
+                                    <p>
+                                        Efficiently unleash cross-media information without
+                                        cross-media value. Quickly maximize timely deliverables for
+                                        real-time schemas.
+                                        <br />
+                                        <br /> Dramatically maintain clicks-and-mortar solutions
+                                        without functional solutions.
+                                    </p>
                                 </div>
                                 <div className={openTab === 4 ? "block" : "hidden"} id="link4">
 
-                                    <ProductIssues />
+                                    <DesignImages></DesignImages>
                                 </div>
                                 <div className={openTab === 5 ? "block" : "hidden"} id="link5">
                                     <p>
@@ -148,4 +157,4 @@ const FeatureTabs = () => {
     );
 };
 
-export default FeatureTabs;
+export default Tabs;
