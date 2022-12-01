@@ -63,7 +63,8 @@ function classNames(...classes) {
 const ProductTimeline = () => {
     return (
         <div className='mt-6'>
-            <div className="flow-root">
+            <h4 className='text-base font-semibold m-2 mb-6'>Product Timeline</h4>
+            <div className="flow-root mx-auto">
                 <ul role="list" className="-mb-8">
                     {timeline.map((event, eventIdx) => (
                         <li key={event.id}>
@@ -91,9 +92,9 @@ const ProductTimeline = () => {
                                                 </a>
                                             </p>
                                         </div>
-                                        <div className="text-right text-sm whitespace-nowrap text-gray-500">
+                                        {/* <div className="text-right text-sm whitespace-nowrap text-gray-500">
                                             <time dateTime={event.datetime}>{event.date}</time>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>
