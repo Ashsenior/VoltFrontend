@@ -1,5 +1,4 @@
 import Head from "next/head";
-
 import SidebarLayout from "src/layouts/SidebarLayout";
 import { Container, Grid } from "@mui/material";
 import Footer from "src/components/Footer";
@@ -12,10 +11,13 @@ import Idea from "./Idea/Idea";
 import TargetAudience from "./TargetAudience/TargetAudience";
 import EditModal from "./EditModal/EditModal";
 import { get } from "../../config/axiosClient";
+import axiosInstance from "../../src/axiosAPi";
+import axios from "axios";
 
-function DashboardCrypto() {
-const [startups, setStartups] = useState({});
-
+function DashboardCrypto({ query }) {
+  console.log(query);
+  const [startups, setStartups] = useState({});
+  const [startup_key, setStartupKey] = useState("");
   const router = useRouter();
   const [username, setUsername] = useState("");
   useEffect(() => {
@@ -32,19 +34,40 @@ const [startups, setStartups] = useState({});
     }
   }, []);
 
-  const [data, setData] = useState([]);
-  const getData = () => {
-    get("todos")
-      .then((res) => {
-        setStartups(res.json);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  console.log(data);
   useEffect(() => {
-    getData();
+    var access_token = localStorage.getItem("access_token");
+    var refresh_token = localStorage.getItem("refresh_token");
+    if (access_token && refresh_token) {
+      console.log("index ", refresh_token);
+      getEnrolledStatus();
+    }
+  }, [startup_key]);
+  const getEnrolledStatus = () => {
+    try {
+      axiosInstance
+        .get("http://127.0.0.1:8000/user/get-dashboard-data", {
+          params: {
+            username: localStorage.getItem("username"),
+            startup_key: query?.startup_key ? query.startup_key : startup_key,
+          },
+        })
+        .then((response) => {
+          if (response?.status == 200) {
+            console.log(response);
+            setStartups(response.data?.details);
+          }
+        });
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem("startup_key", query?.startup_key);
+  }, [query]);
+
+  useEffect(() => {
+    setStartupKey(localStorage.getItem("startup_key"));
   }, []);
   return (
     <>
@@ -65,7 +88,7 @@ const [startups, setStartups] = useState({});
           spacing={4}
         >
           <Grid item xs={12} marginTop={4}>
-            <Points startup={startups}/>
+            <Points startup={startups} />
           </Grid>
         </Grid>
       </Container>
@@ -78,13 +101,13 @@ const [startups, setStartups] = useState({});
 
       {/* Idea and Selling Point card */}
       <Container maxWidth="lg">
-        <Idea />
+        <Idea startup={startups} />
       </Container>
       {/* Target Audience */}
 
       {/* Idea and Selling Point card */}
       <Container maxWidth="lg">
-        <TargetAudience startup={startups}/>
+        <TargetAudience startup={startups} />
       </Container>
 
       <Footer />
@@ -95,3 +118,7 @@ const [startups, setStartups] = useState({});
 DashboardCrypto.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
 
 export default DashboardCrypto;
+
+DashboardCrypto.getInitialProps = async ({ query }) => {
+  return { query };
+};
