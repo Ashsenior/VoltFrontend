@@ -3,9 +3,10 @@ import React from "react";
 import { Biotech, Home } from "@mui/icons-material";
 import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
 import { useRouter } from "next/router";
 
-const StrategyMajor = ({ strategy }) => {
+const StrategyMinor = ({ strategy }) => {
   const router = useRouter();
   console.log(strategy);
   return (
@@ -94,4 +95,4 @@ const StrategyMajor = ({ strategy }) => {
   );
 };
 
-export default StrategyMajor;
+export default StrategyMinor;
