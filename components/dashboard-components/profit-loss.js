@@ -2,13 +2,12 @@ import { Box } from "@mui/material";
 import React from "react";
 export default function IndexPage() {
   return (
-    <Box sx={{ p: 4 }}>
-      <div class="relative w-full px-4 mx-5 py-6 bg-white shadow-lg dark:bg-gray-800">
-        <p class="text-sm font-semibold text-gray-700 border-b border-gray-200 w-max dark:text-white">
+    <Box className="rounded-lg" >
+      <div class="relative rounded-md text-black w-full px-4 mx-5 py-6 bg-white shadow-lg dark:bg-gray-800">
+        <p class="text-sm font-semibold p-2 text-gray-700 border-b border-gray-200 w-max ">
           Project Reffered
         </p>
         <div class="flex items-end my-6 space-x-2">
-          <p class="text-5xl font-bold text-black dark:text-white">12</p>
           <span class="flex items-center text-xl font-bold text-green-500">
             <svg
               width="20"
@@ -23,11 +22,10 @@ export default function IndexPage() {
             22%
           </span>
         </div>
-        <div class="dark:text-white">
-          <div class="flex items-center justify-between pb-2 mb-2 space-x-12 text-sm border-b border-gray-200 md:space-x-24">
+        <div class="">
+          <div class="flex items-center justify-between pb-2 mb-2 p-4 text-sm border-b border-gray-200 md:space-x-24">
             <p>Unique refferal URL</p>
             <div class="flex items-end text-xs">
-              34
               <span class="flex items-center">
                 <svg
                   width="20"
@@ -43,10 +41,9 @@ export default function IndexPage() {
               </span>
             </div>
           </div>
-          <div class="flex items-center justify-between pb-2 mb-2 space-x-12 text-sm border-b border-gray-200 md:space-x-24">
+          <div class="flex items-center justify-between pb-2 mb-2 p-4 text-sm border-b border-gray-200 md:space-x-24">
             <p>Embedded form</p>
             <div class="flex items-end text-xs">
-              13
               <span class="flex items-center">
                 <svg
                   width="20"
@@ -62,10 +59,9 @@ export default function IndexPage() {
               </span>
             </div>
           </div>
-          <div class="flex items-center justify-between space-x-12 text-sm md:space-x-24">
+          <div class="flex items-center justify-between p-4 text-sm md:space-x-24">
             <p>New visitor</p>
             <div class="flex items-end text-xs">
-              45
               <span class="flex items-center">
                 <svg
                   width="20"

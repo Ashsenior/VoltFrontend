@@ -41,15 +41,15 @@ export default function AppWidgetSummary({
   return (
     <Card
       sx={{
-        py: 5,
+        py: 1,
         boxShadow: 0,
         textAlign: "center",
         color: (theme) => theme.palette[color].darker,
         backgroundImage: (theme) =>
           `linear-gradient(135deg, ${alpha(
             theme.palette[color].dark,
-            0
-          )} 0%, ${alpha(theme.palette[color].dark, 0.24)} 100%)`,
+            0.36
+          )} 0%, ${alpha(theme.palette[color].dark, 0.36)} 100%)`,
         ...sx,
       }}
       {...other}
@@ -61,8 +61,8 @@ export default function AppWidgetSummary({
           backgroundImage: (theme) =>
             `linear-gradient(135deg, ${alpha(
               theme.palette[color].dark,
-              0
-            )} 0%, ${alpha(theme.palette[color].dark, 0.24)} 100%)`,
+              0.35
+            )} 0%, ${alpha(theme.palette[color].dark, 0.35)} 100%)`,
         }}
       >
         <Iconify icon={icon} width={44} height={44} />

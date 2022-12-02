@@ -16,26 +16,26 @@ const StartupCard = ({ startup }) => {
   return (
     <>
       {startup?.map((startup, index) => (
-        <div className="w-full flex justify-between border-b border-r items-center p-1 hover:bg-gradient-to-tr from-white to-blue-100">
-          <div className="flex my-1">
+        <div className="w-full flex justify-between p-1 items-center  hover:bg-indigo-100">
+          <div className="flex">
             <img
               className="w-20 h-20 mx-1 rounded-lg"
               // src={startup?.details?.logo}
               src="/static/images/overview/tokyo-logo.png"
               alt="img"
             />
-            <div className="flex flex-col p-2 justify-between">
+            <div className="flex flex-col px-2 justify-between">
               <div>
                 <h1>
-                  <e className="text-base md:text-xl font-semibold">
+                  <e className="text-base md:text-lg font-semibold">
                     {startup?.details?.name}{" "}
                   </e>
                 </h1>
-                <medium className="font-semibold text-gray-500 mb-1">
-                  {startup?.details?.vision}
+                <medium className=" pr-2 text-gray-500 mb-1">
+                  something great is coming {startup?.details?.vision}!
                 </medium>
-                <p className="py-2">Founded : {startup?.details?.founded}</p>
-                <h4 className="font-semibold flex">
+                <small>(Founded in {startup?.details?.founded})</small>
+                <h4 className=" flex">
                   {startup?.members} Member
                 </h4>
               </div>

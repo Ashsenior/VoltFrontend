@@ -4,29 +4,34 @@ import ReactEcharts from "echarts-for-react";
 const options = {
   xAxis: {
     type: "category",
-    data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    data: ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"],
   },
   yAxis: {
     type: "value",
   },
   series: [
     {
-      data: [120, 200, 150, 80, 70, 110, 130],
-      type: "bar",
+      data: [120, 200, 150, 80, 70, 110, 130, 120, 45, 23, 134, 120],
+      type: "line",
+    },
+    {
+      data: [34, 20, 150, 180, 70, 40, 190, 220, 254, 243, 34, 140],
+      type: "line",
     },
   ],
 };
 
 const DashBoardBarCharts = () => {
   return (
-    <Paper sx={{ p: 4 }}>
+    <Paper className="py-4">
       <Typography textAlign="center" variant="h4">
         {" "}
-        Sales Graph
+        Sales per Annum
       </Typography>
       <ReactEcharts
         option={options}
-        style={{ width: "600px", height: "450px" }}
+        className="w-full"
+        style={{height: "60vh"}}
       ></ReactEcharts>
     </Paper>
   );
