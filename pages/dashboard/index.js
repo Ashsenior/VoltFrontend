@@ -13,7 +13,7 @@ import Meetings from "../../components/dashboard-components/Meetings/Meetings";
 import Points from "src/content/Dashboards/Crypto/Points";
 
 const DashBoardCharts = dynamic(
-  () => import("../../components/dashboard-components/dashboard-charts"),
+  () => import("../../components/content-module/dashboard-charts"),
   { ssr: false }
 );
 const Home = () => {
