@@ -1,7 +1,8 @@
 import React from 'react';
-import AllTeamMember from './AllTeamMember';
+import AllTeamMember from './AllTeamMembers';
 import DesignImages from './DesignImages';
 import ProductIssues from './ProductIssues';
+import ProductSuggestions from './ProductSuggestions';
 import Screenshots from './Screenshots';
 
 const FeatureTabs = () => {
@@ -130,14 +131,7 @@ const FeatureTabs = () => {
                                     <ProductIssues />
                                 </div>
                                 <div className={openTab === 5 ? "block" : "hidden"} id="link5">
-                                    <p>
-                                        Efficiently unleash cross-media information without
-                                        cross-media value. Quickly maximize timely deliverables for
-                                        real-time schemas.
-                                        <br />
-                                        <br /> Dramatically maintain clicks-and-mortar solutions
-                                        without functional solutions.
-                                    </p>
+                                    <ProductSuggestions></ProductSuggestions>
                                 </div>
                             </div>
                         </div>

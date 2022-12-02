@@ -59,7 +59,7 @@ const ProductFeatures = () => {
         },
     ]
     return (
-        <div className='bg-white rounded-lg mt-6 p-1 md:p-6 w-full'>
+        <div className='bg-white rounded-lg mt-6 p-1 md:p-6 w-full shadow'>
             <h1 className='text-base font-semibold mb-2'>Product Features</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
                 {

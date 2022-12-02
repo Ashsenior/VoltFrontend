@@ -90,7 +90,7 @@ const TeamMembers = () => {
 
 
     return (
-        <div className='mt-6 bg-white rounded-lg mb-10'>
+        <div className='mt-6 bg-white rounded-lg mb-10 shadow'>
             <h1 className='text-base font-semibold ml-6 pt-6'>Working Team</h1>
             <div className='flex flex-wrap gap-4 p-4'>
                 {

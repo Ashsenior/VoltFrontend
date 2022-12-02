@@ -1,5 +1,6 @@
 import React from 'react';
 import Router from 'next/router';
+import { BsFillCalendarCheckFill } from 'react-icons/bs';
 
 const ProductSuggestions = () => {
 
@@ -72,27 +73,50 @@ const ProductSuggestions = () => {
     return (
         <div className=''>
             <h4 className='text-base font-semibold m-2'>Product Suggestions</h4>
+
             {
                 products.slice(0, 4).map(product => <div
                     key={product.id}
-                    className='mb-2 pb-1 border-b border-gray-200 flex justify-start gap-2'
+                    className='bg-gray-50 p-2 m-2 rounded-lg flex items-start'
                 >
-                    <img className='w-24 h-24 rounded-lg' src="https://www.ubermetrics-technologies.com/wp-content/uploads/social-CEO-03.png" alt="" />
+                    <img className='w-32 rounded-lg' src={product.img} alt="" />
                     <div className='flex justify-between w-full'>
-                        <div className='flex flex-col h-full justify-between'>
-                            <h1
-                                onClick={() => Router.push('/product_details')}
-                                className='text-base cursor-pointer'>{product.title}</h1>
+                        <div className=' p-2'>
+                            <h4 className='text-base font-semibold'>{product.title}</h4>
+                            <p className='flex items-center gap-1'><BsFillCalendarCheckFill className='text-indigo-500'></BsFillCalendarCheckFill> {product.date}</p>
                             <p>{product.content}</p>
-                            <p className='cursor-pointer text-indigo-400'>{product.link}</p>
+                            <a className='' href="">{product.link}</a>
                         </div>
-                        <div className='flex flex-col justify-around ml-2 border-l border-gray-200 pl-2'>
-                            <p className='btn btn-xs bg-indigo-300 hover:bg-indigo-500 rounded-sm border-0 text-black hover:text-white'>46 Liked</p>
-                            <p
-                                onClick={() => Router.push('/product_details')}
-                                className='btn btn-xs bg-indigo-300 hover:bg-indigo-500 rounded-sm border-0 text-black hover:text-white'>Details</p>
+                        <div className='flex flex-col justify-between'>
+                            <div className='flex flex-col gap-1'>
+                                <h1 className='font-semibold'>Visited By</h1>
+                                <div className="flex -space-x-2 overflow-hidden">
+                                    <img
+                                        className="inline-block h-8 w-8 rounded-full ring-2 ring-white"
+                                        src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                        alt=""
+                                    />
+                                    <img
+                                        className="inline-block h-8 w-8 rounded-full ring-2 ring-white"
+                                        src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                        alt=""
+                                    />
+                                    <img
+                                        className="inline-block h-8 w-8 rounded-full ring-2 ring-white"
+                                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
+                                        alt=""
+                                    />
+                                    <img
+                                        className="inline-block h-8 w-8 rounded-full ring-2 ring-white"
+                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                        alt=""
+                                    />
+                                </div>
+                            </div>
                         </div>
+
                     </div>
+
                 </div>)
             }
 

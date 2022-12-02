@@ -19,7 +19,7 @@ function AllTeamMember() {
                     <p>Deadline <span className='text-red-300'>March 7, 2014</span></p>
                     <div className='flex items-center gap-2'>
                         <p>Completed</p>
-                        <div className="radial-progress mt-2" style={{ "--value": "70", "--size": "3rem", "--thickness": "0.3rem" }}>70%</div>
+                        <div className="radial-progress" style={{ "--value": 70 }}>70%</div>
                     </div>
 
                     <FeatureTabs></FeatureTabs>

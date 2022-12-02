@@ -273,11 +273,9 @@ const ProductAnalytics = () => {
     })
 
 
-
-
     return (
         <div className='flex flex-col md:flex-row gap-2 mt-6'>
-            <div className='w-full md:w-2/3 bg-white rounded-md p-2'>
+            <div className='w-full md:w-2/3 bg-white pr-4 rounded-lg p-2 shadow'>
                 <h4 className='text-base font-semibold m-2'>Product Timeline</h4>
                 <ReactApexChart
                     options={timelineChart.options}
@@ -286,7 +284,7 @@ const ProductAnalytics = () => {
                     width='100%'
                     height={350} />
             </div>
-            <div className='w-full md:w-1/3 bg-white rounded-md p-2'>
+            <div className='w-full md:w-1/3 bg-white rounded-lg p-2 shadow'>
                 <h4 className='text-base font-semibold m-2'>Team Performance</h4>
                 <ReactApexChart
                     options={barChart.options}

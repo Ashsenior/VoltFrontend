@@ -13,7 +13,6 @@ import Footer from 'src/components/Footer';
 
 const ProductDetails = () => {
 
-
     return (
         <div>
             <Container>

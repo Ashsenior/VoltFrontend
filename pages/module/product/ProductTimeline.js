@@ -95,7 +95,7 @@ function classNames(...classes) {
 }
 const ProductTimeline = () => {
     return (
-        <div className='mt-6 bg-white p-4 rounded-lg h-fit'>
+        <div className='mt-6 bg-white p-4 rounded-lg h-fit shadow'>
             <h4 className='text-base font-semibold m-2 mb-6'>Product Timeline</h4>
             <div className="flow-root mx-auto">
                 <ul role="list" className="-mb-8">
