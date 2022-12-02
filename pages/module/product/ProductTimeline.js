@@ -1,59 +1,92 @@
 import React from 'react';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import AccessibleIcon from '@mui/icons-material/Accessible';
+import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import AttributionIcon from '@mui/icons-material/Attribution';
+import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
+import AddTaskIcon from '@mui/icons-material/AddTask';
+import Inventory2Icon from '@mui/icons-material/Inventory2';
 
-import AdbIcon from '@mui/icons-material/Adb';
+import LibraryAddCheckIcon from '@mui/icons-material/LibraryAddCheck';
 
 const timeline = [
     {
         id: 1,
         content: 'Applied to',
-        target: 'Front End Developer',
+        target: 'Product Created',
         href: '/',
         date: 'Sep 20',
         datetime: '2020-09-20',
-        icon: AccountBoxIcon,
+        icon: Inventory2Icon,
         iconBackground: 'bg-gray-400',
     },
     {
         id: 2,
         content: 'Advanced to phone screening by',
-        target: 'Bethany Blake',
+        target: 'Task Added',
         href: '/',
         date: 'Sep 22',
         datetime: '2020-09-22',
-        icon: AccessibleIcon,
+        icon: AddTaskIcon,
         iconBackground: 'bg-blue-500',
     },
     {
         id: 3,
+        content: 'Advanced to phone screening by',
+        target: 'Team Assigned',
+        href: '/',
+        date: 'Sep 22',
+        datetime: '2020-09-22',
+        icon: GroupAddIcon,
+        iconBackground: 'bg-blue-200',
+    },
+    {
+        id: 4,
         content: 'Completed phone screening with',
-        target: 'Martha Gardner',
+        target: 'Task Processing',
         href: '/',
         date: 'Sep 28',
         datetime: '2020-09-28',
         icon: AttributionIcon,
-        iconBackground: 'bg-green-500',
-    },
-    {
-        id: 4,
-        content: 'Advanced to interview by',
-        target: 'Bethany Blake',
-        href: '/',
-        date: 'Sep 30',
-        datetime: '2020-09-30',
-        icon: AdbIcon,
-        iconBackground: 'bg-blue-500',
+        iconBackground: 'bg-blue-300',
     },
     {
         id: 5,
+        content: 'Advanced to interview by',
+        target: 'Social Goals Added',
+        href: '/',
+        date: 'Sep 30',
+        datetime: '2020-09-30',
+        icon: ConnectWithoutContactIcon,
+        iconBackground: 'bg-green-400',
+    },
+    {
+        id: 6,
         content: 'Completed interview with',
-        target: 'Katherine Snyder',
+        target: 'Social Task Added',
         href: '/',
         date: 'Oct 4',
         datetime: '2020-10-04',
-        icon: AccountBoxIcon,
+        icon: AddTaskIcon,
+        iconBackground: 'bg-blue-500',
+    },
+    {
+        id: 7,
+        content: 'Completed interview with',
+        target: 'Social Marketing Added',
+        href: '/',
+        date: 'Oct 4',
+        datetime: '2020-10-04',
+        icon: ConnectWithoutContactIcon,
+        iconBackground: 'bg-green-300',
+    },
+    {
+        id: 8,
+        content: 'Completed interview with',
+        target: 'Submitted',
+        href: '/',
+        date: 'Oct 4',
+        datetime: '2020-10-04',
+        icon: LibraryAddCheckIcon,
         iconBackground: 'bg-green-500',
     },
 ]
@@ -62,8 +95,9 @@ function classNames(...classes) {
 }
 const ProductTimeline = () => {
     return (
-        <div className='mt-6'>
-            <div className="flow-root">
+        <div className='mt-6 bg-white p-4 rounded-lg h-fit shadow'>
+            <h4 className='text-base font-semibold m-2 mb-6'>Product Timeline</h4>
+            <div className="flow-root mx-auto">
                 <ul role="list" className="-mb-8">
                     {timeline.map((event, eventIdx) => (
                         <li key={event.id}>
@@ -85,15 +119,15 @@ const ProductTimeline = () => {
                                     <div className="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
                                         <div>
                                             <p className="text-sm text-gray-500">
-                                                {event.content}{' '}
+                                                {/* {event.content}{' '} */}
                                                 <a href={event.href} className="font-medium text-gray-900">
                                                     {event.target}
                                                 </a>
                                             </p>
                                         </div>
-                                        <div className="text-right text-sm whitespace-nowrap text-gray-500">
+                                        {/* <div className="text-right text-sm whitespace-nowrap text-gray-500">
                                             <time dateTime={event.datetime}>{event.date}</time>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>
