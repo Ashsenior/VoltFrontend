@@ -112,41 +112,20 @@ const Tabs = () => {
                         <div className="px-4 py-5 flex-auto">
                             <div className="tab-content tab-space">
                                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                                    <p>
-                                        Collaboratively administrate empowered markets via
-                                        plug-and-play networks. Dynamically procrastinate B2C users
-                                        after installed base benefits.
-                                        <br />
-                                        <br /> Dramatically visualize customer directed convergence
-                                        without revolutionary ROI.
-                                    </p>
+                                    <p>Features</p>
                                 </div>
                                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
                                     <AllTeamMembers />
                                 </div>
                                 <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                                    <p>
-                                        Efficiently unleash cross-media information without
-                                        cross-media value. Quickly maximize timely deliverables for
-                                        real-time schemas.
-                                        <br />
-                                        <br /> Dramatically maintain clicks-and-mortar solutions
-                                        without functional solutions.
-                                    </p>
+                                    <p>Features</p>
                                 </div>
                                 <div className={openTab === 4 ? "block" : "hidden"} id="link4">
 
                                     <DesignImages></DesignImages>
                                 </div>
                                 <div className={openTab === 5 ? "block" : "hidden"} id="link5">
-                                    <p>
-                                        Efficiently unleash cross-media information without
-                                        cross-media value. Quickly maximize timely deliverables for
-                                        real-time schemas.
-                                        <br />
-                                        <br /> Dramatically maintain clicks-and-mortar solutions
-                                        without functional solutions.
-                                    </p>
+                                    <p>Issues</p>
                                 </div>
                             </div>
                         </div>

@@ -2,7 +2,8 @@ import Head from 'next/head';
 import SidebarLayout from 'src/layouts/SidebarLayout';
 import { Container } from '@mui/material';
 import Footer from 'src/components/Footer';
-import Tabs from 'pages/module/product/Tabs'
+import FeatureTabs from 'pages/module/product/FeatureTabs';
+
 
 function AllTeamMember() {
     return (
@@ -21,7 +22,7 @@ function AllTeamMember() {
                         <div className="radial-progress mt-2" style={{ "--value": "70", "--size": "3rem", "--thickness": "0.3rem" }}>70%</div>
                     </div>
 
-                    <Tabs />
+                    <FeatureTabs></FeatureTabs>
 
                 </div>
 

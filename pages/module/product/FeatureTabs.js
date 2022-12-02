@@ -1,4 +1,5 @@
 import React from 'react';
+import AllTeamMember from './AllTeamMember';
 import DesignImages from './DesignImages';
 import ProductIssues from './ProductIssues';
 import Screenshots from './Screenshots';
@@ -7,7 +8,6 @@ const FeatureTabs = () => {
 
 
     const [openTab, setOpenTab] = React.useState(1);
-
 
     return (
         <div className=''>
@@ -71,7 +71,7 @@ const FeatureTabs = () => {
                                 href="#link3"
                                 role="tablist"
                             >
-                                Chats
+                                Team States
                             </a>
                         </li>
                         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -123,7 +123,7 @@ const FeatureTabs = () => {
                                     <Screenshots />
                                 </div>
                                 <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-
+                                    <AllTeamMember></AllTeamMember>
                                 </div>
                                 <div className={openTab === 4 ? "block" : "hidden"} id="link4">
 

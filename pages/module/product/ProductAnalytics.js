@@ -63,25 +63,166 @@ const colors = ['#ff9900', '#F47C7C', '#5FD068', '#333']
 const ProductAnalytics = () => {
     const theme = useTheme();
 
-    const [pieChart, setPieChart] = useState({
-        series: [44, 55, 13, 43, 22],
+    const [timelineChart, setTimelineChart] = useState({
+        series: [
+            {
+                name: 'Bob',
+                data: [
+                    {
+                        x: 'Design',
+                        y: [
+                            new Date('2019-03-05').getTime(),
+                            new Date('2019-03-08').getTime()
+                        ]
+                    },
+                    {
+                        x: 'Code',
+                        y: [
+                            new Date('2019-03-02').getTime(),
+                            new Date('2019-03-05').getTime()
+                        ]
+                    },
+                    {
+                        x: 'Code',
+                        y: [
+                            new Date('2019-03-05').getTime(),
+                            new Date('2019-03-07').getTime()
+                        ]
+                    },
+                    {
+                        x: 'Test',
+                        y: [
+                            new Date('2019-03-03').getTime(),
+                            new Date('2019-03-09').getTime()
+                        ]
+                    },
+                    {
+                        x: 'Test',
+                        y: [
+                            new Date('2019-03-08').getTime(),
+                            new Date('2019-03-11').getTime()
+                        ]
+                    },
+                    {
+                        x: 'Validation',
+                        y: [
+                            new Date('2019-03-11').getTime(),
+                            new Date('2019-03-16').getTime()
+                        ]
+                    },
+                    {
+                        x: 'Design',
+                        y: [
+                            new Date('2019-03-01').getTime(),
+                            new Date('2019-03-03').getTime()
+                        ],
+                    }
+                ]
+            },
+            {
+                name: 'Joe',
+                data: [
+                    {
+                        x: 'Design',
+                        y: [
+                            new Date('2019-03-02').getTime(),
+                            new Date('2019-03-05').getTime()
+                        ]
+                    },
+                    {
+                        x: 'Test',
+                        y: [
+                            new Date('2019-03-06').getTime(),
+                            new Date('2019-03-16').getTime()
+                        ],
+                        goals: [
+                            {
+                                name: 'Break',
+                                value: new Date('2019-03-10').getTime(),
+                                strokeColor: '#CD2F2A'
+                            }
+                        ]
+                    },
+                    {
+                        x: 'Code',
+                        y: [
+                            new Date('2019-03-03').getTime(),
+                            new Date('2019-03-07').getTime()
+                        ]
+                    },
+                    {
+                        x: 'Deployment',
+                        y: [
+                            new Date('2019-03-20').getTime(),
+                            new Date('2019-03-22').getTime()
+                        ]
+                    },
+                    {
+                        x: 'Design',
+                        y: [
+                            new Date('2019-03-10').getTime(),
+                            new Date('2019-03-16').getTime()
+                        ]
+                    }
+                ]
+            },
+            {
+                name: 'Dan',
+                data: [
+                    {
+                        x: 'Code',
+                        y: [
+                            new Date('2019-03-10').getTime(),
+                            new Date('2019-03-17').getTime()
+                        ]
+                    },
+                    {
+                        x: 'Validation',
+                        y: [
+                            new Date('2019-03-05').getTime(),
+                            new Date('2019-03-09').getTime()
+                        ],
+                        goals: [
+                            {
+                                name: 'Break',
+                                value: new Date('2019-03-07').getTime(),
+                                strokeColor: '#CD2F2A'
+                            }
+                        ]
+                    },
+                ]
+            }
+        ],
         options: {
             chart: {
-                type: 'donut',
+                height: 450,
+                type: 'rangeBar'
             },
-            responsive: [{
-                breakpoint: 480,
-                options: {
-                    chart: {
-                        width: 200
-                    },
-                    legend: {
-                        position: 'bottom'
-                    }
+            plotOptions: {
+                bar: {
+                    horizontal: true,
+                    barHeight: '80%'
                 }
-            }]
+            },
+            xaxis: {
+                type: 'datetime'
+            },
+            stroke: {
+                width: 1
+            },
+            fill: {
+                type: 'solid',
+                opacity: 0.6
+            },
+            legend: {
+                position: 'top',
+                horizontalAlign: 'left'
+            }
         },
+
     })
+
+
 
     const [barChart, setBarChart] = useState({
         series: [{
@@ -131,75 +272,30 @@ const ProductAnalytics = () => {
         },
     })
 
-    const [scatterChart, setScatterChart] = useState({
-        series: [{
-            name: "Facebook",
-            data: [
-                [16.4, 5.4], [21.7, 2], [25.4, 3], [19, 2], [10.9, 1], [13.6, 3.2], [10.9, 7.4], [10.9, 0], [10.9, 8.2], [16.4, 0], [16.4, 1.8], [13.6, 0.3], [13.6, 0], [29.9, 0], [27.1, 2.3], [16.4, 0], [13.6, 3.7], [10.9, 5.2], [16.4, 6.5], [10.9, 0], [24.5, 7.1], [10.9, 0], [8.1, 4.7], [19, 0]]
-        }, {
-            name: "LinkedIn",
-            data: [
-                [36.4, 13.4], [1.7, 11], [5.4, 8], [9, 17], [1.9, 4], [3.6, 12.2], [1.9, 14.4], [1.9, 9], [1.9, 13.2], [1.4, 7], [6.4, 8.8], [3.6, 4.3], [1.6, 10], [9.9, 2], [7.1, 15], [1.4, 0], [3.6, 13.7], [1.9, 15.2]]
-        }, {
-            name: "Reddit",
-            data: [
-                [21.7, 3], [23.6, 3.5], [24.6, 3], [29.9, 3], [21.7, 20], [23, 2], [10.9, 3], [28, 4], [27.1, 0.3], [16.4, 4], [13.6, 0], [19, 5], [22.4, 3], [24.5, 3], [32.6, 3], [27.1, 4], [29.6, 6], [31.6, 8], [21.6, 5], [20.9, 4], [22.4, 0], [32.6, 10.3], [29.7, 20.8], [24.5, 0.8], [21.4, 0], [21.7, 6.9]]
-        }],
-        options: {
-            chart: {
-                height: 350,
-                type: 'scatter',
-                zoom: {
-                    enabled: true,
-                    type: 'xy'
-                }
-            },
-            xaxis: {
-                tickAmount: 10,
-                labels: {
-                    formatter: function (val) {
-                        return parseFloat(val).toFixed(1)
-                    }
-                }
-            },
-            yaxis: {
-                tickAmount: 7
-            }
-        },
-    })
+
 
 
     return (
-        <Card>
-            <Grid spacing={0} container>
-                <div className='flex flex-col md:flex-row gap-2 mt-6'>
-                    <div className='p-2 mx-auto'>
-                        <ReactApexChart
-                            options={pieChart.options}
-                            series={pieChart.series}
-                            height={400}
-                            width={400}
-                            type="donut" />
-                    </div>
-                    <div>
-                        <ReactApexChart
-                            options={barChart.options}
-                            series={barChart.series}
-                            height={300}
-                            width={400}
-                            type="bar" />
-                    </div>
-                    <div>
-                        <ReactApexChart
-                            options={scatterChart.options}
-                            series={scatterChart.series}
-                            height={300}
-                            width={400}
-                            type="scatter" />
-                    </div>
-                </div>
-            </Grid>
-        </Card>
+        <div className='flex flex-col md:flex-row gap-2 mt-6'>
+            <div className='w-full md:w-2/3 bg-white rounded-md p-2'>
+                <h4 className='text-base font-semibold m-2'>Product Timeline</h4>
+                <ReactApexChart
+                    options={timelineChart.options}
+                    series={timelineChart.series}
+                    type="rangeBar"
+                    width='100%'
+                    height={350} />
+            </div>
+            <div className='w-full md:w-1/3 bg-white rounded-md p-2'>
+                <h4 className='text-base font-semibold m-2'>Team Performance</h4>
+                <ReactApexChart
+                    options={barChart.options}
+                    series={barChart.series}
+                    height={350}
+                    width='100%'
+                    type="bar" />
+            </div>
+        </div>
     );
 };
 

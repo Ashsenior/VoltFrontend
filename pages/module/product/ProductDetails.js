@@ -5,9 +5,11 @@ import SidebarLayout from 'src/layouts/SidebarLayout';
 import { Container } from '@mui/system';
 import { Link } from '@mui/material';
 import ProductAnalytics from './ProductAnalytics';
-import ProductSuggestions from './ProductSuggestions';
 import TeamMembers from './TeamMembers';
 import FeatureDetails from './FeatureDetails';
+import ProductIntro from './ProductIntro';
+import ProductFeatures from './ProductFeatures';
+import Footer from 'src/components/Footer';
 
 const ProductDetails = () => {
 
@@ -15,24 +17,22 @@ const ProductDetails = () => {
     return (
         <div>
             <Container>
+
+                <ProductIntro></ProductIntro>
                 <ProductAnalytics></ProductAnalytics>
                 <div className='flex flex-col md:flex-row'>
-                    <div className='w-full md:w-9/12'>
-                        <ProductSuggestions></ProductSuggestions>
-                        <FeatureDetails></FeatureDetails>
+                    <div className='w-full md:w-10/12 mr-4'>
+                        <ProductFeatures></ProductFeatures>
                         <TeamMembers />
                     </div>
-                    <div className='w-full md:w-3/12 flex justify-end'>
+                    <div className='w-full md:w-2/12 flex justify-end'>
                         <ProductTimeline></ProductTimeline>
                     </div>
                 </div>
-
-                <div>
-
-                </div>
-
-
             </Container>
+            <Footer></Footer>
+
+
         </div>
     );
 };

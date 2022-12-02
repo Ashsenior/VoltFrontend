@@ -90,27 +90,22 @@ const TeamMembers = () => {
 
 
     return (
-        <div className='mt-6'>
-            <div className='flex justify-between'>
-                <h1 className='text-base font-bold'>Team Members </h1>
-                <button className='btn btn-sm'>All Members</button>
-            </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6'>
+        <div className='mt-6 bg-white rounded-lg mb-10'>
+            <h1 className='text-base font-semibold ml-6 pt-6'>Working Team</h1>
+            <div className='flex flex-wrap gap-4 p-4'>
                 {
                     teamData.slice(0, 4).map(member =>
                         <div
                             key={member.id}
                         >
-                            <div className="card card-compact w-full bg-base-100 shadow-sm rounded-md hover:shadow-md">
-                                <figure className="px-5 pt-5">
-                                    <img src={member.image} alt="Shoes" className="w-32 rounded-xl" />
-                                </figure>
+                            <div className="border p-2 rounded-md">
+                                <img className='w-14 rounded-full mx-auto' src={member.image} alt="" />
                                 <div className="items-center text-center p-2 border-b mx-2">
-                                    <h2 className="text-xl">{member.name}</h2>
-                                    <p className='font-semibold'>{member.role}</p>
+                                    <h2 className="text-base">{member.name}</h2>
+                                    <p className='text-sm font-semibold'>{member.role}</p>
                                 </div>
 
-                                <div className='mx-auto'>
+                                <div className='flex justify-center'>
                                     <div className="tooltip tooltip-info" data-tip="Profile">
                                         <button
                                             // onClick={() => Router.push('/module/product/ProductDetails')}
