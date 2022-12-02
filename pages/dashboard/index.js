@@ -12,7 +12,7 @@ import ProfitLoss from "../../components/dashboard-components/profit-loss";
 import Meetings from "../../components/dashboard-components/Meetings/Meetings";
 
 const DashBoardCharts = dynamic(
-  () => import("../../components/dashboard-components/dashboard-charts"),
+  () => import("../../components/content-module/dashboard-charts"),
   { ssr: false }
 );
 const Home = () => {
