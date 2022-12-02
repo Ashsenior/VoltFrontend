@@ -1,17 +1,11 @@
 import React from 'react';
-import AllTeamMember from './AllTeamMembers';
+import AllTeamMembers from 'pages/module/product/AllTeamMembers';
 import DesignImages from './DesignImages';
-import ProductIssues from './ProductIssues';
-import ProductSuggestions from './ProductSuggestions';
-import Screenshots from './Screenshots';
 
-const FeatureTabs = () => {
-
-
+const Tabs = () => {
     const [openTab, setOpenTab] = React.useState(1);
-
     return (
-        <div className=''>
+        <div className='mt-6'>
             <div className="flex flex-wrap">
                 <div className="w-full">
                     <ul
@@ -34,7 +28,7 @@ const FeatureTabs = () => {
                                 href="#link1"
                                 role="tablist"
                             >
-                                Designs UI/UX
+                                Product Features
                             </a>
                         </li>
                         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -53,7 +47,7 @@ const FeatureTabs = () => {
                                 href="#link2"
                                 role="tablist"
                             >
-                                Screenshots
+                                Team States
                             </a>
                         </li>
                         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -72,7 +66,7 @@ const FeatureTabs = () => {
                                 href="#link3"
                                 role="tablist"
                             >
-                                Team States
+                                Features
                             </a>
                         </li>
                         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -91,7 +85,7 @@ const FeatureTabs = () => {
                                 href="#link3"
                                 role="tablist"
                             >
-                                Issues
+                                UI Designs
                             </a>
                         </li>
                         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -110,7 +104,7 @@ const FeatureTabs = () => {
                                 href="#link3"
                                 role="tablist"
                             >
-                                Suggestions
+                                Issues
                             </a>
                         </li>
                     </ul>
@@ -118,20 +112,20 @@ const FeatureTabs = () => {
                         <div className="px-4 py-5 flex-auto">
                             <div className="tab-content tab-space">
                                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                                    <DesignImages></DesignImages>
+                                    <p>Features</p>
                                 </div>
                                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                                    <Screenshots />
+                                    <AllTeamMembers />
                                 </div>
                                 <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                                    <AllTeamMember></AllTeamMember>
+                                    <p>Features</p>
                                 </div>
                                 <div className={openTab === 4 ? "block" : "hidden"} id="link4">
 
-                                    <ProductIssues />
+                                    <DesignImages></DesignImages>
                                 </div>
                                 <div className={openTab === 5 ? "block" : "hidden"} id="link5">
-                                    <ProductSuggestions></ProductSuggestions>
+                                    <p>Issues</p>
                                 </div>
                             </div>
                         </div>
@@ -142,4 +136,4 @@ const FeatureTabs = () => {
     );
 };
 
-export default FeatureTabs;
+export default Tabs;
