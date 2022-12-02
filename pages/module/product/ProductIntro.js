@@ -34,19 +34,19 @@ const ProductIntro = () => {
                             <h4 className='text-base font-light'>Issue Solved</h4>
                             <h3 className='text-2xl font-bold'>14</h3>
                         </div>
-                        <div className='absolute bottom-4 left flex'>
+                        <div className='absolute bottom-4 left flex border-t w-52'>
                             <p><span className='text-green-500 font-bold'>+12%</span> then last week</p>
                         </div>
                     </div>
                 </div>
                 <div className='bg-white rounded-md p-4 flex items-center justify-between shadow'>
                     <GoIssueClosed className='text-4xl bg-indigo-400 rounded-full text-white p-2'></GoIssueClosed>
-                    <p className='text-xl'><span>5</span> Issue Solved</p>
+                    <p className='text-xl'><span>8</span> Member Working</p>
                     <BsFillArrowRightSquareFill className='text-2xl text-indigo-500'></BsFillArrowRightSquareFill>
                 </div>
                 <div className='bg-white rounded-md p-4 flex items-center justify-between shadow'>
                     <MdFeaturedVideo className='text-4xl bg-indigo-400 rounded-full text-white p-2'></MdFeaturedVideo>
-                    <p className='text-xl'><span>7</span> Working Features</p>
+                    <p className='text-xl'><span>5</span> New Features</p>
                     <BsFillArrowRightSquareFill className='text-2xl text-indigo-500'></BsFillArrowRightSquareFill>
                 </div>
             </div>
