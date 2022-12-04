@@ -10,6 +10,7 @@ import SocialCard from "../../components/dashboard-components/social-card";
 import DashBoardTable from "../../components/dashboard-components/dashboard-table";
 import ProfitLoss from "../../components/dashboard-components/profit-loss";
 import Meetings from "../../components/dashboard-components/Meetings/Meetings";
+import Points from "src/content/Dashboards/Crypto/Points";
 
 const DashBoardCharts = dynamic(
   () => import("../../components/content-module/dashboard-charts"),
@@ -17,13 +18,22 @@ const DashBoardCharts = dynamic(
 );
 const Home = () => {
   return (
-    <>
-      <Container maxWidth="lg" p={5} mt={10}>
-        <Typography variant="h4" sx={{ mb: 5, mt: 2 }}>
-          Hi, Welcome back
-        </Typography>
-
-        <Grid container spacing={3}>
+    <div className="bg-indigo-50 p-2">
+      <div>
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="stretch"
+          spacing={4}
+        >
+          <Grid item xs={12} marginTop={4}>
+            <Points />
+          </Grid>
+        </Grid>
+      </div>
+      <div className="w-full" mt={10}>
+        <Grid  sx={{ mb: 5, mt: 2 }} container spacing={1}>
           <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary
               title="Strategy Module"
@@ -92,19 +102,18 @@ const Home = () => {
           <Grid item xs={12} md={6} lg={4}>
             <ProfitLoss />
           </Grid>
-
           <Grid item xs={12} md={6} lg={6}>
             <SocialCard />
           </Grid>
           <Grid item xs={12} md={6} lg={6}>
             <DashBoardTable />
           </Grid>
-          <Grid item xs={12} md={6} lg={6}>
+          <Grid item xs={12} md={12} lg={8}>
             <Meetings />
           </Grid>
         </Grid>
-      </Container>
-    </>
+      </div>
+    </div>
   );
 };
 

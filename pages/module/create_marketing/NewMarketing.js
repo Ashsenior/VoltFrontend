@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { DatePicker } from "@mui/lab";
+import { DatePicker } from '@mui/x-date-pickers';
+import '@mui/lab';
 import {
     Checkbox,
     Grid,

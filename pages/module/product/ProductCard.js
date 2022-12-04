@@ -66,25 +66,18 @@ const ProductCard = () => {
     ]
 
     return (
-        <Container>
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mt-6 mx-2'>
+        <>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4 bg-gray-50'>
                 {productCards.map(productCard =>
                     <>
                         <div
-                            className='w-full flex bg-white p-2 shadow rounded-lg mx-auto'>
+                            className='w-full flex bg-white p-2 rounded-lg mx-auto'>
                             <div className='w-1/3 flex flex-col border-r'>
+                                <button
+                                    onClick={() => Router.push('/module/product/ProductDetails')}
+                                    className="btn btn-ghost hover:bg-white">
                                 <img className='flex w-28 m-1 rounded-md mx-auto' src={productCard.logo} alt="" />
-                                <h4 className='text-center font-semibold'>Priority</h4>
-                                <div className='mx-auto'>
-                                    <div className="tooltip tooltip-info" data-tip="Details">
-                                        <button
-                                            onClick={() => Router.push('/module/product/ProductDetails')}
-                                            className="btn btn-ghost hover:bg-white"><VscPreview className='text-xl text-blue-500'></VscPreview></button>
-                                    </div>
-                                    <div className="tooltip tooltip-error" data-tip="Delete">
-                                        <button className="btn btn-ghost hover:bg-white"><BsFillTrashFill className='text-xl text-red-400'></BsFillTrashFill></button>
-                                    </div>
-                                </div>
+                                </button>
                             </div>
                             <div className='w-2/3 flex flex-col justify-between ml-2'>
                                 <div className='flex items-center justify-between'>
@@ -94,19 +87,11 @@ const ProductCard = () => {
                                     </p>
                                 </div>
                                 <h6 className='text-xs font-light mb-4'>{productCard.date}</h6>
-                                <p className='text-sm font-light mb-2'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod incidunt possimus praesentium in, ea eum. adipisicing elit. Quod incidunt possimus praesentium.</p>
+                                <p className='text-sm font-light mb-2'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod incidunt possimus praesentium in, ea eum. adipisicing elit.</p>
                                 <div className='grid grid-cols-2 items-center justify-between gap-2 mx-5'>
-                                    <div className='flex items-center gap-2'>
-                                        <MdFeaturedPlayList></MdFeaturedPlayList>
-                                        <p>7 Features</p>
-                                    </div>
                                     <div className='flex items-center gap-2'>
                                         <BsFillPeopleFill></BsFillPeopleFill>
                                         <p>4 Members</p>
-                                    </div>
-                                    <div className='flex items-center gap-2'>
-                                        <GrAttachment></GrAttachment>
-                                        <p>2 Attachment</p>
                                     </div>
                                     <div className='flex items-center gap-2'>
                                         <BsFillStopwatchFill></BsFillStopwatchFill>
@@ -118,7 +103,7 @@ const ProductCard = () => {
                     </>)
                 }
             </div >
-        </Container>
+        </>
     );
 };
 

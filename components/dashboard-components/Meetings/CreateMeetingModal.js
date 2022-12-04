@@ -8,7 +8,8 @@ import {
   Checkbox,
   FormControlLabel,
 } from "@mui/material";
-import { DatePicker } from "@mui/lab";
+import { DatePicker } from '@mui/x-date-pickers';
+import '@mui/lab';
 
 const CreateMeetingModal = () => {
   return (

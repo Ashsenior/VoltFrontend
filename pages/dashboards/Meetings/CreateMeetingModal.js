@@ -2,7 +2,8 @@ import React from 'react';
 import {
     InputLabel, Select, TextField, MenuItem, FormControl, Checkbox, FormControlLabel
 } from '@mui/material';
-import { DatePicker } from "@mui/lab";
+import { DatePicker } from '@mui/x-date-pickers';
+import '@mui/lab';
 
 const CreateMeetingModal = () => {
     return (
