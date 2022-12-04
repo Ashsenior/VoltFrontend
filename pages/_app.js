@@ -7,8 +7,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 
 import { SidebarProvider } from 'src/contexts/SidebarContext';
 import { AuthProvider } from "../context/AuthContext";
-import { LocalizationProvider } from "@mui/lab";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import '@mui/lab';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 
 
 function App(props) {

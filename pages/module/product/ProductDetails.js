@@ -14,9 +14,8 @@ import Footer from 'src/components/Footer';
 const ProductDetails = () => {
 
     return (
-        <div>
-            <Container>
-
+        <>
+            <>
                 <ProductIntro></ProductIntro>
                 <ProductAnalytics></ProductAnalytics>
                 <div className='flex flex-col md:flex-row'>
@@ -28,11 +27,11 @@ const ProductDetails = () => {
                         <ProductTimeline></ProductTimeline>
                     </div>
                 </div>
-            </Container>
+            </>
             <Footer></Footer>
 
 
-        </div>
+        </>
     );
 };
 

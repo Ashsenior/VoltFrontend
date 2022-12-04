@@ -16,7 +16,7 @@ const StartupCard = ({ startup }) => {
   return (
     <>
       {startup?.map((startup, index) => (
-        <div className="w-full flex justify-between p-1 items-center  hover:bg-indigo-100">
+        <div className="w-full flex justify-between p-1 items-center  hover:bg-gray-100">
           <div className="flex">
             <img
               className="w-20 h-20 mx-1 rounded-lg"

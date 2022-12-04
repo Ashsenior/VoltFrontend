@@ -13,7 +13,8 @@ import DoneTwoToneIcon from '@mui/icons-material/DoneTwoTone';
 import Text from 'src/components/Text';
 import Label from 'src/components/Label';
 import {useState} from "react";
-import {DatePicker} from "@mui/lab";
+import { DatePicker } from '@mui/x-date-pickers';
+import '@mui/lab';
 
 const genders = [
   {
