@@ -190,7 +190,6 @@ function SidebarMenu() {
                       currentRoute === '/dashboards' ? 'active' : ''
                     }
                     disableRipple
-                    component="a"
                     onClick={closeSidebar}
                     startIcon={<Home />}
                   >
@@ -198,21 +197,6 @@ function SidebarMenu() {
                   </Button>
                 </NextLink>
               </ListItem>
-              {/*<ListItem component="div">*/}
-              {/*  <NextLink href="/applications/messenger" passHref>*/}
-              {/*    <Button*/}
-              {/*      className={*/}
-              {/*        currentRoute === '/applications/messenger' ? 'active' : ''*/}
-              {/*      }*/}
-              {/*      disableRipple*/}
-              {/*      component="a"*/}
-              {/*      onClick={closeSidebar}*/}
-              {/*      startIcon={<MmsTwoToneIcon />}*/}
-              {/*    >*/}
-              {/*      Messenger*/}
-              {/*    </Button>*/}
-              {/*  </NextLink>*/}
-              {/*</ListItem>*/}
             </List>
           </SubMenuWrapper>
         </List>
@@ -233,7 +217,6 @@ function SidebarMenu() {
                       currentRoute === '/module/product' ? 'active' : ''
                     }
                     disableRipple
-                    component="a"
                     onClick={closeSidebar}
                     startIcon={<WysiwygIcon />}
                   >
@@ -248,7 +231,6 @@ function SidebarMenu() {
                       currentRoute === '/module/strategy' ? 'active' : ''
                     }
                     disableRipple
-                    component="a"
                     onClick={closeSidebar}
                     startIcon={<PsychologyIcon />}
                   >
@@ -263,11 +245,10 @@ function SidebarMenu() {
                       currentRoute === '/module/content' ? 'active' : ''
                     }
                     disableRipple
-                    component="a"
                     onClick={closeSidebar}
                     startIcon={<PostAddIcon />}
                   >
-                    Content Module
+                    Reasearch Module
                   </Button>
                 </NextLink>
               </ListItem>
@@ -278,26 +259,10 @@ function SidebarMenu() {
                       currentRoute === '/module/marketing' ? 'active' : ''
                     }
                     disableRipple
-                    component="a"
                     onClick={closeSidebar}
                     startIcon={<LocalGroceryStoreIcon />}
                   >
                     Marketing Module
-                  </Button>
-                </NextLink>
-              </ListItem>
-              <ListItem component="div">
-                <NextLink href="/module/sales" passHref>
-                  <Button
-                    className={
-                      currentRoute === '/module/sales' ? 'active' : ''
-                    }
-                    disableRipple
-                    component="a"
-                    onClick={closeSidebar}
-                    startIcon={<MonetizationOnIcon />}
-                  >
-                    Sales Module
                   </Button>
                 </NextLink>
               </ListItem>
@@ -321,7 +286,6 @@ function SidebarMenu() {
                       currentRoute === '/management/profile' ? 'active' : ''
                     }
                     disableRipple
-                    component="a"
                     onClick={closeSidebar}
                     startIcon={<AccountCircleTwoToneIcon />}
                   >
@@ -338,7 +302,6 @@ function SidebarMenu() {
                         : ''
                     }
                     disableRipple
-                    component="a"
                     onClick={closeSidebar}
                     startIcon={<DisplaySettingsTwoToneIcon />}
                   >

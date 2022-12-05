@@ -7,10 +7,10 @@ const Idea = ({startup}) => {
     return (
         <div className='mt-10 mx-auto'>
             <Grid container spacing={0}>
-                <Grid xs={12} md={6} lg={6}>
+                <Grid item={true} xs={12} md={6} lg={6}>
                     <IdeaCard startup={startup}/>
                 </Grid>
-                <Grid xs={12} md={6} lg={6}>
+                <Grid item={true} xs={12} md={6} lg={6}>
                     <SellingPointsCard/>
                 </Grid>
             </Grid>

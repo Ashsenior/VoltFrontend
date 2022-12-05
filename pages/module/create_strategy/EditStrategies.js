@@ -11,9 +11,10 @@ import {
 import { Box } from "@mui/system";
 import React from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { ShoppingCart } from "@mui/icons-material";
+import { FeedOutlined, ShoppingCart } from "@mui/icons-material";
 import CreateMeetingModal from "../../dashboards/Meetings/CreateMeetingModal";
 import { useState } from "react";
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 const applications = [
   {
@@ -57,13 +58,13 @@ const EditStrategies = ({ strategy }) => {
     <>
       <div className="w-full bg-orange-100">
         <div className="w-full flex items-center justify-between mx-auto px-5 rounded-lg py-3">
-          <button
-            onClick={() => Router.push("/module/product/ProductDetails")}
+          <label
+            htmlFor="edit-strategy-modal"
             type="button"
             className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Submit Strategy
-          </button>
+          </label>
           <button
             onClick={() => Router.push("/module/product/ProductDetails")}
             type="button"
@@ -75,7 +76,7 @@ const EditStrategies = ({ strategy }) => {
       </div>
       <input
         type="checkbox"
-        id="edit-startups-modal"
+        id="edit-strategy-modal"
         className="modal-toggle"
       />
       <div className="modal modal-bottom sm:modal-middle">
@@ -127,14 +128,14 @@ const EditStrategies = ({ strategy }) => {
               </label>
             </div>
             <label
-              htmlFor="edit-startups-modal"
+              htmlFor="edit-strategy-modal"
               className="btn btn-sm btn-circle absolute right-2 top-2"
             >
               ✕
             </label>
             <label
               type="button"
-              htmlFor="edit-startups-modal"
+              htmlFor="edit-strategy-modal"
               className="btn mt-2 border-0 bg-indigo-500 text-white"
             >
               Submit and Close Strategy
@@ -143,10 +144,10 @@ const EditStrategies = ({ strategy }) => {
         </div>
       </div>
 
-      <div className="mt-6">
+      <div className="mt-6 w-full p-2 lg:p-4">
         <div className="flex items-center justify-between">
           <h1 className="text-xl font-semibold">
-            Strategy Name {strategy?.strategyTitle}
+            {strategy?.strategy?.strategyTitle}
           </h1>
           <Link to="" type="button" className="btn btn-sm">
             In Progress
@@ -154,46 +155,54 @@ const EditStrategies = ({ strategy }) => {
         </div>
         <medium>
           Strategy leader
-          <p className="px-2 inline-flex text-sm leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-            {strategy?.strategyLeader}
+          <p className="ml-2 px-2 inline-flex text-sm leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+            @{strategy?.strategy?.strategyLeader}
           </p>
         </medium>
         <h4>
-          Start Date: <span>{strategy?.approxStartDate}</span>
+          Start Date: <span>{strategy?.strategy?.approxStartDate}</span>
         </h4>
-        <div className="grid grid-cols-1  p-2">
+        <div className="grid grid-cols-1">
           <div className="mt-6">
             <h4 className="text-lg font-semibold">Customer it impacts</h4>
-            <p className="p-1">{strategy?.customer}</p>
+            <p className="p-1">{strategy?.strategy?.customer}</p>
           </div>
           <div className="mt-2">
             <h4 className="text-base font-semibold">Success Metrics</h4>
             <div className="flex gap-4 text-sm">
               <div className=" p-2 rounded-xl bg-green-100 text-green-700 flex items-center justify-center">
-                <p>1,200 Likes on LinkedIn</p>
+                <p>{strategy?.strategy?.success_high}</p>
               </div>
               <div className=" p-2 rounded-xl bg-yellow-100 text-yellow-700 flex items-center justify-center">
-                <p>1,200 Likes on LinkedIn</p>
+                <p>{strategy?.strategy?.success_mid}</p>
               </div>
               <div className=" p-2 rounded-xl bg-red-100 text-red-700 flex items-center justify-center">
-                <p>1,200 Likes on LinkedIn</p>
+                <p>{strategy?.strategy?.success_low}</p>
               </div>
             </div>
             {/* Accordion for Marketing Sales Researchers */}
 
             <div className="mt-6 text-white">
               <Accordion
-                className="bg-blue-500 text-white"
-                sx={{ borderBottom: "1px solid #fff" }}
+                className="bg-gray-700 text-white border-b-2 border-gray-500"
               >
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon className="text-white" />}
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  <Typography>Marketing 3</Typography>
+                  <Typography className='flex flex-row gap-10 my-1 '>
+                      <button className='flex items-center justify-end gap-2  hover:text-indigo-300'>
+                          <ShoppingCart />
+                          <p>3 Marketing</p>
+                      </button>
+                      <button className='flex items-center justify-end gap-2  hover:text-green-500'>
+                          <AddCircleOutlineIcon />
+                          <p>Add new</p>
+                      </button>
+                  </Typography>
                 </AccordionSummary>
-                <AccordionDetails className="bg-blue-500 text-white">
+                <AccordionDetails className="bg-gray-600 text-white">
                   <div className="bg-white shadow overflow-hidden sm:rounded-md">
                     <ul role="list" className="divide-y divide-gray-200">
                       {applications.map((application) => (
@@ -202,7 +211,7 @@ const EditStrategies = ({ strategy }) => {
                             href={application.href}
                             className="block hover:bg-gray-50"
                           >
-                            <div className="flex items-center px-4 py-4 sm:px-6">
+                            <div className="flex items-center px-4 py-4">
                               <div className="min-w-0 flex-1 flex items-center">
                                 <div className="flex-shrink-0">
                                   <ShoppingCart className="text-purple-500 bg-purple-100" />
@@ -243,75 +252,23 @@ const EditStrategies = ({ strategy }) => {
                 </AccordionDetails>
               </Accordion>
               <Accordion
-                className="bg-blue-500 text-white"
-                sx={{ borderBottom: "1px solid #fff" }}
+                className="bg-gray-700 text-white border-b-2 border-gray-500"
               >
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon className="text-white" />}
                   aria-controls="panel2a-content"
                   id="panel2a-header"
                 >
-                  <Typography>Sales 2</Typography>
-                </AccordionSummary>
-                <AccordionDetails className="bg-white text-base">
-                  <div className="bg-white shadow overflow-hidden sm:rounded-md">
-                    <ul role="list" className="divide-y divide-gray-200">
-                      {applications.map((application) => (
-                        <li key={application.applicant.email}>
-                          <a
-                            href={application.href}
-                            className="block hover:bg-gray-50"
-                          >
-                            <div className="flex items-center px-4 py-4 sm:px-6">
-                              <div className="min-w-0 flex-1 flex items-center">
-                                <div className="flex-shrink-0">
-                                  <ShoppingCart className="text-purple-500 bg-purple-100" />
-                                </div>
-                                <div className="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
-                                  <div>
-                                    <p className="text-sm font-medium text-indigo-600 truncate">
-                                      {application.applicant.name}
-                                    </p>
-                                    <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">
-                                      @ashsenior
-                                    </p>
-                                  </div>
-                                  <div className="hidden md:block">
-                                    <div>
-                                      <p className="text-sm text-gray-900">
-                                        Start Date:{" "}
-                                        <time dateTime={application.date}>
-                                          {application.dateFull}
-                                        </time>
-                                      </p>
-                                      <p className="mt-2 flex items-center text-sm text-gray-500">
-                                        <e className="px-2 py bg-green-100 text-green-700 text-white rounded-2xl mx-2">
-                                          3 tasks
-                                        </e>
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div></div>
-                            </div>
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </AccordionDetails>
-              </Accordion>
-              <Accordion
-                sx={{ borderBottom: "1px solid #fff" }}
-                className="bg-blue-500 text-white"
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon className="text-white" />}
-                  aria-controls="panel2a-content"
-                  id="panel2a-header"
-                >
-                  <Typography>Researchers 1</Typography>
+                  <Typography className='flex flex-row gap-10 my-1 '>
+                      <button className='flex items-center justify-end gap-2  hover:text-indigo-300'>
+                          <FeedOutlined />
+                          <p>2 Research</p>
+                      </button>
+                      <button className='flex items-center justify-end gap-2  hover:text-green-500'>
+                          <AddCircleOutlineIcon />
+                          <p>Add new</p>
+                      </button>
+                  </Typography>
                 </AccordionSummary>
                 <AccordionDetails className="bg-white text-base">
                   <div className="bg-white shadow overflow-hidden sm:rounded-md">
