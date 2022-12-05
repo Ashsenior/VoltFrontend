@@ -7,9 +7,7 @@ import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 const IdeaCard = ({ idea }) => {
     return (
         <div className='flex gap-1 border-b border-gray-200 my-2'>
-            <div className='flex items-start justify-start'>
-                <img className='w-20 rounded-full p-1 lg:w-12' src={idea.image} alt="" />
-            </div>
+                <img className='w-12 h-12 rounded-full p-1' src={idea.image} alt="" />
             <div className='flex flex-col p-1'>
                 <div className='flex items-center gap-1'>
                     <h4 className='text-base font-semibold'>{idea.name}</h4>
