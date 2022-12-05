@@ -22,7 +22,7 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box sx={{ p: 0 }}>
-                    <Typography>{children}</Typography>
+                    <>{children}</>
                 </Box>
             )}
         </div>
@@ -64,7 +64,7 @@ const ContentHome = () => {
 
     return (
         <div>
-            <div className="relative mt-4 px-2 pb-5 border-b border-gray-200 sm:pb-0 xl:px-10">
+            <div className="relative mt-4 px-2 pb-5 border-b border-gray-200 sm:pb-0 xl:px-10 w-full lg:w-2/3">
                 <div className="ml-4 md:flex md:items-center md:justify-between">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">Marketing Models</h3>
                     <div className="mt-3 flex md:mt-0 md:absolute md:top-3 md:right-0">
@@ -79,7 +79,7 @@ const ContentHome = () => {
                 </div>
                 <div className='mt-6'>
                     <Box>
-                        <Box className='justify-center pb-2' sx={{ borderBottom: 0, borderColor: 'divider' }}>
+                        <Box className='justify-center' sx={{ borderBottom: 0, borderColor: 'divider' }}>
                             <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                                 <Tab label="Active Task" {...a11yProps(0)} />
                                 <Tab label="Content" {...a11yProps(1)} />

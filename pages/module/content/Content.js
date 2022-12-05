@@ -1,6 +1,7 @@
 import React from 'react';
 import Router from 'next/router';
 import {Link, Image} from "@nextui-org/react";
+import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 
 
 const Content = ({ content }) => {
@@ -10,7 +11,7 @@ const Content = ({ content }) => {
                 <div className="flex flex-col items-start justify-start">
                     <p
                         onClick={() => Router.push('/create_content')}
-                        className="text-base font-medium text-black cursor-pointer"><span className='text-red-600 font-semibold '>Task | </span> {content.title}</p>
+                        className="text-base font-medium text-black cursor-pointer"><AssignmentOutlinedIcon className='text-gray-500' /> {content.title}</p>
                     <div className=" mt-2 flex-shrink-0 flex">
                         <p>
                            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">@{content.user}</span>
@@ -18,7 +19,7 @@ const Content = ({ content }) => {
                     </div>
                 </div>
                 <div className='flex flex-col ml-1 font-bold items-end justify-between'>
-                <p>Deadline : {content.date}</p>
+                <p><small className='text-gray-500' >deadline</small> {content.date}</p>
                     <span
                         onClick={() => Router.push('/module/create_content/ContentDetails')}
                         className='bg-gray-600 rounded-md text-gray-50 p-1 px-2'>Brief📄</span>
@@ -26,7 +27,7 @@ const Content = ({ content }) => {
             </div>
             <div>
             {content.description?
-                (<p className='bg-gray-200 mt-2 p-2 rounded-lg'>{content.description}</p>)
+                (<p className='bg-gray-100 mt-2 p-2 rounded-md'>{content.description}</p>)
                 :
                 null
             }
