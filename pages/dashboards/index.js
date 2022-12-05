@@ -9,6 +9,8 @@ import Meetings from "./Meetings/Meetings";
 import { useState } from "react";
 import Idea from "./Idea/Idea";
 import TargetAudience from "./TargetAudience/TargetAudience";
+import ModulePreview from "./ModulePreview/ModulePreview";
+
 import EditModal from "./EditModal/EditModal";
 import { get } from "../../config/axiosClient";
 import axiosInstance from "../../src/axiosAPi";
@@ -91,6 +93,12 @@ function DashboardCrypto({ query }) {
             <Points startup={startups} />
           </Grid>
         </Grid>
+      </Container>
+
+      {/* Module Preview */}
+
+<Container maxWidth="lg">
+<ModulePreview/>
       </Container>
 
       {/* Meeting Cards */}
