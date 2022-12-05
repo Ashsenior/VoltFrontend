@@ -190,7 +190,7 @@ function SidebarMenu() {
                                             currentRoute === '/home' ? 'active' : ''
                                         }
                                         disableRipple
-                                        component="a"
+                                        
                                         onClick={closeSidebar}
                                         startIcon={<Home />}
                                     >
@@ -205,7 +205,7 @@ function SidebarMenu() {
                             {/*        currentRoute === '/applications/messenger' ? 'active' : ''*/}
                             {/*      }*/}
                             {/*      disableRipple*/}
-                            {/*      component="a"*/}
+                            {/*      */}
                             {/*      onClick={closeSidebar}*/}
                             {/*      startIcon={<MmsTwoToneIcon />}*/}
                             {/*    >*/}
@@ -233,7 +233,7 @@ function SidebarMenu() {
                                             currentRoute === '/module/strategy' ? 'active' : ''
                                         }
                                         disableRipple
-                                        component="a"
+                                        
                                         onClick={closeSidebar}
                                         startIcon={<PeopleAltIcon sx={{ color: "white" }} />}
                                     >
@@ -248,7 +248,7 @@ function SidebarMenu() {
                                             currentRoute === '/module/research' ? 'active' : ''
                                         }
                                         disableRipple
-                                        component="a"
+                                        
                                         onClick={closeSidebar}
                                         startIcon={<NewspaperIcon sx={{ color: "white" }} />}
                                     >
@@ -263,7 +263,7 @@ function SidebarMenu() {
                                             currentRoute === '/module/marketing' ? 'active' : ''
                                         }
                                         disableRipple
-                                        component="a"
+                                        
                                         onClick={closeSidebar}
                                         startIcon={<WorkspacePremiumIcon sx={{ color: "white" }} />}
                                     >
@@ -291,7 +291,7 @@ function SidebarMenu() {
                                             currentRoute === '/management/profile' ? 'active' : ''
                                         }
                                         disableRipple
-                                        component="a"
+                                        
                                         onClick={closeSidebar}
                                         startIcon={<AccountCircleTwoToneIcon />}
                                     >
@@ -308,7 +308,7 @@ function SidebarMenu() {
                                                 : ''
                                         }
                                         disableRipple
-                                        component="a"
+                                        
                                         onClick={closeSidebar}
                                         startIcon={<DisplaySettingsTwoToneIcon />}
                                     >

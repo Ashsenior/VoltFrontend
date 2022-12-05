@@ -18,20 +18,6 @@ function StrategyModule() {
     var access_token = localStorage.getItem("access_token");
     var refresh_token = localStorage.getItem("refresh_token");
     if (access_token && refresh_token) {
-      setUsername(localStorage.getItem("username"));
-      //getUserData();
-    } else {
-      router.push({
-        pathname: "/",
-        query: { message: "Not authenticated !" },
-      });
-    }
-  }, []);
-
-  useEffect(() => {
-    var access_token = localStorage.getItem("access_token");
-    var refresh_token = localStorage.getItem("refresh_token");
-    if (access_token && refresh_token) {
       console.log("index ", refresh_token);
       getEnrolledStatus();
       console.log(localStorage.getItem("startup_key"));

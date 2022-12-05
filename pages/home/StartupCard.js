@@ -19,7 +19,7 @@ const StartupCard = ({ startup }) => {
         <div className="w-full flex justify-between p-1 items-center  hover:bg-gray-100">
           <div className="flex">
             <img
-              className="w-20 h-20 mx-1 rounded-lg"
+              className="w-10 h-10 mx-1 bg-gray-100 rounded-lg lg:w-20 lg:h-20"
               // src={startup?.details?.logo}
               src="/static/images/overview/tokyo-logo.png"
               alt="img"
@@ -51,9 +51,9 @@ const StartupCard = ({ startup }) => {
             <button
               onClick={() => handleClick(startup)}
               type="button"
-              className="inline-flex items-center px-3 py-1 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="inline-flex items-center px-3 py-1 border font-small border-transparent lg:font-medium rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              Connect
+              Hustle
             </button>
           </div>
         </div>
