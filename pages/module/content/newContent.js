@@ -1,5 +1,5 @@
 import { Box, Container, Grid } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ComplexStatisticsCard from "../../../components/content-module/card";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import SignalCellularAltIcon from "@mui/icons-material/SignalCellularAlt";
@@ -8,6 +8,8 @@ import BuildIcon from "@mui/icons-material/Build";
 import dynamic from "next/dynamic";
 import SidebarLayout from "src/layouts/SidebarLayout";
 import SocialCard from "../../../components/dashboard-components/social-card";
+import ListingTable from "../../../components/content-module/table";
+import axios from "axios";
 const DashBoardCharts = dynamic(
   () => import("../../../components/content-module/dashboard-charts"),
   { ssr: false }
@@ -24,6 +26,67 @@ const EchartsArea = dynamic(
 );
 
 const NewContent = () => {
+  const [users, setUsers] = useState([]);
+  const [tasks, setTasks] = useState([]);
+  const getTableData = () => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((res) => {
+        setUsers(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const getData = () => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((res) => {
+        setTasks(res.data);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getTableData();
+    getData();
+  }, []);
+  console.log(tasks);
+  const headerRows = [
+    {
+      align: "left",
+      name: "Tasks",
+    },
+
+    {
+      align: "left",
+      name: "Date",
+    },
+    {
+      align: "left",
+      name: "Assigned by",
+    },
+    {
+      align: "left",
+      name: "Assigned to",
+    },
+    {
+      align: "left",
+      name: "Deadline",
+    },
+    {
+      align: "left",
+      name: "Status",
+    },
+    {
+      align: "left",
+      name: "Priority",
+    },
+  ];
+
   return (
     <Container sx={{ mt: 10 }}>
       <Grid container spacing={3}>
@@ -122,6 +185,14 @@ const NewContent = () => {
         </Grid>
         <Grid item xs={12} md={4} lg={4}>
           <SocialCard />
+        </Grid>
+        <Grid item xs={12} md={12} lg={12} mb={2}>
+          <ListingTable
+            rows={users}
+            headerRows={headerRows}
+            tableHeading="Users Table"
+            task={tasks}
+          />
         </Grid>
       </Grid>
     </Container>
