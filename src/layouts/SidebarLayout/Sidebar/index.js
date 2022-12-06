@@ -55,7 +55,7 @@ function Sidebar() {
             theme.palette.mode === 'dark' ? theme.sidebar.boxShadow : 'none'
         }}
       >
-        <Scrollbar>
+        <Scrollbar className="bg-white">
           <Box margin={0} >
             <Box
               margin={0}

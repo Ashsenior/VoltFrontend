@@ -69,7 +69,7 @@ const MarketingHome = () => {
             {/* <Container className='w-full'> */}
             {/* MUI tabs */}
 
-            <div className="relative mt-4 pb-5 border-b border-gray-200 sm:pb-0 xl:px-0">
+            <div className="relative mt-4 pb-5 sm:pb-0 xl:px-0">
                 <div className="md:flex md:items-center md:justify-between">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">Marketing Models</h3>
                     <div className="mt-3 flex md:mt-0 md:absolute md:top-3 md:right-0">
@@ -89,50 +89,7 @@ const MarketingHome = () => {
                     </div>
                 </div>
                 <div className='mt-6'>
-                    <Box sx={{ width: '100%' }}>
-                        <Box sx={{ borderBottom: 0, borderColor: 'divider' }}>
-                            <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                                <Tab label="In Progress" {...a11yProps(0)} />
-                                <Tab label="Completed" {...a11yProps(1)} />
-                                <Tab label="Task" {...a11yProps(3)} />
-                                <Tab label="Socials" {...a11yProps(4)} />
-                            </Tabs>
-                        </Box>
-                        <TabPanel value={value} index={0}>
-                            In Progress
-                        </TabPanel>
-                        <TabPanel value={value} index={1}>
-                            Completed
-                        </TabPanel>
-                        <TabPanel value={value} index={2}>
-                            Closed
-                        </TabPanel>
-                        <TabPanel className="m-0" value={value} index={3}>
-                            {/* Strategy Cards */}
-                            {/* Major */}
-                            {/* <Container maxWidth='lg'> */}
-                            <h1 className='text-base my-1 font-semibold ml-1'>Major</h1>
-                            <div xs={12} md={6} lg={6} className='grid grid-cols-1 xl:grid-cols-1'>
-                                <MarketingMajor></MarketingMajor>
-                            </div>
-                            {/* </Container> */}
-                            {/* Minor */}
-                            {/* <Container maxWidth='lg'> */}
-                            <h1 className='text-base my-1 font-semibold mt-6 ml-1'>Minor</h1>
-                            <div className='grid grid-cols-1 xl:grid-cols-1'>
-                                <MarketingMajor></MarketingMajor>
-                            </div>
-                            {/* </Container> */}
-                            {/* Minor */}
-                        </TabPanel>
-                        <TabPanel value={value} index={4}>
-                            <Container maxWidth='lg'>
-                                <div className='grid grid-cols-1 xl:grid-cols-1'>
-                                    <Socials></Socials>
-                                </div>
-                            </Container>
-                        </TabPanel>
-                    </Box>
+                    
                 </div>
             </div>
             {/* </Container> */}

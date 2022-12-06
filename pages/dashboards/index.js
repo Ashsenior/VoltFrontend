@@ -1,6 +1,6 @@
 import Head from "next/head";
 import SidebarLayout from "src/layouts/SidebarLayout";
-import { Container, Grid } from "@mui/material";
+import { div, Grid } from "@mui/material";
 import Footer from "src/components/Footer";
 import Points from "src/content/Dashboards/Crypto/Points";
 import { useContext, useEffect } from "react";
@@ -72,18 +72,15 @@ function DashboardCrypto({ query }) {
     setStartupKey(localStorage.getItem("startup_key"));
   }, []);
   return (
-    <>
+    <div className="p-2">
       <Head>
         <title>Dashboard</title>
       </Head>
       {/* Edit startup modal */}
-
-      <EditModal />
-
       {/* Chart */}
-      <Container maxWidth="lg">
+      <div>
         <Grid
-          container
+          div
           direction="row"
           justifyContent="center"
           alignItems="stretch"
@@ -93,33 +90,33 @@ function DashboardCrypto({ query }) {
             <Points startup={startups} />
           </Grid>
         </Grid>
-      </Container>
+      </div>
 
       {/* Module Preview */}
 
-<Container maxWidth="lg">
-<ModulePreview/>
-      </Container>
+      <div>
+      <ModulePreview/>
+      </div>
 
       {/* Meeting Cards */}
 
-      <Container maxWidth="lg">
+      <div>
         <Meetings />
-      </Container>
+      </div>
 
       {/* Idea and Selling Point card */}
-      <Container maxWidth="lg">
+      <div>
         <Idea startup={startups} />
-      </Container>
+      </div>
       {/* Target Audience */}
 
       {/* Idea and Selling Point card */}
-      <Container maxWidth="lg">
+      <div>
         <TargetAudience startup={startups} />
-      </Container>
+      </div>
 
       <Footer />
-    </>
+    </div>
   );
 }
 

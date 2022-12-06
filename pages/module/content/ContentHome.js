@@ -61,9 +61,74 @@ const ContentHome = () => {
         setValue(newValue);
     }
 
+    const products = [
+        {
+            id: 124,
+            content: 'Some examples of content include blogs, emailers, newsletters, social media posts, case studies, and more.',
+            img: "https://www.ubermetrics-technologies.com/wp-content/uploads/social-CEO-03.png",
+            title: 'Title of the post',
+            date: '12/4/20',
+            link: 'https://bloggingfordevs.com/react-blogs/something.com',
+            reacts: '41'
+        },
+        {
+            id: 124,
+            content: 'Some examples of content include blogs, emailers, newsletters, social media posts, case studies, and more.',
+            img: "https://www.ubermetrics-technologies.com/wp-content/uploads/social-CEO-03.png",
+            title: 'Title of the post',
+            date: '12/4/20',
+            link: 'https://bloggingfordevs.com/react-blogs/something.com',
+            reacts: '41'
+        },
+        {
+            id: 124,
+            content: 'Some examples of content include blogs, emailers, newsletters, social media posts, case studies, and more.',
+            img: "https://www.ubermetrics-technologies.com/wp-content/uploads/social-CEO-03.png",
+            title: 'Title of the post',
+            date: '12/4/20',
+            link: 'https://bloggingfordevs.com/react-blogs/something.com',
+            reacts: '41'
+        },
+        {
+            id: 124,
+            content: 'Some examples of content include blogs, emailers, newsletters, social media posts, case studies, and more.',
+            img: "https://www.ubermetrics-technologies.com/wp-content/uploads/social-CEO-03.png",
+            title: 'Title of the post',
+            date: '12/4/20',
+            link: 'https://bloggingfordevs.com/react-blogs/something.com',
+            reacts: '41'
+        },
+        {
+            id: 124,
+            content: 'Some examples of content include blogs, emailers, newsletters, social media posts, case studies, and more.',
+            img: "https://www.ubermetrics-technologies.com/wp-content/uploads/social-CEO-03.png",
+            title: 'Title of the post',
+            date: '12/4/20',
+            link: 'https://bloggingfordevs.com/react-blogs/something.com',
+            reacts: '41'
+        },
+        {
+            id: 124,
+            content: 'Some examples of content include blogs, emailers, newsletters, social media posts, case studies, and more.',
+            img: "https://www.ubermetrics-technologies.com/wp-content/uploads/social-CEO-03.png",
+            title: 'Title of the post',
+            date: '12/4/20',
+            link: 'https://bloggingfordevs.com/react-blogs/something.com',
+            reacts: '41'
+        },
+        {
+            id: 124,
+            content: 'Some examples of content include blogs, emailers, newsletters, social media posts, case studies, and more.',
+            img: "https://www.ubermetrics-technologies.com/wp-content/uploads/social-CEO-03.png",
+            title: 'Title of the post',
+            date: '12/4/20',
+            link: 'https://bloggingfordevs.com/react-blogs/something.com',
+            reacts: '41'
+        },
+    ]
 
     return (
-        <div>
+        <div className='flex-wrap flex'>
             <div className="relative mt-4 px-2 pb-5 border-b border-gray-200 sm:pb-0 xl:px-10 w-full lg:w-2/3">
                 <div className="ml-4 md:flex md:items-center md:justify-between">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">Marketing Models</h3>
@@ -97,6 +162,32 @@ const ContentHome = () => {
                         </TabPanel>
                     </Box>
                 </div>
+            </div>
+            <div className='lg:w-1/3'>
+                <h4 className='text-base font-semibold my-4 mx-2'>Research Suggestions</h4>
+
+                {
+                    products.slice(0, 4).map(product => <div
+                        key={product.id}
+                        className='bg-white p-2 border-b'
+                    >
+
+                        <div className='flex w-full'>
+                            <img className='w-20 h-20 rounded-lg' src={product.img} alt="" />
+                            <div className='flex justify-between w-full'>
+
+
+                                <a href="#" className='p-2 flex flex-col justify-between'>
+                                    <h4 className='text-lg font-semibold'>{product.title}</h4>
+                                    <span className='text-gray-500 text-md '>{product.content}</span>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>)
+                }
+
             </div>
         </div>
     );

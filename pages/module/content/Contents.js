@@ -35,7 +35,7 @@ const Contents = () => {
 
     return (
         <>
-            <div className='bg-white my-6 rounded-t-2xl'>
+            <div className='bg-white my-6 rounded-lg border'>
                 {
                     contentData.map(content => <Content
                         key={content.id}
