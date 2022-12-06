@@ -34,8 +34,8 @@ const Contents = () => {
 
 
     return (
-        <div>
-            <div className='bg-white my-6 rounded-md border'>
+        <>
+            <div className='bg-white my-6 rounded-lg border'>
                 {
                     contentData.map(content => <Content
                         key={content.id}
@@ -43,7 +43,7 @@ const Contents = () => {
                     ></Content>)
                 }
             </div>
-        </div>
+        </>
     );
 };
 
