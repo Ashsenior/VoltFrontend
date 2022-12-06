@@ -1,15 +1,12 @@
 import { Container } from '@mui/system';
 import React from 'react';
 import Router from 'next/router';
-import MarketingMajor from './MarketingMajor';
-import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
-import Socials from './Socials';
+
 
 import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import MarketingStatus from './MarketingStatus';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -65,10 +62,6 @@ const MarketingHome = () => {
 
     return (
         <div>
-            {/* Link Buttons */}
-            {/* <Container className='w-full'> */}
-            {/* MUI tabs */}
-
             <div className="relative mt-4 pb-5 sm:pb-0 xl:px-0">
                 <div className="md:flex md:items-center md:justify-between">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">Marketing Models</h3>
@@ -89,10 +82,9 @@ const MarketingHome = () => {
                     </div>
                 </div>
                 <div className='mt-6'>
-                    
+                    <MarketingStatus></MarketingStatus>
                 </div>
             </div>
-            {/* </Container> */}
 
         </div>
     );
