@@ -52,19 +52,19 @@ const StrategyStatus = () => {
     const tasks = [
         {
             id: 'dhfsfh102',
-            title: 'Title of the task',
+            title: 'Title strategy',
             head: 'ashsenior',
             link: 'something.com link'
         },
         {
             id: 'dhfsfh102',
-            title: 'Title of the task',
+            title: 'Title strategy',
             head: 'ashsenior',
             link: 'something.com link'
         },
         {
             id: 'dhfsfh102',
-            title: 'Title of the task',
+            title: 'Title strategy',
             head: 'ashsenior',
             link: 'something.com link'
         },
@@ -93,7 +93,7 @@ const StrategyStatus = () => {
                     }
                 </div>
                 <div>
-                    <p className='h-12 text-base font-semibold shadow border-t-2 border-red-400 rounded-md bg-white flex items-center justify-center'>Task</p>
+                    <p className='h-12 text-base font-semibold shadow border-t-2 border-red-400 rounded-md bg-white flex items-center justify-center'>Closed</p>
                     {
                         tasks.map(data => <StrategyTask
                             key={data.id}

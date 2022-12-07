@@ -13,24 +13,19 @@ const StrategyTask = ({ data }) => {
                     @{data?.head}
                 </p>
             </div>
-            <div className='flex gap-1 mt-1'>
-                <h4 className='font-medium'>Assigned</h4>
-                <div className='flex flex-wrap gap-1'>
-                    <p className="px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        @tag1
-                    </p>
-                    <p className="px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        @tag2
-                    </p>
-                    <p className="px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        @tag3
-                    </p>
-                    <p className="px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        @tag4
-                    </p>
-                </div>
+
+            <div className='flex items-center gap-1 mt-1'>
+                <h4 className='font-medium'>Completed on </h4>
+                <p className='text-xs'>11/12/2022</p>
             </div>
-            <a href="">{data?.link}</a>
+            <a className='text-blue-400' href="">{data?.link}</a>
+            <div className='px-2 ml-2'>
+                <ul className='list-disc'>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur.</li>
+                    <li>Lorem ipsum dolor, sit amet consectetur adipisicing</li>
+                </ul>
+            </div>
             <div className='grid grid-cols-3 gap-4 my-2 border-t border-gray-300 pt-1'>
                 <div className='flex items-center text-indigo-500'>
                     <PsychologyIcon />
