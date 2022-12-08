@@ -2,7 +2,9 @@ import React from 'react';
 import CompletedStrategy from './CompletedStrategy';
 import InProgressStrategy from './InProgressStrategy';
 import StrategyTask from './StrategyTask';
-
+import DonutLargeOutlinedIcon from '@mui/icons-material/DonutLargeOutlined';
+import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
+import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
 
 const StrategyStatus = () => {
 
@@ -72,10 +74,13 @@ const StrategyStatus = () => {
 
 
     return (
-        <div>
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mx-4 mt-10'>
-                <div>
-                    <p className='h-12 text-base font-semibold shadow border-t-2 border-indigo-400 rounded-md bg-white flex items-center justify-center'>In Progress</p>
+        <>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-1 xl:mx-4 p-2 mt-7'>
+                <div className='p-1 rounded-lg' >
+                    <p className=' text-base p-4 shadow-md gap-2 bg-indigo-500 rounded-t-xl font-semibold flex items-center text-gray-100'>
+                        <DonutLargeOutlinedIcon />
+                        IN PROGRESS  2
+                    </p>
                     {
                         completed.map(data => <InProgressStrategy
                             key={data.id}
@@ -83,8 +88,10 @@ const StrategyStatus = () => {
                         ></InProgressStrategy>)
                     }
                 </div>
-                <div>
-                    <p className='h-12 text-base font-semibold shadow border-t-2 border-green-500 rounded-md bg-white flex items-center justify-center'>Completed</p>
+                <div className=' p-1 rounded-md'>
+                    <p className=' text-base p-4 shadow-md bg-green-500 gap-2 items-center rounded-t-xl font-semibold flex p-1 text-gray-100'>
+                        <AssignmentTurnedInOutlinedIcon />
+                        COMPLETED  2</p>
                     {
                         inProgress.map(data => <CompletedStrategy
                             key={data.id}
@@ -92,8 +99,10 @@ const StrategyStatus = () => {
                         ></CompletedStrategy>)
                     }
                 </div>
-                <div>
-                    <p className='h-12 text-base font-semibold shadow border-t-2 border-red-400 rounded-md bg-white flex items-center justify-center'>Closed</p>
+                <div className=' p-1 rounded-md'>
+                    <p className=' text-base p-4 items-center gap-2 shadow-md bg-gray-500 rounded-t-xl font-semibold flex p-1 text-gray-100'>
+                        <VerifiedOutlinedIcon />
+                        CLOSED  3</p>
                     {
                         tasks.map(data => <StrategyTask
                             key={data.id}
@@ -102,7 +111,7 @@ const StrategyStatus = () => {
                     }
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
