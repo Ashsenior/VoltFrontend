@@ -5,13 +5,12 @@ import Footer from "src/components/Footer";
 import Points from "src/content/Dashboards/Crypto/Points";
 import { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
-import Meetings from "./Meetings/Meetings";
+import Meetings from "../../components/dashboard-components/Meetings/Meetings";
 import { useState } from "react";
-import Idea from "./Idea/Idea";
-import TargetAudience from "./TargetAudience/TargetAudience";
-import ModulePreview from "./ModulePreview/ModulePreview";
+import Idea from "../../components/dashboard-components/Idea/Idea";
+import TargetAudience from "../../components/dashboard-components/TargetAudience/TargetAudience";
+import ModulePreview from "../../components/dashboard-components/ModulePreview/ModulePreview";
 
-import EditModal from "./EditModal/EditModal";
 import { get } from "../../config/axiosClient";
 import axiosInstance from "../../src/axiosAPi";
 import axios from "axios";
@@ -95,7 +94,7 @@ function DashboardCrypto({ query }) {
       {/* Module Preview */}
 
       <div>
-      <ModulePreview/>
+        <ModulePreview />
       </div>
 
       {/* Meeting Cards */}

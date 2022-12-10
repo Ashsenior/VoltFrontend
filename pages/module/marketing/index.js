@@ -3,10 +3,10 @@ import Head from "next/head";
 import SidebarLayout from "src/layouts/SidebarLayout";
 import { Container } from "@mui/material";
 import Footer from "src/components/Footer";
-import MarketingModuleComponent from "../../components/marketing-module/marketing-module";
-import MarketingHome from "./marketing/MarketingHome";
+import MarketingModuleComponent from "../../../components/marketing-module/marketing-module";
+import MarketingHome from "../../../components/modules/marketing/MarketingHome";
 import { useState, useEffect } from "react";
-import { get } from "../../config/axiosClient";
+import { get } from "../../../config/axiosClient";
 
 function MarketingModule() {
   const [data, setData] = useState([]);
