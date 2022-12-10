@@ -1,7 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { DatePicker } from '@mui/x-date-pickers';
-import { LoadingButton } from '@mui/lab';
+import { DatePicker } from "@mui/x-date-pickers";
+import { LoadingButton } from "@mui/lab";
+import SidebarLayout from "src/layouts/SidebarLayout";
+
 import {
   Checkbox,
   Grid,
@@ -19,11 +21,11 @@ import {
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
-import axiosInstance from "../../../src/axiosAPi";
+import axiosInstance from "../../../../src/axiosAPi";
 import {
   getDateWithDash,
   handleGetFullDateWithoutTime,
-} from "../../../utils/data-modifiers";
+} from "../../../../utils/data-modifiers";
 import moment from "moment";
 import { useRouter } from "next/router";
 
@@ -49,7 +51,7 @@ const SelectCategory = [
   },
 ];
 
-const NewStrategy = () => {
+const NewProduct = () => {
   const [approxStartDate, setApproxStartDate] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const [username, setUsername] = useState("");
@@ -160,7 +162,7 @@ const NewStrategy = () => {
     <div className="mt-4 bg-white shadow rounded-lg p-3 sm: m-5 ">
       <div>
         <h1 className="text-2xl font-semibold text-center mb-10">
-          ⚡New Plan for your Startup ?
+          ⚡New Product for your Startup ?
         </h1>
       </div>
       <Container>
@@ -323,5 +325,6 @@ const NewStrategy = () => {
     </div>
   );
 };
+NewProduct.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
 
-export default NewStrategy;
+export default NewProduct;

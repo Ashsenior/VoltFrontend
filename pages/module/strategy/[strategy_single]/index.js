@@ -12,9 +12,9 @@ import { Box } from "@mui/system";
 import React from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { FeedOutlined, ShoppingCart } from "@mui/icons-material";
-import CreateMeetingModal from "../../dashboards/Meetings/CreateMeetingModal";
+// import CreateMeetingModal from "../../dashboards/Meetings/CreateMeetingModal";
 import { useState } from "react";
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 const applications = [
   {
@@ -53,7 +53,7 @@ const applications = [
   },
 ];
 
-const EditStrategies = ({ strategy }) => {
+const StrategiesSingleView = ({ strategy }) => {
   return (
     <>
       <div className="w-full bg-orange-100">
@@ -183,23 +183,21 @@ const EditStrategies = ({ strategy }) => {
             {/* Accordion for Marketing Sales Researchers */}
 
             <div className="mt-6 text-white">
-              <Accordion
-                className="bg-gray-700 text-white border-b-2 border-gray-500"
-              >
+              <Accordion className="bg-gray-700 text-white border-b-2 border-gray-500">
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon className="text-white" />}
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  <Typography className='flex flex-row gap-10 my-1 '>
-                      <button className='flex items-center justify-end gap-2  hover:text-indigo-300'>
-                          <ShoppingCart />
-                          <p>3 Marketing</p>
-                      </button>
-                      <button className='flex items-center justify-end gap-2  hover:text-green-500'>
-                          <AddCircleOutlineIcon />
-                          <p>Add new</p>
-                      </button>
+                  <Typography className="flex flex-row gap-10 my-1 ">
+                    <button className="flex items-center justify-end gap-2  hover:text-indigo-300">
+                      <ShoppingCart />
+                      <p>3 Marketing</p>
+                    </button>
+                    <button className="flex items-center justify-end gap-2  hover:text-green-500">
+                      <AddCircleOutlineIcon />
+                      <p>Add new</p>
+                    </button>
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails className="bg-gray-600 text-white">
@@ -251,23 +249,21 @@ const EditStrategies = ({ strategy }) => {
                   </div>
                 </AccordionDetails>
               </Accordion>
-              <Accordion
-                className="bg-gray-700 text-white border-b-2 border-gray-500"
-              >
+              <Accordion className="bg-gray-700 text-white border-b-2 border-gray-500">
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon className="text-white" />}
                   aria-controls="panel2a-content"
                   id="panel2a-header"
                 >
-                  <Typography className='flex flex-row gap-10 my-1 '>
-                      <button className='flex items-center justify-end gap-2  hover:text-indigo-300'>
-                          <FeedOutlined />
-                          <p>2 Research</p>
-                      </button>
-                      <button className='flex items-center justify-end gap-2  hover:text-green-500'>
-                          <AddCircleOutlineIcon />
-                          <p>Add new</p>
-                      </button>
+                  <Typography className="flex flex-row gap-10 my-1 ">
+                    <button className="flex items-center justify-end gap-2  hover:text-indigo-300">
+                      <FeedOutlined />
+                      <p>2 Research</p>
+                    </button>
+                    <button className="flex items-center justify-end gap-2  hover:text-green-500">
+                      <AddCircleOutlineIcon />
+                      <p>Add new</p>
+                    </button>
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails className="bg-white text-base">
@@ -327,4 +323,4 @@ const EditStrategies = ({ strategy }) => {
   );
 };
 
-export default EditStrategies;
+export default StrategiesSingleView;

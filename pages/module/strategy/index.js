@@ -3,10 +3,10 @@ import Head from "next/head";
 import SidebarLayout from "src/layouts/SidebarLayout";
 import { Container } from "@mui/material";
 import Footer from "src/components/Footer";
-import StrategyHome from "./strategy/StrategyHome";
+import StrategyHome from "../../../components/modules/strategy/StrategyHome";
 import { useEffect, useState } from "react";
-import { getStartups } from "../../config/commonApi";
-import axiosInstance from "../../src/axiosAPi";
+import { getStartups } from "../../../config/commonApi";
+import axiosInstance from "../../../src/axiosAPi";
 import { useRouter } from "next/router";
 
 function StrategyModule() {

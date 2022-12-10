@@ -1,4 +1,3 @@
-import { Container } from "@mui/system";
 import React from "react";
 import Router from "next/router";
 
@@ -6,6 +5,8 @@ import PropTypes from "prop-types";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import MarketingStatus from "./MarketingStatus";
+import { useState } from "react";
+import MarketingDrawer from "./MarketingDrawer";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -54,9 +55,16 @@ const MarketingHome = () => {
   ];
 
   const [value, setValue] = React.useState(0);
+  const [open, setOpen] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -80,10 +88,18 @@ const MarketingHome = () => {
             >
               Create new Marketing
             </button>
+            <button
+              onClick={handleOpen}
+              type="button"
+              className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-yellow-400 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Idea
+            </button>
+            <MarketingDrawer handleClose={handleClose} open={open} />
           </div>
         </div>
         <div className="mt-6">
-          <MarketingStatus></MarketingStatus>
+          <MarketingStatus />
         </div>
       </div>
     </div>
