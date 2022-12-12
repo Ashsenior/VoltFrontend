@@ -3,13 +3,15 @@ import LeaderboardTabs from "../../components/leaderboards/tabs";
 import SidebarLayout from "src/layouts/SidebarLayout";
 import LeaderboardFilter from "../../components/leaderboards/filter";
 import LeaderBoardTable from "../../components/leaderboards/table";
+import LeaderboardsHome from "../../components/leaderboards/leaderboards-home";
 
 const Leaderboards = () => {
   return (
     <div>
-      <LeaderboardTabs />
+      {/* <LeaderboardTabs />
       <LeaderboardFilter />
-      <LeaderBoardTable />
+      <LeaderBoardTable /> */}
+      <LeaderboardsHome />
     </div>
   );
 };
