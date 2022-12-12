@@ -6,7 +6,7 @@ import { ShoppingCart } from '@mui/icons-material';
 
 const CompletedStrategy = ({ data }) => {
     return (
-        <div className='bg-white border-green-200 border mt-4 rounded-md shadow-md p-3'>
+        <div className='bg-white border mt-4 rounded-md p-3'>
             <h4 className='text-lg font-semibold text-gray-600 pb-1'>{data?.title}</h4>
             <div className='flex items-center gap-2 mt-1'>
                 <p className='font-medium'>60%</p>
@@ -22,7 +22,7 @@ const CompletedStrategy = ({ data }) => {
                 <h4 className='font-medium text-gray-400'>DEADLINE </h4>
                 <p className='text-md font-semibold text-black'>{data?.deadline}</p>
             </div>
-            <p className='p-1 my-1 rounded-md text-gray-700 border bg-gray-50'>{data?.content.slice(0, 100)}...</p>
+            <p className=' my-1 rounded-md text-gray-700 '>{data?.content.slice(0, 100)}...</p>
             <div className='flex items-center text-gray-500 gap-6 my-2 border-green-300 pt-1'>
                 <button className='flex gap-1 items-center hover:text-green-500'>
                     <ShoppingCart />

@@ -21,9 +21,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 0 }}>
           <>{children}</>
-        </Box>
       )}
     </div>
   );
@@ -53,9 +51,9 @@ const LeaderboardsHome = () => {
   };
 
   return (
-    <Container>
+    <>
       <Box
-        className="justify-center"
+        className="justify-center px-4 "
         sx={{ borderBottom: 0, borderColor: "divider", mt: 2, mb: 3 }}
       >
         <Tabs
@@ -63,7 +61,7 @@ const LeaderboardsHome = () => {
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label="User" {...a11yProps(0)} />
+          <Tab label="Users" {...a11yProps(0)} />
           <Tab label="Startups" {...a11yProps(1)} />
           <Tab label="Corporate" {...a11yProps(2)} />
         </Tabs>
@@ -77,7 +75,7 @@ const LeaderboardsHome = () => {
       <TabPanel value={value} index={2}>
         <Corporates />
       </TabPanel>
-    </Container>
+    </>
   );
 };
 

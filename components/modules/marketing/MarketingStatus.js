@@ -3,6 +3,10 @@ import Completed from './Completed';
 import InProgress from './InProgress';
 import Task from './Task';
 
+import DonutLargeOutlinedIcon from '@mui/icons-material/DonutLargeOutlined';
+import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
+import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
+
 const MarketingStatus = () => {
 
     const inProgress = [
@@ -78,7 +82,10 @@ const MarketingStatus = () => {
         <div>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mx-4 mt-10'>
                 <div>
-                    <p className='h-12 text-base font-semibold shadow border-t-2 border-indigo-400 rounded-md bg-white flex items-center justify-center'>In Progress</p>
+                <p className=' text-base p-4 border border-blue-500 gap-2 bg-blue-50 rounded-t-xl font-semibold flex items-center text-blue-500'>
+                        <DonutLargeOutlinedIcon />
+                        IN PROGRESS  2
+                    </p>
                     {
                         completed.map(data => <InProgress
                             key={data.id}
@@ -87,7 +94,9 @@ const MarketingStatus = () => {
                     }
                 </div>
                 <div>
-                    <p className='h-12 text-base font-semibold shadow border-t-2 border-green-500 rounded-md bg-white flex items-center justify-center'>Completed</p>
+                <p className=' text-base p-4 border border-green-500 bg-green-50 gap-2 items-center rounded-t-xl font-semibold flex p-1 text-green-500'>
+                        <AssignmentTurnedInOutlinedIcon />
+                        COMPLETED  2</p>
                     {
                         inProgress.map(data => <Completed
                             key={data.id}
@@ -96,7 +105,9 @@ const MarketingStatus = () => {
                     }
                 </div>
                 <div>
-                    <p className='h-12 text-base font-semibold shadow border-t-2 border-red-400 rounded-md bg-white flex items-center justify-center'>Task</p>
+                <p className=' text-base p-4 border border-indigo-500 items-center gap-2 bg-indigo-50 rounded-t-xl font-semibold flex p-1 text-indigo-500'>
+                        <VerifiedOutlinedIcon />
+                        TASK  3</p>
                     {
                         tasks.map(data => <Task
                             key={data.id}

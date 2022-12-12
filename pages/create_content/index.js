@@ -2,7 +2,7 @@ import Head from "next/head";
 import SidebarLayout from "src/layouts/SidebarLayout";
 import { Container } from "@mui/material";
 import Footer from "src/components/Footer";
-// import NewContent from '../module/create_content/NewContent';
+import NewContent from "../module/content/create_content/NewContent.js";
 
 function CreateContent() {
   return (
@@ -11,7 +11,7 @@ function CreateContent() {
         <title>Create Content</title>
       </Head>
 
-      <Container maxWidth="lg">{/* <NewContent></NewContent> */}</Container>
+      <Container maxWidth="lg"><NewContent></NewContent></Container>
       <Footer />
     </>
   );
