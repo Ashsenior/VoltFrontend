@@ -140,7 +140,12 @@ const Previews = ({ preview }) => {
                 }
             </div>
             <div className='w-full xl:w-1/2 '>
-                <ReactApexChart options={barChart.options} color={"green"} series={barChart.series} type="line" height={280} />
+                {
+                    typeof window !== 'undefined'?
+                        <ReactApexChart options={barChart.options} color={"green"} series={barChart.series} type="line" height={280} />
+                    :
+                    console.log('You are on the server,Cannot execute')
+                }
             </div>
             </div>
         </div>

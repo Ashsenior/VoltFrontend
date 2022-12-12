@@ -7,7 +7,7 @@ import OfflineBoltOutlinedIcon from '@mui/icons-material/OfflineBoltOutlined';
 const InProgressStrategy = ({ data }) => {
     console.log(data)
     return (
-        <div className='bg-white border-indigo-200 border mt-4 rounded-md shadow-md p-3'>
+        <div className='bg-white border mt-4 rounded-md p-3'>
             <h4 className='text-lg flex font-semibold text-gray-600 pb-1'>
                 {data?.title}
                 <small className='flex ml-2 items-center text-indigo-500'>
@@ -29,7 +29,7 @@ const InProgressStrategy = ({ data }) => {
                 <h4 className='font-medium text-gray-400'>DEADLINE </h4>
                 <p className='text-md font-semibold text-black'>{data?.deadline}</p>
             </div>
-            <p className='p-1 my-1 rounded-md text-gray-700 border bg-gray-50'>{data?.content.slice(0, 100)}...</p>
+            <p className=' my-1 rounded-md text-gray-700 '>{data?.content.slice(0, 100)}...</p>
             <div className='flex items-center gap-6 my-2 border-indigo-300 pt-1'>
                 <button className='flex gap-1 text-gray-500 items-center hover:text-indigo-500'>
                     <ShoppingCart />

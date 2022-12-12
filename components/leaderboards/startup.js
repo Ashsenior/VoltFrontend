@@ -28,14 +28,15 @@ const Startups = () => {
     setValue(event.target.value);
   };
   return (
-    <Container>
+    <>
+      <div className="px-4">
       <TextField
         select
-        label="Select startup?"
+        label="Select category?"
         name="users"
         value={value}
         onChange={(event) => handleChange(event)}
-        sx={{ width: "20%" }}
+        className="w-full md:w-1/2 lg:w-1/3 xl:w-1/3"
       >
         {startups?.map((option) => (
           <MenuItem key={option.label} value={option.value}>
@@ -43,8 +44,9 @@ const Startups = () => {
           </MenuItem>
         ))}
       </TextField>
+      </div>
       <LeaderBoardTable />
-    </Container>
+    </>
   );
 };
 
