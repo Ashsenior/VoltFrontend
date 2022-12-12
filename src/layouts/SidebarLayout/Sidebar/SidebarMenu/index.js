@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { useRouter } from 'next/router';
+import { useContext } from "react";
+import { useRouter } from "next/router";
 
 import {
   ListSubheader,
@@ -8,19 +8,19 @@ import {
   List,
   styled,
   Button,
-  ListItem
-} from '@mui/material';
-import NextLink from 'next/link';
-import { SidebarContext } from 'src/contexts/SidebarContext';
-import MmsTwoToneIcon from '@mui/icons-material/MmsTwoTone';
-import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
-import DisplaySettingsTwoToneIcon from '@mui/icons-material/DisplaySettingsTwoTone';
+  ListItem,
+} from "@mui/material";
+import NextLink from "next/link";
+import { SidebarContext } from "src/contexts/SidebarContext";
+import MmsTwoToneIcon from "@mui/icons-material/MmsTwoTone";
+import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
+import DisplaySettingsTwoToneIcon from "@mui/icons-material/DisplaySettingsTwoTone";
 import { Biotech, Home } from "@mui/icons-material";
-import PsychologyIcon from '@mui/icons-material/Psychology';
-import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import PostAddIcon from '@mui/icons-material/PostAdd';
-import WysiwygIcon from '@mui/icons-material/Wysiwyg';
+import PsychologyIcon from "@mui/icons-material/Psychology";
+import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import PostAddIcon from "@mui/icons-material/PostAdd";
+import WysiwygIcon from "@mui/icons-material/Wysiwyg";
 
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
@@ -74,7 +74,7 @@ const SubMenuWrapper = styled(Box)(
 
           .MuiButton-startIcon,
           .MuiButton-endIcon {
-            transition: ${theme.transitions.create(['color'])};
+            transition: ${theme.transitions.create(["color"])};
 
             .MuiSvgIcon-root {
               font-size: inherit;
@@ -138,9 +138,9 @@ const SubMenuWrapper = styled(Box)(
                 background: ${theme.colors.alpha.trueWhite[100]};
                 opacity: 0;
                 transition: ${theme.transitions.create([
-    'transform',
-    'opacity'
-  ])};
+                  "transform",
+                  "opacity",
+                ])};
                 width: 6px;
                 height: 6px;
                 transform: scale(0);
@@ -186,9 +186,7 @@ function SidebarMenu() {
               <ListItem component="div">
                 <NextLink href="/dashboards" passHref>
                   <Button
-                    className={
-                      currentRoute === '/dashboards' ? 'active' : ''
-                    }
+                    className={currentRoute === "/dashboards" ? "active" : ""}
                     disableRipple
                     onClick={closeSidebar}
                     startIcon={<Home />}
@@ -214,7 +212,7 @@ function SidebarMenu() {
                 <NextLink href="/module/product" passHref>
                   <Button
                     className={
-                      currentRoute === '/module/product' ? 'active' : ''
+                      currentRoute === "/module/product" ? "active" : ""
                     }
                     disableRipple
                     onClick={closeSidebar}
@@ -228,7 +226,7 @@ function SidebarMenu() {
                 <NextLink href="/module/strategy" passHref>
                   <Button
                     className={
-                      currentRoute === '/module/strategy' ? 'active' : ''
+                      currentRoute === "/module/strategy" ? "active" : ""
                     }
                     disableRipple
                     onClick={closeSidebar}
@@ -242,7 +240,7 @@ function SidebarMenu() {
                 <NextLink href="/module/content" passHref>
                   <Button
                     className={
-                      currentRoute === '/module/content' ? 'active' : ''
+                      currentRoute === "/module/content" ? "active" : ""
                     }
                     disableRipple
                     onClick={closeSidebar}
@@ -256,7 +254,7 @@ function SidebarMenu() {
                 <NextLink href="/module/marketing" passHref>
                   <Button
                     className={
-                      currentRoute === '/module/marketing' ? 'active' : ''
+                      currentRoute === "/module/marketing" ? "active" : ""
                     }
                     disableRipple
                     onClick={closeSidebar}
@@ -283,13 +281,25 @@ function SidebarMenu() {
                 <NextLink href="/management/profile" passHref>
                   <Button
                     className={
-                      currentRoute === '/management/profile' ? 'active' : ''
+                      currentRoute === "/management/profile" ? "active" : ""
                     }
                     disableRipple
                     onClick={closeSidebar}
                     startIcon={<AccountCircleTwoToneIcon />}
                   >
-                    User Profile
+                    Profile
+                  </Button>
+                </NextLink>
+              </ListItem>
+              <ListItem component="div">
+                <NextLink href="/leaderboards" passHref>
+                  <Button
+                    className={currentRoute === "/leaderboards" ? "active" : ""}
+                    disableRipple
+                    onClick={closeSidebar}
+                    startIcon={<AccountCircleTwoToneIcon />}
+                  >
+                    LeaderBoards
                   </Button>
                 </NextLink>
               </ListItem>
@@ -297,9 +307,9 @@ function SidebarMenu() {
                 <NextLink href="/management/profile/settings" passHref>
                   <Button
                     className={
-                      currentRoute === '/management/profile/settings'
-                        ? 'active'
-                        : ''
+                      currentRoute === "/management/profile/settings"
+                        ? "active"
+                        : ""
                     }
                     disableRipple
                     onClick={closeSidebar}
