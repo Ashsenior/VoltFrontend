@@ -61,7 +61,7 @@ const ProductIssues = () => {
 
 
     return (
-        <div>
+        <div className='bg-white rounded-lg shadow p-2 mt-2'>
             <div className='flex items-center justify-around gap-2 my-6'>
                 <div className='flex flex-col justify-center items-center gap-2 bg-gray-50 rounded-md p-2 w-52'>
                     <h1 className='text-base font-bold text-gray-600'>Total Issue Solved</h1>

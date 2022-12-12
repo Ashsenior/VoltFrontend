@@ -21,6 +21,7 @@ import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import WysiwygIcon from '@mui/icons-material/Wysiwyg';
+import Diversity2TwoToneIcon from '@mui/icons-material/Diversity2TwoTone';
 
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
@@ -248,7 +249,7 @@ function SidebarMenu() {
                     onClick={closeSidebar}
                     startIcon={<PostAddIcon />}
                   >
-                    Reasearch Module
+                    Research Module
                   </Button>
                 </NextLink>
               </ListItem>
@@ -263,6 +264,20 @@ function SidebarMenu() {
                     startIcon={<LocalGroceryStoreIcon />}
                   >
                     Marketing Module
+                  </Button>
+                </NextLink>
+              </ListItem>
+              <ListItem component="div">
+                <NextLink href="/module/team" passHref>
+                  <Button
+                    className={
+                      currentRoute === '/module/team' ? 'active' : ''
+                    }
+                    disableRipple
+                    onClick={closeSidebar}
+                    startIcon={<Diversity2TwoToneIcon />}
+                  >
+                    Team Module
                   </Button>
                 </NextLink>
               </ListItem>
