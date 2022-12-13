@@ -16,17 +16,17 @@ const TeamCard = ({ member }) => {
                         </p>
                     </div>
 
-                    <div className='flex justify-center'>
+                    <div className='flex justify-between mx-1'>
                         <div className="tooltip tooltip-info" data-tip="Tasks">
                             <button
                                 // onClick={() => Router.push('/module/product/ProductDetails')}
-                                className="btn btn-ghost hover:bg-white"><MdTask className='text-xl text-blue-500'></MdTask>10</button>
+                                className="hover:bg-white"><MdTask className='text-xl text-blue-500'></MdTask>10</button>
                         </div>
                         <div className="tooltip tooltip-success" data-tip="Jobs">
-                            <button className="btn btn-ghost hover:bg-white"><MdOutlineWorkOutline className='text-xl text-green-400'></MdOutlineWorkOutline>3</button>
+                            <button className="hover:bg-white"><MdOutlineWorkOutline className='text-xl text-green-400'></MdOutlineWorkOutline>3</button>
                         </div>
                         <div className="tooltip tooltip-error" data-tip="Rating">
-                            <button className="btn btn-ghost hover:bg-white"><BiStar className='text-xl text-orange-500'></BiStar>4.5</button>
+                            <button className="hover:bg-white"><BiStar className='text-xl text-orange-500'></BiStar>4.5</button>
                         </div>
                     </div>
                 </div>

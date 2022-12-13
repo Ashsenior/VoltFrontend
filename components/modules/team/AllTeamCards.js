@@ -1,5 +1,6 @@
 import React from 'react';
 import TeamCard from './TeamCard';
+import ConnectionRequest from './ConnectionRequest'
 
 const AllTeamCards = () => {
     const teamData = [
@@ -160,6 +161,13 @@ const AllTeamCards = () => {
                         ></TeamCard>
                     )
                 }
+            </div>
+            <div>
+                <h1 className='text-xl font-semibold m-2'>Request sent</h1>
+                <div className='m-2'>
+                    <ConnectionRequest />
+                </div>
+
             </div>
         </div>
     );
