@@ -12,10 +12,13 @@ import ComplexStatisticsCard from "../../components/content-module/card";
 import PublicStartupCard from "../../components/home-components/PublicStartupCard";
 import GradeIcon from "@mui/icons-material/Grade";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import CastConnectedIcon from '@mui/icons-material/CastConnected';
 import Ideas from "../../components/home-components/Ideas";
 import TagIcon from "@mui/icons-material/Tag";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
+import Connections from "../../components/home-components/Connections";
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications';
 
 const Home = () => {
   const [your_startups, setYourStartups] = useState([]);
@@ -93,6 +96,23 @@ const Home = () => {
                   <TagIcon className="text-md" /> Feed
                 </a>
               </li>
+              <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                <a
+                  className={
+                    "relative text-lg font-bold px-5 py-2 block leading-normal  " +
+                    (openTab === 3 ? "text-indigo-300 " : "text-gray-300")
+                  }
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setOpenTab(3);
+                  }}
+                  data-toggle="tab"
+                  href="#link3"
+                  role="tablist"
+                >
+                  <CastConnectedIcon className="text-md" /> Connections <CircleNotificationsIcon className="absolute text-orange-500 top-0" />
+                </a>
+              </li>
             </ul>
             <div className="relative flex flex-col break-words rounded-t-2xl bg-white w-full">
               <div className="px-2 py-5 flex-auto">
@@ -132,6 +152,12 @@ const Home = () => {
                     id="link2"
                   >
                     <Ideas></Ideas>
+                  </div>
+                  <div
+                    className={openTab === 3 ? "block" : "hidden"}
+                    id="link3"
+                  >
+                    <Connections></Connections>
                   </div>
                 </div>
               </div>

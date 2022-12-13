@@ -1,5 +1,5 @@
 import React from 'react';
-import { RiTeamFill } from 'react-icons/ri';
+import Router from 'next/router';
 import { GoIssueClosed } from 'react-icons/go';
 import { MdFeaturedVideo } from 'react-icons/md';
 import { BsFillArrowRightSquareFill, BsBarChartFill, BsQuestionDiamond } from 'react-icons/bs';
@@ -42,7 +42,9 @@ const ProductIntro = () => {
                 <div className='bg-white rounded-md p-4 flex items-center justify-between shadow'>
                     <GoIssueClosed className='text-4xl bg-indigo-400 rounded-full text-white p-2'></GoIssueClosed>
                     <p className='text-xl'><span>8</span> Member Working</p>
-                    <BsFillArrowRightSquareFill className='text-2xl text-indigo-500'></BsFillArrowRightSquareFill>
+                    <BsFillArrowRightSquareFill
+                        onClick={() => Router.push('/module/product/product_team')}
+                        className='text-2xl text-indigo-500 cursor-pointer'></BsFillArrowRightSquareFill>
                 </div>
                 <div className='bg-white rounded-md p-4 flex items-center justify-between shadow'>
                     <MdFeaturedVideo className='text-4xl bg-indigo-400 rounded-full text-white p-2'></MdFeaturedVideo>

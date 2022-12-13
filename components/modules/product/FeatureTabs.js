@@ -124,11 +124,11 @@ const FeatureTabs = () => {
                                     <Screenshots />
                                 </div>
                                 <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                                    <AllTeamMember></AllTeamMember>
+                                    {/* <AllTeamMember></AllTeamMember> */}
                                 </div>
                                 <div className={openTab === 4 ? "block" : "hidden"} id="link4">
 
-                                    <ProductIssues />
+                                    {/* <ProductIssues /> */}
                                 </div>
                                 <div className={openTab === 5 ? "block" : "hidden"} id="link5">
                                     <ProductSuggestions></ProductSuggestions>
