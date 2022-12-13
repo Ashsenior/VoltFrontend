@@ -1,16 +1,19 @@
 import React from "react";
-import CompletedStrategy from "./CompletedStrategy";
-import InProgressStrategy from "./InProgressStrategy";
-import StrategyTask from "./StrategyTask";
+import CompletedContent from "./CompletedContent";
+import InProgressContent from "./InProgressContent";
+import ContentTask from "./ContentTask";
 import DonutLargeOutlinedIcon from "@mui/icons-material/DonutLargeOutlined";
 import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurnedInOutlined";
 import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
+import TaskIcon from '@mui/icons-material/Task';
+import AssignmentOutlinedIcon from "@mui/icons-material/AssignmentOutlined";
+import SaveAsOutlinedIcon from '@mui/icons-material/SaveAsOutlined';
 
-const StrategyStatus = () => {
+const ContentStatus = () => {
   const inProgress = [
     {
       id: "dhfsfh102",
-      title: "Campaign Title Something",
+      title: "Find 10 best CTO's and write content on it.",
       head: "ashsenior",
       deadline: "12/10/2022",
       content:
@@ -56,21 +59,13 @@ const StrategyStatus = () => {
   const tasks = [
     {
       id: "dhfsfh102",
-      title: "Title strategy",
+      title: "5 Best actractive news headlines.",
       head: "ashsenior",
-      link: "something.com link",
-    },
-    {
-      id: "dhfsfh102",
-      title: "Title strategy",
-      head: "ashsenior",
-      link: "something.com link",
-    },
-    {
-      id: "dhfsfh102",
-      title: "Title strategy",
-      head: "ashsenior",
-      link: "something.com link",
+      deadline: "22/12/2022",
+      content:
+        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, aliquam eligendi, corrupti ducimus asperiores beatae tempora nihil earum sequi repellendus, odit recusandae aut amet rerum?",
+      marketing: "8",
+      research: "11",
     },
   ];
 
@@ -78,30 +73,30 @@ const StrategyStatus = () => {
     <>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-1 xl:mx-4 p-2 mt-7">
         <div className="p-1 rounded-lg">
-          <p className=" text-base p-4 border border-indigo-500 gap-2 bg-indigo-50 rounded-t-xl font-semibold flex items-center text-indigo-500">
-            <DonutLargeOutlinedIcon />
-            IN PROGRESS 2
-          </p>
-          {completed.map((data) => (
-            <InProgressStrategy key={data.id} data={data}></InProgressStrategy>
-          ))}
-        </div>
-        <div className=" p-1 rounded-md">
-          <p className=" text-base p-4 border border-green-500 bg-green-50 gap-2 items-center rounded-t-xl font-semibold flex p-1 text-green-500">
-            <AssignmentTurnedInOutlinedIcon />
-            COMPLETED 2
+          <p className=" text-base p-4 gap-2 bg-indigo-500 shadow-md rounded-t-xl font-semibold flex items-center text-white">
+            <AssignmentOutlinedIcon />
+            ACTIVE TASKS
           </p>
           {inProgress.map((data) => (
-            <CompletedStrategy key={data.id} data={data}></CompletedStrategy>
+            <InProgressContent key={data.id} data={data}></InProgressContent>
           ))}
         </div>
         <div className=" p-1 rounded-md">
-          <p className=" text-base p-4 border-gray-500 items-center gap-2 border bg-gray-50 rounded-t-xl font-semibold flex p-1 text-gray-500">
+          <p className=" text-base p-4 bg-green-500 gap-2 shadow-md items-center rounded-t-xl font-semibold flex text-white">
             <VerifiedOutlinedIcon />
-            CLOSED 3
+            CONTENT 2
+          </p>
+          {completed.map((data) => (
+            <CompletedContent key={data.id} data={data}></CompletedContent>
+          ))}
+        </div>
+        <div className=" p-1 rounded-md">
+          <p className=" text-base p-4 items-center gap-2 shadow-md bg-gray-600 rounded-t-xl font-semibold flex text-white">
+            <SaveAsOutlinedIcon />
+            DRAFT 3
           </p>
           {tasks.map((data) => (
-            <StrategyTask key={data.id} data={data}></StrategyTask>
+            <ContentTask key={data.id} data={data}></ContentTask>
           ))}
         </div>
       </div>
@@ -109,4 +104,4 @@ const StrategyStatus = () => {
   );
 };
 
-export default StrategyStatus;
+export default ContentStatus;

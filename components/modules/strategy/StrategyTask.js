@@ -8,7 +8,7 @@ import OfflineBoltOutlinedIcon from '@mui/icons-material/OfflineBoltOutlined';
 
 const StrategyTask = ({ data }) => {
     return (
-        <div className='bg-white mt-4 rounded-md shadow-md p-3'>
+        <div className='bg-white mt-4 rounded-md border p-3'>
             <h4 className='text-lg font-semibold text-gray-600 pb-1'>{data?.title} <VerifiedOutlinedIcon className='text-green-400' /></h4>
             <div className='flex item-center gap-1 mt-1'>
                 <h4 className='font-medium text-gray-400'>LEAD </h4>

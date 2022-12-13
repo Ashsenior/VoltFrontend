@@ -11,7 +11,7 @@ const FeatureTabs = () => {
     const [openTab, setOpenTab] = React.useState(1);
 
     return (
-        <div className=''>
+        <>
             <div className="flex flex-wrap">
                 <div className="w-full">
                     <ul
@@ -138,7 +138,7 @@ const FeatureTabs = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
