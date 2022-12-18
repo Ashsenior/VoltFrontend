@@ -45,8 +45,9 @@ const ThreeItemsCols = () => {
                                     <img className='rounded-xl shadow-xl m-2' src={item.image} alt="" />
                                     <div className='flex flex-col items-start ml-2'>
                                         <h1 className='text-base font-medium text-gray-800'>{item.name}</h1>
-                                        <p>{item.type}</p>
+
                                         <p className='flex items-center'>{item.rating} <StarIcon className='text-sm' /></p>
+                                        <p>Price: <span className='bg-indigo-50 p-1 py-0.5 rounded-full text-indigo-600'>12 Volt</span></p>
                                     </div>
                                 </div>
                             </label>

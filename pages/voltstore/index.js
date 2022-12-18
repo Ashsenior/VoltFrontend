@@ -1,14 +1,14 @@
 import React from "react";
 import SidebarLayout from "src/layouts/SidebarLayout";
-import StoreMainTabs from "../../components/voltstore/StoreMainTabs";
-import WelcomeHeader from "../../components/voltstore/WelcomeHeader";
+import StoreMain from "../../components/voltstore/StoreMain";
+import Footer from "src/components/Footer";
 
 
 const VoltStore = () => {
     return (
-        <div>
-            <WelcomeHeader />
-            <StoreMainTabs />
+        <div className="m-2">
+            <StoreMain />
+            <Footer />
         </div>
     );
 };

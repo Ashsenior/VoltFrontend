@@ -66,7 +66,7 @@ const Meetings = () => {
                 <h4 className='text-xl font-semibold text-gray-700 text-left mb-2'>Join Meetups</h4>
                 <button className='btn btn-outline btn-sm rounded-md'>All Meetups</button>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-4 gap-2'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2'>
                 {
                     items.map(item =>
                         <div className='hover:bg-gray-100 rounded-lg p-2 mx-auto' key={item.name}>

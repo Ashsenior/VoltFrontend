@@ -76,7 +76,7 @@ const MultiRowItems = () => {
                 <button className='btn btn-outline btn-sm rounded-md'>All Items</button>
             </div>
 
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-2'>
+            <div className='grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2'>
                 {
                     items.map((item, index) =>
                         <div

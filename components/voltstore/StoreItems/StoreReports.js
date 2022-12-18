@@ -83,9 +83,10 @@ const StoreReports = () => {
                                     <div className='flex flex-col items-start ml-2'>
                                         <h1 className='text-base font-medium text-gray-800'>{item.name}</h1>
                                         <p>Downloads: {item.downloads}</p>
+                                        <p>Price: <span className='bg-indigo-50 p-1 py-0.5 rounded-full text-indigo-600'>12 Volt</span></p>
                                     </div>
                                 </div>
-                                <label htmlFor="purchaseModal" className='btn btn-sm btn-ghost rounded-sm capitalize'><ShoppingBasketIcon /></label>
+                                <label htmlFor="purchaseModal" className='btn btn-sm btn-ghost rounded-full capitalize'><ShoppingBasketIcon /></label>
                             </div>
                         </div>
                     )
