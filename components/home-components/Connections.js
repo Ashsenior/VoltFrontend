@@ -64,27 +64,23 @@ const Connections = () => {
                 {
                     connectionsData.map(connection =>
                         <div
-                            className='flex justify-between w-full bg-gray-700 text-gray-50 p-2 rounded-lg hover:ring-2 ring-gray-400'
+                            className='flex justify-between w-full bg-white text-gray-500 p-2 rounded-lg hover:bg-gray-100'
                             key={connection.id}>
                             <div className='flex'>
-                                <div className='flex items-center justify-center'>
-                                    <img className='w-14 rounded-full' src={connection?.startup_image} alt="" />
-                                </div>
-                                <div className='flex flex-col items-start gap-1 ml-2'>
+                                <img className='w-14 h-14 rounded-full' src={connection?.startup_image} alt="" />
+                                <div className='flex flex-wrap items-start gap-1 mx-2'>
                                     <h4 className='text-base font-medium'>{connection?.name}</h4>
-                                    <h4 className='flex items-center'>{connection?.role}</h4>
-                                    <h4 className='w-fit text-sm bg-gray-500 px-2 rounded-full'>Points{connection?.points}</h4>
-                                </div>
-                                <div className='flex flex-col items-start justify-between ml-4'>
-                                    <h4>Status: Open to work</h4>
-                                </div>
-                            </div>
+                                    <h4 className='flex text-sm text-gray-500 '>you can add them to your existing app without prompting users to upgrade.</h4>
 
-                            <div className='flex flex-col justify-between items-center gap-1'>
-                                <button className='px-2 bg-gray-400 rounded-full capitalize ring-1 ring-red-400 border-0'>Pending</button>
-                                <button className='px-2 bg-orange-400 rounded-full capitalize ring-1 ring-red-400 border-0'>Cancel</button>
+                                    <button className='px-2 py-1 bg-blue-500 text-white font-semibold rounded-lg uppercase button mt-2'>Accept</button>
+                                    <button className='px-2 py-1 bg-white text-gray-500 font-semibold rounded-lg uppercase button mt-2'>iGNORE</button>
+                                </div>
+                                <div className='bg-gray-100 rounded-lg flex flex-col items-start p-2'>
+                                    <h4><span className='text-indigo-600 font-semibold' >Message </span>Because user-level permissions are granted on an individual user basis, you can add them to your existing app without prompting users to upgrade.</h4>
+                                </div>
                             </div>
-                        </div>)
+                        </div>
+                        )
                 }
             </div>
 

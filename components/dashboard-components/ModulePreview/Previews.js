@@ -108,7 +108,7 @@ const Previews = ({ preview }) => {
                 {
                     preview.marketings?.map(marketing => <>
 
-                        <div className={`bg-${preview.bg}-50 rounded-lg p-2 my-4 text-black`}>
+                        <div className={`bg-gray-700 rounded-lg p-4 my-4 text-gray-50`}>
                             <div className='flex justify-between mt-2'>
                                 <h4 className='text-base font-medium'>{marketing?.name}</h4>
                                 <p className="px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
@@ -121,7 +121,7 @@ const Previews = ({ preview }) => {
                             </div>
                             <p>{marketing?.content}</p>
 
-                            <div className='flex items-center gap-6 my-2 '>
+                            <div className='flex items-center text-gray-300 gap-6 my-2 '>
                                 <button className='flex items-center gap-2  hover:text-red-500'>
                                     <YouTubeIcon />
                                     <p className=''>{marketing?.youtube}</p>

@@ -16,20 +16,12 @@ import MmsTwoToneIcon from "@mui/icons-material/MmsTwoTone";
 import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
 import DisplaySettingsTwoToneIcon from "@mui/icons-material/DisplaySettingsTwoTone";
 import { Biotech, Home } from "@mui/icons-material";
-<<<<<<< HEAD
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import WysiwygIcon from '@mui/icons-material/Wysiwyg';
 import Diversity2TwoToneIcon from '@mui/icons-material/Diversity2TwoTone';
-=======
-import PsychologyIcon from "@mui/icons-material/Psychology";
-import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
-import PostAddIcon from "@mui/icons-material/PostAdd";
-import WysiwygIcon from "@mui/icons-material/Wysiwyg";
->>>>>>> 7d91da99abdfa484533d73f9a9e7df9c49aaabc0
 
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
