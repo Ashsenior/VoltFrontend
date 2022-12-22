@@ -22,6 +22,7 @@ import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import PostAddIcon from "@mui/icons-material/PostAdd";
 import WysiwygIcon from "@mui/icons-material/Wysiwyg";
 import Diversity2TwoToneIcon from "@mui/icons-material/Diversity2TwoTone";
+import AddBusinessTwoToneIcon from "@mui/icons-material/AddBusinessTwoTone";
 
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
@@ -313,6 +314,18 @@ function SidebarMenu() {
                     startIcon={<AccountCircleTwoToneIcon />}
                   >
                     LeaderBoards
+                  </Button>
+                </NextLink>
+              </ListItem>
+              <ListItem component="div">
+                <NextLink href="/voltstore" passHref>
+                  <Button
+                    className={currentRoute === "/voltstore" ? "active" : ""}
+                    disableRipple
+                    onClick={closeSidebar}
+                    startIcon={<AddBusinessTwoToneIcon />}
+                  >
+                    Volt Store
                   </Button>
                 </NextLink>
               </ListItem>
