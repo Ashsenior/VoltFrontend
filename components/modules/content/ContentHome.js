@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
 import { Router, useRouter } from "next/router";
 import ContentStatus from "./ContentStatus";
-
-
-const ContentHome = () => {
-  const router = useRouter();
+import ContentDrawer from "./contentDrawer";
+import { useState } from "react";
+const ContentHome = ({ content }) => {
+  const Router = useRouter();
   const tabs = [
     { name: "Active Content", href: "#", current: false },
     { name: "Content", href: "#", current: false },
@@ -15,6 +15,7 @@ const ContentHome = () => {
   ];
 
   const [value, setValue] = React.useState(0);
+  const [open, setOpen] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -115,9 +116,7 @@ const ContentHome = () => {
                 Share with friends
               </button>
               <button
-                onClick={() =>
-                  Router.push("/module/strategy/create_strategy/NewStrategy")
-                }
+                onClick={() => Router.push("/module/content/create_content")}
                 type="button"
                 className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
@@ -130,13 +129,13 @@ const ContentHome = () => {
               >
                 Idea
               </button>
-              {/* <StrategyDrawer handleClose={handleClose} open={open} /> */}
+              <ContentDrawer handleClose={handleClose} open={open} />
             </div>
           </div>
         </div>
       </Container>
 
-      <ContentStatus></ContentStatus>
+      <ContentStatus content={content} />
     </div>
   );
 };

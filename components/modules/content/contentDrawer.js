@@ -3,7 +3,7 @@ import AssistantIcon from "@mui/icons-material/Assistant";
 import { Drawer } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
 
-const StrategyDrawer = ({ open, handleClose }) => {
+const ContentDrawer = ({ open, handleClose }) => {
   const products = [
     {
       id: 124,
@@ -76,4 +76,4 @@ const StrategyDrawer = ({ open, handleClose }) => {
   );
 };
 
-export default StrategyDrawer;
+export default ContentDrawer;

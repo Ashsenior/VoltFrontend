@@ -10,12 +10,17 @@ import { useState } from "react";
 import Idea from "../../components/dashboard-components/Idea/Idea";
 import TargetAudience from "../../components/dashboard-components/TargetAudience/TargetAudience";
 import ModulePreview from "../../components/dashboard-components/ModulePreview/ModulePreview";
-
 import { get } from "../../config/axiosClient";
 import axiosInstance from "../../src/axiosAPi";
 import axios from "axios";
-
+import StartupContext from "../../context/StartupContext";
 function DashboardCrypto({ query }) {
+  const context = useContext(StartupContext);
+
+  context.setStartupKey(query.startup_key);
+
+  console.log(context.startup_key);
+
   console.log(query);
   const [startups, setStartups] = useState({});
   const [startup_key, setStartupKey] = useState("");
@@ -70,6 +75,7 @@ function DashboardCrypto({ query }) {
   useEffect(() => {
     setStartupKey(localStorage.getItem("startup_key"));
   }, []);
+
   return (
     <div className="p-2">
       <Head>

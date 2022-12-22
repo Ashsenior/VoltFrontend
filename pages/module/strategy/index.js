@@ -8,8 +8,11 @@ import { useEffect, useState } from "react";
 import { getStartups } from "../../../config/commonApi";
 import axiosInstance from "../../../src/axiosAPi";
 import { useRouter } from "next/router";
+import { useContext } from "react";
+import StartupContext from "../../../context/StartupContext";
 
 function StrategyModule() {
+  const context = useContext(StartupContext);
   const [strategy, setStrategy] = useState([]);
   const [username, setUsername] = useState("");
   const router = useRouter();
@@ -29,7 +32,7 @@ function StrategyModule() {
         .get("http://127.0.0.1:8000/strategy/startup/get-strategies", {
           params: {
             // username: localStorage.getItem("username"),
-            startup_key: localStorage.getItem("startup_key"),
+            startup_key: context?.startup_key,
           },
         })
         .then((response) => {

@@ -32,6 +32,7 @@
     "daisyui": "^2.42.1",
     "date-fns": "2.29.3",
     "dayjs": "^1.11.6",
+    "draft-convert": "^2.1.13",
     "draft-js": "^0.11.7",
     "echarts": "^5.4.0",
     "echarts-for-react": "^3.0.2",

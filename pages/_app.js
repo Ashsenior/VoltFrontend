@@ -1,35 +1,52 @@
-import Router from 'next/router';
-import '../styles/globals.css';
-import nProgress from 'nprogress';
-import 'nprogress/nprogress.css';
-import ThemeProvider from 'src/theme/ThemeProvider';
-import CssBaseline from '@mui/material/CssBaseline';
+import Router from "next/router";
+import "../styles/globals.css";
+import nProgress from "nprogress";
+import "nprogress/nprogress.css";
+import ThemeProvider from "src/theme/ThemeProvider";
+import CssBaseline from "@mui/material/CssBaseline";
 
-import { SidebarProvider } from 'src/contexts/SidebarContext';
+import { SidebarProvider } from "src/contexts/SidebarContext";
 import { AuthProvider } from "../context/AuthContext";
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import '@mui/lab';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import "@mui/lab";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import StartupContext, { AppWrapper } from "../context/StartupContext";
+import { useState } from "react";
+import { useEffect } from "react";
 
 function App(props) {
+  if (typeof window !== "undefined") {
+    // Perform localStorage action
+    const item = localStorage.getItem("key");
+  }
   const { Component, pageProps } = props;
-  const getLayout = Component.getLayout ?? ((page) => page);
+  const [startup_key, setStartupKey] = useState(
+    typeof window !== "undefined" ? localStorage.getItem("startup_key") : ""
+  );
 
-  Router.events.on('routeChangeStart', nProgress.start);
-  Router.events.on('routeChangeError', nProgress.done);
-  Router.events.on('routeChangeComplete', nProgress.done);
+  const getLayout = Component.getLayout ?? ((page) => page);
+  Router.events.on("routeChangeStart", nProgress.start);
+  Router.events.on("routeChangeError", nProgress.done);
+  Router.events.on("routeChangeComplete", nProgress.done);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setStartupKey(localStorage.getItem("startup_key"));
+    }
+  }, []);
 
   return (
     <AuthProvider>
-      <SidebarProvider>
-        <ThemeProvider>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <CssBaseline />
-            {getLayout(<Component {...pageProps} />)}
-          </LocalizationProvider>
-        </ThemeProvider>
-      </SidebarProvider>
+      <StartupContext.Provider value={{ startup_key, setStartupKey }}>
+        <SidebarProvider>
+          <ThemeProvider>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <CssBaseline />
+              {getLayout(<Component {...pageProps} />)}
+            </LocalizationProvider>
+          </ThemeProvider>
+        </SidebarProvider>
+      </StartupContext.Provider>
     </AuthProvider>
   );
 }

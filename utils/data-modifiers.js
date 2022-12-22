@@ -43,3 +43,55 @@ export const getDaysDifferenceFromToday = (to) => {
   Moment.locale("en");
   return Moment().to(Moment(to));
 };
+
+export const checkCategoryStatus = (data) => {
+  switch (data) {
+    case "B":
+      return "Brief";
+      break;
+    case "I":
+      return "Image/Poster";
+      break;
+    case "V":
+      return "Video";
+      break;
+    case "R":
+      return "Research/Report";
+      break;
+    case "S":
+      return "Status";
+      break;
+  }
+};
+
+export const checkKeywordStatus = (data) => {
+  switch (data) {
+    case "B":
+      return "Business Model";
+      break;
+    case "CU":
+      return "Customer analysis";
+      break;
+    case "P":
+      return "Pricing Strategy";
+      break;
+    case "CO":
+      return "Competitor Analysis";
+      break;
+    case "PFA":
+      return "Product Feedback Analysis";
+      break;
+    case "I":
+      return "Insider Info";
+      break;
+    case "S":
+      return "Startup Registration";
+      break;
+    case "R":
+      return "Resources";
+      break;
+    case "C":
+      return "Marketing Content";
+      break;
+  }
+};

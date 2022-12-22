@@ -5,33 +5,15 @@ import ContentTask from "./ContentTask";
 import DonutLargeOutlinedIcon from "@mui/icons-material/DonutLargeOutlined";
 import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurnedInOutlined";
 import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
-import TaskIcon from '@mui/icons-material/Task';
+import TaskIcon from "@mui/icons-material/Task";
 import AssignmentOutlinedIcon from "@mui/icons-material/AssignmentOutlined";
-import SaveAsOutlinedIcon from '@mui/icons-material/SaveAsOutlined';
+import SaveAsOutlinedIcon from "@mui/icons-material/SaveAsOutlined";
 
-const ContentStatus = () => {
-  const inProgress = [
-    {
-      id: "dhfsfh102",
-      title: "Find 10 best CTO's and write content on it.",
-      head: "ashsenior",
-      deadline: "12/10/2022",
-      content:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, aliquam eligendi, corrupti ducimus asperiores beatae tempora nihil earum sequi repellendus, odit recusandae aut amet rerum?",
-      marketing: "8",
-      research: "11",
-    },
-    {
-      id: "dhfsfh102",
-      title: "Campaign Title Something",
-      head: "ashsenior",
-      deadline: "12/10/2022",
-      content:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, aliquam eligendi, corrupti ducimus asperiores beatae tempora nihil earum sequi repellendus, odit recusandae aut amet rerum?",
-      marketing: "5",
-      research: "7",
-    },
-  ];
+import Box from "@mui/material/Box";
+import { useRouter } from "next/router";
+
+const ContentStatus = ({ content }) => {
+  const Router = useRouter();
 
   const completed = [
     {
@@ -56,19 +38,6 @@ const ContentStatus = () => {
     },
   ];
 
-  const tasks = [
-    {
-      id: "dhfsfh102",
-      title: "5 Best actractive news headlines.",
-      head: "ashsenior",
-      deadline: "22/12/2022",
-      content:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, aliquam eligendi, corrupti ducimus asperiores beatae tempora nihil earum sequi repellendus, odit recusandae aut amet rerum?",
-      marketing: "8",
-      research: "11",
-    },
-  ];
-
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-1 xl:mx-4 p-2 mt-7">
@@ -77,7 +46,7 @@ const ContentStatus = () => {
             <AssignmentOutlinedIcon />
             ACTIVE TASKS
           </p>
-          {inProgress.map((data) => (
+          {content?.tasks?.map((data) => (
             <InProgressContent key={data.id} data={data}></InProgressContent>
           ))}
         </div>
@@ -86,6 +55,7 @@ const ContentStatus = () => {
             <VerifiedOutlinedIcon />
             CONTENT 2
           </p>
+
           {completed.map((data) => (
             <CompletedContent key={data.id} data={data}></CompletedContent>
           ))}
@@ -95,7 +65,7 @@ const ContentStatus = () => {
             <SaveAsOutlinedIcon />
             DRAFT 3
           </p>
-          {tasks.map((data) => (
+          {content?.drafts?.map((data) => (
             <ContentTask key={data.id} data={data}></ContentTask>
           ))}
         </div>
