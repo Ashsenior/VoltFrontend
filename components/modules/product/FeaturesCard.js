@@ -14,15 +14,11 @@ const FeaturesCard = ({ feature }) => {
                             onClick={() => Router.push('/features_details')}
                             className='text-sm md:text-base font-semibold'>{feature.name}</h1>
                         <p className='text-xs'>{feature.startDate}</p>
+                        <span className='text-white bg-indigo-600 rounded-full' >Important</span>
                     </div>
-
                     <div className='flex flex-col justify-between'>
-                        <p className='font-semibold'>Deadline </p>
-                        <p>{feature.deadline}</p>
-                    </div>
-                    <div className='hidden md:flex flex-col justify-between'>
-                        <p className='font-semibold'>Priority</p>
-                        <p className={`bg-${feature.priorityColor}-400 rounded-sm mx-auto px-1 py-0.5`}>{feature.priority}</p>
+                        <p className='font-semibold'>Deadline in {feature.deadline}</p>
+                        <p></p>
                     </div>
                 </div>
                 <div className="tooltip flex justify-end" data-tip="details">

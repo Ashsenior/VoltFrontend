@@ -6,14 +6,14 @@ import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 
 const IdeaCard = ({ idea }) => {
     return (
-        <div className='flex gap-1 bg-gray-700 text-gray-50 rounded-lg border-b border-gray-200 my-2'>
+        <div className='flex gap-1 text-gray-600 hover:bg-gray-100 border-b border-gray-200 my-1'>
             <img className='w-12 h-12 rounded-full p-1' src={idea.image} alt="" />
             <div className='flex flex-col p-1'>
                 <div className='flex items-center gap-1'>
                     <h4 className='text-base font-semibold'>{idea.name}</h4>
-                    <h4 className='text-gray-300'>@{idea.tag}</h4>
+                    <h4 className='text-gray-400'>@{idea.tag}</h4>
                 </div>
-                <p>{idea.content}</p>
+                <p className='text-gray-500'>{idea.content}</p>
                 <div className='flex items-center gap-6 my-2 '>
                     <button className='flex items-center gap-2  hover:text-green-500'>
                         <TipsAndUpdatesOutlinedIcon />

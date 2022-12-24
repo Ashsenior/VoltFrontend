@@ -5,11 +5,11 @@ import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 
 const TeamHeader = () => {
     return (
-        <div className='flex items-center justify-between mx-auto w-full xl:w-3/4 mt-2 p-2'>
-            <h1 className='text-xl font-semibold text-gray-600'>Looking for a new team <QuestionMarkIcon className='text-orange-500' /></h1>
+        <div className='flex items-center justify-center gap-4 bg-indigo-500 text-gray-50 mx-auto w-full p-2'>
+            <h1 className='text-lg font-semibold text-gray-100'>Looking for new team member?</h1>
             <button
                 onClick={() => Router.push('/module/team/create_team')}
-                className='btn btn-md btn-outline rounded-md hover:bg-indigo-500 hover:border-indigo-600'><GroupAddIcon className='mr-2' />Create team</button>
+                className='btn btn-sm border-0 text-gray-500 rounded-md hover:bg-indigo-600 hover:text-white bg-white'><GroupAddIcon className='mr-2' />FIND candidates</button>
         </div>
     );
 };
