@@ -161,4 +161,4 @@ NewContent.getInitialProps = async ({ query }) => {
   return { query };
 };
 
-// NewContent.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
+NewContent.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;

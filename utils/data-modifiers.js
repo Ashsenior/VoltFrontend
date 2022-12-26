@@ -95,3 +95,35 @@ export const checkKeywordStatus = (data) => {
       break;
   }
 };
+
+export const checkTeamDomain = (data) => {
+  switch (data) {
+    case "T":
+      return "Tech";
+      break;
+    case "S":
+      return "Sales";
+      break;
+    case "M":
+      return "Marketing";
+      break;
+    case "O":
+      return "Operations";
+      break;
+    case "R/C":
+      return "Research/Content";
+      break;
+    case "HR":
+      return "Human Resource";
+      break;
+    case "L":
+      return "Legal Advice";
+      break;
+    case "Me":
+      return "Mentor";
+      break;
+    case "I":
+      return "Investor";
+      break;
+  }
+};
