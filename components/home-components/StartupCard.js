@@ -3,16 +3,11 @@ import Router from "next/router";
 
 const StartupCard = ({ startup }) => {
   const handleClick = (startup) => {
-    // if (typeof window !== "undefined") {
-    //   localStorage.setItem("startup_key", startup?.details?.key);
-    // }
-    localStorage.setItem("startup_key", startup?.details?.key);
     Router.push({
       pathname: "/dashboards",
       query: { startup_key: startup?.details?.key },
     });
   };
-  console.log(startup?.details?.key);
   return (
     <>
       {startup?.map((startup, index) => (
@@ -35,9 +30,7 @@ const StartupCard = ({ startup }) => {
                   something great is coming {startup?.details?.vision}!
                 </medium>
                 <small>(Founded in {startup?.details?.founded})</small>
-                <h4 className=" flex">
-                  {startup?.members} Member
-                </h4>
+                <h4 className=" flex">{startup?.members} Member</h4>
               </div>
             </div>
           </div>

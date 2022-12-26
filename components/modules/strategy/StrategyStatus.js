@@ -6,30 +6,7 @@ import DonutLargeOutlinedIcon from "@mui/icons-material/DonutLargeOutlined";
 import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurnedInOutlined";
 import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
 
-const StrategyStatus = () => {
-  const inProgress = [
-    {
-      id: "dhfsfh102",
-      title: "Campaign Title Something",
-      head: "ashsenior",
-      deadline: "12/10/2022",
-      content:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, aliquam eligendi, corrupti ducimus asperiores beatae tempora nihil earum sequi repellendus, odit recusandae aut amet rerum?",
-      marketing: "8",
-      research: "11",
-    },
-    {
-      id: "dhfsfh102",
-      title: "Campaign Title Something",
-      head: "ashsenior",
-      deadline: "12/10/2022",
-      content:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, aliquam eligendi, corrupti ducimus asperiores beatae tempora nihil earum sequi repellendus, odit recusandae aut amet rerum?",
-      marketing: "5",
-      research: "7",
-    },
-  ];
-
+const StrategyStatus = ({ strategy }) => {
   const completed = [
     {
       id: "dhfsfh102",
@@ -78,11 +55,26 @@ const StrategyStatus = () => {
     <>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-1 xl:mx-4 p-2 mt-7">
         <div className="p-1 rounded-lg">
-          <p className=" text-base p-4 border border-indigo-500 gap-2 bg-indigo-50 rounded-t-xl font-semibold flex items-center text-indigo-500">
+          <p className=" text-base p-4 border mb-2 border-indigo-500 gap-2 bg-indigo-50 rounded-t-xl font-semibold flex items-center text-indigo-500">
             <DonutLargeOutlinedIcon />
             IN PROGRESS 2
           </p>
-          {completed.map((data) => (
+          <p className=" text-base rounded-t-xl font-semibold flex items-center text-red-500">
+            Major
+          </p>
+
+          {strategy?.inprogress?.major?.map((data, index) => (
+            <div key={index} className="mb-4">
+              <InProgressStrategy
+                key={data.id}
+                data={data}
+              ></InProgressStrategy>
+            </div>
+          ))}
+          <p className=" text-base rounded-t-xl font-semibold flex items-center text-green-500">
+            Minor
+          </p>
+          {strategy?.inprogress?.minor?.map((data) => (
             <InProgressStrategy key={data.id} data={data}></InProgressStrategy>
           ))}
         </div>
@@ -91,8 +83,8 @@ const StrategyStatus = () => {
             <AssignmentTurnedInOutlinedIcon />
             COMPLETED 2
           </p>
-          {inProgress.map((data) => (
-            <CompletedStrategy key={data.id} data={data}></CompletedStrategy>
+          {strategy?.completed?.minor?.map((data) => (
+            <CompletedStrategy key={data.id} data={data} />
           ))}
         </div>
         <div className=" p-1 rounded-md">
