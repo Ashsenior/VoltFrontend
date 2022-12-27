@@ -77,19 +77,19 @@ const StudentsTab = ({ people }) => {
               <div className={openTab === 4 ? "block" : "hidden"} id="link2">
                 <MarketingTeamTable people={people.O} />
               </div>
-              <div className={openTab === 4 ? "block" : "hidden"} id="link2">
+              <div className={openTab === 5 ? "block" : "hidden"} id="link2">
                 {/* <MarketingTeamTable people={people.R / C} /> */}
               </div>
-              <div className={openTab === 4 ? "block" : "hidden"} id="link2">
+              <div className={openTab === 6 ? "block" : "hidden"} id="link2">
                 <MarketingTeamTable people={people.HR} />
               </div>
-              <div className={openTab === 4 ? "block" : "hidden"} id="link2">
+              <div className={openTab === 7 ? "block" : "hidden"} id="link2">
                 <MarketingTeamTable people={people.L} />
               </div>
-              <div className={openTab === 4 ? "block" : "hidden"} id="link2">
+              <div className={openTab === 8 ? "block" : "hidden"} id="link2">
                 <MarketingTeamTable people={people.Me} />
               </div>
-              <div className={openTab === 4 ? "block" : "hidden"} id="link2">
+              <div className={openTab === 9 ? "block" : "hidden"} id="link2">
                 <MarketingTeamTable people={people.I} />
               </div>
             </div>

@@ -39,7 +39,7 @@ const ConnectionRequests = ({ request }) => {
           <div className="flex flex-col items-center pb-3">
             <img
               className="mb-3 h-24 w-24 rounded-full shadow-lg"
-              src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+              src={"http://127.0.0.1:8000" + request?.user?.profile?.image}
               alt="Bonnie image"
             />
             <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">

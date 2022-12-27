@@ -15,6 +15,7 @@ const MemberModal = ({ handleClose, open, member }) => {
   const [idea, setIdea] = useState(false);
   const context = useContext(StartupContext);
 
+  console.log(member?.user?.username);
   const initialValues = {
     idea: idea,
     message: "",
@@ -51,7 +52,6 @@ const MemberModal = ({ handleClose, open, member }) => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
-    console.log(values);
 
     if (authenticated) {
       try {
