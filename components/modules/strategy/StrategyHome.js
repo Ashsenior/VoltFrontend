@@ -5,7 +5,7 @@ import StrategyStatus from "./StrategyStatus";
 import StrategyDrawer from "./strategyDrawer";
 import { useState } from "react";
 
-const StrategyHome = () => {
+const StrategyHome = ({ strategy }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -13,6 +13,7 @@ const StrategyHome = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  console.log(strategy);
   return (
     <div>
       {/* Link Buttons */}
@@ -51,7 +52,7 @@ const StrategyHome = () => {
         </div>
       </Container>
 
-      <StrategyStatus></StrategyStatus>
+      <StrategyStatus strategy={strategy}></StrategyStatus>
     </div>
   );
 };

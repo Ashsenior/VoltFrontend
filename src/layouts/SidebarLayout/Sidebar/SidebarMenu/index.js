@@ -16,13 +16,13 @@ import MmsTwoToneIcon from "@mui/icons-material/MmsTwoTone";
 import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
 import DisplaySettingsTwoToneIcon from "@mui/icons-material/DisplaySettingsTwoTone";
 import { Biotech, Home } from "@mui/icons-material";
-import PsychologyIcon from '@mui/icons-material/Psychology';
-import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import PostAddIcon from '@mui/icons-material/PostAdd';
-import WysiwygIcon from '@mui/icons-material/Wysiwyg';
-import Diversity2TwoToneIcon from '@mui/icons-material/Diversity2TwoTone';
-import AddBusinessTwoToneIcon from '@mui/icons-material/AddBusinessTwoTone';
+import PsychologyIcon from "@mui/icons-material/Psychology";
+import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import PostAddIcon from "@mui/icons-material/PostAdd";
+import WysiwygIcon from "@mui/icons-material/Wysiwyg";
+import Diversity2TwoToneIcon from "@mui/icons-material/Diversity2TwoTone";
+import AddBusinessTwoToneIcon from "@mui/icons-material/AddBusinessTwoTone";
 
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
@@ -140,9 +140,9 @@ const SubMenuWrapper = styled(Box)(
                 background: ${theme.colors.alpha.trueWhite[100]};
                 opacity: 0;
                 transition: ${theme.transitions.create([
-    "transform",
-    "opacity",
-  ])};
+                  "transform",
+                  "opacity",
+                ])};
                 width: 6px;
                 height: 6px;
                 transform: scale(0);
@@ -269,9 +269,7 @@ function SidebarMenu() {
               <ListItem component="div">
                 <NextLink href="/module/team" passHref>
                   <Button
-                    className={
-                      currentRoute === '/module/team' ? 'active' : ''
-                    }
+                    className={currentRoute === "/module/team" ? "active" : ""}
                     disableRipple
                     onClick={closeSidebar}
                     startIcon={<Diversity2TwoToneIcon />}

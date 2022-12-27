@@ -10,15 +10,15 @@ import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined
 const CompletedStrategy = ({ data }) => {
     return (
         <div className='bg-gray-800 border mt-2 rounded-xl p-4'>
-            <h4 className='text-lg font-semibold text-gray-200 pb-1'>{data?.title}</h4>
+            <h4 className='text-lg font-semibold text-gray-200 pb-1'>{data?.details?.strategyTitle}</h4>
             <div className='flex items-center gap-1 mt-1'>
                 <span class="bg-gray-100 gap-1 border border-green-200 text-green-200 text-md font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-700">
                     <AssignmentIndOutlinedIcon />
-                    @ashsenior
+                    @{data?.details?.strategyLeader}
                 </span>
                 <span class="bg-gray-100 gap-1 border ml-2 border-green-200 text-green-200 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-700">
                     <OfflineBoltOutlinedIcon />
-                    350
+                    {data?.details?.points}
                 </span>
             </div>
             <div className='flex items-center gap-2 mt-1'>

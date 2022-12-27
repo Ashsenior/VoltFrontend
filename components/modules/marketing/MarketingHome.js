@@ -45,7 +45,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const MarketingHome = () => {
+const MarketingHome = ({ data }) => {
   const tabs = [
     { name: "In Progress", href: "#", current: false },
     { name: "Completed", href: "#", current: false },
@@ -99,7 +99,7 @@ const MarketingHome = () => {
           </div>
         </div>
         <div className="mt-6">
-          <MarketingStatus />
+          <MarketingStatus data={data} />
         </div>
       </div>
     </div>
