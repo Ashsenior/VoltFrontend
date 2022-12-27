@@ -13,6 +13,7 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import StartupContext, { AppWrapper } from "../context/StartupContext";
 import { useState } from "react";
 import { useEffect } from "react";
+import GithubAuthContext from "../context/GithubAuthContext";
 
 function App(props) {
   if (typeof window !== "undefined") {
@@ -23,7 +24,12 @@ function App(props) {
   const [startup_key, setStartupKey] = useState(
     typeof window !== "undefined" ? localStorage.getItem("startup_key") : ""
   );
-
+  const [client_id, setClientId] = useState(
+    typeof window !== "undefined" ? localStorage.getItem("client_id") : ""
+  );
+  const [state, setState] = useState(
+    typeof window !== "undefined" ? localStorage.getItem("state") : ""
+  );
   const getLayout = Component.getLayout ?? ((page) => page);
   Router.events.on("routeChangeStart", nProgress.start);
   Router.events.on("routeChangeError", nProgress.done);
@@ -38,14 +44,18 @@ function App(props) {
   return (
     <AuthProvider>
       <StartupContext.Provider value={{ startup_key, setStartupKey }}>
-        <SidebarProvider>
-          <ThemeProvider>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <CssBaseline />
-              {getLayout(<Component {...pageProps} />)}
-            </LocalizationProvider>
-          </ThemeProvider>
-        </SidebarProvider>
+        <GithubAuthContext.Provider
+          value={{ client_id, setClientId, state, setState }}
+        >
+          <SidebarProvider>
+            <ThemeProvider>
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <CssBaseline />
+                {getLayout(<Component {...pageProps} />)}
+              </LocalizationProvider>
+            </ThemeProvider>
+          </SidebarProvider>
+        </GithubAuthContext.Provider>
       </StartupContext.Provider>
     </AuthProvider>
   );
