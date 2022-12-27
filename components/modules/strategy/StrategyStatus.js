@@ -77,8 +77,8 @@ const StrategyStatus = () => {
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-1 xl:mx-4 p-2 mt-7">
-        <div className="p-1 rounded-lg">
-          <p className=" text-base p-4 border border-indigo-500 gap-2 bg-indigo-50 rounded-t-xl font-semibold flex items-center text-indigo-500">
+        <div className="p-1">
+          <p className=" text-base p-4 gap-2 bg-indigo-500 rounded-xl font-semibold flex items-center text-indigo-50">
             <DonutLargeOutlinedIcon />
             IN PROGRESS 2
           </p>
@@ -86,8 +86,8 @@ const StrategyStatus = () => {
             <InProgressStrategy key={data.id} data={data}></InProgressStrategy>
           ))}
         </div>
-        <div className=" p-1 rounded-md">
-          <p className=" text-base p-4 border border-green-500 bg-green-50 gap-2 items-center rounded-t-xl font-semibold flex p-1 text-green-500">
+        <div className=" p-1 ">
+          <p className=" text-base p-4 bg-green-500 gap-2 items-center rounded-xl font-semibold flex p-1 text-green-50">
             <AssignmentTurnedInOutlinedIcon />
             COMPLETED 2
           </p>
@@ -95,8 +95,8 @@ const StrategyStatus = () => {
             <CompletedStrategy key={data.id} data={data}></CompletedStrategy>
           ))}
         </div>
-        <div className=" p-1 rounded-md">
-          <p className=" text-base p-4 border-gray-500 items-center gap-2 border bg-gray-50 rounded-t-xl font-semibold flex p-1 text-gray-500">
+        <div className=" p-1">
+          <p className=" text-base p-4 items-center gap-2 border bg-gray-700 rounded-xl font-semibold flex p-1 text-gray-50">
             <VerifiedOutlinedIcon />
             CLOSED 3
           </p>
