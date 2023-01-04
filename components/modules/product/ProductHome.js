@@ -1,21 +1,14 @@
 import React from "react";
 import Router, { useRouter } from "next/router";
-import { Button, Container } from "@mui/material";
-import { Box } from "@mui/system";
-import PropTypes from "prop-types";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import ProductCard from "./ProductCard";
 import { useContext } from "react";
-import StartupContext from "../../../context/StartupContext";
 import { useState } from "react";
 import { useEffect } from "react";
 import axiosInstance from "../../../src/axiosAPi";
 import axios from "axios";
 import GithubAuthContext from "../../../context/GithubAuthContext";
 
-const ProductHome = () => {
+const ProductHome = ({ products }) => {
   const context = useContext(GithubAuthContext);
   const [authorizeData, setAuthorizeData] = useState({});
   const [authenticated, setAuthenticated] = useState(false);
@@ -86,6 +79,7 @@ const ProductHome = () => {
           .then(() => {
             localStorage.removeItem("state");
             localStorage.removeItem("client_id");
+            setAuthorize(true);
           });
       } catch (error) {
         throw error;
@@ -100,7 +94,7 @@ const ProductHome = () => {
             Strategy for Product Models
           </h3>
           <div className="mt-3 flex md:mt-0 md:absolute md:top-3 md:right-10">
-            {!authorize && (
+            {authorize ? null : (
               <button
                 type="button"
                 className="inline-flex items-center  text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
@@ -112,13 +106,14 @@ const ProductHome = () => {
             <button
               type="button"
               className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              onClick={() => router.push("product/create_product/NewProduct")}
             >
               Create new Strategy
             </button>
           </div>
         </div>
       </div>
-      <ProductCard />
+      <ProductCard products={products} />
     </>
   );
 };

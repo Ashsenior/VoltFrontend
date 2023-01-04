@@ -7,23 +7,23 @@ import ProductFeatures from "../../../components/modules/product/ProductFeatures
 import Footer from "src/components/Footer";
 import ProductIssues from "../../../components/modules/product/ProductIssues";
 
-const ProductDetails = () => {
+const ProductDetails = ({ product, query }) => {
   return (
     <>
       <div className="m-4">
-        <ProductIntro></ProductIntro>
-        <ProductAnalytics></ProductAnalytics>
+        <ProductIntro product={product} />
+        <ProductAnalytics />
         <div className="flex flex-col md:flex-row">
           <div className="w-full md:w-10/12 mr-4">
-            <ProductFeatures></ProductFeatures>
-            <ProductIssues></ProductIssues>
+            <ProductFeatures features={product} query={query} />
+            <ProductIssues />
           </div>
           <div className="w-full md:w-2/12 flex justify-end">
-            <ProductTimeline></ProductTimeline>
+            <ProductTimeline />
           </div>
         </div>
       </div>
-      <Footer></Footer>
+      <Footer />
     </>
   );
 };

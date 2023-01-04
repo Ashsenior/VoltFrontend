@@ -127,3 +127,140 @@ export const checkTeamDomain = (data) => {
       break;
   }
 };
+
+export const checkKeywordChoices = (data) => {
+  switch (data) {
+    case "E":
+      return "E-commerce";
+      break;
+
+    case "Sm":
+      return "Social media";
+      break;
+
+    case "S":
+      return "SaaS";
+      break;
+
+    case "M":
+      return "Magazine and News";
+      break;
+    case "Nw":
+      return "No-code website";
+      break;
+    case "N":
+      return "Non-Profit";
+      break;
+
+    case "P":
+      return "Portfolio";
+      break;
+
+    case "Ed":
+      return "Educational";
+      break;
+
+    case "I":
+      return "Informational";
+      break;
+
+    case "B":
+      return "Blog";
+      break;
+
+    case "F":
+      return "Photo Sharing";
+      break;
+
+    case "U":
+      return "Utility";
+      break;
+
+    case "L":
+      return "Lifestyle";
+      break;
+
+    case "Pr":
+      return "Productivity";
+      break;
+
+    case "En":
+      return "Entertainment";
+      break;
+    case "G":
+      return "Game";
+      break;
+  }
+};
+
+export const checkPlatformChoices = (data) => {
+  switch (data) {
+    case "D":
+      return "Desktop application";
+      break;
+
+    case "S":
+      return "Service";
+      break;
+
+    case "I":
+      return "IOS application";
+      break;
+
+    case "W":
+      return "WebApp";
+      break;
+
+    case "Nw":
+      return "No-code website";
+      break;
+
+    case "Na":
+      return "No-code Application";
+      break;
+
+    case "C":
+      return "Cross Platform application";
+      break;
+
+    case "A":
+      return "Android application";
+      break;
+
+    case "H":
+      return "Hardwaren";
+      break;
+  }
+};
+
+export const checkphaseChoice = (data) => {
+  switch (data) {
+    case "I":
+      return "Ideation";
+      break;
+
+    case "D":
+      return "Design";
+      break;
+
+    case "MVP":
+      return "Minimum Viable Product";
+      break;
+
+    case "PoC":
+      return "Proof of Concept";
+      break;
+
+    case "PMF":
+      return "Product Market Fit";
+      break;
+
+    case "C":
+      return "Customer Acquisition";
+      break;
+
+    case "S":
+      return "Scaling";
+      break;
+  }
+};
