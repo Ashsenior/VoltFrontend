@@ -29,17 +29,6 @@ import {
 import moment from "moment";
 import { useRouter } from "next/router";
 
-const SelectLeader = [
-  {
-    label: "@ashenoir",
-    value: 1,
-  },
-  {
-    label: "@hp",
-    value: 2,
-  },
-];
-
 const SelectCategory = [
   {
     label: "Minor",
@@ -102,7 +91,6 @@ const NewStrategy = () => {
     values.startup_key = startup_key;
     var momentDate = moment(approxStartDate);
     values.approxStartDate = momentDate.format("YYYY-MM-DD");
-    console.log(momentDate.format("YYYY-MM-DD"));
 
     if (authenticated) {
       try {
