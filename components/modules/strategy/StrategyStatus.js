@@ -53,16 +53,12 @@ const StrategyStatus = ({ strategy }) => {
 
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-1 xl:mx-4 p-2 mt-7">
+      <div className="grid grid-cols-1 lg:grid-cols-3 xl:mx-4 p-2 mt-7">
         <div className="p-1">
-          <p className=" text-base p-4 gap-2 bg-indigo-500 rounded-xl font-semibold flex items-center text-indigo-50">
+          <p className=" text-base py-2 gap-2 rounded-xl font-semibold flex items-center text-gray-500">
             <DonutLargeOutlinedIcon />
             IN PROGRESS 2
           </p>
-          <p className=" text-base rounded-t-xl font-semibold flex items-center text-red-500">
-            Major
-          </p>
-
           {strategy?.inprogress?.major?.map((data, index) => (
             <div key={index} className="mb-4">
               <InProgressStrategy
@@ -71,15 +67,9 @@ const StrategyStatus = ({ strategy }) => {
               ></InProgressStrategy>
             </div>
           ))}
-          <p className=" text-base rounded-t-xl font-semibold flex items-center text-green-500">
-            Minor
-          </p>
-          {strategy?.inprogress?.minor?.map((data) => (
-            <InProgressStrategy key={data.id} data={data}></InProgressStrategy>
-          ))}
         </div>
         <div className=" p-1 ">
-          <p className=" text-base p-4 bg-green-500 gap-2 items-center rounded-xl font-semibold flex p-1 text-green-50">
+          <p className=" text-base py-2 gap-2 items-center rounded-xl font-semibold flex text-gray-500">
             <AssignmentTurnedInOutlinedIcon />
             COMPLETED 2
           </p>
@@ -88,7 +78,7 @@ const StrategyStatus = ({ strategy }) => {
           ))}
         </div>
         <div className=" p-1">
-          <p className=" text-base p-4 items-center gap-2 border bg-gray-700 rounded-xl font-semibold flex p-1 text-gray-50">
+          <p className=" text-base py-2 items-center gap-2 rounded-xl font-semibold flex text-gray-500">
             <VerifiedOutlinedIcon />
             CLOSED 3
           </p>

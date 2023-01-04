@@ -10,26 +10,25 @@ import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined
 
 const StrategyTask = ({ data }) => {
     return (
-        <div className='bg-gray-800 mt-2 rounded-xl border p-4'>
+        <div className='bg-gray-800 mt-2 rounded-lg border p-4'>
             <h4 className='text-lg flex font-semibold text-gray-200 pb-1'>
                 {data?.title}
             </h4>
             <div className='flex items-center gap-1 mt-1'>
-                <span class="bg-gray-100 gap-1 border border-gray-200 text-gray-200 text-md font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-700">
+                <span class="bg-gray-100 gap-1 text-gray-200 text-md font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-700">
                     <AssignmentIndOutlinedIcon />
                     @ashsenior
                 </span>
-                <span class="bg-gray-100 gap-1 border ml-2 border-gray-200 text-gray-200 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-700">
+                <span class="bg-gray-100 gap-1 text-gray-200 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-700">
                     <OfflineBoltOutlinedIcon />
                     350
                 </span>
+                <span class="bg-gray-100 gap-1 text-green-200 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-700 dark:text-green-300">
+                    <VerifiedOutlinedIcon />
+                    11/12/2022
+                </span>
             </div>
-
-            <div className='flex items-center gap-1 mt-2'>
-                <h4 className='font-medium text-gray-400'>COMPLETED ON </h4>
-                <p className='text-md text-gray-300'>11/12/2022</p>
-            </div>
-            <button className='w-full button p-1 rounded-lg item-center text-white font-semibold bg-gray-400 my-2' ><FileDownloadOutlinedIcon /> DOWNLOAD REPORT</button>
+            <button className='w-full button p-1 rounded-md item-center text-white font-semibold bg-gray-500 mt-2' ><FileDownloadOutlinedIcon /> Download Report</button>
            
         </div>
     );

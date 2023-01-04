@@ -86,9 +86,9 @@ const SingleMarketing = ({ data }) => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mx-4 mt-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-5">
         <div>
-          <p className=" text-base p-4 mb-3 border border-red-500 gap-2 bg-red-50 rounded-t-xl font-semibold flex items-center text-red-500">
+          <p className=" text-base p-4 mb-3 gap-2 bg-red-50 rounded-xl font-semibold flex items-center text-red-500">
             <small className="flex mr-2 items-center text-red-500">
               <YouTubeIcon />
             </small>
@@ -97,7 +97,7 @@ const SingleMarketing = ({ data }) => {
           <MarketingSocialCards />
         </div>
         <div>
-          <p className=" text-base p-4 mb-3 border border-blue-500 bg-blue-50 gap-2 items-center rounded-t-xl font-semibold flex p-1 text-blue-500">
+          <p className=" text-base p-4 mb-3 bg-blue-50 gap-2 items-center rounded-xl font-semibold flex p-1 text-blue-500">
             <small className="flex mr-2 items-center text-blue-500">
               <LinkedInIcon />
             </small>
@@ -110,7 +110,7 @@ const SingleMarketing = ({ data }) => {
         </div>
 
         <div>
-          <p className=" text-base p-4 mb-3 border border-pink-500 items-center gap-2 bg-pink-50 rounded-t-xl font-semibold flex p-1 text-pink-500">
+          <p className=" text-base p-4 mb-3 items-center gap-2 bg-pink-50 rounded-xl font-semibold flex p-1 text-pink-500">
             <small className="flex mr-2 items-center text-pink-500">
               <InstagramIcon />
             </small>
