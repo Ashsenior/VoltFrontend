@@ -9,6 +9,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    overflow-x: hidden;
 }
 
 .body::-webkit-scrollbar {
@@ -20,9 +21,9 @@ body {
   -ms-overflow-style: none;
   /* IE and Edge */
   scrollbar-width: none;
+  overflow: hidden;
   /* Firefox */
 }
-
 
 a {
   color: inherit;
@@ -31,6 +32,25 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  gap: 10rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.imageslider {
+  margin: 50px;
+  align-self: center;
+}
+.typeanimation {
+  align-self: center;
+}
+.slide-container {
+  width: 500px;
+  height: auto;
 }
 
 @media (prefers-color-scheme: dark) {
