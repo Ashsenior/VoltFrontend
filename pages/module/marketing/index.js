@@ -48,9 +48,9 @@ function MarketingModule() {
       <Head>
         <title>Marketing Module</title>
       </Head>
-      <Container maxWidth="lg">
+      <div>
         <MarketingHome data={marketing} />
-      </Container>
+      </div>
       <Footer />
     </>
   );

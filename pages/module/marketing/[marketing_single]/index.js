@@ -12,12 +12,15 @@ import { Box } from "@mui/system";
 import React from "react";
 import SidebarLayout from "src/layouts/SidebarLayout";
 
-import { FeedOutlined, ShoppingCart } from "@mui/icons-material";
+import { Edit, FeedOutlined, ShoppingCart } from "@mui/icons-material";
 import { useState } from "react";
 import MarketingStatus from "../../../../components/modules/marketing/MarketingStatus";
 import { useEffect } from "react";
 import axiosInstance from "../../../../src/axiosAPi";
 import SingleMarketing from "../../../../components/modules/marketing/singleMarketing";
+import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
+import { CalendarMonth, Tag, OfflineBoltOutlined } from "@mui/icons-material";
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 const applications = [
   {
@@ -90,24 +93,6 @@ const MarketingSingleView = ({ strategy, query }) => {
 
   return (
     <>
-      <div className="w-full bg-orange-100">
-        <div className="w-full flex items-center justify-between mx-auto px-5 rounded-lg py-3">
-          <label
-            htmlFor="edit-strategy-modal"
-            type="button"
-            className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            Submit Strategy
-          </label>
-          <button
-            onClick={() => Router.push("/module/product/ProductDetails")}
-            type="button"
-            className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            Edit Strategy
-          </button>
-        </div>
-      </div>
       <input
         type="checkbox"
         id="edit-strategy-modal"
@@ -181,43 +166,56 @@ const MarketingSingleView = ({ strategy, query }) => {
       <div className="mt-6 w-full p-2 lg:p-4">
         <div className="flex items-center justify-between">
           <h1 className="text-xl font-semibold">
-            {strategy?.strategy?.strategyTitle}
+            {marketing?.details?.marketingTitle}
           </h1>
           <Link to="" type="button" className="btn btn-sm">
             In Progress
           </Link>
         </div>
-        <medium>
-          Strategy leader
-          <p className="ml-2 px-2 inline-flex text-sm leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-            @{strategy?.strategy?.strategyLeader}
-          </p>
-        </medium>
-        <h4>
-          Start Date: <span>{strategy?.strategy?.approxStartDate}</span>
-        </h4>
+        <p>
+        <span class="bg-gray-100 text-sm font-medium inline-flex items-center px-2.5 py-1.5 mb-1 rounded-full mr-2 dark:bg-gray-100 dark:text-gray-500">
+            {marketing?.details?.strategy}
+        </span>
+        <span class="bg-gray-100 gap-1 text-sm font-medium inline-flex items-center px-2.5 py-1.5 rounded-full mr-2 dark:bg-gray-100 dark:text-gray-500">
+            @{marketing?.details?.marketingLeader}
+        </span>
+        </p>
+        <span class="bg-gray-100 gap-1 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-100 dark:text-indigo-500">
+            <CalendarMonth />
+            {marketing?.details?.startDate}
+        </span>
+        <span class="bg-gray-100 gap-1 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-100 dark:text-indigo-500">
+            <OfflineBoltOutlined />
+            {marketing?.details?.points} Volts
+        </span>
+        <span class="bg-gray-100 gap-1 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-100 dark:text-pink-500">
+            <Tag />
+            {marketing?.details?.social_tag}
+        </span>
         <div className="grid grid-cols-1">
           <div className="mt-6">
-            <h4 className="text-lg font-semibold">Customer it impacts</h4>
-            <p className="p-1">{strategy?.strategy?.customer}</p>
+            <h4 className="text-lg font-semibold">Description <span className="p-1 text-sm text-gray-500 bg-gray-100">{marketing?.details?.description}</span></h4>
           </div>
-          <div className="mt-2">
-            <h4 className="text-base font-semibold">Success Metrics</h4>
-            <div className="flex gap-4 text-sm">
-              <div className=" p-2 rounded-xl bg-green-100 text-green-700 flex items-center justify-center">
-                <p>{strategy?.strategy?.success_high}</p>
-              </div>
-              <div className=" p-2 rounded-xl bg-yellow-100 text-yellow-700 flex items-center justify-center">
-                <p>{strategy?.strategy?.success_mid}</p>
-              </div>
-              <div className=" p-2 rounded-xl bg-red-100 text-red-700 flex items-center justify-center">
-                <p>{strategy?.strategy?.success_low}</p>
-              </div>
-            </div>
-            <div className="mt-6">
-              <SingleMarketing data={strategy} />
-            </div>
+          <div className="w-full flex items-center gap-3 py-2">
+            <label
+              htmlFor="edit-strategy-modal"
+              type="button"
+              className="gap-2 inline-flex items-center px-2 py-1 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-600 bg-indigo-100 hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              <ArrowUpwardIcon />
+              Submit and Close Strategy
+            </label>
+            <label
+              htmlFor="edit-strategy-modal"
+              type="button"
+              className="gap-2 inline-flex items-center px-2 py-1 border border-transparent text-base font-medium rounded-md shadow-sm text-green-600 bg-green-100 hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+            >
+              <Edit />
+              Edit Campaign
+            </label>
           </div>
+
+          <SingleMarketing data={marketing} />
         </div>
       </div>
     </>

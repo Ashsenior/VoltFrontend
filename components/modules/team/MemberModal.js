@@ -88,7 +88,7 @@ const MemberModal = ({ handleClose, open, member }) => {
     <div>
       <Dialog sx={{}} onClose={handleClose} open={open}>
         <form onSubmit={(event) => handleFormSubmit(event)}>
-          <div className="p-10">
+          <div style={{minWidth:"500px"}} className="p-10">
             <div>
               <label
                 onClick={handleClose}
@@ -139,7 +139,7 @@ const MemberModal = ({ handleClose, open, member }) => {
                     <TextField
                       style={{ width: "100%" }}
                       id="outlined-multiline-static"
-                      label="Job description"
+                      label="Message"
                       multiline
                       minRows={4}
                       name="message"
@@ -163,7 +163,7 @@ const MemberModal = ({ handleClose, open, member }) => {
                   </div>
                   <button
                     type="submit"
-                    class="btn btn-sm bg-indigo-500 hover:bg-indigo-600 rounded-sm border-0"
+                    class="btn btn-sm bg-indigo-500 text-white hover:bg-indigo-600 rounded-sm border-0"
                   >
                     Connect
                   </button>

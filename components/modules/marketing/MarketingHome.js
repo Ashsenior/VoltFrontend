@@ -7,6 +7,12 @@ import Box from "@mui/material/Box";
 import MarketingStatus from "./MarketingStatus";
 import { useState } from "react";
 import MarketingDrawer from "./MarketingDrawer";
+import Task from "./Task";
+
+import DonutLargeOutlinedIcon from "@mui/icons-material/DonutLargeOutlined";
+import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurnedInOutlined";
+import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
+import MarketingSocialCards from "./marketingSocialCards";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -68,13 +74,13 @@ const MarketingHome = ({ data }) => {
   };
 
   return (
-    <div>
-      <div className="relative mt-4 pb-5 sm:pb-0 xl:px-0">
-        <div className="md:flex md:items-center md:justify-between">
+    <div className="md:flex">
+      <div className="w-full md:w-2/3 relative mt-4 pb-5 sm:pb-0 xl:px-0 ">
+        <div className="md:flex md:items-center md:justify-between px-4 py-1">
           <h3 className="text-lg leading-6 font-medium text-gray-900">
             Marketing Models
           </h3>
-          <div className="mt-3 flex md:mt-0 md:absolute md:top-3 md:right-0">
+          <div className="mt-3 flex md:mt-0 md:absolute md:top-3 md:right-5">
             <button
               type="button"
               className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -101,6 +107,14 @@ const MarketingHome = ({ data }) => {
         <div className="mt-6">
           <MarketingStatus data={data} />
         </div>
+      </div>
+      <div className="w-full md:w-1/3 p-2" style={{ minHeight: "100%" }}> 
+        <p className=" text-base text-gray-500 px-2 pb-4 pt-2 items-center gap-2 rounded-xl font-semibold flex p-1 ">
+          <VerifiedOutlinedIcon />
+          SOCIAL POSTS 3
+        </p>
+        <MarketingSocialCards />
+        <MarketingSocialCards />
       </div>
     </div>
   );

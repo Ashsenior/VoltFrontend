@@ -182,19 +182,6 @@ const NewStrategy = () => {
               </TextField>
             </Grid>
 
-            <Grid item xs={12} sm={12} md={6} lg={6} mt={3}>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DesktopDatePicker
-                  label="Date"
-                  fullWidth
-                  inputFormat="MM/DD/YYYY"
-                  value={approxStartDate}
-                  onChange={(event) => handleApproxStartDate(event)}
-                  renderInput={(params) => <TextField {...params} fullWidth />}
-                />
-              </LocalizationProvider>
-            </Grid>
-
             {/* <div className="form-control mt-4">
             <div className="rounded-l-lg">
               <select className="select bg-white border-gray-300">
@@ -264,38 +251,6 @@ const NewStrategy = () => {
             {/* </div> */}
 
             <div>
-              <h1 className="text-base font-semibold mt-4 mb-3">
-                Success Metrics
-              </h1>
-              <div className="flex items-center gap-4">
-                <Grid item xs={12} sm={12} md={12} lg={12}>
-                  <TextField
-                    value={values?.success_high}
-                    fullWidth
-                    label="High"
-                    name="success_high"
-                    onChange={(event) => handleChange(event)}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={12} md={12} lg={12}>
-                  <TextField
-                    value={values?.success_mid}
-                    fullWidth
-                    label="Mid"
-                    name="success_mid"
-                    onChange={(event) => handleChange(event)}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={12} md={12} lg={12}>
-                  <TextField
-                    value={values?.success_low}
-                    fullWidth
-                    label="Low"
-                    name="success_low"
-                    onChange={(event) => handleChange(event)}
-                  />
-                </Grid>
-              </div>
 
               <div className="mt-4 flex items-center justify-end">
                 <LoadingButton

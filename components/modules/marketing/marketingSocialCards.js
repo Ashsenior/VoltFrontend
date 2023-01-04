@@ -18,6 +18,8 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import { Box, Stack } from "@mui/material";
 
+import YouTubeIcon from "@mui/icons-material/YouTube";
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -37,68 +39,38 @@ const MarketingSocialCards = () => {
   };
 
   return (
-    <Card sx={{ maxWidth: 345, borderRadius: "12px" }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
-      />
+    <div className="w-full text-white" >
       <CardMedia
+        className="rounded-xl"
         component="img"
         height="194"
         image="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
         alt="Paella dish"
       />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
+      <div className="p-3">
+        <Typography variant="body2" className="text-gray-500 flex flex-row">
+          <YouTubeIcon className="mr-1 flex flex-col text-red-500" />
+          <p>
           This impressive paella is a perfect party dish and a fun meal to cook
           together
+          </p>
         </Typography>
-      </CardContent>
-
-      <Stack
-        direction="row"
-        justifyContent={"space-between"}
-        alignItems="center"
-        sx={{
-          border: "1px solid #e0e0e0",
-          px: 2,
-        }}
-      >
-        <Stack
-          direction={"row"}
-          sx={{
-            alignItems: "center",
-          }}
-        >
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon sx={{ color: "red" }} />
-          </IconButton>
-          <Typography>54</Typography>
-        </Stack>
-        <Stack direction={"row"} sx={{ alignItems: "center" }}>
-          <IconButton aria-label="share">
-            <ChatBubbleIcon sx={{ color: "green" }} />
-          </IconButton>
-          <Typography>54</Typography>
-        </Stack>
-        <Stack direction={"row"} sx={{ alignItems: "center" }}>
-          <IconButton aria-label="share">
-            <RemoveRedEyeIcon sx={{ color: "blue" }} />
-          </IconButton>
-          <Typography>54</Typography>
-        </Stack>
-      </Stack>
-    </Card>
+        <div className="flex items-center gap-6 border-green-300 pt-2 px-2">
+          <button className="w-1/3 justify-center bg-gray-100 rounded-full p-1 flex items-center gap-1 text-gray-400">
+            <FavoriteIcon />
+            <p className="font-semibold">1.2k</p>
+          </button>
+          <button className="w-1/3 justify-center bg-gray-100 rounded-full p-1 flex button items-center gap-1 text-gray-400">
+            <ChatBubbleIcon />
+            <p className="font-semibold">100</p>
+          </button>
+          <button className="w-1/3 justify-center bg-gray-100 rounded-full p-1 flex button items-center gap-1 text-gray-400">
+            <RemoveRedEyeIcon />
+            <p className="font-semibold">7.0k</p>
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 
