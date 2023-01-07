@@ -14,7 +14,7 @@ const MarketingStatus = ({ data }) => {
         <div>
           <p className=" text-base gap-2 font-semibold flex items-center text-gray-500">
             <DonutLargeOutlinedIcon />
-            IN PROGRESS 2
+            IN PROGRESS {data?.inprogress?.length}
           </p>
           {data?.inprogress?.map((data) => (
             <InProgress key={data.id} data={data}></InProgress>

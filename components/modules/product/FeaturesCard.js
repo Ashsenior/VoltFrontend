@@ -4,7 +4,6 @@ import Router, { useRouter } from "next/router";
 
 const FeaturesCard = ({ feature }) => {
   const router = useRouter();
-  console.log(feature);
   return (
     <div className="bg-white p-2 border-b">
       <div className="flex justify-between items-center">

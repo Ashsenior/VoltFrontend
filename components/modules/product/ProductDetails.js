@@ -1,12 +1,16 @@
 import React from "react";
 import ProductTimeline from "../../../components/modules/product/ProductTimeline";
 import SidebarLayout from "src/layouts/SidebarLayout";
-import ProductAnalytics from "../../../components/modules/product/ProductAnalytics";
+// import ProductAnalytics from "../../../components/modules/product/ProductAnalytics";
 import ProductIntro from "../../../components/modules/product/ProductIntro";
 import ProductFeatures from "../../../components/modules/product/ProductFeatures";
 import Footer from "src/components/Footer";
 import ProductIssues from "../../../components/modules/product/ProductIssues";
-
+import dynamic from "next/dynamic";
+const ProductAnalytics = dynamic(
+  () => import("../../../components/modules/product/ProductAnalytics"),
+  { ssr: false }
+);
 const ProductDetails = ({ product, query }) => {
   return (
     <>

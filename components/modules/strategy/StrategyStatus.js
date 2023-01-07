@@ -82,8 +82,8 @@ const StrategyStatus = ({ strategy }) => {
             <VerifiedOutlinedIcon />
             CLOSED 3
           </p>
-          {tasks.map((data) => (
-            <StrategyTask key={data.id} data={data}></StrategyTask>
+          {strategy?.closed?.map((data) => (
+            <StrategyTask key={data.id} data={data} />
           ))}
         </div>
       </div>

@@ -52,7 +52,7 @@ const StrategyHome = ({ strategy }) => {
         </div>
       </Container>
 
-      <StrategyStatus strategy={strategy}></StrategyStatus>
+      <StrategyStatus strategy={strategy} />
     </div>
   );
 };
