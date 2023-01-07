@@ -1,7 +1,7 @@
 import React from "react";
 import Completed from "./Completed";
 import InProgress from "./InProgress";
-
+import AddIcon from '@mui/icons-material/Add';
 import DonutLargeOutlinedIcon from "@mui/icons-material/DonutLargeOutlined";
 import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurnedInOutlined";
 
@@ -10,18 +10,25 @@ const MarketingStatus = ({ data }) => {
 
   return (
     <div className="w-full flex flex-row">
-      <div className="w-full px-2 mt-3 grid grid-cols-1 lg:grid-cols-2 gap-3">
+      <div className="w-full px-4 mt-3 grid grid-cols-1 lg:grid-cols-2 gap-3">
         <div>
-          <p className=" text-base gap-2 font-semibold flex items-center text-gray-500">
+          <p className=" text-base gap-2 font-semibold flex items-center text-gray-300">
             <DonutLargeOutlinedIcon />
             IN PROGRESS {data?.inprogress?.length}
+            <button
+              onClick={() => Router.push("/module/marketing/create_marketing")}
+              type="button"
+              className="ml-3 inline-flex items-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              NEW <AddIcon />
+            </button>
           </p>
           {data?.inprogress?.map((data) => (
             <InProgress key={data.id} data={data}></InProgress>
           ))}
         </div>
         <div>
-          <p className=" text-base gap-2 items-center font-semibold flex text-gray-500">
+          <p className=" text-base gap-2 py-1 items-center font-semibold flex text-gray-300">
             <AssignmentTurnedInOutlinedIcon />
             COMPLETED {data?.completed?.length}
           </p>

@@ -6,9 +6,9 @@ const ConnectionRequests = ({ request }) => {
   console.log(request);
   return (
     <div>
-      <div className="max-w-sm max-h-xs p-0">
-        <Card className="p-0">
-          <div className="flex justify-end">
+      <div className="">
+        <div className="justify-center items-center bg-gray-900 rounded-lg">
+          <>
             {/* <Dropdown inline={true} label="">
               <Dropdown.Item>
                 <a
@@ -35,30 +35,38 @@ const ConnectionRequests = ({ request }) => {
                 </a>
               </Dropdown.Item>
             </Dropdown> */}
-          </div>
-          <div className="flex flex-col items-center pb-3">
-            <img
-              className="mb-3 h-24 w-24 rounded-full shadow-lg"
-              src={"http://127.0.0.1:8000" + request?.user?.profile?.image}
-              alt="Bonnie image"
-            />
-            <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-              {request?.user?.first_name} {request?.user?.last_name}
-              <br />@{request?.user.username}
-            </h5>
-            <span className="text-sm text-gray-500 dark:text-gray-400">
-              {checkTeamDomain(request?.user?.profile?.domain)}
-            </span>
-            <span className="text-sm text-gray-500 mb-4 dark:text-gray-400">
+          </>
+          <div className="items-center p-4">
+            <div className="grid grid-cols-2 rounded-md justify-center items-center">
+              <div>
+                <img
+                  className="w-10 rounded-full mx-auto"
+                  src={
+                    "https://fkdolnidvoriste.cz/wp-content/uploads/2021/08/Profile.jpg"
+                  }
+                  alt=""
+                />
+              </div>
+              <div className="flex flex-col">
+                <h5 className="mb-1 text-md font-medium text-gray-900 dark:text-white">
+                  {request?.user?.first_name} {request?.user?.last_name}
+                  <br />@{request?.user.username}
+                </h5>
+                <span className="text-sm mb-4 text-gray-500 dark:text-gray-400">
+                  {checkTeamDomain(request?.user?.profile?.domain)}
+                </span>
+              </div> 
+            </div>
+            <center className="text-sm text-gray-500 mb-2 dark:text-gray-400">
               Skills : {request?.user?.profile?.skills}
-            </span>
-            <h6 className="mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            </center>
+            <center className=" text-sm font-medium text-gray-300">
               {request?.message}
-            </h6>
-            <div className="mt-4 flex space-x-3 lg:mt-6">
+            </center>
+            <div className=" flex space-x-3 mt-3 items-center justify-center">
               <a
                 href="#"
-                className="inline-flex items-center rounded-lg bg-blue-700 py-2 px-4 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="inline-flex items-center rounded-lg bg-purple-700 py-2 px-4 text-center text-sm font-medium text-white hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
               >
                 Accept Request
               </a>
@@ -70,7 +78,7 @@ const ConnectionRequests = ({ request }) => {
               </a>
             </div>
           </div>
-        </Card>
+        </div>
       </div>
     </div>
   );

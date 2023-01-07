@@ -45,6 +45,7 @@ function Header() {
     <HeaderWrapper
       display="flex"
       alignItems="center"
+      className='bg-gray-900'
       sx={{
         boxShadow:
           theme.palette.mode === 'dark'

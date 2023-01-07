@@ -163,8 +163,8 @@ const MarketingSingleView = ({ strategy, query }) => {
         </div>
       </div>
 
-      <div className="mt-6 w-full p-2 lg:p-4">
-        <div className="flex items-center justify-between">
+      <div className="w-full p-2 lg:p-4">
+        <div className="mt-6 flex items-center justify-between">
           <h1 className="text-xl font-semibold">
             {marketing?.details?.marketingTitle}
           </h1>

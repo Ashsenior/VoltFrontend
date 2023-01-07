@@ -51,7 +51,6 @@ function MarketingModule() {
       <div>
         <MarketingHome data={marketing} />
       </div>
-      <Footer />
     </>
   );
 }

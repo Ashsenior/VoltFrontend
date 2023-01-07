@@ -58,7 +58,6 @@ function StrategyModule() {
       <StrategyHome strategy={strategy} />
 
       <Container maxWidth="lg"></Container>
-      <Footer />
     </>
   );
 }
