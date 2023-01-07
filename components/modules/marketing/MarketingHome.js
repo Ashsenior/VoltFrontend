@@ -60,6 +60,36 @@ const MarketingHome = ({ data }) => {
     { name: "Socials", href: "#", current: false },
   ];
 
+  const social_post = [
+    {
+      name: "Facebook",
+      image:
+        "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+      link: "facebook.com",
+      reaction: "3.5k",
+      comments: "200",
+      shared: "452",
+    },
+    {
+      name: "Facebook",
+      image:
+        "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+      link: "facebook.com",
+      reaction: "3.5k",
+      comments: "200",
+      shared: "452",
+    },
+    {
+      name: "Facebook",
+      image:
+        "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+      link: "facebook.com",
+      reaction: "3.5k",
+      comments: "200",
+      shared: "452",
+    },
+  ];
+
   const [value, setValue] = React.useState(0);
   const [open, setOpen] = useState(false);
 
@@ -108,13 +138,14 @@ const MarketingHome = ({ data }) => {
           <MarketingStatus data={data} />
         </div>
       </div>
-      <div className="w-full md:w-1/3 p-2" style={{ minHeight: "100%" }}> 
+      <div className="w-full md:w-1/3 p-2" style={{ minHeight: "100%" }}>
         <p className=" text-base text-gray-500 px-2 pb-4 pt-2 items-center gap-2 rounded-xl font-semibold flex p-1 ">
           <VerifiedOutlinedIcon />
           SOCIAL POSTS 3
         </p>
-        <MarketingSocialCards />
-        <MarketingSocialCards />
+        {social_post?.map((item, index) => (
+          <MarketingSocialCards key={index} data={item} />
+        ))}
       </div>
     </div>
   );

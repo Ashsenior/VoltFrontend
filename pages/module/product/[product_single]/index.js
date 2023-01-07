@@ -35,6 +35,102 @@ function ProductDetail({ query }) {
       throw error;
     }
   };
+  const data = [
+    {
+      id: 9,
+      key: "lqzh52RcJ1",
+      title: "Add product",
+      tag: null,
+      desc: "This add products",
+      completed: false,
+      startDate: "2023-01-04",
+      deadline: "2023-01-12",
+      issue: 3,
+      assigned_to: "shubhamjoshi",
+      product: 6,
+    },
+    {
+      id: 9,
+      key: "lqzh52RcJ1",
+      title: "Add product",
+      tag: null,
+      desc: "This add products",
+      completed: false,
+      startDate: "2023-01-04",
+      deadline: "2023-01-12",
+      issue: 3,
+      assigned_to: "shubhamjoshi",
+      product: 6,
+    },
+    {
+      id: 9,
+      key: "lqzh52RcJ1",
+      title: "Add product",
+      tag: null,
+      desc: "This add products",
+      completed: false,
+      startDate: "2023-01-04",
+      deadline: "2023-01-12",
+      issue: 3,
+      assigned_to: "shubhamjoshi",
+      product: 6,
+    },
+    {
+      id: 9,
+      key: "lqzh52RcJ1",
+      title: "Add product",
+      tag: null,
+      desc: "This add products",
+      completed: false,
+      startDate: "2023-01-04",
+      deadline: "2023-01-12",
+      issue: 3,
+      assigned_to: "ashutosh",
+      product: 6,
+    },
+    {
+      id: 9,
+      key: "lqzh52RcJ1",
+      title: "Add product",
+      tag: null,
+      desc: "This add products",
+      completed: false,
+      startDate: "2023-01-04",
+      deadline: "2023-01-12",
+      issue: 3,
+      assigned_to: "ashutosh",
+      product: 6,
+    },
+  ];
+
+  // const filter = (element) => {
+  //   let temp = {};
+  //   for (let e of element) {
+  //     !temp[e.assigned_to]
+  //       ? (temp[e.assigned_to] = [e])
+  //       : temp[e.assigned_to]?.push(e);
+  //   }
+  //   return temp;
+  // };
+
+  // useEffect(() => {
+  //   console.log(filter(data));
+  // });
+  function groupBy(array, property) {
+    var object = {};
+    array.forEach((obj, index) => {
+      if (!object[array[index][property]]) object[array[index][property]] = [];
+      {
+        object[array[index][property]].push(array[index]);
+      }
+    });
+    return object;
+  }
+
+  useEffect(() => {
+    console.log(groupBy(data, "assigned_to"));
+  });
+
   return <ProductDetails query={query.product_key} product={products} />;
 }
 

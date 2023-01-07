@@ -3,7 +3,6 @@ import FeaturesCard from "./FeaturesCard";
 import Router, { useRouter } from "next/router";
 const ProductFeatures = ({ features, query }) => {
   const router = useRouter();
-  console.log(features.features);
 
   return (
     <div className="bg-white rounded-lg mt-6 p-1 md:p-6 w-full shadow">
