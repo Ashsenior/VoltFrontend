@@ -5,10 +5,10 @@ import PendingActionsOutlinedIcon from "@mui/icons-material/PendingActionsOutlin
 const EmptyState = () => {
   return (
     <div>
-      <div className="grid grid-cols-2 border p-2 rounded-md">
+      <div className="grid grid-cols-2 bg-gray-900 p-2 rounded-md justify-center items-center">
         <div>
           <img
-            className="w-14 rounded-full mx-auto"
+            className="w-10 rounded-full mx-auto"
             src={
               "https://fkdolnidvoriste.cz/wp-content/uploads/2021/08/Profile.jpg"
             }
@@ -17,7 +17,7 @@ const EmptyState = () => {
         </div>
         <div className="flex flex-col justify-between">
           <div>
-            <h2 className="text-base font-medium">NO DATA FOUND</h2>
+            <h2 className="text-gray-400 font-medium">NO PERSON FOUND</h2>
           </div>
         </div>
       </div>

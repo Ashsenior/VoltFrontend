@@ -14,15 +14,12 @@ const SidebarLayout = ({ children }) => {
   return (
     <>
       <Box
+      className='bg-gray-800'
         sx={{
           flex: 1,
           height: '100%',
 
           '.MuiPageTitle-wrapper': {
-            background:
-              theme.palette.mode === 'dark'
-                ? theme.colors.alpha.trueWhite[5]
-                : theme.colors.alpha.white[50],
             marginBottom: `${theme.spacing(4)}`,
             boxShadow:
               theme.palette.mode === 'dark'

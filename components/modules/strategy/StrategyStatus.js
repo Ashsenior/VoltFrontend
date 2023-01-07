@@ -53,9 +53,9 @@ const StrategyStatus = ({ strategy }) => {
 
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-3 xl:mx-4 p-2 mt-7">
+      <div className=" bg-gray-800 grid grid-cols-1 lg:grid-cols-3 xl:mx-4 p-2 mt-7">
         <div className="p-1">
-          <p className=" text-base py-2 gap-2 rounded-xl font-semibold flex items-center text-gray-500">
+          <p className=" text-base py-2 gap-2 rounded-xl font-semibold flex items-center text-gray-300">
             <DonutLargeOutlinedIcon />
             IN PROGRESS 2
           </p>
@@ -69,7 +69,7 @@ const StrategyStatus = ({ strategy }) => {
           ))}
         </div>
         <div className=" p-1 ">
-          <p className=" text-base py-2 gap-2 items-center rounded-xl font-semibold flex text-gray-500">
+          <p className=" text-base py-2 gap-2 items-center rounded-xl font-semibold flex text-gray-300">
             <AssignmentTurnedInOutlinedIcon />
             COMPLETED 2
           </p>
@@ -78,7 +78,7 @@ const StrategyStatus = ({ strategy }) => {
           ))}
         </div>
         <div className=" p-1">
-          <p className=" text-base py-2 items-center gap-2 rounded-xl font-semibold flex text-gray-500">
+          <p className=" text-base py-2 items-center gap-2 rounded-xl font-semibold flex text-gray-300">
             <VerifiedOutlinedIcon />
             CLOSED 3
           </p>

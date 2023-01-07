@@ -44,7 +44,8 @@ const MarketingSocialCards = ({ data }) => {
         className="rounded-xl"
         component="img"
         height="194"
-        image={data?.image}
+        image="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+        //image={data?.image}
         alt="Paella dish"
       />
       <div className="p-3">
@@ -56,9 +57,9 @@ const MarketingSocialCards = ({ data }) => {
           </p>
         </Typography>
         <div className="flex items-center gap-6 border-green-300 pt-2 px-2">
-          <button className="w-1/3 justify-center bg-gray-900 rounded-full p-1 flex items-center gap-1 text-gray-400">
+          <button className="w-1/3 justify-center bg-gray-100 rounded-full p-1 flex items-center gap-1 text-gray-400">
             <FavoriteIcon />
-            <p className="font-semibold">{data?.reaction}k</p>
+            <p className="font-semibold">{data?.reaction}</p>
           </button>
           <button className="w-1/3 justify-center bg-gray-100 rounded-full p-1 flex button items-center gap-1 text-gray-400">
             <ChatBubbleIcon />

@@ -60,7 +60,7 @@ function TeamModule() {
     }
   };
   return (
-    <div>
+    <div className="bg-gray-800">
       <TeamHeader />
       <AllTeamCards data={team} />
       <Footer />

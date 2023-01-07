@@ -1,6 +1,5 @@
 import React from "react";
 import TeamCard from "./TeamCard";
-import ConnectionRequest from "./ConnectionRequest";
 import EmptyState from "./empty-state";
 import ConnectionRequests from "./ConnectionRequests";
 
@@ -60,37 +59,45 @@ const AllTeamCards = ({ data }) => {
     },
   ];
   return (
-    <div className="bg-white rounded-lg mb-10 h-full shadow">
-      <h1 className="text-base font-semibold ml-6 pt-6">All members</h1>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
-        {data?.connections?.members ? (
-          data?.connections?.members?.map((member) => (
-            <TeamCard key={member.id} member={member} />
-          ))
-        ) : (
-          <EmptyState />
-        )}
+    <div className=" mb-10 mt-4 h-full shadow">
+      <div className="flex">
+        <div className="w-1/3">
+          <h1 className="text-gray-200 font-semibold ml-2 pt-2">Mobs <span className="text-gray-400">aka Admins</span></h1>
+          <div className=" gap-4 p-2">
+            {data?.team?.mobs?.map((member) => (
+              <TeamCard key={member.email} member={member} />
+            ))}
+          </div>
+        </div>
+        <div className="w-1/3">
+          <h1 className="text-gray-200 font-semibold ml-2 pt-2">Other Members</h1>
+          <div className=" gap-4 p-2">
+            {data?.connections?.members ? (
+              data?.connections?.members?.map((member) => (
+                <TeamCard key={member.id} member={member} />
+              ))
+            ) : (
+              <EmptyState />
+            )}
+          </div>
+        </div>
+        <div className="w-1/3">
+          <h1 className="text-gray-200 font-semibold ml-2 pt-2">Connections</h1>
+          <div className=" gap-4 p-2">
+            {data?.connections?.mobs ? (
+              data?.connections?.mobs?.map((member) => (
+                <TeamCard key={member.id} member={member} />
+              ))
+            ) : (
+              <EmptyState />
+            )}
+          </div>
+        </div>
       </div>
-      <h1 className="text-base font-semibold ml-6 pt-6">Mobs</h1>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
-        {data?.team?.mobs?.map((member) => (
-          <TeamCard key={member.email} member={member} />
-        ))}
-      </div>
-      <h1 className="text-base font-semibold ml-6 pt-6">Connections</h1>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
-        {data?.connections?.mobs ? (
-          data?.connections?.mobs?.map((member) => (
-            <TeamCard key={member.id} member={member} />
-          ))
-        ) : (
-          <EmptyState />
-        )}
-      </div>
-      <div>
-        <div className="mb-10">
-          <h1 className="text-xl font-semibold m-2">Request Recieved</h1>
-          <div className="m-2">
+      <div className="flex" >
+        <div className="mb-10 w-1/2">
+          <h1 className="text-lg text-gray-200 font-semibold m-2">Requests Recieved</h1>
+          <div className="grid grid-cols-2 gap-2 p-2">
             {data?.requests?.recieved ? (
               data?.requests?.recieved?.map((request) => (
                 <ConnectionRequests key={request.id} request={request} />
@@ -100,9 +107,9 @@ const AllTeamCards = ({ data }) => {
             )}
           </div>
         </div>
-        <div className="mb-10">
-          <h1 className="text-xl font-semibold m-2">Request sent</h1>
-          <div className="m-2">
+        <div className="mb-10 w-1/2">
+          <h1 className="text-lg text-gray-200 font-semibold m-2">Request sent</h1>
+          <div className="grid grid-cols-2 gap-2 p-2">
             {data?.requests?.sent ? (
               data?.requests?.sent?.map((request) => (
                 <ConnectionRequests key={request.id} request={request} />

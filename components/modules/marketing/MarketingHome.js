@@ -14,6 +14,11 @@ import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurned
 import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
 import MarketingSocialCards from "./marketingSocialCards";
 
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import AssistantIcon from '@mui/icons-material/Assistant';
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -104,41 +109,58 @@ const MarketingHome = ({ data }) => {
   };
 
   return (
-    <div className="md:flex">
-      <div className="w-full md:w-2/3 relative mt-4 pb-5 sm:pb-0 xl:px-0 ">
-        <div className="md:flex md:items-center md:justify-between px-4 py-1">
-          <h3 className="text-lg leading-6 font-medium text-gray-900">
-            Marketing Models
-          </h3>
-          <div className="mt-3 flex md:mt-0 md:absolute md:top-3 md:right-5">
-            <button
-              type="button"
-              className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Add New Social
-            </button>
-            <button
-              onClick={() => Router.push("/module/marketing/create_marketing")}
-              type="button"
-              className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Create new Marketing
-            </button>
+    <div className="md:flex bg-gray-800">
+      <div className="w-full md:w-2/3 relative pb-5 sm:pb-0 xl:px-0 ">
+        <div className="md:flex flex-row md:items-center md:justify-between px-4 py-1">
+          <h3 className="text-lg mt-4 leading-6 font-medium text-gray-200">
+            Marketing Campaigns / Strategies
             <button
               onClick={handleOpen}
               type="button"
-              className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-yellow-400 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="rounded-full bg-gray-900 ml-2 px-4 py-2 hover:bg-gray-700 text-purple-400 justify-center items-center"
             >
-              Idea
+              <AssistantIcon /> <small className="text-gray-400">Volt Assistant</small>
             </button>
+          </h3>
+          <div className=" flex md:mt-0 md:absolute md:right-5">  
             <MarketingDrawer handleClose={handleClose} open={open} />
           </div>
         </div>
-        <div className="mt-6">
+        
+        <div className="mt-1">
+          <p className="flex">
+            <div className="p-2 w-1/3">
+              <button
+                type="button"
+                className="inline-flex w-full gap-4 items-center bg-gray-700 px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:bg-gray-50 focus:outline-none"
+              >
+                <InstagramIcon className="mr-3 text-pink-500" />
+                Authorize Instagram
+              </button>
+            </div>
+            <div className="p-2 w-1/3">
+              <button
+                type="button"
+                className="inline-flex w-full gap-4 items-center bg-gray-700 px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:bg-gray-50 focus:outline-none"
+              >
+                <YouTubeIcon className="mr-3 text-red-500" />
+                Authorize YouTube
+              </button>
+            </div>
+            <div className="p-2 w-1/3">
+              <button
+                type="button"
+                className="inline-flex w-full gap-4 items-center bg-gray-700 px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:bg-gray-50 focus:outline-none"
+              >
+                <LinkedInIcon className="mr-3 text-blue-500" />
+                Authorize LinkedIn
+              </button>
+            </div>
+          </p>
           <MarketingStatus data={data} />
         </div>
       </div>
-      <div className="w-full md:w-1/3 p-2" style={{ minHeight: "100%" }}>
+      <div className="w-full bg-white md:w-1/3 p-2" style={{ minHeight: "100%" }}>
         <p className=" text-base text-gray-500 px-2 pb-4 pt-2 items-center gap-2 rounded-xl font-semibold flex p-1 ">
           <VerifiedOutlinedIcon />
           SOCIAL POSTS 3
