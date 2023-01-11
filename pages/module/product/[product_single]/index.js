@@ -47,6 +47,7 @@ function ProductDetail({ query }) {
       deadline: "2023-01-12",
       issue: 3,
       assigned_to: "shubhamjoshi",
+      cat: "Design",
       product: 6,
     },
     {
@@ -59,6 +60,7 @@ function ProductDetail({ query }) {
       startDate: "2023-01-04",
       deadline: "2023-01-12",
       issue: 3,
+      cat: "Code",
       assigned_to: "shubhamjoshi",
       product: 6,
     },
@@ -72,6 +74,7 @@ function ProductDetail({ query }) {
       startDate: "2023-01-04",
       deadline: "2023-01-12",
       issue: 3,
+      cat: "Test",
       assigned_to: "shubhamjoshi",
       product: 6,
     },
@@ -85,6 +88,7 @@ function ProductDetail({ query }) {
       startDate: "2023-01-04",
       deadline: "2023-01-12",
       issue: 3,
+      cat: "Test",
       assigned_to: "ashutosh",
       product: 6,
     },
@@ -98,24 +102,12 @@ function ProductDetail({ query }) {
       startDate: "2023-01-04",
       deadline: "2023-01-12",
       issue: 3,
+      cat: "Test",
       assigned_to: "ashutosh",
       product: 6,
     },
   ];
 
-  // const filter = (element) => {
-  //   let temp = {};
-  //   for (let e of element) {
-  //     !temp[e.assigned_to]
-  //       ? (temp[e.assigned_to] = [e])
-  //       : temp[e.assigned_to]?.push(e);
-  //   }
-  //   return temp;
-  // };
-
-  // useEffect(() => {
-  //   console.log(filter(data));
-  // });
   function groupBy(array, property) {
     var object = {};
     array.forEach((obj, index) => {
@@ -124,7 +116,25 @@ function ProductDetail({ query }) {
         object[array[index][property]].push(array[index]);
       }
     });
-    return object;
+    // return object;
+    let tempArray = [];
+
+    Object.keys(object).forEach(function (key) {
+      let tempObj = {};
+      tempObj.name = key;
+      let dataArray = [];
+      object[key].forEach((item) => {
+        let temp = {};
+        let startDate = item.startDate;
+        let endDate = item.deadline;
+        temp.x = item.cat;
+        temp.y = [startDate, endDate];
+        dataArray.push(temp);
+      });
+      tempObj.data = dataArray;
+      tempArray.push(tempObj);
+    });
+    return tempArray;
   }
 
   useEffect(() => {

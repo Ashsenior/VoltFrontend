@@ -14,10 +14,10 @@ import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurned
 import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
 import MarketingSocialCards from "./marketingSocialCards";
 
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import AssistantIcon from '@mui/icons-material/Assistant';
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import AssistantIcon from "@mui/icons-material/Assistant";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -119,14 +119,15 @@ const MarketingHome = ({ data }) => {
               type="button"
               className="rounded-full bg-gray-900 ml-2 px-4 py-2 hover:bg-gray-700 text-purple-400 justify-center items-center"
             >
-              <AssistantIcon /> <small className="text-gray-400">Volt Assistant</small>
+              <AssistantIcon />{" "}
+              <small className="text-gray-400">Volt Assistant</small>
             </button>
           </h3>
-          <div className=" flex md:mt-0 md:absolute md:right-5">  
+          <div className=" flex md:mt-0 md:absolute md:right-5">
             <MarketingDrawer handleClose={handleClose} open={open} />
           </div>
         </div>
-        
+
         <div className="mt-1">
           <p className="flex">
             <div className="p-2 w-1/3">
@@ -152,7 +153,7 @@ const MarketingHome = ({ data }) => {
                 type="button"
                 className="inline-flex w-full gap-4 items-center bg-gray-700 px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:bg-gray-50 focus:outline-none"
               >
-                <LinkedInIcon className="mr-3 text-blue-500" />
+                <LinkedInIcon className="mr-3 text-blue-500 font-medium" />
                 Authorize LinkedIn
               </button>
             </div>
@@ -160,7 +161,10 @@ const MarketingHome = ({ data }) => {
           <MarketingStatus data={data} />
         </div>
       </div>
-      <div className="w-full bg-white md:w-1/3 p-2" style={{ minHeight: "100%" }}>
+      <div
+        className="w-full bg-white md:w-1/3 p-2"
+        style={{ minHeight: "100%" }}
+      >
         <p className=" text-base text-gray-500 px-2 pb-4 pt-2 items-center gap-2 rounded-xl font-semibold flex p-1 ">
           <VerifiedOutlinedIcon />
           SOCIAL POSTS 3

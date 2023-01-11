@@ -10,6 +10,8 @@ import { GrAttachment } from "react-icons/gr";
 import { Button, Container } from "@mui/material";
 import Router from "next/router";
 import { checkPlatformChoices } from "../../../utils/data-modifiers";
+import MarketingDrawer from "../marketing/MarketingDrawer";
+import { useState } from "react";
 
 const ProductCard = ({ products }) => {
   const productCards = [
@@ -69,8 +71,19 @@ const ProductCard = ({ products }) => {
     },
   ];
 
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <>
+      <div className=" flex md:mt-0 md:absolute md:right-5">
+        <MarketingDrawer handleClose={handleClose} open={open} />
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4 bg-gray-50">
         {products?.products?.map((productCard) => (
           <>

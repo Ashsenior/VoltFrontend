@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import axiosInstance from "../../../src/axiosAPi";
 import axios from "axios";
 import GithubAuthContext from "../../../context/GithubAuthContext";
+import AssistantIcon from "@mui/icons-material/Assistant";
+import MarketingDrawer from "../marketing/MarketingDrawer";
 
 const ProductHome = ({ products }) => {
   const context = useContext(GithubAuthContext);
@@ -15,6 +17,7 @@ const ProductHome = ({ products }) => {
   const [authorize, setAuthorize] = useState(false);
   const [startup_key, setStartupKey] = useState("");
   const [username, setUsername] = useState("");
+  const [open, setOpen] = useState(false);
   const router = useRouter();
   const { query } = useRouter();
 
@@ -86,6 +89,13 @@ const ProductHome = ({ products }) => {
       }
     }
   }
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <div className="relative pb-5 sm:pb-0 mb-10">
@@ -110,6 +120,19 @@ const ProductHome = ({ products }) => {
             >
               Create new Strategy
             </button>
+            <button
+              onClick={handleOpen}
+              type="button"
+              className="rounded-full bg-gray-900 ml-2 px-4 py-2 hover:bg-gray-700 text-purple-400 justify-center items-center"
+            >
+              <AssistantIcon />{" "}
+              <small className="text-gray-200 font-medium ">
+                Volt Assistant
+              </small>
+            </button>
+            <div className=" flex md:mt-0 md:absolute md:right-5">
+              <MarketingDrawer handleClose={handleClose} open={open} />
+            </div>
           </div>
         </div>
       </div>
