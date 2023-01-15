@@ -42,7 +42,7 @@ const InProgress = ({ data }) => {
           max="100"
         ></progress>
       </div>
-      <div className="flex items-center gap-6 border-green-300 pt-2">
+      {/*<div className="flex items-center gap-6 border-green-300 pt-2">
         <button className="w-1/3 justify-center rounded-full bg-gray-800 p-1 flex items-center gap-1 text-gray-300">
           <YouTubeIcon />
           <p className="font-semibold">{data?.subs?.youtube}</p>
@@ -55,7 +55,7 @@ const InProgress = ({ data }) => {
           <InstagramIcon />
           <p className="font-semibold">{data?.subs?.instagram}</p>
         </button>
-      </div>
+      </div>*/}
     </div>
   );
 };

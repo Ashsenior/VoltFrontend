@@ -100,7 +100,7 @@ const AllTeamCards = ({ data }) => {
           <div className="grid grid-cols-2 gap-2 p-2">
             {data?.requests?.recieved ? (
               data?.requests?.recieved?.map((request) => (
-                <ConnectionRequests key={request.id} request={request} />
+                <ConnectionRequests key={request.id} request={request} cat={"R"} />
               ))
             ) : (
               <EmptyState />
@@ -112,7 +112,7 @@ const AllTeamCards = ({ data }) => {
           <div className="grid grid-cols-2 gap-2 p-2">
             {data?.requests?.sent ? (
               data?.requests?.sent?.map((request) => (
-                <ConnectionRequests key={request.id} request={request} />
+                <ConnectionRequests key={request.id} request={request} cat={"S"} />
               ))
             ) : (
               <EmptyState />

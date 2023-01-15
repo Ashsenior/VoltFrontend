@@ -19,6 +19,7 @@ import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import { Box, Stack } from "@mui/material";
 
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -44,30 +45,29 @@ const MarketingSocialCards = ({ data }) => {
         className="rounded-xl"
         component="img"
         height="194"
-        image="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+        image={data?.img?.slice(0,4)==="https"?data.img:"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"}
         //image={data?.image}
-        alt="Paella dish"
+        alt="Thumbnail"
       />
       <div className="p-3">
         <Typography variant="body2" className="text-gray-500 flex flex-row">
-          <YouTubeIcon className="mr-1 flex flex-col text-red-500" />
+          {data?.social?.platform==="Y"?<YouTubeIcon className="mr-1 flex flex-col text-red-500" />:<InstagramIcon className="mr-1 flex flex-col text-pink-500" />}
           <p>
-            This impressive paella is a perfect party dish and a fun meal to
-            cook together
+            {data?.title}
           </p>
         </Typography>
         <div className="flex items-center gap-6 border-green-300 pt-2 px-2">
           <button className="w-1/3 justify-center bg-gray-100 rounded-full p-1 flex items-center gap-1 text-gray-400">
             <FavoriteIcon />
-            <p className="font-semibold">{data?.reaction}</p>
+            <p className="font-semibold">{data?.reactions_count}</p>
           </button>
           <button className="w-1/3 justify-center bg-gray-100 rounded-full p-1 flex button items-center gap-1 text-gray-400">
             <ChatBubbleIcon />
-            <p className="font-semibold">{data?.comments}</p>
+            <p className="font-semibold">{data?.comments_count}</p>
           </button>
           <button className="w-1/3 justify-center bg-gray-100 rounded-full p-1 flex button items-center gap-1 text-gray-400">
             <RemoveRedEyeIcon />
-            <p className="font-semibold">{data?.shared}</p>
+            <p className="font-semibold">{data?.reached_to}</p>
           </button>
         </div>
       </div>

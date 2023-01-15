@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
     // http://127.0.0.1:8000/
     // https://starticfieldapi.herokuapp.com/
     baseURL: 'http://127.0.0.1:8000/',
-    timeout: 5000,
+    timeout: 18000,
     headers: {
         'Authorization': "JWT " + token,
         'Content-Type': 'application/json',

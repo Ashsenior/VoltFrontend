@@ -8,11 +8,11 @@ import axiosInstance from "../../../src/axiosAPi";
 import axios from "axios";
 import GithubAuthContext from "../../../context/GithubAuthContext";
 
-const ProductHome = ({ products }) => {
+const ProductHome = ({ products, authorized }) => {
   const context = useContext(GithubAuthContext);
   const [authorizeData, setAuthorizeData] = useState({});
   const [authenticated, setAuthenticated] = useState(false);
-  const [authorize, setAuthorize] = useState(false);
+  //const [authorized, setAuthorized] = useState(authorized);
   const [startup_key, setStartupKey] = useState("");
   const [username, setUsername] = useState("");
   const router = useRouter();
@@ -29,7 +29,7 @@ const ProductHome = ({ products }) => {
         setStartupKey(localStorage.getItem("startup_key"));
       }
     }
-  }, [authorize]);
+  }, [authorized]);
 
   // useEffect(() => {
   // }, [authorize, authenticated]);
@@ -79,7 +79,7 @@ const ProductHome = ({ products }) => {
           .then(() => {
             localStorage.removeItem("state");
             localStorage.removeItem("client_id");
-            setAuthorize(true);
+            setAuthorized(true);
           });
       } catch (error) {
         throw error;
@@ -87,17 +87,17 @@ const ProductHome = ({ products }) => {
     }
   }
   return (
-    <>
+    <div className="bg-gray-800">
       <div className="relative pb-5 sm:pb-0 mb-10">
         <div className="md:flex md:items-center md:justify-between">
-          <h3 className="text-lg leading-6 font-medium text-gray-900 mt-4 ml-4">
-            Strategy for Product Models
+          <h3 className="text-lg leading-6 font-medium text-gray-100 pt-4 ml-4">
+            Products
           </h3>
           <div className="mt-3 flex md:mt-0 md:absolute md:top-3 md:right-10">
-            {authorize ? null : (
+            {false ? null : (
               <button
                 type="button"
-                className="inline-flex items-center  text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-900 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 onClick={() => handleGitHubAuthentication()}
               >
                 Authenticate with Github
@@ -108,13 +108,13 @@ const ProductHome = ({ products }) => {
               className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               onClick={() => router.push("product/create_product/NewProduct")}
             >
-              Create new Strategy
+              New Product
             </button>
           </div>
         </div>
       </div>
       <ProductCard products={products} />
-    </>
+    </div>
   );
 };
 

@@ -53,7 +53,7 @@ const StrategyStatus = ({ strategy }) => {
 
   return (
     <>
-      <div className=" bg-gray-800 grid grid-cols-1 lg:grid-cols-3 xl:mx-4 p-2 mt-7">
+      <div className=" bg-gray-700 rounded-lg grid grid-cols-1 lg:grid-cols-3 xl:mx-4 p-2 mt-7">
         <div className="p-1">
           <p className=" text-base py-2 gap-2 rounded-xl font-semibold flex items-center text-gray-300">
             <DonutLargeOutlinedIcon />

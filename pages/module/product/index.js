@@ -41,8 +41,7 @@ function ProductModule() {
       <Head>
         <title>Product Module</title>
       </Head>
-      <ProductHome products={products} />
-      <Footer />
+      <ProductHome products={products}  />
     </>
   );
 }

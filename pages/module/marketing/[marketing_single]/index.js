@@ -215,7 +215,7 @@ const MarketingSingleView = ({ strategy, query }) => {
             </label>
           </div>
 
-          <SingleMarketing data={marketing} />
+          <SingleMarketing data={marketing.socials} />
         </div>
       </div>
     </>
