@@ -88,7 +88,7 @@ const NewContent = ({ query }) => {
             </p>
             <span
               onClick={() =>
-                Router.push("/module/create_content/ContentDetails")
+                router.push("/module/create_content/ContentDetails")
               }
               className="bg-gray-600 rounded-md ml-2 text-gray-50 p-1 px-2"
             >
