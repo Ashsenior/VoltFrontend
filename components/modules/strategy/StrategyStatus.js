@@ -7,50 +7,6 @@ import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurned
 import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
 
 const StrategyStatus = ({ strategy }) => {
-  const completed = [
-    {
-      id: "dhfsfh102",
-      title: "Campaign Title Something",
-      head: "ashsenior",
-      deadline: "18/11/2022",
-      content:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, aliquam eligendi, corrupti ducimus asperiores beatae tempora nihil earum sequi repellendus, odit recusandae aut amet rerum?",
-      marketing: "7",
-      research: "14",
-    },
-    {
-      id: "dhfsfh102",
-      title: "Campaign Title Something",
-      head: "ashsenior",
-      deadline: "22/12/2022",
-      content:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, aliquam eligendi, corrupti ducimus asperiores beatae tempora nihil earum sequi repellendus, odit recusandae aut amet rerum?",
-      marketing: "8",
-      research: "11",
-    },
-  ];
-
-  const tasks = [
-    {
-      id: "dhfsfh102",
-      title: "Title strategy",
-      head: "ashsenior",
-      link: "something.com link",
-    },
-    {
-      id: "dhfsfh102",
-      title: "Title strategy",
-      head: "ashsenior",
-      link: "something.com link",
-    },
-    {
-      id: "dhfsfh102",
-      title: "Title strategy",
-      head: "ashsenior",
-      link: "something.com link",
-    },
-  ];
-
   return (
     <>
       <div className=" bg-gray-700 rounded-lg grid grid-cols-1 lg:grid-cols-3 xl:mx-4 p-2 mt-7">
@@ -61,10 +17,7 @@ const StrategyStatus = ({ strategy }) => {
           </p>
           {strategy?.inprogress?.major?.map((data, index) => (
             <div key={index} className="mb-4">
-              <InProgressStrategy
-                key={data.id}
-                data={data}
-              ></InProgressStrategy>
+              <InProgressStrategy key={data.id} data={data} />
             </div>
           ))}
         </div>
