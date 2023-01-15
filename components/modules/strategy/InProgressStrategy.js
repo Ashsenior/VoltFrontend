@@ -55,60 +55,40 @@ const InProgressStrategy = ({ data }) => {
         ></progress>
       </div>
       <div className="py-2">
-        <a
-          href="#xc"
-          className="flex items-center text-gray-300 mt-1 bg-gray-800 hover:bg-gray-500 hover:text-gray-100 gap-1"
-        >
-          <small className="p-1 text-gray-300">
-            <ShoppingCart />
-          </small>
-          <p className="text-md font-semibold ">
-            Reach out to mentors and ecells.
-          </p>
-          <small className="p-1 text-green-500">
-            <VerifiedOutlinedIcon />
-          </small>
-        </a>
-        <a
-          href="#xc"
-          className="flex items-center  mt-1 bg-gray-800 gap-1 hover:bg-gray-500 hover:text-gray-100"
-        >
-          <small className="p-1 text-gray-300">
-            <PostAddIcon />
-          </small>
-          <p className="text-md font-semibold text-gray-300">
-            Find out the pain points of e-cells in delhi.
-          </p>
-          <small className="p-1 text-green-500">
-            <VerifiedOutlinedIcon />
-          </small>
-        </a>
-        <a
-          href="#xc"
-          className="flex items-center  mt-1 bg-gray-800 gap-1 hover:bg-gray-500 hover:text-gray-100"
-        >
-          <small className="p-1 text-gray-300">
-            <ShoppingCart />
-          </small>
-          <p className="text-md font-semibold text-gray-300">
-            Recreate the meme marketing strategy.
-          </p>
-        </a>
-        <a
-          href="#xc"
-          className="flex items-center  mt-1 bg-gray-800 gap-1 hover:bg-gray-500 hover:text-gray-100"
-        >
-          <small className="p-1 text-gray-300">
-            <PostAddIcon />
-          </small>
-          <p className="text-md font-semibold text-gray-300">
-            Work on the solution for ecells with R&D team.
-          </p>
-        </a>
+        {
+          data?.subs.map((sub) => (
+            <a
+              href="#xc"
+              className="flex items-center text-gray-300 mt-1 bg-gray-800 hover:bg-gray-600 hover:text-gray-100 gap-1"
+            >
+              {
+                sub?.type==="M"?
+                <small className="p-1 text-gray-300">
+                  <ShoppingCart />
+                </small>
+                :
+                <small className="p-1 text-gray-300">
+                  <PostAddIcon />
+                </small>
+              }
+              <p className="text-md font-semibold ">
+                {sub?.title}
+              </p>
+              {
+                sub?.completed?
+                <small className="p-1 text-green-500">
+                  <VerifiedOutlinedIcon />
+                </small>
+                :
+                null
+              }
+            </a>
+          ))
+        }
       </div>
       <button
         onClick={() => handleOpen(data?.details?.slug)}
-        className="flex text-gray-200 rounded-md py-1 w-full bg-gray-600 justify-center items-center gap-1 hover:text-lime-400"
+        className="flex text-gray-200 rounded-md py-1 w-full bg-gray-600 justify-center items-center gap-1 hover:bg-gray-500"
       >
         <PostAddIcon />
         <p className="font-semibold">Add Sub Strategy</p>

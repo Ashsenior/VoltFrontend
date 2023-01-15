@@ -80,7 +80,7 @@ const CreateSubStrategyModal = ({ handleClose, open, slug }) => {
       try {
         if (values.category === "m") {
           axiosInstance
-            .post("http://127.0.0.1:8000/marketing/startup/create-marketing", {
+            .post("http://127.0.0.1:8000/marketing/startup/create-marketing/", {
               marketingLeader: values.leader,
               marketingTitle: values.title,
               strategy_slug: slug,

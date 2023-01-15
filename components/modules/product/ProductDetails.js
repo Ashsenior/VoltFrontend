@@ -42,20 +42,19 @@ const ProductDetails = ({ product, query }) => {
         </div>
       </div>
 
-      <div className="m-4">
+      <div className="p-4 bg-gray-800">
         <ProductIntro product={product} />
         <ProductAnalytics />
         <div className="flex flex-col md:flex-row">
-          <div className="w-full md:w-10/12 mr-4">
+          <div className="w-full md:w-9/12 mr-4">
             <ProductFeatures features={product} query={query} />
-            <ProductIssues />
+            <ProductIssues issues={product?.issues} />
           </div>
-          <div className="w-full md:w-2/12 flex justify-end">
+          <div className="w-full md:w-3/12 flex justify-end">
             <ProductTimeline />
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

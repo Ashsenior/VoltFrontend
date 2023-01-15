@@ -229,7 +229,7 @@ const ProductAnalytics = () => {
 
   return (
     <div className="flex flex-col md:flex-row gap-2 mt-6">
-      <div className="w-full bg-white pr-4 rounded-lg p-2 shadow">
+      <div className="w-full bg-gray-100 pr-4 rounded-lg p-2 shadow">
         <h4 className="text-base font-semibold m-2">Product Timeline</h4>
         <ReactApexChart
           options={timelineChart.options}

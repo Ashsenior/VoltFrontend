@@ -5,9 +5,9 @@ const ProductFeatures = ({ features, query }) => {
   const router = useRouter();
 
   return (
-    <div className="bg-white rounded-lg mt-6 p-1 md:p-6 w-full shadow">
+    <div className="bg-gray-900 rounded-lg mt-6 p-1 md:p-6 w-full shadow">
       <div className="md:flex md:items-center md:justify-between mb-6">
-        <h3 className="text-lg leading-6 font-medium text-gray-900 ml-4">
+        <h3 className="text-lg leading-6 font-medium text-gray-300 ml-4">
           Features for Product Models
         </h3>
         <button

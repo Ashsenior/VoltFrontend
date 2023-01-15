@@ -2,7 +2,7 @@ import { Card } from "flowbite-react";
 import React from "react";
 import { checkTeamDomain } from "../../../utils/data-modifiers";
 
-const ConnectionRequests = ({ request }) => {
+const ConnectionRequests = ({ request , cat }) => {
   console.log(request);
   return (
     <div>
@@ -48,35 +48,42 @@ const ConnectionRequests = ({ request }) => {
                 />
               </div>
               <div className="flex flex-col">
-                <h5 className="mb-1 text-md font-medium text-gray-900 dark:text-white">
+                <h5 className="mb-1 text-lg text-gray-300">
                   {request?.user?.first_name} {request?.user?.last_name}
                   <br />@{request?.user.username}
                 </h5>
                 <span className="text-sm mb-4 text-gray-500 dark:text-gray-400">
-                  {checkTeamDomain(request?.user?.profile?.domain)}
+                  {checkTeamDomain(request?.user?.profile?.domain)} Guy
                 </span>
               </div> 
             </div>
-            <center className="text-sm text-gray-500 mb-2 dark:text-gray-400">
-              Skills : {request?.user?.profile?.skills}
+            <center className="text-sm text-gray-300 mb-1">
+              {request?.user?.profile?.skills.split(",").map((skill) => (
+                <span className="mx-1 rounded-full px-2 bg-gray-700">{skill}</span>
+              ))}
             </center>
             <center className=" text-sm font-medium text-gray-300">
               {request?.message}
             </center>
-            <div className=" flex space-x-3 mt-3 items-center justify-center">
-              <a
-                href="#"
-                className="inline-flex items-center rounded-lg bg-purple-700 py-2 px-4 text-center text-sm font-medium text-white hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
-              >
-                Accept Request
-              </a>
-              <a
-                href="#"
-                className="inline-flex items-center rounded-lg border border-gray-300 bg-white py-2 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-              >
-                Decline
-              </a>
-            </div>
+            {
+              cat==="R"?
+              <div className=" flex space-x-3 mt-3 items-center justify-center">
+                <a
+                  href="#"
+                  className="inline-flex items-center rounded-lg bg-purple-700 py-2 px-4 text-center text-sm font-medium text-white hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
+                >
+                  Accept Request
+                </a>
+                <a
+                  href="#"
+                  className="inline-flex items-center rounded-lg border border-gray-300 bg-white py-2 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                >
+                  Decline
+                </a>
+              </div>
+              :
+              null
+            }
           </div>
         </div>
       </div>

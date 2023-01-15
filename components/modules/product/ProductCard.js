@@ -10,6 +10,10 @@ import { GrAttachment } from "react-icons/gr";
 import { Button, Container } from "@mui/material";
 import Router from "next/router";
 import { checkPlatformChoices } from "../../../utils/data-modifiers";
+import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
+import TagIcon from '@mui/icons-material/Tag';
+import LinkIcon from '@mui/icons-material/Link';
+import CodeIcon from '@mui/icons-material/Code';
 import MarketingDrawer from "../marketing/MarketingDrawer";
 import { useState } from "react";
 
@@ -84,13 +88,13 @@ const ProductCard = ({ products }) => {
       <div className=" flex md:mt-0 md:absolute md:right-5">
         <MarketingDrawer handleClose={handleClose} open={open} />
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4 bg-gray-50">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 xl:mx-4 p-4 rounded-lg mt-7 bg-gray-700 ">
         {products?.products?.map((productCard) => (
           <>
-            <div className="w-full flex bg-white p-2 rounded-lg mx-auto">
-              <div className="w-1/3 flex flex-col border-r">
+            <div className="w-full flex bg-gray-900 text-gray-300 p-4 rounded-lg shadow-xl mx-auto">
+              <div className="w-1/3 flex flex-col justify-center items-center ">
                 <div
-                  className="cursor-pointer"
+                  className="cursor-pointer "
                   onClick={() =>
                     Router.push(
                       `/module/product/product-single?product_key=${productCard.key}`
@@ -98,14 +102,14 @@ const ProductCard = ({ products }) => {
                   }
                 >
                   <img
-                    className="flex w-28 m-1 rounded-md mx-auto"
-                    src={productCard.logo}
+                    className="flex w-20 h-20 m-1 rounded-full mx-auto"
+                    src={"http://127.0.0.1:8000"+productCard.logo}
                     alt=""
                   />
                 </div>
               </div>
               <div className="w-2/3 flex flex-col justify-between ml-2">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between px-2 pb-2">
                   <h4
                     onClick={() =>
                       Router.push(
@@ -115,34 +119,31 @@ const ProductCard = ({ products }) => {
                     className="text-base font-semibold cursor-pointer"
                   >
                     {productCard.name}
-                    <br />
-                    <span>
-                      {productCard?.deployed_link
-                        ? productCard?.deployed_link
-                        : "-"}
-                    </span>
                   </h4>
-
-                  <p className="px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                    @{productCard.productLeader}
-                  </p>
+                  <span class="bg-gray-100 gap-1 text-green-200 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-800">
+                      <AssignmentIndOutlinedIcon />
+                      {productCard.productLeader}
+                  </span>
                 </div>
-                <h6 className="text-xs font-medium mb-4">
-                  {checkPlatformChoices(productCard.platform)}
-                </h6>
-                <p className="text-sm font-light mb-2">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod
-                  incidunt possimus praesentium in, ea eum. adipisicing elit.
-                </p>
-                <div className="grid grid-cols-2 items-center justify-between gap-2 mx-5">
-                  <div className="flex items-center gap-2">
-                    <BsFillPeopleFill></BsFillPeopleFill>
-                    <p>4 Members</p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <BsFillStopwatchFill></BsFillStopwatchFill>
-                    <p>10 Days</p>
-                  </div>
+                <div className="items-center justify-between gap-2">
+                    <span class="bg-gray-100 gap-1 text-gray-200 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-800">
+                        <LinkIcon />
+                        {productCard?.deployed_link
+                        ? productCard?.deployed_link
+                        : "no deployed link"}
+                    </span>
+                  <span class="bg-gray-100 gap-1 text-gray-200 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-800">
+                      <AssignmentIndOutlinedIcon />
+                      4 members
+                  </span>
+                  <span class="bg-gray-100 gap-1 text-gray-200 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-800">
+                      <TagIcon />
+                      {productCard.keyword}
+                  </span>
+                  <span class="bg-gray-100 gap-1 text-gray-200 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-800">
+                      <CodeIcon />
+                      {checkPlatformChoices(productCard.platform)}
+                  </span>
                 </div>
               </div>
             </div>

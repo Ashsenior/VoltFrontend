@@ -1,7 +1,8 @@
 import React from 'react';
-
-const ProductIssues = () => {
-
+import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
+import TagIcon from '@mui/icons-material/Tag';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+const ProductIssues = ({issues}) => {
     const issueData = [
         {
             id: 'fhdg357564',
@@ -61,65 +62,69 @@ const ProductIssues = () => {
 
 
     return (
-        <div className='bg-white rounded-lg shadow p-2 mt-2'>
+        <div className='bg-gray-900 text-gray-300 rounded-lg shadow p-2 mt-2'>
             <div className='flex items-center justify-around gap-2 my-6'>
-                <div className='flex flex-col justify-center items-center gap-2 bg-gray-50 rounded-md p-2 w-52'>
-                    <h1 className='text-base font-bold text-gray-600'>Total Issue Solved</h1>
-                    <p className='text-2xl font-bold text-green-500'>6</p>
+                <div className='flex flex-col justify-center items-center gap-2 bg-gray-800 rounded-md p-2 w-52'>
+                    <h1 className='text-base font-bold text-gray-200'>Total Issue Solved</h1>
+                    <p className='text-2xl font-bold text-green-500'>{issues?.closed}</p>
                 </div>
-                <div className='flex flex-col justify-center items-center gap-2 bg-gray-50 rounded-md p-2 w-52'>
-                    <h1 className='text-base font-bold text-gray-600'>Issue Unsolved</h1>
-                    <p className='text-2xl font-bold text-red-500'>13</p>
-                </div>
-                <div className='flex flex-col justify-center items-center gap-2 bg-gray-50 rounded-md p-2 w-52'>
-                    <h1 className='text-base font-bold text-gray-600'>High priority</h1>
-                    <p className='text-2xl font-bold text-orange-400'>6</p>
-                </div>
-                <div className='flex flex-col justify-center items-center gap-2 bg-gray-50 rounded-md p-2 w-52'>
-                    <h1 className='text-base font-bold text-gray-600'>Deadline</h1>
-                    <p className='text-2xl font-bold'>3</p>
+                <div className='flex flex-col justify-center items-center gap-2 bg-gray-800 rounded-md p-2 w-52'>
+                    <h1 className='text-base font-bold text-gray-200'>Issue Unsolved</h1>
+                    <p className='text-2xl font-bold text-red-500'>{issues?.opened}</p>
                 </div>
             </div>
 
             <table className="w-full">
                 <thead className='mb-2'>
-                    <tr className='text-gray-600'>
-                        <th>Image</th>
-                        <th>Product</th>
+                    <tr className='text-gray-400 text-lg bg-black'>
+                        <th className='py-4'></th>
+                        <th className='py-4'>Issue No.</th>
+                        <th>Issue Title</th>
                         <th>Assigned to</th>
-                        <th>Deadline</th>
-                        <th>Priority</th>
                         <th>Status</th>
-                        <th>Progress</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        issueData.map(issue =>
+                        issues?.issues?.map(issue =>
                             <tr
                                 key={issue.id}
-                                className=''
+                                className='border-b border-gray-600'
                             >
                                 <td>
-                                    <img className='w-20 p-4 mx-auto' src="https://www.enviroforensics.com/wp-content/uploads/2019/04/new-blue-problem-icon-300x259.png" alt="" />
+                                    {
+                                        issue.avatar_url?
+                                        <img className='w-20 p-4 rounded-full mx-auto' src={issue.avatar_url} alt="" />
+                                        :
+                                        <img className='w-20 p-4 rounded-full mx-auto' src="https://tse4.mm.bing.net/th?id=OIP.OesLvyzDO6AvU_hYUAT4IAHaHa&pid=Api&P=0" alt="" />
+                                    }
                                 </td>
                                 <td>
-                                    <h4 className='font-semibold text-center'>{issue.name}</h4>
+                                    <span class="text-center bg-gray-100 gap-1 text-yellow-200 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-800">
+                                        <TagIcon />
+                                        {issue?.number}
+                                    </span>
                                 </td>
                                 <td>
-                                    <p className='text-center'> <span className='text-gray-400 font-bold'> {issue.assignedTo}</span></p>
+                                    <h4 className='font-semibold text-center'>{issue?.title}</h4>
                                 </td>
                                 <td>
-                                    <p className='text-center'>{issue.deadline}</p>
+                                    <span class="text-center bg-gray-100 gap-1 text-yellow-200 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-800">
+                                        <AssignmentIndOutlinedIcon />
+                                        @{issue.assignee?issue.assignee:"None"}
+                                    </span>
                                 </td>
                                 <td>
-                                    <p className='text-center'>{issue.priority}</p>
-                                </td>
-                                <td>
-                                    <p className='text-center'>{issue.status}</p>
-                                </td>
-                                <td className=''>
-                                    <progress className="progress progress-success w-full" value={issue.process} max="100"></progress>
+                                    {issue.closed?
+                                    <span class="text-center bg-gray-100 gap-1 text-red-300 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-800">
+                                        <FiberManualRecordIcon />
+                                        Closed
+                                    </span>
+                                    :
+                                    <span class="text-center bg-gray-100 gap-1 text-green-300 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-800">
+                                        <FiberManualRecordIcon />
+                                        Open
+                                    </span>}
                                 </td>
                             </tr>
                         )

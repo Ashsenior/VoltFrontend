@@ -95,7 +95,7 @@ function classNames(...classes) {
 }
 const ProductTimeline = () => {
     return (
-        <div className='mt-6 bg-white p-4 rounded-lg h-fit shadow'>
+        <div className='w-full mt-6 bg-gray-900 text-gray-300 p-4 rounded-lg h-fit shadow'>
             <h4 className='text-base font-semibold m-2 mb-6'>Product Timeline</h4>
             <div className="flow-root mx-auto">
                 <ul role="list" className="-mb-8">
@@ -110,7 +110,7 @@ const ProductTimeline = () => {
                                         <span
                                             className={classNames(
                                                 event.iconBackground,
-                                                'h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white'
+                                                'h-8 w-8 rounded-full flex items-center justify-center '
                                             )}
                                         >
                                             <event.icon className="h-5 w-5 text-white" aria-hidden="true" />
@@ -120,7 +120,7 @@ const ProductTimeline = () => {
                                         <div>
                                             <p className="text-sm text-gray-500">
                                                 {/* {event.content}{' '} */}
-                                                <a href={event.href} className="font-medium text-gray-900">
+                                                <a href={event.href} className="font-medium text-gray-200">
                                                     {event.target}
                                                 </a>
                                             </p>

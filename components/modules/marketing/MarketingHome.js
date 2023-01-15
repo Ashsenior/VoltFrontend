@@ -56,6 +56,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+import axiosInstance from "../../../src/axiosAPi";
+
 const MarketingHome = ({ data }) => {
   const tabs = [
     { name: "In Progress", href: "#", current: false },
@@ -97,12 +99,30 @@ const MarketingHome = ({ data }) => {
 
   const [value, setValue] = React.useState(0);
   const [open, setOpen] = useState(false);
+  const [recommendationData, setRecommendationData] = useState({});
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   const handleOpen = () => {
-    setOpen(true);
+    try {
+      axiosInstance
+        .get("marketing/startup/get-recommendations", {
+          params: {
+            cat: "S",
+            key: "Dw7XqbPhZf",
+          },
+        })
+        .then((response) => {
+          if (response?.status == 200) {
+            console.log(response.data);
+            setRecommendationData(response.data);
+            setOpen(true);
+          }
+        });
+    } catch (error) {
+      throw error;
+    }
   };
   const handleClose = () => {
     setOpen(false);
@@ -110,7 +130,7 @@ const MarketingHome = ({ data }) => {
 
   return (
     <div className="md:flex bg-gray-800">
-      <div className="w-full md:w-2/3 relative pb-5 sm:pb-0 xl:px-0 ">
+      <div className="w-full md:w-3/4 relative pb-8 sm:pb-0 xl:px-0 ">
         <div className="md:flex flex-row md:items-center md:justify-between px-4 py-1">
           <h3 className="text-lg mt-4 leading-6 font-medium text-gray-200">
             Marketing Campaigns / Strategies
@@ -123,17 +143,17 @@ const MarketingHome = ({ data }) => {
               <small className="text-gray-400">Volt Assistant</small>
             </button>
           </h3>
-          <div className=" flex md:mt-0 md:absolute md:right-5">
-            <MarketingDrawer handleClose={handleClose} open={open} />
+          <div className=" flex md:mt-0 md:absolute md:right-5">  
+            <MarketingDrawer handleClose={handleClose} open={open} data={recommendationData} />
           </div>
         </div>
-
-        <div className="mt-1">
+  
+        <div className="mt-1 xl:px-4">
           <p className="flex">
             <div className="p-2 w-1/3">
               <button
                 type="button"
-                className="inline-flex w-full gap-4 items-center bg-gray-700 px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:bg-gray-50 focus:outline-none"
+                className="inline-flex w-full gap-4 items-center bg-gray-900 px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:bg-gray-500 focus:outline-none "
               >
                 <InstagramIcon className="mr-3 text-pink-500" />
                 Authorize Instagram
@@ -142,29 +162,17 @@ const MarketingHome = ({ data }) => {
             <div className="p-2 w-1/3">
               <button
                 type="button"
-                className="inline-flex w-full gap-4 items-center bg-gray-700 px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:bg-gray-50 focus:outline-none"
+                className="inline-flex w-full gap-4 items-center bg-gray-900 px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:bg-gray-500 focus:outline-none "
               >
                 <YouTubeIcon className="mr-3 text-red-500" />
                 Authorize YouTube
-              </button>
-            </div>
-            <div className="p-2 w-1/3">
-              <button
-                type="button"
-                className="inline-flex w-full gap-4 items-center bg-gray-700 px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:bg-gray-50 focus:outline-none"
-              >
-                <LinkedInIcon className="mr-3 text-blue-500 font-medium" />
-                Authorize LinkedIn
               </button>
             </div>
           </p>
           <MarketingStatus data={data} />
         </div>
       </div>
-      <div
-        className="w-full bg-white md:w-1/3 p-2"
-        style={{ minHeight: "100%" }}
-      >
+      <div className="w-full bg-white md:w-1/4 p-2" style={{ minHeight: "100%" }}>
         <p className=" text-base text-gray-500 px-2 pb-4 pt-2 items-center gap-2 rounded-xl font-semibold flex p-1 ">
           <VerifiedOutlinedIcon />
           SOCIAL POSTS 3

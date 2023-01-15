@@ -87,37 +87,32 @@ const SingleMarketing = ({ data }) => {
   return (
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-5">
-        <div>
-          <p className=" text-base p-4 mb-3 gap-2 bg-red-50 rounded-xl font-semibold flex items-center text-red-500">
-            <small className="flex mr-2 items-center text-red-500">
-              <YouTubeIcon />
-            </small>
-            YOUTUBE
-          </p>
-          <MarketingSocialCards />
-        </div>
-        <div>
-          <p className=" text-base p-4 mb-3 bg-blue-50 gap-2 items-center rounded-xl font-semibold flex p-1 text-blue-500">
-            <small className="flex mr-2 items-center text-blue-500">
-              <LinkedInIcon />
-            </small>
-            LINKEDIN {data?.completed?.length}
-          </p>
-          {/* {tasks.map((data) => (
-            <Task key={data.id} data={data}></Task>
-          ))} */}
-          <MarketingSocialCards />
-        </div>
-
-        <div>
-          <p className=" text-base p-4 mb-3 items-center gap-2 bg-pink-50 rounded-xl font-semibold flex p-1 text-pink-500">
-            <small className="flex mr-2 items-center text-pink-500">
-              <InstagramIcon />
-            </small>
-            INSTAGRAM
-          </p>
-          <MarketingSocialCards />
-        </div>
+        {data?.map((social) => (
+          social.social.platform==="Y"?
+          <div>
+            <p className=" text-base p-4 mb-3 gap-2 bg-red-50 rounded-xl font-semibold flex items-center text-red-500">
+              <small className="flex mr-2 items-center text-red-500">
+                <YouTubeIcon />
+              </small>
+              YOUTUBE
+            </p>
+            {social?.posts?.map((post) => (
+              <MarketingSocialCards data={post} />
+            ))}
+          </div>
+          :
+          <div>
+            <p className=" text-base p-4 mb-3 gap-2 bg-pink-50 rounded-xl font-semibold flex items-center text-pink-500">
+              <small className="flex mr-2 items-center text-pink-500">
+                <InstagramIcon />
+              </small>
+              INSTAGRAM
+            </p>
+            {social?.posts?.map((post) => (
+              <MarketingSocialCards data={post} />
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );
