@@ -10,15 +10,12 @@ import { GrAttachment } from "react-icons/gr";
 import { Button, Container } from "@mui/material";
 import Router from "next/router";
 import { checkPlatformChoices } from "../../../utils/data-modifiers";
-<<<<<<< HEAD
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
 import TagIcon from '@mui/icons-material/Tag';
 import LinkIcon from '@mui/icons-material/Link';
 import CodeIcon from '@mui/icons-material/Code';
-=======
 import MarketingDrawer from "../marketing/MarketingDrawer";
 import { useState } from "react";
->>>>>>> 58e6a2dad42e7881b568dc5438bce07442bd9f98
 
 const ProductCard = ({ products }) => {
   const productCards = [
