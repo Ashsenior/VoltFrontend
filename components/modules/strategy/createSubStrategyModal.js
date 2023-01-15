@@ -9,12 +9,12 @@ import { useRouter } from "next/router";
 
 const SelectCategory = [
   {
-    label: "Minor",
+    label: "Marketing",
     value: "m",
   },
   {
-    label: "Major",
-    value: "M",
+    label: "Research",
+    value: "r",
   },
 ];
 
@@ -27,8 +27,9 @@ const CreateSubStrategyModal = ({ handleClose, open, slug }) => {
   const [leaders, setLeaders] = useState([]);
   const router = useRouter();
   const [values, setValues] = useState({
-    marketingLeader: "",
-    marketingTitle: "",
+    leader: "",
+    title: "",
+    category: "",
     strategy_slug: slug,
     startup_key: context?.startup_key,
   });
@@ -48,7 +49,7 @@ const CreateSubStrategyModal = ({ handleClose, open, slug }) => {
     try {
       axiosInstance
         .get("/strategy/startup/get-team-members", {
-          //   params: { startup_key: localStorage.getItem("startup_key") },
+          params: { startup_key: localStorage.getItem("startup_key") },
         })
         .then((response) => {
           if (response?.status == 200) {
@@ -77,25 +78,54 @@ const CreateSubStrategyModal = ({ handleClose, open, slug }) => {
 
     if (authenticated) {
       try {
-        axiosInstance
-          .post("http://127.0.0.1:8000/marketing/startup/create-marketing/", {
-            marketingLeader: values.marketingLeader,
-            marketingTitle: values.marketingTitle,
-            strategy_slug: slug,
-            startup_key: context?.startup_key,
-          })
-          .then((response) => {
-            if (response.status === 201 || response.status === 200) {
-              console.log("done !");
-              //   router.push("/module/team");
-              setLoading(false);
-            } else {
-              setMessage(
-                "Some error occurred while completing your connection request!"
-              );
-              setLoading(false);
-            }
-          });
+        if (values.category === "m") {
+          axiosInstance
+            .post("http://127.0.0.1:8000/marketing/startup/create-marketing", {
+              marketingLeader: values.leader,
+              marketingTitle: values.title,
+              strategy_slug: slug,
+              startup_key: context?.startup_key,
+            })
+            .then((response) => {
+              if (response.status === 201 || response.status === 200) {
+                console.log("done !");
+                //   router.push("/module/team");
+                setLoading(false);
+                setValues({});
+                handleClose();
+              } else {
+                setMessage(
+                  "Some error occurred while completing your connection request!"
+                );
+                setLoading(false);
+              }
+            });
+        } else if (values.category === "r") {
+          axiosInstance
+            .post(
+              "http://127.0.0.1:8000/research/startup/create-research-task/",
+              {
+                assigned_to: values.leader,
+                task: values.title,
+                strategy_key: slug,
+                startup_key: context?.startup_key,
+              }
+            )
+            .then((response) => {
+              if (response.status === 201 || response.status === 200) {
+                console.log("done !");
+                //   router.push("/module/team");
+                setLoading(false);
+                setValues({});
+                handleClose();
+              } else {
+                setMessage(
+                  "Some error occurred while completing your connection request!"
+                );
+                setLoading(false);
+              }
+            });
+        }
       } catch (error) {
         setLoading(false);
         throw error;
@@ -129,16 +159,16 @@ const CreateSubStrategyModal = ({ handleClose, open, slug }) => {
                       >
                         <form onSubmit={(event) => handleFormSubmit(event)}>
                           <Grid container alignItems={"center"} spacing={1}>
-                            <Grid item xs={12} sm={12} md={12} lg={12}>
+                            <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                               <TextField
                                 label="Strategy Name"
                                 fullWidth
-                                value={values?.marketingTitle}
-                                name="marketingTitle"
+                                value={values?.title}
+                                name="title"
                                 onChange={(event) => handleChange(event)}
                               />
                             </Grid>
-                            <Grid item xs={12} sm={12} md={12} lg={12}>
+                            <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                               <TextField
                                 select
                                 label="Select Category ?"
@@ -158,12 +188,12 @@ const CreateSubStrategyModal = ({ handleClose, open, slug }) => {
                               </TextField>
                             </Grid>
 
-                            <Grid item xs={12} sm={12} md={12} lg={6} mt={3}>
+                            <Grid item xs={12} sm={12} md={12} lg={6}>
                               <TextField
                                 select
                                 label="Select leader ?"
-                                name="marketingLeader"
-                                value={values?.marketingLeader}
+                                name="leader"
+                                value={values?.leader}
                                 fullWidth
                                 onChange={(event) => handleChange(event)}
                               >

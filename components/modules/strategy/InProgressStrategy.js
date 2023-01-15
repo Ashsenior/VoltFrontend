@@ -20,6 +20,9 @@ const InProgressStrategy = ({ data }) => {
   const handleClose = () => {
     setOpen(false);
   };
+  const handleRoute = () => {
+    router.push(`/module/strategy/${data?.details?.slug}`);
+  };
   const router = useRouter();
   return (
     <div className="bg-gray-900 shadow-xl rounded-lg mt-2 p-4">
@@ -29,8 +32,8 @@ const InProgressStrategy = ({ data }) => {
         handleClose={handleClose}
       />
       <h4
-        // onClick={router.push("/strategy/")}
-        className="text-lg flex font-semibold text-gray-300 pb-1"
+        onClick={handleRoute}
+        className="text-lg flex font-semibold text-gray-300 pb-1 cursor-pointer"
       >
         {data?.details?.strategyTitle}
       </h4>
