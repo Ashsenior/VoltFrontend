@@ -5,12 +5,12 @@ import AllTeamMembers from './AllTeamMembers';
 
 const TeamHome = () => {
     return (
-        <div className='m-4'>
+        <div className='xl:p-4 text-gray-300 bg-gray-800'>
             <div>
                 <h1 className='text-xl font-semibold mb-1'>Product Name</h1>
                 <div className='flex item-center gap-1 mb-2'>
-                    <h4 className='font-medium text-gray-500'>LEAD </h4>
-                    <p className="px-2 text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                    <h4 className='font-medium text-gray-300'>LEAD </h4>
+                    <p className="px-2 text-xs leading-5 font-semibold rounded-full bg-gray-900">
                         @ashsenior
                     </p>
                 </div>

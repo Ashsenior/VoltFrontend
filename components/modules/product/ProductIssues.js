@@ -62,13 +62,13 @@ const ProductIssues = ({issues}) => {
 
 
     return (
-        <div className='bg-gray-900 text-gray-300 rounded-lg shadow p-2 mt-2'>
-            <div className='flex items-center justify-around gap-2 my-6'>
-                <div className='flex flex-col justify-center items-center gap-2 bg-gray-800 rounded-md p-2 w-52'>
+        <div className=' text-gray-300 rounded-lg shadow mt-2'>
+            <div className='flex items-center justify-around gap-2 p-2 '>
+                <div className='flex flex-col justify-center items-center gap-2 bg-gray-900 rounded-md p-2 w-52'>
                     <h1 className='text-base font-bold text-gray-200'>Total Issue Solved</h1>
                     <p className='text-2xl font-bold text-green-500'>{issues?.closed}</p>
                 </div>
-                <div className='flex flex-col justify-center items-center gap-2 bg-gray-800 rounded-md p-2 w-52'>
+                <div className='flex flex-col justify-center items-center gap-2 bg-gray-900 rounded-md p-2 w-52'>
                     <h1 className='text-base font-bold text-gray-200'>Issue Unsolved</h1>
                     <p className='text-2xl font-bold text-red-500'>{issues?.opened}</p>
                 </div>
@@ -76,9 +76,9 @@ const ProductIssues = ({issues}) => {
 
             <table className="w-full">
                 <thead className='mb-2'>
-                    <tr className='text-gray-400 text-lg bg-black'>
-                        <th className='py-4'></th>
-                        <th className='py-4'>Issue No.</th>
+                    <tr className='text-gray-400 text-lg bg-gray-900'>
+                        <th className='py-2'></th>
+                        <th className='py-2'>Issue No.</th>
                         <th>Issue Title</th>
                         <th>Assigned to</th>
                         <th>Status</th>
@@ -89,7 +89,7 @@ const ProductIssues = ({issues}) => {
                         issues?.issues?.map(issue =>
                             <tr
                                 key={issue.id}
-                                className='border-b border-gray-600'
+                                className='border-b border-gray-600 bg-gray-700 ' 
                             >
                                 <td>
                                     {
@@ -100,19 +100,21 @@ const ProductIssues = ({issues}) => {
                                     }
                                 </td>
                                 <td>
-                                    <span class="text-center bg-gray-100 gap-1 text-yellow-200 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-800">
+                                    <span class="text-center bg-gray-100 gap-1 text-gray-400 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-800">
                                         <TagIcon />
                                         {issue?.number}
                                     </span>
                                 </td>
                                 <td>
-                                    <h4 className='font-semibold text-center'>{issue?.title}</h4>
+                                    <h4 className='font-semibold px-2 py-1 text-gray-300 bg-gray-600'>{issue?.title}</h4>
                                 </td>
                                 <td>
-                                    <span class="text-center bg-gray-100 gap-1 text-yellow-200 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-800">
+                                    <center>
+                                    <span class="text-center bg-gray-100 gap-1 text-gray-400 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-800">
                                         <AssignmentIndOutlinedIcon />
                                         @{issue.assignee?issue.assignee:"None"}
                                     </span>
+                                    </center>
                                 </td>
                                 <td>
                                     {issue.closed?

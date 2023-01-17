@@ -10,6 +10,9 @@ const TeamAnalytics = () => {
             data: [16, 22, 10, 26, 16, 21, 13, 31]
         }],
         options: {
+            theme: {
+                mode: 'dark', 
+            },
             chart: {
                 height: 350,
                 type: 'bar',
@@ -57,7 +60,10 @@ const TeamAnalytics = () => {
                 }
             },
             dataLabels: {
-                enabled: false
+                enabled: false,
+                style: {
+                    colors: ['#F44336', '#E91E63', '#9C27B0']
+                }
             },
             legend: {
                 show: false
@@ -84,8 +90,8 @@ const TeamAnalytics = () => {
     })
 
     return (
-        <div className='w-full bg-white rounded-lg p-2 shadow'>
-            <h4 className='text-base font-semibold m-2'>Team Performance</h4>
+        <div className='w-full rounded-lg p-2 shadow'>
+            <h4 className='text-base text-gray-300 font-semibold m-2'>Team Performance</h4>
             <ReactApexChart
                 options={barChart.options}
                 series={barChart.series}

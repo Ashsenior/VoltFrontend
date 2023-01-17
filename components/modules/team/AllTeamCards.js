@@ -59,8 +59,8 @@ const AllTeamCards = ({ data }) => {
     },
   ];
   return (
-    <div className=" mb-10 mt-4 h-full shadow">
-      <div className="flex">
+    <div className="md:p-4 mb-10 mt-4 h-full shadow">
+      <div className="flex mb-4 bg-gray-700 rounded-lg p-2">
         <div className="w-1/3">
           <h1 className="text-gray-200 font-semibold ml-2 pt-2">Mobs <span className="text-gray-400">aka Admins</span></h1>
           <div className=" gap-4 p-2">
@@ -94,7 +94,7 @@ const AllTeamCards = ({ data }) => {
           </div>
         </div>
       </div>
-      <div className="flex" >
+      <div className="flex bg-gray-700 rounded-lg p-2" >
         <div className="mb-10 w-1/2">
           <h1 className="text-lg text-gray-200 font-semibold m-2">Requests Recieved</h1>
           <div className="grid grid-cols-2 gap-2 p-2">
