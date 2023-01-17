@@ -55,36 +55,30 @@ const InProgressStrategy = ({ data }) => {
         ></progress>
       </div>
       <div className="py-2">
-        {
-          data?.subs.map((sub) => (
+        {data?.subs.map((sub) => (
+          <div key={sub?.title}>
             <a
               href="#xc"
               className="flex items-center text-gray-300 mt-1 bg-gray-800 hover:bg-gray-600 hover:text-gray-100 gap-1"
             >
-              {
-                sub?.type==="M"?
+              {sub?.type === "M" ? (
                 <small className="p-1 text-gray-300">
                   <ShoppingCart />
                 </small>
-                :
+              ) : (
                 <small className="p-1 text-gray-300">
                   <PostAddIcon />
                 </small>
-              }
-              <p className="text-md font-semibold ">
-                {sub?.title}
-              </p>
-              {
-                sub?.completed?
+              )}
+              <p className="text-md font-semibold ">{sub?.title}</p>
+              {sub?.completed ? (
                 <small className="p-1 text-green-500">
                   <VerifiedOutlinedIcon />
                 </small>
-                :
-                null
-              }
+              ) : null}
             </a>
-          ))
-        }
+          </div>
+        ))}
       </div>
       <button
         onClick={() => handleOpen(data?.details?.slug)}
