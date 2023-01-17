@@ -141,8 +141,6 @@ const NewStrategy = () => {
     } catch (error) {
       throw error;
     }
-  };
-
   useEffect(() => {
     setStartupKey(localStorage.getItem("startup_key"));
   });
@@ -268,6 +266,8 @@ const NewStrategy = () => {
     </div>
   );
 };
+
+export default NewStrategy
+
 NewStrategy.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
 
-export default NewStrategy;

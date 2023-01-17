@@ -31,7 +31,7 @@ function StrategyModule() {
       axiosInstance
         .get("http://127.0.0.1:8000/strategy/startup/get-strategies", {
           params: {
-            // username: localStorage.getItem("username"),
+            username: localStorage.getItem("username"),
             startup_key: context?.startup_key,
           },
         })
