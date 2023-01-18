@@ -136,10 +136,10 @@ const CreateSubStrategyModal = ({ handleClose, open, slug }) => {
   };
 
   return (
-    <div>
+    <>
       <Dialog sx={{}} onClose={handleClose} open={open}>
         <form onSubmit={(event) => handleFormSubmit(event)}>
-          <div style={{ minWidth: "500px" }} className="p-10">
+          <div style={{ minWidth: "500px" }} className="p-10 bg-gray-100">
             <div>
               <label
                 onClick={handleClose}
@@ -148,7 +148,7 @@ const CreateSubStrategyModal = ({ handleClose, open, slug }) => {
                 ✕
               </label>
               <div>
-                <div class="modal-body">
+                <div class="modal-body ">
                   <div className="flex items-center justify-start gap-2 mt-4">
                     <div className="flex flex-col items-start gap-1">
                       <Box
@@ -161,7 +161,7 @@ const CreateSubStrategyModal = ({ handleClose, open, slug }) => {
                           <Grid container alignItems={"center"} spacing={1}>
                             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                               <TextField
-                                label="Strategy Name"
+                                label="Title"
                                 fullWidth
                                 value={values?.title}
                                 name="title"
@@ -171,7 +171,7 @@ const CreateSubStrategyModal = ({ handleClose, open, slug }) => {
                             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                               <TextField
                                 select
-                                label="Select Category ?"
+                                label="Select category ?"
                                 name="category"
                                 value={values?.category}
                                 fullWidth
@@ -216,9 +216,9 @@ const CreateSubStrategyModal = ({ handleClose, open, slug }) => {
                   <div class="modal-footer flex justify-between">
                     <button
                       type="submit"
-                      class="btn btn-sm bg-indigo-500 text-white hover:bg-indigo-600 rounded-sm border-0"
+                      class="btn btn-sm w-full bg-purple-200 text-purple-600 hover:bg-purple-500 hover:text-purple-100 rounded-lg border-0"
                     >
-                      Create Strategy
+                      Create Sub-Strategy
                     </button>
                   </div>
                 </div>
@@ -227,7 +227,7 @@ const CreateSubStrategyModal = ({ handleClose, open, slug }) => {
           </div>
         </form>
       </Dialog>
-    </div>
+    </>
   );
 };
 

@@ -41,7 +41,42 @@ const MarketingSocialCards = ({ data }) => {
 
   return (
     <div className="w-full text-white">
-      <CardMedia
+      <div className="bg-gray-800 shadow-lg p-1 rounded-lg my-2">
+        <div className="p-2">
+          <div className="flex ">
+            <img
+              className="w-20 h-20 xl:w-20 xl:h-20 rounded-lg"
+              src={data?.img?.slice(0,4)==="https"?data.img:"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"}
+              alt=""
+            />
+
+            <div className="flex justify-between w-full">
+              <a href="#" className="px-2 flex flex-col w-full justify-between">
+              <Typography variant="body2" className="text-gray-300 items-center justify-start text-md xl:text-lg flex ">
+                {data?.social?.platform==="Y"?<YouTubeIcon className="mr-1 flex flex-col text-red-500" />:<InstagramIcon className="mr-1 flex flex-col text-pink-500" />}
+                {data?.title}
+              </Typography>
+              <div className="w-full flex-row flex items-center gap-6 border-green-300 pt-2 ">
+                <button className="justify-center p-1 flex items-center gap-1 text-gray-400">
+                  <FavoriteIcon className="text-md" />
+                  <p className="font-semibold">{data?.reactions_count}</p>
+                </button>
+                <button className="justify-center p-1 flex button items-center gap-1 text-gray-400">
+                  <ChatBubbleIcon />
+                  <p className="font-semibold">{data?.comments_count}</p>
+                </button>
+                <button className="justify-center p-1 flex button items-center gap-1 text-gray-400">
+                  <RemoveRedEyeIcon />
+                  <p className="font-semibold">{data?.reached_to}</p>
+                </button>
+              </div>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      {/*<CardMedia
         className="rounded-xl"
         component="img"
         height="194"
@@ -70,7 +105,7 @@ const MarketingSocialCards = ({ data }) => {
             <p className="font-semibold">{data?.reached_to}</p>
           </button>
         </div>
-      </div>
+      </div>*/}
     </div>
   );
 };

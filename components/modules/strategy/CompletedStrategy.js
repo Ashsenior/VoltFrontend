@@ -12,7 +12,7 @@ const CompletedStrategy = ({ data }) => {
     router.push(`/module/strategy/${data?.slug}`);
   };
   return (
-    <div className="bg-gray-900 mt-2 rounded-lg shadow-xl p-4">
+    <div className="bg-gray-800 mt-2 rounded-lg shadow-xl p-4">
       <h4
         onClick={handleRoute}
         className="text-lg flex font-semibold text-gray-300 pb-1 cursor-pointer"

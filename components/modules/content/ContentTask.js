@@ -12,9 +12,9 @@ const StrategyTask = ({ data }) => {
   return (
     <a
       href="#"
-      class="block my-2 p-4 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-500 dark:bg-gray-800 "
+      class="block my-2 p-4 rounded-lg shadow-md hover:bg-gray-900 bg-gray-800 "
     >
-      <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-300 ">
         <SaveAsOutlinedIcon /> {data?.task}
       </h5>
       <span class="bg-gray-100 gap-1 text-green-300 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-700 dark:text-green-300">

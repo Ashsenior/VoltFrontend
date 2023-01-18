@@ -5,7 +5,7 @@ import PendingActionsOutlinedIcon from "@mui/icons-material/PendingActionsOutlin
 const TeamCard = ({ member }) => {
   return (
     <div key={member.email}>
-      <div className="grid grid-cols-2 bg-gray-900 p-2 rounded-md justify-center items-center">
+      <div className="grid grid-cols-2 bg-gray-800 shadow-md mb-2 p-2 rounded-md justify-center items-center">
         <div>
           <img
             className="w-10 rounded-full mx-auto"
@@ -15,7 +15,7 @@ const TeamCard = ({ member }) => {
             alt=""
           />
           <div className="items-center text-center p-2 mx-2">
-            <p className="px-2 inline-flex text-xs align-middle leading-5 font-semibold rounded-full bg-indigo-100 text-indigo-800">
+            <p className="px-2 inline-flex text-xs align-middle leading-5 font-semibold rounded-full bg-gray-700 text-purple-200">
               {member?.points} Points
             </p>
           </div>
@@ -25,10 +25,10 @@ const TeamCard = ({ member }) => {
             <h2 className="text-gray-400 font-medium">@{member?.details?.username}</h2>
             <h2 className="text-gray-300 text-lg font-medium">{member?.role}</h2>
 
-            <p className="text-sm font-semibold">
+            {/*<p className="text-sm font-semibold">
               {" "}
               {member?.details?.first_name} {member?.details?.last_name}
-            </p>
+            </p>*/}
             <span className="text-sm">
               <span className={`text-gray-400`}> {member?.status}</span>{" "}
             </span>

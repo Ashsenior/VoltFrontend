@@ -49,7 +49,6 @@ function ContentModule() {
 
       <ContentHome content={content} />
       <Container maxWidth="lg"></Container>
-      <Footer />
     </>
   );
 }

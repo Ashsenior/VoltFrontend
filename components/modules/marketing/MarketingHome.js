@@ -115,7 +115,7 @@ const MarketingHome = ({ data }) => {
         })
         .then((response) => {
           if (response?.status == 200) {
-            console.log(response.data);
+            console.log('cj',response.data);
             setRecommendationData(response.data);
             setOpen(true);
           }
@@ -130,7 +130,7 @@ const MarketingHome = ({ data }) => {
 
   return (
     <div className="md:flex bg-gray-800">
-      <div className="w-full md:w-3/4 relative pb-8 sm:pb-0 xl:px-0 ">
+      <div className="w-full md:w-2/3 relative pb-8 sm:pb-0 xl:px-0 ">
         <div className="md:flex flex-row md:items-center md:justify-between px-4 py-1">
           <h3 className="text-lg mt-4 leading-6 font-medium text-gray-200">
             Marketing Campaigns / Strategies
@@ -172,12 +172,12 @@ const MarketingHome = ({ data }) => {
           <MarketingStatus data={data} />
         </div>
       </div>
-      <div className="w-full bg-white md:w-1/4 p-2" style={{ minHeight: "100%" }}>
-        <p className=" text-base text-gray-500 px-2 pb-4 pt-2 items-center gap-2 rounded-xl font-semibold flex p-1 ">
+      <div className="w-full bg-gray-700 md:w-1/3 snap-x p-2" style={{ minHeight: "100%" }}>
+        <p className=" text-base text-gray-300 px-2 pb-4 pt-2 items-center gap-2 rounded-xl font-semibold flex p-1 ">
           <VerifiedOutlinedIcon />
           SOCIAL POSTS 3
         </p>
-        {social_post?.map((item, index) => (
+        {data?.posts?.map((item, index) => (
           <MarketingSocialCards key={index} data={item} />
         ))}
       </div>

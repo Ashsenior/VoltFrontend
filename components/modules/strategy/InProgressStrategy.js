@@ -25,7 +25,7 @@ const InProgressStrategy = ({ data }) => {
   };
   const router = useRouter();
   return (
-    <div className="bg-gray-900 shadow-xl rounded-lg mt-2 p-4">
+    <div className="bg-gray-800 shadow-xl rounded-lg mt-2 p-4">
       <CreateSubStrategyModal
         slug={strategySlug}
         open={open}
@@ -38,10 +38,10 @@ const InProgressStrategy = ({ data }) => {
         {data?.details?.strategyTitle}
       </h4>
       <div className="flex items-center gap-1 mt-1">
-        <span class="bg-gray-800 gap-1 text-blue-200 text-md font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2">
+        <span class="bg-gray-900 gap-1 text-blue-300 text-md font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2">
           <AssignmentIndOutlinedIcon />@{data?.details?.strategyLeader}
         </span>
-        <span class="bg-gray-800 gap-1 text-indigo-200 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 ">
+        <span class="bg-gray-900 gap-1 text-blue-300 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 ">
           <OfflineBoltOutlinedIcon />
           {data?.details?.points}
         </span>
@@ -59,7 +59,7 @@ const InProgressStrategy = ({ data }) => {
           <div key={sub?.title}>
             <a
               href="#xc"
-              className="flex items-center text-gray-300 mt-1 bg-gray-800 hover:bg-gray-600 hover:text-gray-100 gap-1"
+              className="flex items-center text-gray-300 mt-1 bg-gray-900 hover:bg-gray-600 hover:text-gray-100 gap-1"
             >
               {sub?.type === "M" ? (
                 <small className="p-1 text-gray-300">

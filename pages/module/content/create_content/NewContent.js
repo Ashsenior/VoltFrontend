@@ -121,16 +121,16 @@ const NewContent = ({ query }) => {
               <input type="file" name="file_upload" className="hidden" />
             </label>
           </div>
-          <div className="w-full mt-4">
+          <div className="w-full h-full mt-4">
             <Editor
               editorStyle={{
-                height: "10rem",
+                height: "27rem",
                 width: "full",
                 overflow: "hidden",
                 background: "white",
                 padding: "10px 10px",
               }}
-              placeholder="Enter Content"
+              placeholder="Write what you think ...."
               editorState={editorState}
               onEditorStateChange={setEditorState}
               toolbarClassName="toolbarClassName"
@@ -138,11 +138,11 @@ const NewContent = ({ query }) => {
               editorClassName="editorClassName"
             />
             <div className="w-full bg-indigo-500 border-b rounded-b-xl ">
-              <div className="w-10/12 flex items-center justify-center mx-auto rounded-2xl">
+              <div className="">
                 <LoadingButton
                   loading={loading}
                   type="submit"
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="inline-flex w-full items-center px-4 py-2 border border-transparent text-base font-medium shadow-sm text-white bg-indigo-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Submit the response
                 </LoadingButton>

@@ -115,7 +115,7 @@ const StrategiesSingleView = ({ query }) => {
   return (
     <>
       <div className="w-full p-2 lg:p-4">
-        <div className="mt-6 flex items-center justify-between">
+        <div className="mt-6 flex items-center gap-4">
           <CreateSubStrategyModal
             slug={query?.strategy_single}
             open={open}
@@ -185,10 +185,6 @@ const StrategiesSingleView = ({ query }) => {
                   <ShoppingCart />
                   <p>{strategy?.sub_strategies?.marketing?.length} Marketing</p>
                 </button>
-                <button className="flex items-center justify-end gap-2  hover:text-green-500">
-                  <AddCircleOutlineIcon />
-                  <p>Add new</p>
-                </button>
               </Typography>
               <ul role="list" className="divide-y divide-gray-200">
                 {strategy?.sub_strategies?.marketing?.map((application) => (
@@ -244,16 +240,12 @@ const StrategiesSingleView = ({ query }) => {
                   <PostAddOutlined />
                   <p>{strategy?.sub_strategies?.research?.length} Research</p>
                 </button>
-                <button className="flex items-center justify-end gap-2  hover:text-green-500">
-                  <AddCircleOutlineIcon />
-                  <p>Add new</p>
-                </button>
               </Typography>
               <ul role="list" className="divide-y divide-gray-200">
                 {strategy?.sub_strategies?.research?.map((application) => (
-                  <li key={application.applicant.email}>
+                  <li key={application?.applicant?.email}>
                     <a
-                      href={application.href}
+                      href={application?.href}
                       className="block hover:bg-gray-50"
                     >
                       <div className="flex items-center px-4 py-4">
@@ -264,18 +256,18 @@ const StrategiesSingleView = ({ query }) => {
                           <div className="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                             <div>
                               <p className="text-sm font-medium text-indigo-600 truncate">
-                                {application?.researchTitle}
+                                {application?.task}
                               </p>
                               <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">
-                                {application?.researchLeader}
+                                {application?.assigned_to}
                               </p>
                             </div>
                             <div className="hidden md:block">
                               <div>
                                 <p className="text-sm text-gray-900">
                                   Start Date:{" "}
-                                  <time dateTime={application.startDate}>
-                                    {application.startDate}
+                                  <time dateTime={application?.startDate}>
+                                    {application?.startDate}
                                   </time>
                                 </p>
                                 <p className="mt-2 flex items-center text-sm text-gray-500">

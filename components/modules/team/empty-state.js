@@ -1,26 +1,19 @@
 import React from "react";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
 import PendingActionsOutlinedIcon from "@mui/icons-material/PendingActionsOutlined";
+import UpcomingIcon from '@mui/icons-material/Upcoming';
 
 const EmptyState = () => {
   return (
-    <div>
-      <div className="grid grid-cols-2 bg-gray-900 p-2 rounded-md justify-center items-center">
-        <div>
-          <img
-            className="w-10 rounded-full mx-auto"
-            src={
-              "https://fkdolnidvoriste.cz/wp-content/uploads/2021/08/Profile.jpg"
-            }
-            alt=""
-          />
-        </div>
-        <div className="flex flex-col justify-between">
-          <div>
-            <h2 className="text-gray-400 font-medium">NO PERSON FOUND</h2>
-          </div>
-        </div>
-      </div>
+    <div className="w-full">
+      <label className="flex text-xl justify-center shadow-md w-full h-24 px-4 transition bg-gray-800 rounded-md appearance-none focus:outline-none">
+        <span className="flex items-center space-x-2">
+          <UpcomingIcon className="text-gray-300" />
+          <span className="text-gray-300">
+            No member Found
+          </span>
+        </span>
+      </label>
     </div>
   );
 };
