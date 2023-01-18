@@ -100,12 +100,12 @@ const ContentHome = ({ content }) => {
   ];
 
   return (
-    <div>
+    <div className="bg-gray-800">
       {/* Link Buttons */}
-      <Container maxWidth="w-full my-4">
+      <Container maxWidth="w-full py-4">
         <div className="relative pb-5 sm:pb-0">
           <div className="md:flex md:items-center md:justify-between">
-            <h3 className="text-lg leading-6 font-medium text-gray-900">
+            <h3 className="text-lg leading-6 font-medium text-gray-300">
               Strategy for Business Models
             </h3>
             <div className="mt-3 flex md:mt-0 md:absolute md:top-3 md:right-0">

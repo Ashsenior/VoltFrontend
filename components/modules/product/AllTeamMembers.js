@@ -117,7 +117,7 @@ const AllTeamMembers = () => {
         },
     ]
     return (
-        <div className='bg-white rounded-md shadow-md p-2 mt-4'>
+        <div className='bg-gray-700 rounded-md shadow-md p-2 xl:p-6 mt-4'>
             {/* Table Starts */}
             <div className="overflow-x-auto w-full mt-2">
                 <h1 className='text-base font-semibold mb-2'>Team Performance</h1>

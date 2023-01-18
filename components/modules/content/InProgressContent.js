@@ -18,14 +18,14 @@ const InProgressStrategy = ({ data }) => {
   return (
     <a
       href="#"
-      class="block my-2 p-4 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+      class="block my-2 p-4 border rounded-lg shadow-md bg-gray-800 border-gray-700 hover:bg-gray-900"
     >
       <Stack
         direction="row"
         alignItems={"center"}
         justifyContent="space-between"
       >
-        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-300">
           <AssignmentOutlinedIcon /> {data?.task}
         </h5>
         <Tooltip title="Add Content">

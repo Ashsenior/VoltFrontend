@@ -16,20 +16,20 @@ const InProgress = ({ data }) => {
     router.push(`/module/marketing/${data?.details?.key}`);
   };
   return (
-    <div onClick={handleClick} className="bg-gray-900 mt-4 shadow-xl rounded-md p-4">
-      <h4 className="text-lg flex font-semibold text-gray-50 pb-1 cursor-pointer">
+    <div onClick={handleClick} className="bg-gray-800 mt-4 shadow-xl rounded-md p-4">
+      <h4 className="text-lg flex font-semibold text-gray-300 pb-1 cursor-pointer">
         {data?.details?.marketingTitle}
-        <span class="bg-gray-100 gap-1 ml-2 text-indigo-200 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-800 dark:text-indigo-300">
+        <span class="bg-gray-100 gap-1 ml-2 text-blue-300 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-900 ">
             <OfflineBoltOutlinedIcon />
             {data?.details?.points}
         </span>
       </h4>
       <div className='flex items-center mt-1'>
-          <span class="bg-gray-100 gap-1 text-indigo-200 text-md font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-800">
+          <span class="bg-gray-100 gap-1 text-blue-300 text-md font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-900">
               <AssignmentIndOutlinedIcon />
               @{data?.details?.marketingLeader}
           </span>
-          <span class="bg-gray-100 gap-1 text-indigo-200 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-800 dark:text-indigo-300">
+          <span class="bg-gray-100 gap-1 text-blue-300 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-900 ">
               <CalendarMonth />
               {data?.details?.endDate}
           </span>

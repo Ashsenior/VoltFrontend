@@ -11,8 +11,8 @@ import { Link, Image } from "@nextui-org/react";
 
 const CompletedStrategy = ({ data }) => {
     return (
-        <a href="#" class="block my-2 p-4 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white"><VerifiedOutlinedIcon /> {data?.title}</h5>
+        <a href="#" class="block my-2 p-4 borde rounded-lg shadow-md bg-gray-800 border-gray-700 hover:bg-gray-900">
+            <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-gray-300"><VerifiedOutlinedIcon /> {data?.title}</h5>
             <span class="bg-gray-100 gap-1 text-green-300 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-700 dark:text-green-300">
                 <AssignmentIndOutlinedIcon />
                 @ashsenior
@@ -27,7 +27,7 @@ const CompletedStrategy = ({ data }) => {
             </span>
             <br />
             
-            <p class="font-normal mt-2 text-gray-700 dark:text-gray-400">{data?.content}</p>
+            <p class="font-normal mt-2 text-gray-400">{data?.content}</p>
             <img
               className="mt-4 rounded-xl"
               src={"https://gbdmagazine.com/wp-content/uploads/2017/10/063918_002-e1527781642890.png"}

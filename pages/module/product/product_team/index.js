@@ -8,7 +8,6 @@ function ProductTeam() {
     return (
         <>
             <TeamHome></TeamHome>
-            <Footer />
         </>
     );
 };

@@ -108,7 +108,7 @@ const TeamMembers = () => {
     ]
 
     return (
-        <div className='bg-white rounded-lg mb-10 h-full shadow'>
+        <div className='bg-gray-700 rounded-lg mb-10 h-full shadow'>
             <h1 className='text-base font-semibold ml-6 pt-6'>Working Team</h1>
             <div className='grid grid-cols-2 md:grid-cols-4 gap-4 p-4'>
                 {
@@ -116,9 +116,9 @@ const TeamMembers = () => {
                         <div
                             key={member.id}
                         >
-                            <div className="border p-2 rounded-md">
+                            <div className="bg-gray-900 p-2 rounded-md">
                                 <img className='w-14 rounded-full mx-auto' src={member.image} alt="" />
-                                <div className="items-center text-center p-2 border-b mx-2">
+                                <div className="items-center text-center p-2 border-b border-gray-500 mx-2">
                                     <h2 className="text-base">{member.name}</h2>
                                     <p className='text-sm font-semibold'>{member.role}</p>
                                 </div>

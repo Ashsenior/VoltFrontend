@@ -40,9 +40,9 @@ const ContentStatus = ({ content }) => {
 
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-1 xl:mx-4 p-2 mt-7">
+      <div className="rounded-lg grid grid-cols-1 lg:grid-cols-3 gap-1 xl:mx-4 mb-7 p-2 mt-7 bg-gray-700">
         <div className="p-1 rounded-lg">
-          <p className=" text-base py-4 gap-2 font-semibold flex items-center text-gray-500">
+          <p className=" text-base py-4 gap-2 font-semibold flex items-center text-gray-300">
             <AssignmentOutlinedIcon />
             ACTIVE TASKS
           </p>
@@ -51,7 +51,7 @@ const ContentStatus = ({ content }) => {
           ))}
         </div>
         <div className=" p-1 rounded-md">
-          <p className=" text-base py-4 gap-2 items-center font-semibold flex text-gray-500">
+          <p className=" text-base py-4 gap-2 items-center font-semibold flex text-gray-300">
             <VerifiedOutlinedIcon />
             CONTENT 2
           </p>
@@ -61,7 +61,7 @@ const ContentStatus = ({ content }) => {
           ))}
         </div>
         <div className=" p-1 rounded-md">
-          <p className=" text-base p-4 items-center gap-2 bg-gray-600 rounded-xl font-semibold flex text-white">
+          <p className=" text-base p-4 items-center gap-2 font-semibold flex text-gray-300">
             <SaveAsOutlinedIcon />
             DRAFT 3
           </p>

@@ -97,7 +97,7 @@ const MarketingDrawer = ({ open, handleClose, data }) => {
             <ArticleIcon className="mr-2" />
             Recommendations
           </div>
-          {data.recommendations?.slice(0,4).map((item) => (
+          {data?.recommendations?.slice(0,4).map((item) => (
             <div key={item.link} className="hover:bg-gray-800 my-2">
               <div key={item.id} className="p-2">
                 <div className="flex ">
@@ -122,7 +122,7 @@ const MarketingDrawer = ({ open, handleClose, data }) => {
             <YouTubeIcon className="mr-2" />
             Videos
           </div>
-          {data.videos?.slice(0,4).map((item) => (
+          {data?.videos?.slice(0,4).map((item) => (
             <div key={item.link} className="hover:bg-gray-800 my-2">
               <div key={item.id} className="p-2">
                 <div className="flex ">
@@ -151,7 +151,7 @@ const MarketingDrawer = ({ open, handleClose, data }) => {
             <NewspaperIcon className="mr-2" />
             News
           </div>
-          {data.news?.slice(0,4).map((item) => (
+          {data?.news?.slice(0,4).map((item) => (
             <div key={item.link} className="hover:bg-gray-800 my-2">
               <div key={item.id} className="p-2">
                 <div className="flex ">
