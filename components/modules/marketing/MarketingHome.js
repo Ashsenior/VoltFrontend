@@ -57,6 +57,7 @@ function classNames(...classes) {
 }
 
 import axiosInstance from "../../../src/axiosAPi";
+import AuthorizeYoutubeModal from "./AuthorizeYoutube";
 
 const MarketingHome = ({ data }) => {
   const tabs = [
@@ -100,6 +101,7 @@ const MarketingHome = ({ data }) => {
   const [value, setValue] = React.useState(0);
   const [open, setOpen] = useState(false);
   const [recommendationData, setRecommendationData] = useState({});
+  const [openModal, setOpenModal] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -115,7 +117,7 @@ const MarketingHome = ({ data }) => {
         })
         .then((response) => {
           if (response?.status == 200) {
-            console.log('cj',response.data);
+            console.log("cj", response.data);
             setRecommendationData(response.data);
             setOpen(true);
           }
@@ -125,7 +127,10 @@ const MarketingHome = ({ data }) => {
     }
   };
   const handleClose = () => {
-    setOpen(false);
+    setOpenModal(false);
+  };
+  const handleOpenModal = () => {
+    setOpenModal(true);
   };
 
   return (
@@ -143,11 +148,15 @@ const MarketingHome = ({ data }) => {
               <small className="text-gray-400">Volt Assistant</small>
             </button>
           </h3>
-          <div className=" flex md:mt-0 md:absolute md:right-5">  
-            <MarketingDrawer handleClose={handleClose} open={open} data={recommendationData} />
+          <div className=" flex md:mt-0 md:absolute md:right-5">
+            <MarketingDrawer
+              handleClose={handleClose}
+              open={open}
+              data={recommendationData}
+            />
           </div>
         </div>
-  
+
         <div className="mt-1 xl:px-4">
           <p className="flex">
             <div className="p-2 w-1/3">
@@ -161,18 +170,26 @@ const MarketingHome = ({ data }) => {
             </div>
             <div className="p-2 w-1/3">
               <button
+                onClick={handleOpenModal}
                 type="button"
                 className="inline-flex w-full gap-4 items-center bg-gray-900 px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:bg-gray-500 focus:outline-none "
               >
                 <YouTubeIcon className="mr-3 text-red-500" />
                 Authorize YouTube
               </button>
+              <AuthorizeYoutubeModal
+                handleClose={handleClose}
+                open={openModal}
+              />
             </div>
           </p>
           <MarketingStatus data={data} />
         </div>
       </div>
-      <div className="w-full bg-gray-700 md:w-1/3 snap-x p-2" style={{ minHeight: "100%" }}>
+      <div
+        className="w-full bg-gray-700 md:w-1/3 snap-x p-2"
+        style={{ minHeight: "100%" }}
+      >
         <p className=" text-base text-gray-300 px-2 pb-4 pt-2 items-center gap-2 rounded-xl font-semibold flex p-1 ">
           <VerifiedOutlinedIcon />
           SOCIAL POSTS 3
