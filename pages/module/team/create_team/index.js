@@ -20,9 +20,7 @@ function CreateTeam() {
     var access_token = localStorage.getItem("access_token");
     var refresh_token = localStorage.getItem("refresh_token");
     if (access_token && refresh_token) {
-      console.log("index ", refresh_token);
       getPeoples();
-      console.log(localStorage.getItem("startup_key"));
     }
   }, []);
 
@@ -32,7 +30,6 @@ function CreateTeam() {
         .get("http://127.0.0.1:8000/team/get-people", {})
         .then((response) => {
           if (response?.status == 200) {
-            console.log(response);
             setPeople(response.data);
           }
         });

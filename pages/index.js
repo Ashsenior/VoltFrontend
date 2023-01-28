@@ -7,7 +7,7 @@ import AuthContext from "../context/AuthContext";
 import login from "./login";
 
 const Wrapper = styled(Box)(
-    ({ theme }) => `
+  ({ theme }) => `
   .container {
     position: fixed;
     top: 0;
@@ -130,172 +130,167 @@ const Wrapper = styled(Box)(
 );
 
 const SignUp = () => {
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [first_name, setFirstName] = React.useState("");
+  const [last_name, setLastName] = React.useState("");
 
-    const [username, setUsername] = React.useState("");
-    const [password, setPassword] = React.useState("");
-    const [email, setEmail] = React.useState("");
-    const [first_name, setFirstName] = React.useState("");
-    const [last_name, setLastName] = React.useState("");
-
-
-    const { isAuthenticated, error, register } = useContext(AuthContext);
-    useEffect(() => {
-        if (error) {
-            console.log(error);
-        }
-
-        if (isAuthenticated) {
-            Router.push("/dashboards");
-        }
-    }, [error, isAuthenticated]);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(username, password, email, first_name, last_name);
-        register(username, email, password, first_name, last_name);
-
+  const { isAuthenticated, error, register } = useContext(AuthContext);
+  useEffect(() => {
+    if (error) {
     }
 
-    return (
-        <>
-            <Wrapper>
-                <div className="container mx-auto">
-                    <div className="login-modal">
-                        <div className="login-modal-container">
-                            <div className="login-modal-left">
-                                <Grid item paddingBottom={1} paddingLeft={1}>
-                                    <Typography variant="h3" component="h3" gutterBottom>
-                                        Welcome!
-                                    </Typography>
-                                    <Typography variant="subtitle2">
-                                        To the startic field website an eco-system for startup.
-                                    </Typography>
-                                </Grid>
-                                <Box
-                                    component="form"
-                                    sx={{
-                                        "& .MuiTextField-root": { m: 1, width: "97%" },
-                                    }}
-                                    noValidate
-                                    autoComplete="off"
-                                >
-                                    <TextField
-                                        required
-                                        label="username"
-                                        type="name"
-                                        autoComplete="off"
-                                        name="username"
-                                        id="username"
-                                        placeholder="user name"
-                                        onChange={(e) => setUsername(e.target.value)}
-                                    />
+    if (isAuthenticated) {
+      Router.push("/dashboards");
+    }
+  }, [error, isAuthenticated]);
 
-                                    <TextField
-                                        required
-                                        label="firstname"
-                                        type="name"
-                                        autoComplete="off"
-                                        name="firstname"
-                                        id="firstname"
-                                        placeholder="first name"
-                                        onChange={(e) => setFirstName(e.target.value)}
-                                    />
-                                    <TextField
-                                        required
-                                        label="lastname"
-                                        type="name"
-                                        autoComplete="off"
-                                        name="lastname"
-                                        id="lastname"
-                                        placeholder="Name"
-                                        onChange={(e) => setLastName(e.target.value)}
-                                    />
-                                    <TextField
-                                        required
-                                        label="email"
-                                        type="email"
-                                        autoComplete="off"
-                                        name="email"
-                                        id="email"
-                                        placeholder="Email"
-                                        onChange={(e) => setEmail(e.target.value)}
-                                    />
-                                    <TextField
-                                        required
-                                        label="password"
-                                        type="password"
-                                        autoComplete="off"
-                                        name="password"
-                                        id="password"
-                                        placeholder="Password"
-                                        onChange={(e) => setPassword(e.target.value)}
-                                    />
-                                    <TextField
-                                        required
-                                        label="Conform Password"
-                                        type="password"
-                                        autoComplete="off"
-                                        name="confirm_password"
-                                        id="confirm_password"
-                                        placeholder="Conform Password"
-                                    />
-                                </Box>
-                                <Box
-                                    display={"flex"}
-                                    justifyContent={"space-between"}
-                                    alignItems={"center"}
-                                    mt={1}
-                                    mb={1}
-                                    ml={1}
-                                >
-                                    <Button
-                                        variant="contained"
-                                        color={"secondary"}
-                                        endIcon={<Google />}
-                                        style={{ opacity: 0, pointerEvents: "none" }}
-                                    >
-                                        Google
-                                    </Button>
-                                    <Button
-                                        className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                        variant="contained"
-                                        type="submit"
-                                        onClick={(e) => {
-                                            handleSubmit(e);
-                                        }}
-                                    >
-                                        Register
-                                    </Button>
-                                </Box>
-                                <Box
-                                    display={"flex"}
-                                    justifyContent={"center"}
-                                    alignItems={"center"}
-                                    mt={1}
-                                >
-                                    Already have an account? <Button
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    register(username, email, password, first_name, last_name);
+  };
 
-                                        onClick={
-                                            () => {
-                                                Router.push("/login")
-                                            }
-                                        }
-                                    >Log In</Button>
-                                </Box>
-                            </div>
-                            <div className="login-modal-right">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    src="/static/images/placeholders/covers/right_side.jpg"
-                                    alt=""
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </Wrapper>
-        </>
-    );
+  return (
+    <>
+      <Wrapper>
+        <div className="container mx-auto">
+          <div className="login-modal">
+            <div className="login-modal-container">
+              <div className="login-modal-left">
+                <Grid item paddingBottom={1} paddingLeft={1}>
+                  <Typography variant="h3" component="h3" gutterBottom>
+                    Welcome!
+                  </Typography>
+                  <Typography variant="subtitle2">
+                    To the startic field website an eco-system for startup.
+                  </Typography>
+                </Grid>
+                <Box
+                  component="form"
+                  sx={{
+                    "& .MuiTextField-root": { m: 1, width: "97%" },
+                  }}
+                  noValidate
+                  autoComplete="off"
+                >
+                  <TextField
+                    required
+                    label="username"
+                    type="name"
+                    autoComplete="off"
+                    name="username"
+                    id="username"
+                    placeholder="user name"
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+
+                  <TextField
+                    required
+                    label="firstname"
+                    type="name"
+                    autoComplete="off"
+                    name="firstname"
+                    id="firstname"
+                    placeholder="first name"
+                    onChange={(e) => setFirstName(e.target.value)}
+                  />
+                  <TextField
+                    required
+                    label="lastname"
+                    type="name"
+                    autoComplete="off"
+                    name="lastname"
+                    id="lastname"
+                    placeholder="Name"
+                    onChange={(e) => setLastName(e.target.value)}
+                  />
+                  <TextField
+                    required
+                    label="email"
+                    type="email"
+                    autoComplete="off"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <TextField
+                    required
+                    label="password"
+                    type="password"
+                    autoComplete="off"
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <TextField
+                    required
+                    label="Conform Password"
+                    type="password"
+                    autoComplete="off"
+                    name="confirm_password"
+                    id="confirm_password"
+                    placeholder="Conform Password"
+                  />
+                </Box>
+                <Box
+                  display={"flex"}
+                  justifyContent={"space-between"}
+                  alignItems={"center"}
+                  mt={1}
+                  mb={1}
+                  ml={1}
+                >
+                  <Button
+                    variant="contained"
+                    color={"secondary"}
+                    endIcon={<Google />}
+                    style={{ opacity: 0, pointerEvents: "none" }}
+                  >
+                    Google
+                  </Button>
+                  <Button
+                    className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    variant="contained"
+                    type="submit"
+                    onClick={(e) => {
+                      handleSubmit(e);
+                    }}
+                  >
+                    Register
+                  </Button>
+                </Box>
+                <Box
+                  display={"flex"}
+                  justifyContent={"center"}
+                  alignItems={"center"}
+                  mt={1}
+                >
+                  Already have an account?{" "}
+                  <Button
+                    onClick={() => {
+                      Router.push("/login");
+                    }}
+                  >
+                    Log In
+                  </Button>
+                </Box>
+              </div>
+              <div className="login-modal-right">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/static/images/placeholders/covers/right_side.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </Wrapper>
+    </>
+  );
 };
 
 export default SignUp;

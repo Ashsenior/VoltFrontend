@@ -141,9 +141,8 @@ const NewStrategy = () => {
     } catch (error) {
       throw error;
     }
-  useEffect(() => {
-    setStartupKey(localStorage.getItem("startup_key"));
-  });
+  };
+
   return (
     <div className="mt-4 bg-white shadow rounded-lg p-3 sm: m-5 ">
       <div>
@@ -249,7 +248,6 @@ const NewStrategy = () => {
             {/* </div> */}
 
             <div>
-
               <div className="mt-4 flex items-center justify-end">
                 <LoadingButton
                   loading={loading}
@@ -267,7 +265,6 @@ const NewStrategy = () => {
   );
 };
 
-export default NewStrategy
+export default NewStrategy;
 
 NewStrategy.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
-

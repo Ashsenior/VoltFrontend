@@ -1,14 +1,13 @@
 import React from "react";
 import Completed from "./Completed";
 import InProgress from "./InProgress";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 import DonutLargeOutlinedIcon from "@mui/icons-material/DonutLargeOutlined";
 import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurnedInOutlined";
 import { useRouter } from "next/router";
 
 const MarketingStatus = ({ data }) => {
   const router = useRouter();
-  console.log(data);
 
   return (
     <div className="w-full flex flex-row rounded-lg bg-gray-700 ">

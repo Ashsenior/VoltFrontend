@@ -21,8 +21,6 @@ const ProductHome = ({ products, authorized }) => {
   const router = useRouter();
   const { query } = useRouter();
 
-  console.log(context);
-
   useEffect(() => {
     var access_token = localStorage.getItem("access_token");
     var refresh_token = localStorage.getItem("refresh_token");
@@ -47,7 +45,6 @@ const ProductHome = ({ products, authorized }) => {
         })
         .then((response) => {
           if (response?.status == 200) {
-            console.log(response);
             setAuthorizeData(response.data);
             localStorage.setItem("client_id", response.data.client_id);
             localStorage.setItem("state", response.data.state);

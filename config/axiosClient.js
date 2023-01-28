@@ -1,16 +1,10 @@
 import axios from "axios";
-const URL = 'https://jsonplaceholder.typicode.com';
+import axiosInstance from "../src/axiosAPi";
+import { API_URL } from "./base";
+const URL = API_URL;
 
-export const post = async (apiURL, data, params) => {
-  let token = localStorage.getItem("redloftoken");
-
-  return axios.post(`${URL}/${apiURL}`, data, {
-    headers: {
-      params,
-      "Content-Type": "application/json;charset=UTF-8",
-      Authorization: "Bearer " + token,
-    },
-  });
+export const post = async (apiURL, data) => {
+  return axios.post(`${URL}/${apiURL}`, data, {});
 };
 
 export const noAuthPost = async (apiURL, data) => {
@@ -21,13 +15,7 @@ export const noAuthPost = async (apiURL, data) => {
   });
 };
 export const postForm = async (apiURL, data) => {
-  let token = localStorage.getItem("redloftoken");
-
-  return axios.post(`${URL}/${apiURL}`, data, {
-    headers: {
-      Authorization: "Bearer " + token,
-    },
-  });
+  return axios.post(`${URL}/${apiURL}`, data, {});
 };
 
 export const postLogin = async (apiURL, data) => {
@@ -39,15 +27,7 @@ export const postLogin = async (apiURL, data) => {
 };
 
 export const get = async (apiURL, params) => {
-  let token = localStorage.getItem("redloftoken");
-
-  return axios.get(`${URL}/${apiURL}`, {
-    params,
-    headers: {
-      "Content-Type": "application/json;charset=UTF-8",
-      Authorization: "Bearer " + token,
-    },
-  });
+  return axiosInstance.get(`${URL}/${apiURL}`, {});
 };
 
 export const noAuthGet = async (apiURL, params) => {

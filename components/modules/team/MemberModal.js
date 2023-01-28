@@ -15,7 +15,6 @@ const MemberModal = ({ handleClose, open, member }) => {
   const [idea, setIdea] = useState(false);
   const context = useContext(StartupContext);
 
-  console.log(member?.user?.username);
   const initialValues = {
     idea: idea,
     message: "",
@@ -24,7 +23,6 @@ const MemberModal = ({ handleClose, open, member }) => {
     startup_key: context?.startup_key,
   };
 
-  console.log(member);
   const [values, setValues] = useState(initialValues);
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -88,7 +86,7 @@ const MemberModal = ({ handleClose, open, member }) => {
     <div>
       <Dialog sx={{}} onClose={handleClose} open={open}>
         <form onSubmit={(event) => handleFormSubmit(event)}>
-          <div style={{minWidth:"500px"}} className="p-10">
+          <div style={{ minWidth: "500px" }} className="p-10">
             <div>
               <label
                 onClick={handleClose}

@@ -2,8 +2,7 @@ import { Card } from "flowbite-react";
 import React from "react";
 import { checkTeamDomain } from "../../../utils/data-modifiers";
 
-const ConnectionRequests = ({ request , cat }) => {
-  console.log(request);
+const ConnectionRequests = ({ request, cat }) => {
   return (
     <div>
       <div className="">
@@ -55,18 +54,19 @@ const ConnectionRequests = ({ request , cat }) => {
                 <span className="text-sm mb-4 text-gray-500 dark:text-gray-400">
                   {checkTeamDomain(request?.user?.profile?.domain)} Guy
                 </span>
-              </div> 
+              </div>
             </div>
             <center className="text-sm text-gray-300 mb-1">
               {request?.user?.profile?.skills.split(",").map((skill) => (
-                <span className="mx-1 rounded-full px-2 bg-gray-700">{skill}</span>
+                <span className="mx-1 rounded-full px-2 bg-gray-700">
+                  {skill}
+                </span>
               ))}
             </center>
             <center className=" text-sm font-medium text-gray-300">
               {request?.message}
             </center>
-            {
-              cat==="R"?
+            {cat === "R" ? (
               <div className=" flex space-x-3 mt-3 items-center justify-center">
                 <a
                   href="#"
@@ -81,9 +81,7 @@ const ConnectionRequests = ({ request , cat }) => {
                   Decline
                 </a>
               </div>
-              :
-              null
-            }
+            ) : null}
           </div>
         </div>
       </div>
