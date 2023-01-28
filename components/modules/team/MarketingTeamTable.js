@@ -3,7 +3,6 @@ import { useState } from "react";
 import MemberModal from "./MemberModal";
 
 const MarketingTeamTable = ({ people }) => {
-  console.log("people", people);
   const [open, setOpen] = useState(false);
   const [member, setMember] = useState({});
 
@@ -14,7 +13,6 @@ const MarketingTeamTable = ({ people }) => {
   const handleOpenModal = (member) => {
     setOpen(true);
     setMember(member);
-    console.log(member);
   };
 
   return (

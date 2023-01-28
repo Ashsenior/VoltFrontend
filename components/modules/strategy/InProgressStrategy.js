@@ -9,13 +9,11 @@ import CreateSubStrategyModal from "./createSubStrategyModal";
 import { useState } from "react";
 
 const InProgressStrategy = ({ data }) => {
-  console.log(data);
   const [open, setOpen] = useState(false);
   const [strategySlug, setStrategySlug] = useState("");
   const handleOpen = (slug) => {
     setOpen(true);
     setStrategySlug(slug);
-    console.log(slug);
   };
   const handleClose = () => {
     setOpen(false);

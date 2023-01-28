@@ -17,11 +17,6 @@ import StartupContext from "../../context/StartupContext";
 function DashboardCrypto({ query }) {
   const context = useContext(StartupContext);
 
-  context.setStartupKey(query.startup_key);
-
-  console.log(context.startup_key);
-
-  console.log(query);
   const [startups, setStartups] = useState({});
   const [startup_key, setStartupKey] = useState("");
   const router = useRouter();
@@ -44,7 +39,6 @@ function DashboardCrypto({ query }) {
     var access_token = localStorage.getItem("access_token");
     var refresh_token = localStorage.getItem("refresh_token");
     if (access_token && refresh_token) {
-      console.log("index ", refresh_token);
       getEnrolledStatus();
     }
   }, [startup_key]);
@@ -59,7 +53,6 @@ function DashboardCrypto({ query }) {
         })
         .then((response) => {
           if (response?.status == 200) {
-            console.log(response);
             setStartups(response.data?.details);
           }
         });

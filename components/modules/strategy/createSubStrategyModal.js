@@ -34,8 +34,6 @@ const CreateSubStrategyModal = ({ handleClose, open, slug }) => {
     startup_key: context?.startup_key,
   });
 
-  console.log(slug);
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     // name = event.target.name;
@@ -53,9 +51,7 @@ const CreateSubStrategyModal = ({ handleClose, open, slug }) => {
         })
         .then((response) => {
           if (response?.status == 200) {
-            console.log(response?.data);
             setLeaders(response?.data?.members);
-            console.log(leaders);
           }
         });
     } catch (error) {
@@ -88,7 +84,6 @@ const CreateSubStrategyModal = ({ handleClose, open, slug }) => {
             })
             .then((response) => {
               if (response.status === 201 || response.status === 200) {
-                console.log("done !");
                 //   router.push("/module/team");
                 setLoading(false);
                 setValues({});
@@ -113,7 +108,6 @@ const CreateSubStrategyModal = ({ handleClose, open, slug }) => {
             )
             .then((response) => {
               if (response.status === 201 || response.status === 200) {
-                console.log("done !");
                 //   router.push("/module/team");
                 setLoading(false);
                 setValues({});

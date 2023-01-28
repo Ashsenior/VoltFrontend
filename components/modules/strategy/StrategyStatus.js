@@ -5,10 +5,9 @@ import StrategyTask from "./StrategyTask";
 import DonutLargeOutlinedIcon from "@mui/icons-material/DonutLargeOutlined";
 import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurnedInOutlined";
 import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
-import RemoveDoneIcon from '@mui/icons-material/RemoveDone';
+import RemoveDoneIcon from "@mui/icons-material/RemoveDone";
 
 const StrategyStatus = ({ strategy }) => {
-  console.log(strategy);
   return (
     <>
       <div className=" bg-gray-700 rounded-lg grid grid-cols-1 lg:grid-cols-3 xl:mx-4 p-2 mt-7">
@@ -28,8 +27,7 @@ const StrategyStatus = ({ strategy }) => {
             <AssignmentTurnedInOutlinedIcon />
             COMPLETED 2
           </p>
-          {
-            strategy?.completed?
+          {strategy?.completed ? (
             <div className="w-full mt-2">
               <label className="flex justify-center w-full h-24 px-4 transition bg-gray-900 rounded-md appearance-none focus:outline-none">
                 <span className="flex items-center space-x-2">
@@ -40,11 +38,11 @@ const StrategyStatus = ({ strategy }) => {
                 </span>
               </label>
             </div>
-            :
+          ) : (
             strategy.completed?.minor?.map((data) => (
               <CompletedStrategy key={data.id} data={data} />
             ))
-          }
+          )}
         </div>
         <div className=" p-1">
           <p className=" text-base py-2 items-center gap-2 rounded-xl font-semibold flex text-gray-300">

@@ -14,7 +14,6 @@ const StrategyHome = ({ strategy }) => {
   const handleClose = () => {
     setOpen(false);
   };
-  console.log(strategy);
   return (
     <div className=" bg-gray-800">
       {/* Link Buttons */}

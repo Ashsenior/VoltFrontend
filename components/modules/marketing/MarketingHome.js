@@ -117,7 +117,6 @@ const MarketingHome = ({ data }) => {
         })
         .then((response) => {
           if (response?.status == 200) {
-            console.log("cj", response.data);
             setRecommendationData(response.data);
             setOpen(true);
           }

@@ -20,8 +20,8 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Footer from "src/components/Footer";
-import { DatePicker } from '@mui/x-date-pickers';
-import { LoadingButton } from '@mui/lab';
+import { DatePicker } from "@mui/x-date-pickers";
+import { LoadingButton } from "@mui/lab";
 import Router from "next/router";
 
 const genders = [
@@ -257,7 +257,6 @@ function TabsDemo() {
           })
           .then((response) => {
             if (response.status === 201) {
-              console.log("done !");
               Router.push("/home");
               setLoading(false);
             } else {

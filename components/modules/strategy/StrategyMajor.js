@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 
 const StrategyMajor = ({ strategy }) => {
   const router = useRouter();
-  console.log(strategy);
   return (
     <div className="bg-white shadow overflow-hidden">
       <ul role="list" className="divide-y divide-gray-200">

@@ -5,9 +5,7 @@ import AssignmentIndOutlinedIcon from "@mui/icons-material/AssignmentIndOutlined
 import { useRouter } from "next/router";
 
 const FeaturesCard = ({ feature }) => {
-  console.log(feature);
   const router = useRouter();
-  console.log(router?.query);
 
   return (
     <div className="bg-gray-800 rounded-lg p-3 text-gray-300">

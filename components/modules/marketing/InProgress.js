@@ -4,35 +4,35 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import { LinkedIn } from "@mui/icons-material";
 import OfflineBoltOutlinedIcon from "@mui/icons-material/OfflineBoltOutlined";
 import { useRouter } from "next/router";
-import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
-import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
+import AssignmentIndOutlinedIcon from "@mui/icons-material/AssignmentIndOutlined";
+import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
 import { CalendarMonth } from "@mui/icons-material";
 
 const InProgress = ({ data }) => {
-  console.log(data);
   const router = useRouter();
-  console.log(data);
   const handleClick = () => {
     router.push(`/module/marketing/${data?.details?.key}`);
   };
   return (
-    <div onClick={handleClick} className="bg-gray-800 mt-4 shadow-xl rounded-md p-4">
+    <div
+      onClick={handleClick}
+      className="bg-gray-800 mt-4 shadow-xl rounded-md p-4"
+    >
       <h4 className="text-lg flex font-semibold text-gray-300 pb-1 cursor-pointer">
         {data?.details?.marketingTitle}
         <span class="bg-gray-100 gap-1 ml-2 text-blue-300 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-900 ">
-            <OfflineBoltOutlinedIcon />
-            {data?.details?.points}
+          <OfflineBoltOutlinedIcon />
+          {data?.details?.points}
         </span>
       </h4>
-      <div className='flex items-center mt-1'>
-          <span class="bg-gray-100 gap-1 text-blue-300 text-md font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-900">
-              <AssignmentIndOutlinedIcon />
-              @{data?.details?.marketingLeader}
-          </span>
-          <span class="bg-gray-100 gap-1 text-blue-300 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-900 ">
-              <CalendarMonth />
-              {data?.details?.endDate}
-          </span>
+      <div className="flex items-center mt-1">
+        <span class="bg-gray-100 gap-1 text-blue-300 text-md font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-900">
+          <AssignmentIndOutlinedIcon />@{data?.details?.marketingLeader}
+        </span>
+        <span class="bg-gray-100 gap-1 text-blue-300 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded-full mr-2 dark:bg-gray-900 ">
+          <CalendarMonth />
+          {data?.details?.endDate}
+        </span>
       </div>
       <div className="flex items-center gap-2 mt-1">
         <p className="font-medium text-gray-300">60%</p>
