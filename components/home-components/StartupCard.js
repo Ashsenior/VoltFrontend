@@ -1,8 +1,19 @@
 import React from "react";
 import Router from "next/router";
+import { useContext } from "react";
+import { Context } from "../../context/ContextProvider";
 
 const StartupCard = ({ startup }) => {
+  const context = useContext(Context);
+  const startupContext = context?.Startup;
+
   const handleClick = (startup) => {
+    startupContext?.dispatch({
+      type: "selected_startup",
+      value: {
+        startupKey: startup?.details?.key,
+      },
+    });
     Router.push({
       pathname: "/dashboards",
       query: { startup_key: startup?.details?.key },
@@ -11,7 +22,10 @@ const StartupCard = ({ startup }) => {
   return (
     <>
       {startup?.map((startup, index) => (
-        <div className="w-full flex justify-between p-1 items-center  hover:bg-gray-100">
+        <div
+          key={index}
+          className="w-full flex justify-between p-1 items-center  hover:bg-gray-100"
+        >
           <div className="flex">
             <img
               className="w-10 h-10 mx-1 bg-gray-100 rounded-lg lg:w-20 lg:h-20"

@@ -17,10 +17,10 @@ import {
   Box,
   FormControlLabel,
   Container,
+  Stack,
+  IconButton,
 } from "@mui/material";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
+import Cancel from "@mui/icons-material/Cancel";
 import axiosInstance from "../../../../src/axiosAPi";
 import {
   getDateWithDash,
@@ -28,6 +28,9 @@ import {
 } from "../../../../utils/data-modifiers";
 import moment from "moment";
 import { useRouter } from "next/router";
+import { getLeaders } from "../../../../utils/apiCalls";
+import { useContext } from "react";
+import { Context } from "../../../../context/ContextProvider";
 
 const SelectCategory = [
   {
@@ -40,7 +43,7 @@ const SelectCategory = [
   },
 ];
 
-const NewStrategy = () => {
+const NewStrategy = ({ handleCallBack }) => {
   const [approxStartDate, setApproxStartDate] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const [username, setUsername] = useState("");
@@ -63,6 +66,7 @@ const NewStrategy = () => {
   const [values, setValues] = useState(initialValues);
   const [leaders, setLeaders] = useState([]);
   const router = useRouter();
+  const startupContext = useContext(Context)?.Startup;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -71,84 +75,43 @@ const NewStrategy = () => {
     setValues({ ...values, [name]: value });
   };
 
-  useEffect(() => {
-    var access_token = localStorage.getItem("access_token");
-    var refresh_token = localStorage.getItem("refresh_token");
-    if (access_token && refresh_token) {
-      setAuthenticated(true);
-      setUsername(localStorage.getItem("username"));
-      getLeaders();
-    }
-  }, [authenticated]);
-
   const handleFormSubmit = (event) => {
     setLoading(true);
-
     console.log(values);
-
     event.preventDefault();
-    // values.assign("assa");
     values.startup_key = startup_key;
     var momentDate = moment(approxStartDate);
     values.approxStartDate = momentDate.format("YYYY-MM-DD");
+  };
 
-    if (authenticated) {
-      try {
-        axiosInstance
-          .post("/strategy/startup/create-strategy/", {
-            strategyTitle: values.strategyTitle,
-            approxStartDate: values.approxStartDate,
-            startup_key: values.startup_key,
-            strategy: values.strategy,
-            category: values.category,
-            strategyLeader: values.strategyLeader,
-            customer: values.customer,
-            success_low: values.success_low,
-            success_mid: values.success_mid,
-            success_high: values.success_high,
-          })
-          .then((response) => {
-            if (response.status === 201) {
-              console.log("done !");
-              router.push("/module/strategy");
-              setLoading(false);
-            } else {
-              setMessage("Some error occurred while completing your profile!");
-              setLoading(false);
-            }
-          });
-      } catch (error) {
-        setLoading(false);
-        throw error;
-      }
-    } else {
-      setMessage("Fill the compulsory fields.");
-    }
-  };
-  const getLeaders = () => {
-    try {
-      axiosInstance
-        .get("/strategy/startup/get-team-members", {
-          params: { startup_key: localStorage.getItem("startup_key") },
-        })
-        .then((response) => {
-          if (response?.status == 200) {
-            console.log(response?.data);
-            setLeaders(response?.data?.members);
-            console.log(leaders);
-          }
-        });
-    } catch (error) {
-      throw error;
-    }
-  };
+  useEffect(() => {
+    let params = {
+      startup_key: startupContext?.state?.startupKey?.startupKey
+        ? startupContext?.state?.startupKey?.startupKey
+        : localStorage.getItem("startup_key"),
+    };
+    getLeaders(params).then((res) => {
+      setLeaders(res.members);
+    });
+  }, [startupContext]);
 
   return (
     <div className="mt-4 bg-white shadow rounded-lg p-3 sm: m-5 ">
       <div>
-        <h1 className="text-2xl font-semibold text-center mb-10">
-          ⚡New Plan for your Startup ?
-        </h1>
+        <Stack
+          direction={"row"}
+          alignItems="center"
+          justifyContent={"space-between"}
+          mb={5}
+        >
+          <>.</>
+          <h1 className="text-2xl font-semibold text-center ">
+            ⚡New Strategy for your Startup ?
+          </h1>
+          <IconButton onClick={handleCallBack}>
+            <Cancel />
+          </IconButton>
+        </Stack>
       </div>
       <Container>
         <form onSubmit={(event) => handleFormSubmit(event)}>

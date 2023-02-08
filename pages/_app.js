@@ -4,7 +4,6 @@ import nProgress from "nprogress";
 import "nprogress/nprogress.css";
 import ThemeProvider from "src/theme/ThemeProvider";
 import CssBaseline from "@mui/material/CssBaseline";
-
 import { SidebarProvider } from "src/contexts/SidebarContext";
 import { AuthProvider } from "../context/AuthContext";
 import { LocalizationProvider } from "@mui/x-date-pickers";
@@ -14,6 +13,8 @@ import StartupContext, { AppWrapper } from "../context/StartupContext";
 import { useState } from "react";
 import { useEffect } from "react";
 import GithubAuthContext from "../context/GithubAuthContext";
+import { LeaderContextProvider } from "../context/LeaderContext";
+import ContextProviderWrapper from "../context/ContextProvider";
 
 function App(props) {
   if (typeof window !== "undefined") {
@@ -42,22 +43,26 @@ function App(props) {
   }, []);
 
   return (
-    <AuthProvider>
-      <StartupContext.Provider value={{ startup_key, setStartupKey }}>
-        <GithubAuthContext.Provider
-          value={{ client_id, setClientId, state, setState }}
-        >
-          <SidebarProvider>
-            <ThemeProvider>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <CssBaseline />
-                {getLayout(<Component {...pageProps} />)}
-              </LocalizationProvider>
-            </ThemeProvider>
-          </SidebarProvider>
-        </GithubAuthContext.Provider>
-      </StartupContext.Provider>
-    </AuthProvider>
+    <ContextProviderWrapper>
+      <AuthProvider>
+        <StartupContext.Provider value={{ startup_key, setStartupKey }}>
+          <GithubAuthContext.Provider
+            value={{ client_id, setClientId, state, setState }}
+          >
+            <SidebarProvider>
+              <ThemeProvider>
+                <LeaderContextProvider>
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <CssBaseline />
+                    {getLayout(<Component {...pageProps} />)}
+                  </LocalizationProvider>
+                </LeaderContextProvider>
+              </ThemeProvider>
+            </SidebarProvider>
+          </GithubAuthContext.Provider>
+        </StartupContext.Provider>
+      </AuthProvider>
+    </ContextProviderWrapper>
   );
 }
 

@@ -7,41 +7,40 @@ import { useState } from "react";
 import { useContext } from "react";
 import StartupContext from "../../../context/StartupContext";
 import axiosInstance from "../../../src/axiosAPi";
+import { Context } from "../../../context/ContextProvider";
+import { getProducts } from "../../../utils/apiCalls";
+import { CleaningServices } from "@mui/icons-material";
 
 function ProductModule() {
   const [products, setProducts] = useState([]);
-  const context = useContext(StartupContext);
-  useEffect(() => {
-    var access_token = localStorage.getItem("access_token");
-    var refresh_token = localStorage.getItem("refresh_token");
-    if (access_token && refresh_token) {
-      getProductsData();
-    }
-  }, []);
+  const startupContext = useContext(Context)?.Startup;
+
   const getProductsData = () => {
-    try {
-      axiosInstance
-        .get("http://127.0.0.1:8000/product/startup/get-products", {
-          params: {
-            startup_key: context?.startup_key,
-          },
-        })
-        .then((response) => {
-          if (response?.status == 200) {
-            console.log(response);
-            setProducts(response.data);
-          }
-        });
-    } catch (error) {
-      throw error;
-    }
+    let params = {
+      startup_key: startupContext?.state?.startupKey?.startupKey
+        ? startupContext?.state?.startupKey?.startupKey
+        : localStorage.getItem("startup_key"),
+    };
+    getProducts(params).then((res) => {
+      console.log(res.products);
+      setProducts(res.products);
+    });
   };
+
+  useEffect(() => {
+    getProductsData();
+  }, [startupContext]);
+
+  useEffect(() => {
+    console.log(products);
+  }, [products]);
+
   return (
     <>
       <Head>
         <title>Product Module</title>
       </Head>
-      <ProductHome products={products}  />
+      <ProductHome products={products} />
     </>
   );
 }

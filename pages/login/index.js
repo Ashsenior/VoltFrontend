@@ -4,7 +4,17 @@ import Typography from "@mui/material/Typography";
 import Router from "next/router";
 import React, { useState, useContext, useEffect } from "react";
 import AuthContext from "../../context/AuthContext";
-
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import InputAdornment from "@mui/material/InputAdornment";
+import IconButton from "@mui/material/IconButton";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import { Context } from "../../context/ContextProvider";
+import {
+  ErrorToast,
+  SuccessToast,
+} from "../../components/common/toasts/toast-helpers";
 const Wrapper = styled(Box)(
   ({ theme }) => `
   .container {
@@ -125,19 +135,24 @@ const Wrapper = styled(Box)(
 );
 
 const Login = () => {
-
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const context = useContext(Context)?.Toast;
 
   const { isAuthenticated, error, login } = useContext(AuthContext);
 
-  useEffect(() => {
-    if (error) {
-      console.log(error);
-    }
+  const [showPassword, setShowPassword] = React.useState(false);
 
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  useEffect(() => {
     if (isAuthenticated) {
       Router.push("/home");
+      SuccessToast("Logged in successfully", context);
     }
   }, [error, isAuthenticated]);
 
@@ -145,8 +160,7 @@ const Login = () => {
     e.preventDefault();
     console.log(username, password);
     login(username, password);
-  }
-
+  };
 
   return (
     <Wrapper>
@@ -170,7 +184,8 @@ const Login = () => {
                 noValidate
                 autoComplete="off"
               >
-                <TextField
+                <InputLabel htmlFor="username">Username</InputLabel>
+                <OutlinedInput
                   required
                   label="username"
                   type="username"
@@ -179,16 +194,30 @@ const Login = () => {
                   id="username"
                   placeholder="username"
                   onChange={(e) => setUsername(e.target.value)}
+                  fullWidth
+                  sx={{ mb: 2 }}
                 />
-                <TextField
+                <InputLabel htmlFor="password">Password</InputLabel>
+                <OutlinedInput
                   required
-                  label="password"
-                  type="password"
-                  autoComplete="off"
                   name="password"
+                  fullWidth
                   id="password"
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
+                  type={showPassword ? "text" : "password"}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
                 />
               </Box>
               <Box
@@ -225,11 +254,14 @@ const Login = () => {
                 mt={6}
               >
                 {/* eslint-disable-next-line react/no-unescaped-entities */}
-                Don't have an account? <Button
+                Don't have an account?{" "}
+                <Button
                   onClick={() => {
                     handleSubmit();
                   }}
-                >Sign In</Button>
+                >
+                  Sign In
+                </Button>
               </Box>
             </div>
             <div className="login-modal-right">

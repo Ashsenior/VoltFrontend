@@ -5,22 +5,16 @@ import { LoadingButton } from "@mui/lab";
 import SidebarLayout from "src/layouts/SidebarLayout";
 
 import {
-  Checkbox,
   Grid,
-  Card,
-  CardHeader,
-  CardContent,
-  Divider,
-  Button,
   TextField,
   MenuItem,
   Box,
-  FormControlLabel,
   Container,
+  Stack,
+  IconButton,
 } from "@mui/material";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
+
+import CancelIcon from "@mui/icons-material/Cancel";
 import axiosInstance from "../../../../src/axiosAPi";
 import {
   getDateWithDash,
@@ -179,7 +173,7 @@ const KEYWORD_CHOICES = [
   },
 ];
 
-const NewProduct = () => {
+const NewProduct = ({ handleCallBack }) => {
   const [approxStartDate, setApproxStartDate] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const [username, setUsername] = useState("");
@@ -246,7 +240,7 @@ const NewProduct = () => {
           .then((response) => {
             if (response.status === 201) {
               console.log("done !");
-              router.push("/module/product  ");
+              handleCallBack();
               setLoading(false);
             } else {
               setMessage("Some error occurred while completing your profile!");
@@ -284,11 +278,20 @@ const NewProduct = () => {
   }, []);
   return (
     <div className="mt-4 bg-white shadow rounded-lg p-3 sm: m-5 ">
-      <div>
-        <h1 className="text-2xl font-semibold text-center mb-10">
+      <Stack
+        direction={"row"}
+        alignItems="center"
+        justifyContent={"space-between"}
+        mb={5}
+      >
+        <>.</>
+        <h1 className="text-2xl font-semibold text-center ">
           ⚡New Product for your Startup ?
         </h1>
-      </div>
+        <IconButton onClick={handleCallBack}>
+          <CancelIcon />
+        </IconButton>
+      </Stack>
       <Container>
         <form onSubmit={(event) => handleFormSubmit(event)}>
           <Grid container alignItems={"center"} spacing={1}>
@@ -304,7 +307,7 @@ const NewProduct = () => {
             <Grid item xs={12} sm={12} md={12} lg={6} mb={2}>
               <TextField
                 select
-                label="Select leader ?"
+                label="Select leader?"
                 name="productLeader"
                 value={values?.productLeader}
                 fullWidth

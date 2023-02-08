@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/dashboard/index.js", "components/modules/team/empty-state.js", "pages/dummy.js", "config/base.tj"  ],
+, "pages/dashboard/index.js", "components/modules/team/empty-state.js", "pages/dummy.js", "config/base.tj", "components/common/toasts/toast-helpers.js", "components/common/toasts/toast-message.js"  ],
   "exclude": [
     "node_modules"
   ]

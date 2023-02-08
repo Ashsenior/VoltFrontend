@@ -1,6 +1,30 @@
 import { get, post } from "../config/axiosClient";
 import Endpoints from "../config/endpoints";
 
+export const getDashboardData = async (params) => {
+  return new Promise((resolve, reject) => {
+    get(`${Endpoints.GET_DASHBOARD_DATA}`, params)
+      .then((res) => {
+        resolve(res.data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
+
+export const getHomeStartups = async (params) => {
+  return new Promise((resolve, reject) => {
+    get(`${Endpoints.GET_HOME_STARTUPS}`, params)
+      .then((res) => {
+        resolve(res.data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
+
 export const getAllStrategy = async (startup_key) => {
   return new Promise((resolve, reject) => {
     get(`${Endpoints.GET_STRATEGIES}?startup_key=${startup_key}`)
@@ -37,9 +61,21 @@ export const createProduct = async (body) => {
   });
 };
 
-export const getProducts = async (startup_key) => {
+export const getProducts = async (params) => {
   return new Promise((resolve, reject) => {
-    get(`${Endpoints.GET_PRODUCTS}?startup_key=${startup_key}`)
+    get(`${Endpoints.GET_PRODUCTS}`, params)
+      .then((res) => {
+        resolve(res.data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
+
+export const getLeaders = async (params) => {
+  return new Promise((resolve, reject) => {
+    get(`${Endpoints.GET_LEADERS}`, params)
       .then((res) => {
         resolve(res.data);
       })
