@@ -1,72 +1,53 @@
 import Head from "next/head";
 import SidebarLayout from "src/layouts/SidebarLayout";
-import { div, Grid } from "@mui/material";
+import { div, Grid, Typography } from "@mui/material";
 import Footer from "src/components/Footer";
-import Points from "src/content/Dashboards/Crypto/Points";
+// import Points from "src/content/Dashboards/Crypto/Points";
 import { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
-import Meetings from "../../components/dashboard-components/Meetings/Meetings";
+// import Meetings from "../../components/dashboard-components/Meetings/Meetings";
 import { useState } from "react";
-import Idea from "../../components/dashboard-components/Idea/Idea";
-import TargetAudience from "../../components/dashboard-components/TargetAudience/TargetAudience";
-import ModulePreview from "../../components/dashboard-components/ModulePreview/ModulePreview";
+// import Idea from "../../components/dashboard-components/Idea/Idea";
+// import TargetAudience from "../../components/dashboard-components/TargetAudience/TargetAudience";
+// import ModulePreview from "../../components/dashboard-components/ModulePreview/ModulePreview";
 import { get } from "../../config/axiosClient";
 import axiosInstance from "../../src/axiosAPi";
 import axios from "axios";
 import StartupContext from "../../context/StartupContext";
+import { getDashboardData } from "../../utils/apiCalls";
+import { Context } from "../../context/ContextProvider";
+import {
+  ErrorToast,
+  SuccessToast,
+} from "../../components/common/toasts/toast-helpers";
+import AuthContext from "../../context/AuthContext";
 function DashboardCrypto({ query }) {
-  const context = useContext(StartupContext);
+  // const context = useContext(StartupContext);
 
   const [startups, setStartups] = useState({});
   const [startup_key, setStartupKey] = useState("");
   const router = useRouter();
-  const [username, setUsername] = useState("");
-  useEffect(() => {
-    var access_token = localStorage.getItem("access_token");
-    var refresh_token = localStorage.getItem("refresh_token");
-    if (access_token && refresh_token) {
-      setUsername(localStorage.getItem("username"));
-      //getUserData();
-    } else {
-      router.push({
-        pathname: "/",
-        query: { message: "Not authenticated !" },
+  const context = useContext(Context);
+  const { user } = useContext(AuthContext);
+
+  const toastContext = context?.Toast;
+
+  const DashboardData = () => {
+    let params = {
+      username: user,
+      startup_key: query?.startup_key,
+    };
+    getDashboardData(params)
+      .then((res) => {
+        setStartups(res.details);
+        SuccessToast("Fetched Successfully", toastContext);
+      })
+      .catch((err) => {
+        ErrorToast("No Data Found", toastContext);
       });
-    }
-  }, []);
-
-  useEffect(() => {
-    var access_token = localStorage.getItem("access_token");
-    var refresh_token = localStorage.getItem("refresh_token");
-    if (access_token && refresh_token) {
-      getEnrolledStatus();
-    }
-  }, [startup_key]);
-  const getEnrolledStatus = () => {
-    try {
-      axiosInstance
-        .get("http://127.0.0.1:8000/user/get-dashboard-data", {
-          params: {
-            username: localStorage.getItem("username"),
-            startup_key: query?.startup_key ? query.startup_key : startup_key,
-          },
-        })
-        .then((response) => {
-          if (response?.status == 200) {
-            setStartups(response.data?.details);
-          }
-        });
-    } catch (error) {
-      throw error;
-    }
   };
-
   useEffect(() => {
-    localStorage.setItem("startup_key", query?.startup_key);
-  }, [query]);
-
-  useEffect(() => {
-    setStartupKey(localStorage.getItem("startup_key"));
+    DashboardData();
   }, []);
 
   return (
@@ -77,6 +58,7 @@ function DashboardCrypto({ query }) {
       {/* Edit startup modal */}
       {/* Chart */}
       <div>
+        <Typography variant="h1">Dashboard</Typography>
         <Grid
           div
           direction="row"
@@ -85,33 +67,25 @@ function DashboardCrypto({ query }) {
           spacing={4}
         >
           <Grid item xs={12} marginTop={4}>
-            <Points startup={startups} />
+            {/* <Points startup={startups} /> */}
           </Grid>
         </Grid>
       </div>
 
       {/* Module Preview */}
 
-      <div>
-        <ModulePreview />
-      </div>
+      <div>{/* <ModulePreview /> */}</div>
 
       {/* Meeting Cards */}
 
-      <div>
-        <Meetings />
-      </div>
+      <div>{/* <Meetings /> */}</div>
 
       {/* Idea and Selling Point card */}
-      <div>
-        <Idea startup={startups} />
-      </div>
+      <div>{/* <Idea startup={startups} /> */}</div>
       {/* Target Audience */}
 
       {/* Idea and Selling Point card */}
-      <div>
-        <TargetAudience startup={startups} />
-      </div>
+      {/* <div><TargetAudience startup={startups} /></div> */}
 
       <Footer />
     </div>

@@ -1,14 +1,21 @@
 import React, { useState, useEffect, createContext } from "react";
 import Router from "next/router";
-import jwt_decode from "jwt-decode";
 import axiosInstance from "src/axiosAPi";
+import { useContext } from "react";
+import { Context } from "./ContextProvider";
+import {
+  ErrorToast,
+  SuccessToast,
+} from "../components/common/toasts/toast-helpers";
 
 const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
+  const toastContext = useContext(Context)?.Toast;
+
   const [user, setUser] = useState("null");
+
   const [error, setError] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [authTokens, setAuthTokens] = React.useState(null);
   const base_url = "http://127.0.0.1:8000";
 
   const login = async (username, password) => {
@@ -19,19 +26,22 @@ export const AuthProvider = ({ children }) => {
         headers: { "Content-Type": "application/json" },
       });
       const data = await res.json();
+      ErrorToast("Invalid Credentials", toastContext);
+
       if (res !== undefined) {
         if (res.status === 200) {
+          SuccessToast("Logged in Successfully", toastContext);
+
           if (typeof window !== "undefined") {
             localStorage.setItem("access_token", data.access);
             localStorage.setItem("refresh_token", data.refresh);
+            setUser(username);
             localStorage.setItem("username", username);
             axiosInstance.defaults.headers["Authorization"] =
               "JWT " + data.access;
             await Router.push("/home");
           }
         }
-      } else {
-        setMessage("Incorrect username or password!");
       }
     } catch (error) {
       setError(

@@ -27,7 +27,9 @@ export const postLogin = async (apiURL, data) => {
 };
 
 export const get = async (apiURL, params) => {
-  return axiosInstance.get(`${URL}/${apiURL}`, {});
+  return axiosInstance.get(`${URL}/${apiURL}`, {
+    params,
+  });
 };
 
 export const noAuthGet = async (apiURL, params) => {

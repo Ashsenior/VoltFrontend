@@ -20,7 +20,7 @@ function StrategyModule() {
     getAllStrategy(context.startup_key).then((res) => {
       setStrategy(res);
     });
-  });
+  }, []);
 
   return (
     <>

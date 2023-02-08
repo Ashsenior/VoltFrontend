@@ -6,49 +6,44 @@ import BaseLayout from "src/layouts/BaseLayout";
 import Head from "next/head";
 import { get } from "../../config/axiosClient";
 import { useEffect } from "react";
-import { Button, Box, Grid, Tabs, Tab } from "@mui/material";
 import axiosInstance from "../../src/axiosAPi";
 import ComplexStatisticsCard from "../../components/content-module/card";
 import PublicStartupCard from "../../components/home-components/PublicStartupCard";
 import GradeIcon from "@mui/icons-material/Grade";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import CastConnectedIcon from '@mui/icons-material/CastConnected';
+import CastConnectedIcon from "@mui/icons-material/CastConnected";
 import Ideas from "../../components/home-components/Ideas";
 import TagIcon from "@mui/icons-material/Tag";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 import Connections from "../../components/home-components/Connections";
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications';
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
+import { useContext } from "react";
+import AuthContext from "../../context/AuthContext";
+import { getHomeStartups } from "../../utils/apiCalls";
+import { ErrorToast } from "../../components/common/toasts/toast-helpers";
+import { Context } from "../../context/ContextProvider";
 
 const Home = () => {
   const [your_startups, setYourStartups] = useState([]);
   const [all_startups, setAllStartups] = useState([]);
+  const { user } = useContext(AuthContext);
+  const toastContext = useContext(Context)?.Toast;
 
-  useEffect(() => {
-    var access_token = localStorage.getItem("access_token");
-    var refresh_token = localStorage.getItem("refresh_token");
-    if (access_token && refresh_token) {
-      console.log("index ", refresh_token);
-      getEnrolledStatus();
-    }
-  }, []);
-  const getEnrolledStatus = () => {
-    try {
-      axiosInstance
-        .get("/user/get-startups/", {
-          params: { username: localStorage.getItem("username") },
-        })
-        .then((response) => {
-          if (response?.status == 200) {
-            console.log(response);
-            setYourStartups(response.data?.your_startups);
-            setAllStartups(response.data?.all_startups);
-          }
-        });
-    } catch (error) {
-      throw error;
-    }
+  console.log();
+  const getHomeStartupsDetails = () => {
+    let params = {
+      username: user,
+    };
+
+    getHomeStartups(params).then((response) => {
+      setYourStartups(response?.your_startups);
+      setAllStartups(response?.all_startups);
+    });
   };
+  useEffect(() => {
+    getHomeStartupsDetails();
+  }, [user]);
 
   const [openTab, setOpenTab] = React.useState(1);
   const [openIdeaTab, setopenIdeaTab] = React.useState(1);
@@ -110,7 +105,8 @@ const Home = () => {
                   href="#link3"
                   role="tablist"
                 >
-                  <CastConnectedIcon className="text-md" /> Connections <CircleNotificationsIcon className="absolute text-orange-500 top-0" />
+                  <CastConnectedIcon className="text-md" /> Connections{" "}
+                  <CircleNotificationsIcon className="absolute text-orange-500 top-0" />
                 </a>
               </li>
             </ul>
