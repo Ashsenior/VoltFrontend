@@ -41,6 +41,7 @@
     "echarts-for-react": "^3.0.2",
     "flowbite-react": "^0.3.7",
     "formik": "^2.2.9",
+    "framer-motion": "^9.0.2",
     "immutable": "^4.1.0",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.4",
