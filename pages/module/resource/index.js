@@ -27,7 +27,6 @@ import FileCopyIcon from "@mui/icons-material/FileCopy";
 const CustomizedInputBase = () => {
   return (
     <Paper
-      component="form"
       sx={{
         p: "2px 4px",
         mb: 2,
@@ -110,7 +109,7 @@ const DashboardCard = (props) => {
   );
 };
 
-function ProductModule() {
+function ResourceModule() {
   const [value, setValue] = React.useState("1");
 
   const handleChange = (event, newValue) => {
@@ -247,6 +246,6 @@ function ProductModule() {
   );
 }
 
-ProductModule.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
+ResourceModule.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
 
-export default ProductModule;
+export default ResourceModule;
