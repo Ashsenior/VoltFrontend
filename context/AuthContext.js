@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
 
   const [error, setError] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const base_url = "http://127.0.0.1:8000";
+  const base_url = "https://volt-api.vercel.app";
 
   const login = async (username, password) => {
     try {
