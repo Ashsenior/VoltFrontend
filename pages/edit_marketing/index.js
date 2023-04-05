@@ -2,7 +2,7 @@ import Head from 'next/head';
 import SidebarLayout from 'src/layouts/SidebarLayout';
 import { Container } from '@mui/material';
 import Footer from 'src/components/Footer';
-import EditMarketings from '../module/create_marketing/EditMarketings';
+// import EditMarketings from '../module/create_marketing/EditMarketings';
 
 function EditMarketing() {
     return (
@@ -11,7 +11,7 @@ function EditMarketing() {
                 <title>Create Strategy</title>
             </Head>
             <Container>
-                <EditMarketings></EditMarketings>
+                {/* <EditMarketings></EditMarketings> */}
             </Container>
         </>
     );
