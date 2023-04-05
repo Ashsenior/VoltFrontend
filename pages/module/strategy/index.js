@@ -17,9 +17,14 @@ function StrategyModule() {
   const router = useRouter();
 
   useEffect(() => {
-    getAllStrategy(context.startup_key).then((res) => {
-      setStrategy(res);
-    });
+    var access_token = localStorage.getItem("access_token");
+    var refresh_token = localStorage.getItem("refresh_token");
+    if (access_token && refresh_token) {
+      console.log("index", refresh_token);
+      getAllStrategy(context.startup_key).then((res) => {
+        setStrategy(res);
+      });
+    }
   }, []);
 
   return (

@@ -39,7 +39,7 @@ const StrategyStatus = ({ strategy }) => {
               </label>
             </div>
           ) : (
-            strategy.completed?.minor?.map((data) => (
+            strategy?.completed?.minor?.map((data) => (
               <CompletedStrategy key={data.id} data={data} />
             ))
           )}

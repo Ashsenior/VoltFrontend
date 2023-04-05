@@ -27,8 +27,9 @@ export const postLogin = async (apiURL, data) => {
 };
 
 export const get = async (apiURL, params) => {
+  console.log('url ', URL+apiURL);
   return axiosInstance.get(`${URL}/${apiURL}`, {
-    params,
+    params: params,
   });
 };
 

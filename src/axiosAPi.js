@@ -22,35 +22,37 @@ axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
     const originalRequest = error.config;
-
-    if (
-      error.response.status === 401 &&
-      error.response.statusText === "Unauthorized"
-    ) {
-      return axiosInstance
-        .post("/token/refresh/", { refresh: refresh_token })
-        .then((response) => {
-          if (response !== undefined) {
-            if (response.status === 200) {
-              if (typeof window !== "undefined") {
-                console.log(data);
-                localStorage.setItem("access_token", response.data.access);
-                localStorage.setItem("refresh_token", response.data.refresh);
-                localStorage.setItem("username", username);
-                axiosInstance.defaults.headers["Authorization"] =
-                  "JWT " + response.data.access;
-                originalRequest.headers["Authorization"] =
-                  "JWT " + response.data.access;
-                return axiosInstance(originalRequest);
+    if (error.response){
+      if (
+        error.response.status === 401 &&
+        error.response.statusText === "Unauthorized"
+      ) {
+        return axiosInstance
+          .post("/token/refresh/", { refresh: refresh_token })
+          .then((response) => {
+            if (response !== undefined) {
+              if (response.status === 200) {
+                if (typeof window !== "undefined") {
+                  console.log(data);
+                  localStorage.setItem("access_token", response.data.access);
+                  localStorage.setItem("refresh_token", response.data.refresh);
+                  localStorage.setItem("username", username);
+                  axiosInstance.defaults.headers["Authorization"] =
+                    "JWT " + response.data.access;
+                  originalRequest.headers["Authorization"] =
+                    "JWT " + response.data.access;
+                  return axiosInstance(originalRequest);
+                }
               }
+            } else {
+              setMessage("Incorrect username or password!");
             }
-          } else {
-            setMessage("Incorrect username or password!");
-          }
-        })
-        .catch((err) => {});
+          })
+          .catch((err) => {});
+      }
+      return Promise.reject(error);
     }
-    return Promise.reject(error);
+    return null;
   }
 );
 export default axiosInstance;

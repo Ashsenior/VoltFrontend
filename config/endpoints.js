@@ -1,8 +1,8 @@
 const Endpoints = {
-  GET_HOME_STARTUPS: "/user/get-startups/",
+  GET_HOME_STARTUPS: "user/get-startups/",
   GET_DASHBOARD_DATA: "user/get-dashboard-data",
   GET_STARTUPS: "user/get-startups",
-  GET_LEADERS: "/strategy/startup/get-team-members",
+  GET_LEADERS: "strategy/startup/get-team-members",
   GET_STRATEGY_OPTIONS: "strategy/startup/get-strategy-options",
   GET_INVITE: "get-invite-data",
   ACCEPT_INVITE: "accept-invite",

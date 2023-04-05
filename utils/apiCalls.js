@@ -27,9 +27,9 @@ export const getHomeStartups = async (params) => {
 
 export const getAllStrategy = async (startup_key) => {
   return new Promise((resolve, reject) => {
-    get(`${Endpoints.GET_STRATEGIES}?startup_key=${startup_key}`)
+    get(`${Endpoints.GET_STRATEGIES}`, {startup_key: startup_key})
       .then((res) => {
-        resolve(res.data);
+        resolve(res?.data);
       })
       .catch((err) => {
         reject(err);

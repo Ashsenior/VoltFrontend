@@ -10,12 +10,14 @@ import {
   Box,
   Button,
   CardActionArea,
+  CardHeader,
   Divider,
   Fab,
   Grid,
   IconButton,
   InputBase,
   Paper,
+  Chip
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import Tab from "@mui/material/Tab";
@@ -23,6 +25,7 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
+import ForkRightIcon from '@mui/icons-material/ForkRight';
 
 const CustomizedInputBase = () => {
   return (
@@ -32,7 +35,9 @@ const CustomizedInputBase = () => {
         mb: 2,
         display: "flex",
         alignItems: "center",
+        boxShadow: "0"
       }}
+      variant="outlined"
     >
       <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Search " />
       <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
@@ -48,62 +53,46 @@ const DashboardCard = (props) => {
     <Card
       sx={{
         backgroundColor: `${props.background}`,
-        border: `2px solid ${props.background}`,
+        border: `2px solid white`,
+        borderRadius: '10px',
+        boxShadow: '0',
+        height: "43.5vh"
       }}
     >
-      <CardActionArea>
+      <Box sx={{height: "100%", borderRadius: "0px" }}>
         <Box
           sx={{
-            background: "#fff",
-            p: 4,
+            background: "",
+            p: 1,
           }}
         >
           <Typography
             gutterBottom
-            variant="h3"
+            variant="h4"
             component="div"
             sx={{ color: `#000` }}
           >
-            {props.label} Module
+            {props.label} Resources
+            <IconButton aria-label="delete" backgroundColor="#f2f2f2f" sx={{marginLeft: "5px" }} size="large">
+              <AddIcon fontSize="inherit" />
+            </IconButton>
+            <IconButton aria-label="delete" backgroundColor="#f2f2f2f" sx={{marginLeft: "5px" }} size="large">
+              <SearchIcon fontSize="inherit" />
+            </IconButton>
           </Typography>
-          <Box>
-            <CustomizedInputBase />
-            <Card
-              sx={{
-                border: ` 1px solid ${props.background} !important`,
-                p: 1,
-                color: "#000",
-              }}
-            >
-              <Typography>Product 1</Typography>
-            </Card>
+          <Box spacing={4} >
+            {/*<CustomizedInputBase />*/}
+            {
+              props?.objs?.map((obj) => (
+                <Chip sx={{
+                  marginRight: "5px",
+                  marginBottom: "4px",
+                }} label={obj} variant="outlined" icon={<ForkRightIcon />} />
+              ))
+            }
           </Box>
         </Box>
         <CardContent></CardContent>
-      </CardActionArea>
-      <Box sx={{ p: 2 }}>
-        <Stack direction={"row"} justifyContent={"space-between"}>
-          <Button
-            sx={{
-              background: `#fff !important`,
-              color: `${props.background}`,
-              minWidth: "100px",
-            }}
-            size="large"
-          >
-            Share
-          </Button>
-
-          <Fab
-            sx={{
-              background: "#000 !important",
-              color: `${props.background}`,
-            }}
-            aria-label="add"
-          >
-            <AddIcon />
-          </Fab>
-        </Stack>
       </Box>
     </Card>
   );
@@ -116,133 +105,81 @@ function ResourceModule() {
     setValue(newValue);
   };
   return (
-    <div>
-      <Grid padding={5} container spacing={2}>
-        <Grid item xs={8}>
-          <Grid container spacing={2}>
+    <>
+      <Grid backgroundColor="#e6e6e6" padding={1} height={"full"} container spacing={1}>
+
+        <Grid item xs={9}>
+          <Grid container spacing={1}>
+
             <Grid item xs={6}>
-              <DashboardCard label="Product" value="10" background="#fbfcf8" />
+              <DashboardCard label="Product" objs={['Product roadmap', 'marketing video link', 'Important product blogs']} value="10" background="#fbfcf8" />
             </Grid>
             <Grid item xs={6}>
-              <DashboardCard label="Research" value="20" background="#fbfcf8" />
+              <DashboardCard label="Research" objs={['Product roadmap', 'marketing video link', 'Competetive Products']} value="20" background="#fbfcf8" />
             </Grid>
             <Grid item xs={6}>
-              <DashboardCard label="Content" value="30" background="#fbfcf8" />
+              <DashboardCard label="Legal" objs={['Product roadmap are great to have', 'marketing video link', 'Important product blogs']} value="30" background="#fbfcf8" />
             </Grid>
             <Grid item xs={6}>
-              <DashboardCard
-                label="Marketing"
-                value="30"
-                background="#fbfcf8"
-              />
+              <DashboardCard label="Other" objs={['Product roadmap', 'marketing video link', 'Important product blogs']} value="30" background="#fbfcf8" />
             </Grid>
+
           </Grid>
         </Grid>
-        <Grid item xs={4}>
+
+        <Grid item xs={3} container height={"full"}>
           <Box
             sx={{
               width: "100%",
-              typography: "body1",
               background: "#fbfcf8 !important",
               border: `2px solid #fbfcf8 !important`,
-              p: 4,
+              p: 1,
+              borderRadius: '10px',
             }}
           >
-            <Typography variant="h3" mb={2}>
-              My Drive
-            </Typography>
-            <TabContext value={value}>
-              <Box
+            <CustomizedInputBase />
+            <Box
                 sx={{
-                  borderBottom: 1,
-                  borderColor: "divider",
+                  color: "#8c8c8c"
                 }}
               >
-                <TabList
-                  onChange={handleChange}
-                  aria-label="lab API tabs example"
-                >
-                  <Tab label="Details" value="1" />
-                  <Tab label="Activity" value="2" />
-                </TabList>
-              </Box>
-              <TabPanel value="1">
+                <Typography variant="h4">
+                  Recently added resources
+                </Typography>
                 <Box
                   sx={{
                     background: "#fbfcf8 !important",
                     border: `1px solid #f2f2f2 !important`,
-                    my: 2,
+                    my: 1,
                     p: 1,
                   }}
                 >
-                  <Typography variant="h5" mb={2}>
-                    Created on : 21st Feb 2023
-                  </Typography>
-                  <Stack direction={"row"} alignItems="center" gap={3} mb={3}>
-                    <Typography variant="h5" mb={2}>
-                      File name: index.tsx
-                    </Typography>
-                    <Typography variant="h5" mb={2}>
-                      File size: 50kb
-                    </Typography>
-                  </Stack>
-                  <Stack direction={"row"} alignItems="center" gap={2} mb={3}>
-                    <FileCopyIcon />
-                    <Typography variant="h5" mb={2}>
-                      index.tsx
-                    </Typography>
-                  </Stack>
+                  <Chip sx={{
+                    marginRight: "5px",
+                    marginBottom: "4px",
+                  }} label="Cap table documents" variant="outlined" icon={<ForkRightIcon />} />
+                  <Chip sx={{
+                    marginRight: "5px",
+                    marginBottom: "4px",
+                  }} label="Marketing campaign plan" variant="outlined" icon={<ForkRightIcon />} />
+                  <Chip sx={{
+                    marginRight: "5px",
+                    marginBottom: "4px",
+                  }} label="Tax returns files" variant="outlined" icon={<ForkRightIcon />} />
+                  <Chip sx={{
+                    marginRight: "5px",
+                    marginBottom: "4px",
+                  }} label="3 months roadmap" variant="outlined" icon={<ForkRightIcon />} />
+                  <Chip sx={{
+                    marginRight: "5px",
+                    marginBottom: "4px",
+                  }} label="product designs" variant="outlined" icon={<ForkRightIcon />} />
                 </Box>
-              </TabPanel>
-              <TabPanel
-                sx={{
-                  background: "#fbfcf8 !important",
-                  border: `2px solid #fbfcf8 !important`,
-                  p: "0px !important",
-                  my: 2,
-                }}
-                value="2"
-              >
-                <Box
-                  sx={{
-                    p: 1,
-                  }}
-                >
-                  <Typography variant="h5" mb={2}>
-                    Earlier this week
-                  </Typography>
-                  <Divider />
-                  <Box
-                    sx={{
-                      background: "#fbfcf8 !important",
-                      border: `1px solid #f2f2f2 !important`,
-                      my: 2,
-                      p: 1,
-                    }}
-                  >
-                    <Typography variant="h5" mb={2}>
-                      21st Feb 2023
-                    </Typography>
-                    <Stack direction={"row"} alignItems="center" gap={3} mb={3}>
-                      <Avatar />
-                      <Typography variant="h5" mb={2}>
-                        You upload a file
-                      </Typography>
-                    </Stack>
-                    <Stack direction={"row"} alignItems="center" gap={2} mb={3}>
-                      <FileCopyIcon />
-                      <Typography variant="h5" mb={2}>
-                        index.tsx
-                      </Typography>
-                    </Stack>
-                  </Box>
-                </Box>
-              </TabPanel>
-            </TabContext>
+              </Box>
           </Box>
         </Grid>
       </Grid>
-    </div>
+    </>
   );
 }
 
