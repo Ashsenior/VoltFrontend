@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
 
   const [error, setError] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const base_url = "https://volt-api.vercel.app";
+  const base_url = "https://ashutosh.pythonanywhere.com";
 
   const login = async (username, password) => {
     try {
